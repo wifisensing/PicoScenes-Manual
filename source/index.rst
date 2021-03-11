@@ -11,7 +11,7 @@ PicoScenes software is an advanced Wi-Fi sensing platform.
 
 Document Updates
 ------------------
-- Mar. 11, 2021: Starting writing documents.
+- Mar. 11, 2021: Start writing documents.
 
 .. toctree::
    :maxdepth: 4

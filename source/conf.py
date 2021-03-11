@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'PicoScenes'
-copyright = '2021, Zhiping Jiang <zpj@xidian.edu.cn> and Contributors'
-author = 'Zhiping Jiang <zpj@xidian.edu.cn> and ontributors'
+copyright = '2021, Zhiping Jiang <zpj@xidian.edu.cn> and contributors'
+author = 'Zhiping Jiang <zpj@xidian.edu.cn> and contributors'
 
 # The short X.Y version
 version = ''

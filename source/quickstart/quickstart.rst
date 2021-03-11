@@ -6,3 +6,4 @@ Quick Start
     :maxdepth: 3
 
     installation
+    firsttry

@@ -26,6 +26,7 @@ Document Updates
    onSDR/useSDR
    plugin/plugin_index
    cheatsheet
+   hardwareconnection
    performance
    License
    credits

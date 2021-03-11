@@ -3,7 +3,7 @@
 Welcome to PicoScenes's documentation!
 ========================================
 
-PicoScenes software e
+PicoScenes software is an advanced Wi-Fi sensing platform.
 
 
 - **Web**: https://zpj.io

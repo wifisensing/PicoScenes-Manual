@@ -1,5 +1,3 @@
-
-
 Welcome to PicoScenes's documentation!
 ========================================
 
@@ -14,8 +12,9 @@ PicoScenes is also architecturally versatile and flexible. It encapsulates all t
 
 We hope you enjoy the next ride of Wi-Fi sensing research, accompanied by PicoScenes!
 
-- **Web**: https://zpj.io/ps
-- **Email**: zpj@xidian.edu.cn
+.. tip::
+
+   This documentation is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please Contact Us.
 
 Document Updates
 ------------------

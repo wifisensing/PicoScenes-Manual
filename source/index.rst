@@ -14,10 +14,11 @@ We hope you enjoy the next ride of Wi-Fi sensing research, accompanied by PicoSc
 
 .. tip::
 
-   This documentation is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please Contact Us.
+   This documentation is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please `Contact Us <mailto:zpj@xidian.edu.cn>`_.
 
 Document Updates
 ------------------
+- Mar. 15, 2021: Add two cheatsheet documentations and refine the index page.
 - Mar. 11, 2021: Start writing documents.
 
 .. toctree::

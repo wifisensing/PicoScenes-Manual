@@ -1,4 +1,4 @@
-Welcome to the documentation of PicoScenes!
+PicoScenes: Wi-Fi Sensing Research Supercharged!
 ============================================
 
 PicoScenes is an advanced multi-purpose Wi-Fi sensing platform software. 

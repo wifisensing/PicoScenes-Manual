@@ -18,7 +18,7 @@ We hope you enjoy the next ride of Wi-Fi sensing research, accompanied by PicoSc
 
 News
 ------------------
-- Mar. 15, 2021: Add two cheatsheet documentations and refine the index page.
+- Mar. 15, 2021: Add two cheatsheet documents and refine the index page.
 - Mar. 11, 2021: Start writing documents.
 
 .. toctree::

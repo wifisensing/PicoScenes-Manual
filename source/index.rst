@@ -2,7 +2,7 @@ PicoScenes: Wi-Fi Sensing, Supercharged!
 ============================================
 
 PicoScenes is an advanced multi-purpose Wi-Fi sensing platform software. 
-It supports the multi-NIC concurrent operation (including the packet injection, packet reception and CSI measurement) of the Qualcomm Atheros AR9300 (QCA930), Intel Wireless Link 5300 (IWL5300) and software-defined radio (SDR) devices. 
+It supports the multi-NIC concurrent operation (including the packet injection, packet reception and CSI measurement) of the Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300) and software-defined radio (SDR) devices. 
 
 For the QCA9300, PicoScenes unlocks the **arbitrary tuning** for both the carrier frequency (a total of 2.4 GHz wide spectrum in 2.4 and 5 GHz bands) and baseband sampling rate (from 2.5 to 80 MHz), enables QCA9300->IWL5300 CSI measurement and also supports the transmission of the extra spatial sounding LTF (HT-ELTF) which provides 4us-level successive CSI measurement.
 

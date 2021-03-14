@@ -22,12 +22,11 @@ Document Updates
 - Mar. 11, 2021: Start writing documents.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :numbered:
    :caption: Document Table of Contents:
    
    howtoread
-   introduction
    quickstart/quickstart
    advanced_measurement/advanced
    interactive_measurement/interactive

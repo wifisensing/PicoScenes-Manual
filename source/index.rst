@@ -16,6 +16,10 @@ We hope you enjoy the next ride of Wi-Fi sensing research, accompanied by PicoSc
 
    This documentation is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please `Contact Us <mailto:zpj@xidian.edu.cn>`_.
 
+.. image:: https://readthedocs.org/projects/picoscenes-manual/badge/?version=latest
+:target: https://picoscenes-manual.readthedocs.io/en/latest/?badge=latest
+:alt: Documentation Status
+
 News
 ------------------
 - Mar. 15, 2021: Add two cheatsheet documents and refine the index page.

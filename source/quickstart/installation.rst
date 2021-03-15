@@ -54,4 +54,3 @@ Installation for USRP N210 and X310
 
 .. Install PicoScenes
 .. +++++++++++++++++++++++
-/[.,p

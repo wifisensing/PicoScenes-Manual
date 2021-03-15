@@ -26,7 +26,7 @@ News
    :numbered:
    :caption: Table of Contents:
    
-   howtoread
+   .. howtoread
    quickstart/quickstart
    advanced_measurement/advanced
    interactive_measurement/interactive

@@ -1,13 +1,9 @@
-PicoScenes Installation
-========================
-
-
 Hardware Installation
----------------------
+=======================
 
 PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and two USRP models, the N210 and X310 models. These devices have been extensively tested during the development. For other USRP models, such as B200/E300/N300 series, PicoScenes *should* be able to support them. However, the incompatibility caused by hardware differences is possible.
 
-Installation for (multiple) QCA9300 or IWL5300 NICs
+Installation for (Multiple) QCA9300 or IWL5300 NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 One of the most welcomed features of the PicoScenes is the multi-NIC concurrent operation, i.e., PicoScenes supports concurrent CSI measurement from multiple NICs, which are all connected to one single PC. Based on our practice, we recommend three multi-NIC installation methods.
@@ -42,15 +38,15 @@ PCI-E bridge adapter-based multi-NIC installation
         place the 27-NIC array picture and layout.
 
 
-Installation for USRP N210 and X310
-+++++++++++++++++++++++++++++++++++++
+Installation for (Multiple) USRP N210 and X310
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-.. PicoScenes Installation
-.. --------------------------
+Software Installation
+=========================
 
-.. Some Prerequisites
-.. +++++++++++++++++++++++
+Some Prerequisites
+++++++++++++++++++++
 
-.. Install PicoScenes
-.. +++++++++++++++++++++++
+Install PicoScenes
+++++++++++++++++++++

@@ -34,9 +34,12 @@ Multi-Mini PCI-E slots-based multi-NIC installation
         If you know some other newer laptops equipped with two Mini PCI-E laptops, please `Contact Us <mailto:zpj@xidian.edu.cn>`_ and I will update the above text.
 
 PCI-E bridge adapter-based multi-NIC installation
-    The PCI-E bridge adapter has dedicated chip to split one single PCI-E connection into multiple, just like a USB hub. Therefore, you may install connect multiple NICs to only one of the PCI-E slots of the motherboard via the bridge adapter.
+    The PCI-E bridge adapter can split one single PCI-E connection into multiple, just like a USB hub. Therefore, you may install connect multiple NICs to only one of the PCI-E slots of the motherboard via the bridge adapter.
 
-    And even more so, you may build a multi-layer cascaded hierarchy of the bridge adapters and install the QCA9300 or IWL5300 to all its leaf nodes. In this way, you can theoretically install up to 100 Wi-Fi NICs to your system.
+    And even more so, you may build a multi-layer cascaded hierarchy of the bridge adapters and install the QCA9300 or IWL5300 to all its leaf nodes. In this way, you can theoretically install up to 100 Wi-Fi NICs to your system. To validate this approach's feasibility, we set up a 27-NIC Wi-Fi sensing array based on a 3-layer hierarchy of multiple 1 to 3 PCI-E bridge adapters. Its picture and layout are shown below. The entire 27-NIC array is encapsulated in an IKEA box.
+    
+    .. todo::
+        place the 27-NIC array picture and layout.
 
 
 Installation for USRP N210 and X310

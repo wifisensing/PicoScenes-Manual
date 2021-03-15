@@ -26,6 +26,9 @@ Multi-Mini PCI-E slots-based multi-NIC installation
     .. todo::
         place a picture showing the internal and external of our modified X201.
 
+    .. todo::
+        add BIOS white-list thing.
+
     .. tip::
         If you know some other newer laptops equipped with two Mini PCI-E laptops, please `Contact Us <mailto:zpj@xidian.edu.cn>`_ and I will update the above text.
 

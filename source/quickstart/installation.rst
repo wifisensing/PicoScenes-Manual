@@ -1,26 +1,24 @@
-System Installation
-===================
-
-asdfasdfasdf
-asdfasdfasdfsadf
-Startdff
-Startdfdf
+PicoScenes Installation
+========================
 
 
 Hardware Installation
 ---------------------
 
-For QCA9300 and IWL5300
-++++++++++++++++++++++++
+PicoScenes currently supports two Wi-Fi NIC models, the QCA9300 and IWL5300, and two USRP models, the N210 and X310 models. These devices has been extensively tested during the development. For other USRP models, such as B200 or E300 series, PicoScenes *should* be able to support them. However, the incompatibility caused by hardware difference are possible.
 
-For USRP
-++++++++++
+Installation for (multiple) QCA9300 or IWL5300 NICs
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PicoScenes Installation
---------------------------
+Installation for USRP N210 and X310
++++++++++++++++++++++++++++++++++++++
 
-Some Prerequisites
-+++++++++++++++++++++++
 
-Install PicoScenes
-+++++++++++++++++++++++
+.. PicoScenes Installation
+.. --------------------------
+
+.. Some Prerequisites
+.. +++++++++++++++++++++++
+
+.. Install PicoScenes
+.. +++++++++++++++++++++++

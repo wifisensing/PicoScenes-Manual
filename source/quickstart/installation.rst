@@ -121,3 +121,47 @@ If your system satisfies the above requirements, you can now start the installat
         :align: center
 
         Screenshot: User decides whether to accept the EULA terms
+
+- Reboot your system
+    Reboot your system to validate the above installation.
+
+- Run PicoScenes for the first time
+    If PicoScenes is successfully installed, `PicoScenes` command will be available in your terminal.  Open a terminal and run `PicoScenes`, however, you may encounter an error saying that "This is a scheduled exception ..."
+    
+    During the first time run, PicoScenes tries to bootstrap its privilege escalation, hence it is indeed a scheduled exception.
+
+- Installation Finished
+    Until now, the installation of PicoScenes finished.
+
+
+Verifying the Installation
+============================
+
+
+Verify the hardware installation
++++++++++++++++++++++++++++++++++
+
+- For QCA9300/IWL5300 NICs: use array_status
+    Open a terminal and run the following command
+    
+    .. code-block:: bash
+
+            array_status
+    
+    `array_status` is a bash script installed by PicoScenes. It lists all the installed Wi-Fi NICs (except Wi-Fi USB dongles). Check if all the installed Wi-Fi NICs are shown in the list. PicoScenes uses the identical device discovery mechanism. Therefore, if a Wi-Fi NICs is not shown in the list, it will not be discovered and controlled by PicoScenes.
+
+- For USRP N210/X310 series:
+    Open a terminal and run the following command
+    
+    .. code-block:: bash
+
+            udh_find_devices
+    
+    `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices.
+
+Verify the software installation
++++++++++++++++++++++++++++++++++
+
+Open a terminal and run `PicoScenes` again. If everything goes fine, you will see some booting messages of PicoScenes, including how many COTS NICs are found, how many USRPs are found and how many plugin are found.
+
+As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit PicoScenes.

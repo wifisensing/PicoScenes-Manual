@@ -50,6 +50,20 @@ PCI-E bridge adapter-based multi-NIC installation
 Installation for (Multiple) USRP N210 and X310
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
+Follow the official manual:
+    Since PicoScenes's support for USRP devices are **completely** built upon UHD software (USRP hardware driver), you should first setup your hardware/software according to the official `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For multi-N210 or X310 connection, you should read these three documents carefully:
+
+    - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
+    - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
+    - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
+
+Some advices base on our experience:
+    - For X310, **don't use PCI-E cable based connection**. Besides the extremely extensive cable itself, it has two main drawbacks. First, the PCI-E based connection is extremely ineffective in both the cost and throughput. Each cable can connect *only one* X310, therefore to connect multiple X310s, you have to install multiple PCI-E 4x boards on the motherboard.  Second, the PCI-E based connection cannot be combined with network-based connection. This is a restriction of the UHD software, but it does forbid some multi-USRP application scenarios.
+    - For both N210/X310, we **recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for multiple N210 and X310 connections. It only occupies one PCI-E slots with 8x speed and provides 4 10GbE connection which allows you to drive up to 4 X310s or 8 independent full-duplex channels.
+    - For both N210/X310, consider UBX-40/UBX-160 over other daughterboards. UBX-40/UBX-160 , though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization you can realize the phased-array functionality.
+    - Pay attention to the IP address allocation. For the network-based connection, the NIC port and the connected USRP *must be in the same subnet*. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices but PicoScenes cannot correctly initialize the devices.
+    - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
+    - For Clock distribution, OctoClock-G is a cost-effective choice which distributes the GPS-disciplined clocks to up to 8 devices.
 
 Software Installation
 =========================

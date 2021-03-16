@@ -27,8 +27,8 @@ News
    :numbered:
    :caption: Table of Contents:
    
-   .. howtoread
    quickstart/quickstart
+   firsttry
    advanced_measurement/advanced
    interactive_measurement/interactive
    onSDR/useSDR

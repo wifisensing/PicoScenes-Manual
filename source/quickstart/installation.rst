@@ -77,8 +77,9 @@ Prerequisites
 - Internet connection: internet connection is required throughout the installation process, and **is also required periodically for license checking** during the later use.
 - Latest kernel version: PicoScenes depends on and is also built against the latest kernel version, your system have to be updated to the *latest* kernel version. Fortunately, *you don't have to update your system manually*, because PicoScenes installer will trigger the kernel update routine automatically.
 - Latest MATLAB on Linux/macOS: PicoScenes MATLAB Toolbox, which decodes the CSI measurement data in MATLAB, **only** supports the latest MATLAB on Linux/macOS platforms (R2020b or R2021a).
-.. note::
-    The porting of PicoScenes MATLAB Toolbox to Windows platform is on the way.
+    
+    .. note::
+        The porting of PicoScenes MATLAB Toolbox to Windows platform is on the way.
 
 Install PicoScenes
 ++++++++++++++++++++

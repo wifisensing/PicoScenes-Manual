@@ -1,9 +1,8 @@
-=============
-Quick Start
-=============
+================
+Installation
+================
 
 .. toctree::
     :maxdepth: 3
 
     installation
-    firsttry

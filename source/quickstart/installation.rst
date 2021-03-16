@@ -109,4 +109,4 @@ During your installation of `PicoScenes` , a EULA will appear in CLI. You MUST a
         :target: /images/Configuring-picoscenes-platform.png
         :align: center
 
-        `PicoScenes` Platform EULA-1
+        `PicoScenes` Platform EULA-2

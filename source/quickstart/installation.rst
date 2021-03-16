@@ -3,10 +3,12 @@ Hardware Installation
 
 PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and two USRP models, the N210 and X310 models. These devices have been extensively tested during the development. For other USRP models, such as B200/E300/N300 series, PicoScenes *should* be able to support them. However, the incompatibility caused by hardware differences is possible.
 
+One of the most welcomed features of the PicoScenes is the multi-NIC concurrent operation, i.e., simultaneous CSI measurement or packet injection by multiple NICs. To help you quickly setup your hardware, we share some experience on the hardware installation, especially focusing on the multi-devices setup.
+
 Installation for (Multiple) QCA9300 or IWL5300 NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-One of the most welcomed features of the PicoScenes is the multi-NIC concurrent operation, i.e., PicoScenes supports concurrent CSI measurement from multiple NICs, which are all connected to one single PC. Based on our practice, we recommend three multi-NIC installation methods.
+We recommend three multi-NIC installation methods. Which method to choose depends on your consideration.
 
 Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation
     This is the most convenient approach for multi-NIC installation. With the help of the Mini PCI-E to PCI-E 1x adapter, you can install the QCA9300 and IWL5300 directly on the motherboard. 
@@ -51,7 +53,7 @@ Installation for (Multiple) USRP N210 and X310
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 Follow the official manual:
-    Since PicoScenes's support for USRP devices are **completely** built upon UHD software (USRP hardware driver), you should first setup your hardware/software according to the official `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For multi-N210 or X310 connection, you should read these three documents carefully:
+    Since PicoScenes's support for USRP devices are **completely** built upon UHD software (USRP hardware driver), you should first setup your hardware/software according to the official `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For multi-N210 or X310 connection, you should read the following three documents carefully:
 
     - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
     - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
@@ -65,48 +67,57 @@ Some advices base on our experience:
     - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
     - For Clock distribution, OctoClock-G is a cost-effective choice which distributes the GPS-disciplined clocks to up to 8 devices.
 
-Software Installation
+PicoScenes Installation
 =========================
 
-After the hardware facilities meet the standard, you still need to do some checks on your PC. That is software configuration. Before the installation of `PicoScenes` , you must check whether your PC software configuration meets the standard at first.
-
-Some Prerequisites
+Prerequisites
 ++++++++++++++++++++
 
-Confirm your operating system at first. `PicoScenes` has a strong operation system selectivity. Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, `etc` .) are the only OSes supported by the `PicoScenes` . So you must ensure that your computer's operating system is one of the above supported OSes. 
+- Operating System: PicoScenes **only** supports Ubuntu 20.04 or its variants (Linux Mint, Kubuntu, Xubuntu, etc)
+- Internet connection: internet connection is required throughout the installation process, and **is also required periodically for license checking** during the later use.
+- Latest kernel version: PicoScenes depends on and is also built against the latest kernel version, your system have to be updated to the *latest* kernel version. Fortunately, *you don't have to update your system manually*, because PicoScenes installer will trigger the kernel update routine automatically.
+- Latest MATLAB on Linux/macOS: PicoScenes MATLAB Toolbox, which decodes the CSI measurement data in MATLAB, **only** supports the latest MATLAB on Linux/macOS platforms (R2020b or R2021a).
+.. note::
+    The porting of PicoScenes MATLAB Toolbox to Windows platform is on the way.
 
 Install PicoScenes
 ++++++++++++++++++++
 
-If your computer's operating system supports the software, you should click the :download:`PicoScenes <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` download link to install `picoscenes-source-updater.deb` . 
+If your system satisfies the above requirements, you can now start the installation.
 
-Or you can run the following commands in CLI:
+- Download and install PicoScenes Source Updater
+    - Download PicoScenes Source Updater by clicking :download:`PicoScenes <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>`
+    
+    - Start the installer by double-clicking and then click `Install Package`
 
-.. code-block:: bash
+- Update your system apt repository cache and install PicoScenes
+    Open a terminal and run the following command
+    
+    .. code-block:: bash
 
-    wget https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb
-    sudo dpkg -i picoscenes-source-updater.deb
+        sudo apt update
 
-After you install the `picoscenes-source-updater.deb` , you can run the following commands in CLI to completely install `PicoScenes`. 
+- Install PicoScenes packages
+    In the same terminal (or open a new one) and run the following command
+        
+        .. code-block:: bash
 
-.. code-block:: bash
+            sudo apt install picoscenes-all
 
-    sudo apt update
-    sudo apt install picoscenes-all
-
-During your installation of `PicoScenes` , a EULA will appear in CLI. You MUST agree to the terms of EULA to use the `PicoScenes` 
+    After a minute of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the CLI. You should read the EULA, and decide if you agree to the EULA terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading by pressing Enter or Space on <Ok> button.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
         :target: /images/PicoScenes-platform-EULA.png
         :align: center
 
-        `PicoScenes` Platform EULA-1
+        Screenshot: PicoScenes software EULA
 
+    After your pressing <Ok>, a Yes or No prompt box appears, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
 
     .. figure:: /images/Configuring-picoscenes-platform.png
         :figwidth: 1000px
         :target: /images/Configuring-picoscenes-platform.png
         :align: center
 
-        `PicoScenes` Platform EULA-2
+        Screenshot: User decides whether to accept the EULA terms

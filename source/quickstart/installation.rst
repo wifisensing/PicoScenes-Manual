@@ -28,13 +28,10 @@ Multi-Mini PCI-E slots-based multi-NIC installation
         :target: /images/X201-External-Antennas.jpg
         :align: center
 
-        Modified ThinkPad X201 laptop with 3 external SMA antennas
+        Modified ThinkPad X201 laptop equipped with 3 external SMA antennas
 
-    .. todo::
-        add BIOS white-list thing.
-
-    .. tip::
-        If you know some other newer laptops equipped with two Mini PCI-E laptops, please `Contact Us <mailto:zpj@xidian.edu.cn>`_ and I will update the above text.
+    .. warning::
+        ThinkPad official BIOS doesn't support changing (or adding another) Wi-Fi NIC. You may have to flash the modified BIOS which removes the restriction before changing (or installing) the Wi-Fi NIC.
 
 PCI-E bridge adapter-based multi-NIC installation
     The PCI-E bridge adapter can split one single PCI-E connection into multiple, just like a USB hub. Therefore, you may install connect multiple NICs to only one of the PCI-E slots of the motherboard via the bridge adapter.

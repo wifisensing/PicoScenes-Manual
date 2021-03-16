@@ -68,8 +68,45 @@ Some advices base on our experience:
 Software Installation
 =========================
 
+After the hardware facilities meet the standard, you still need to do some checks on your PC. That is software configuration. Before the installation of `PicoScenes` , you must check whether your PC software configuration meets the standard at first.
+
 Some Prerequisites
 ++++++++++++++++++++
 
+Confirm your operating system at first. `PicoScenes` has a strong operation system selectivity. Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, `etc` .) are the only OSes supported by the `PicoScenes` . So you must ensure that your computer's operating system is one of the above supported OSes. 
+
 Install PicoScenes
 ++++++++++++++++++++
+
+If your computer's operating system supports the software, you should click the :download:`PicoScenes <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` download link to install `picoscenes-source-updater.deb` . 
+
+Or you can run the following commands in CLI:
+
+.. code-block:: bash
+
+    wget https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb
+    sudo dpkg -i picoscenes-source-updater.deb
+
+After you install the `picoscenes-source-updater.deb` , you can run the following commands in CLI to completely install `PicoScenes`. 
+
+.. code-block:: bash
+
+    sudo apt update
+    sudo apt install picoscenes-all
+
+During your installation of `PicoScenes` , a EULA will appear in CLI. You MUST agree to the terms of EULA to use the `PicoScenes` 
+
+    .. figure:: /images/PicoScenes-platform-EULA.png
+        :figwidth: 1000px
+        :target: /images/PicoScenes-platform-EULA.png
+        :align: center
+
+        `PicoScenes` Platform EULA-1
+
+
+    .. figure:: /images/Configuring-picoscenes-platform.png
+        :figwidth: 1000px
+        :target: /images/Configuring-picoscenes-platform.png
+        :align: center
+
+        `PicoScenes` Platform EULA-1

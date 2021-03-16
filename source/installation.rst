@@ -1,3 +1,8 @@
+================
+Installation
+================
+
+
 Hardware Installation
 =======================
 
@@ -130,6 +135,9 @@ If your system satisfies the above requirements, you can now start the installat
     If PicoScenes is successfully installed, `PicoScenes` command will be available in your terminal.  Open a terminal and run `PicoScenes`, however, you may encounter an error saying that "This is a scheduled exception ..."
     
     During the first time run, PicoScenes tries to bootstrap its privilege escalation, hence it is indeed a scheduled exception.
+
+    .. todo::
+        place a picture of the first-time run error
 
 - Installation Finished
     Until now, the installation of PicoScenes finished.

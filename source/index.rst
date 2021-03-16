@@ -27,7 +27,7 @@ News
    :numbered:
    :caption: Table of Contents:
    
-   quickstart/quickstart
+   installation
    firsttry
    advanced_measurement/advanced
    interactive_measurement/interactive

@@ -21,10 +21,14 @@ Multi-Mini PCI-E slots-based multi-NIC installation
     
     Pursuing a wire-free multi-NIC solution, we recommend ThinkPad X201. Despite a more than10 years old laptop model, its motherboard provided two full/half-height Mini PCI-E slots, and we can install the QCA9300 or IWL5300 NICs in both of them. 
     
-    Even better, **X201 enables you to install three SMA-based external antennas!** The FPC-connected daughter board of X201, which accounts for Modem and audio, can be safely removed, leaving three size compatible holes for installing SMA external antennas. The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
+    Even better, **X201 enables you to install three SMA-based external antennas!** The FPC-connected daughter board of X201, which accounts for Modem, audio In/Out and a USB port, can be safely removed, leaving three size compatible holes for installing SMA external antennas. The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
 
-    .. todo::
-        place a picture showing the internal and external of our modified X201.
+    .. figure:: /images/X201-External-Antennas.jpg
+        :figwidth: 1000px
+        :target: /images/X201-External-Antennas.jpg
+        :align: center
+
+        Modified ThinkPad X201 laptop with 3 external SMA antennas
 
     .. todo::
         add BIOS white-list thing.
@@ -43,7 +47,7 @@ PCI-E bridge adapter-based multi-NIC installation
         :target: /images/NICArrayLayout-horizontal.jpg
         :align: center
 
-        The 27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
+        27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 
 Installation for (Multiple) USRP N210 and X310

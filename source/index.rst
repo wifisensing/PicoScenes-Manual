@@ -1,5 +1,5 @@
 PicoScenes: Wi-Fi Sensing Research, Supercharged!
-============================================
+====================================================
 
 PicoScenes is an advanced multi-purpose Wi-Fi sensing platform software. 
 It supports the multi-NIC concurrent operation (including the packet injection, packet reception and CSI measurement) of the Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300) and software-defined radio (SDR) devices. 

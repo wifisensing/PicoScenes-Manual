@@ -37,8 +37,13 @@ PCI-E bridge adapter-based multi-NIC installation
 
     And even more so, you may build a multi-layer cascaded hierarchy of the bridge adapters and install the QCA9300 or IWL5300 to all its leaf nodes. In this way, you can theoretically install up to 100 Wi-Fi NICs to your system. To validate this approach's feasibility, we set up a 27-NIC Wi-Fi sensing array based on a 3-layer hierarchy of multiple 1 to 3 PCI-E bridge adapters. Its picture and layout are shown below. The entire 27-NIC array is encapsulated in an IKEA box.
     
-    .. todo::
-        place the 27-NIC array picture and layout.
+
+    .. figure:: /images/NICArrayLayout-horizontal.jpg
+        :figwidth: 1000px
+        :target: /images/NICArrayLayout-horizontal.jpg
+        :align: center
+
+        The 27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 
 Installation for (Multiple) USRP N210 and X310

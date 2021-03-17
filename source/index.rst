@@ -33,6 +33,7 @@ News
    interactive_measurement/interactive
    onSDR/useSDR
    plugin/plugin_index
+   parameters
    cheatsheet
    License
    .. tcd

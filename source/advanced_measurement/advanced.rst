@@ -1,26 +1,26 @@
 Advanced CSI Measurement
 =========================
 
-Channel Bandwidth (CBW) vs. Bandwidth
---------------------------------------
+.. Channel Bandwidth (CBW) vs. Bandwidth
+.. --------------------------------------
 
-Carrier Frequency
--------------------
+.. Carrier Frequency
+.. -------------------
 
-Extra Spatial Sounding
--------------------------
+.. Extra Spatial Sounding
+.. -------------------------
 
-MCS and Spatial Streams
-------------------------
+.. MCS and Spatial Streams
+.. ------------------------
 
-Guard Interval
-----------------
+.. Guard Interval
+.. ----------------
 
-Transmit Power
-----------------
+.. Transmit Power
+.. ----------------
 
-Radio Chain Selection
-----------------------
+.. Radio Chain Selection
+.. ----------------------
 
-Coding
----------
+.. Coding
+.. ---------

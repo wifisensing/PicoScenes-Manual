@@ -106,9 +106,9 @@ If your system satisfies the above requirements, you can now start the installat
 - Install PicoScenes packages
     In the same terminal (or open a new one) and run the following command
         
-        .. code-block:: bash
+    .. code-block:: bash
 
-            sudo apt install picoscenes-all
+        sudo apt install picoscenes-all
 
     After a minute of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA, and decide if you agree to the EULA terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading by pressing Enter or Space on <Ok> button.
 

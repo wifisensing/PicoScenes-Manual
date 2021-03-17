@@ -201,7 +201,7 @@ Verify the hardware installation
     `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices. If a USRP is not shown in the list, it will also not be discovered or controlled by PicoScenes.
 
 Verify the PicoScenes installation
-+++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 Open a terminal and run `PicoScenes` again. If everything goes fine, you will see some booting messages of PicoScenes, including how many COTS NICs are found, how many USRPs are found and how many plugin are found.
 

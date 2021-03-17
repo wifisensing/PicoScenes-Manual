@@ -36,5 +36,4 @@ News
    parameters
    cheatsheet
    License
-   .. tcd
    credits

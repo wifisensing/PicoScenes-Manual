@@ -215,8 +215,8 @@ In MATLAB `Current Folder` or system file explorer, navigate to ``PicoScenes-MAT
 The compilation may take tens of seconds. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
 
 
-Performance Tuning (Optional)
-================================
+Performance Tuning (for Heavy SDR User)
+=========================================
 
 If your research depends heavily on SDR, the following two system-level performance tunings can yield substantial performance improvements.
 

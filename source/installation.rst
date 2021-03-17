@@ -146,7 +146,32 @@ If your system satisfies the above requirements, you can now start the installat
 PicoScenes MATLAB Toolbox Installation
 ========================================
 
+You can download and install ``PicoScenes-MATLAB-Toolbox`` if you have a requirement on ``*.csi`` parser. 
 
+- Download PicoScenes-MATLAB-Toolbox
+    Open a terminal and run the following command
+        
+    .. code-block:: bash
+
+        download_matlab_toolbox
+
+    After a minute of archive file downloading (the duration depends on your network) , a directory named as ``PicoScenes-MATLAB-Toolbox`` will appear in the working directory
+
+- Install PicoScenes-MATLAB-Toolbox
+    You should install ``PicoScenes-MATLAB-Toolbox`` after download successfully. Open your matlab and change working directory to ``PicoScenes-MATLAB-Toolbox``. Then run the following command in matlab command window.
+
+    .. code-block:: matlab
+
+        install_PicoScenes_MATLAB_Toolbox
+
+    In a few minutes, you will successfully install PicoScenes-MATLAB-Toolbox in your PC, as shown in the picture below.
+
+    .. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
+        :figwidth: 1000px
+        :target: /images/install-PicoScenes-MATLAB-Toolbox.png
+        :align: center
+
+        Screenshot: Install PicoScenes-MATLAB-Toolbox
 
 Verifying the Installation
 ============================

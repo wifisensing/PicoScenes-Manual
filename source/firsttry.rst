@@ -107,10 +107,15 @@ Let assume Wi-Fi NICs with PhyPath ``3`` and ``4`` are the *injector* and *logge
 
 Compared to the commands shown in the last scenario, this enhanced version wraps the entire the Tx and Rx commands as one long string input. The commands for each NIC are separated by a semicolon ``;``. You can also add comments as exemplified in the command.
 
-PicoScenes parses this long string by localizing the semicolons and then the splitting the long string into multiple per-NIC command strings. It then parses and executes the per-NIC command string in order. 
+PicoScenes parses this long string by first localizing the semicolons and then the splitting the long string into multiple per-NIC command strings. It then parses and executes the per-NIC command strings in order. 
 
 
+Two QCA9300/IWL5300 NICs performs round trip CSI measurement (Difficulty Level: Easy)
+--------------------------------------------------------------------------------------
 
+To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. 
+
+:download:`Test </_static/X201-External-Antennas.jpg.zip>` 
 
 
 

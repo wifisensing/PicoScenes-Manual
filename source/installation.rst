@@ -146,32 +146,34 @@ If your system satisfies the above requirements, you can now start the installat
 PicoScenes MATLAB Toolbox Installation
 ========================================
 
-You can download and install ``PicoScenes-MATLAB-Toolbox`` if you have a requirement on ``*.csi`` parser. 
+Download PicoScenes MATLAB Toolbox
++++++++++++++++++++++++++++++++++++
 
-- Download PicoScenes-MATLAB-Toolbox
-    Open a terminal and run the following command
+Once PicoScenes is successfully installed, a bash script is provided to download the latest PicoScenes MATLAB Toolbox. Open a terminal and run the following command:
         
     .. code-block:: bash
 
         download_matlab_toolbox
 
-    After a minute of archive file downloading (the duration depends on your network) , a directory named as ``PicoScenes-MATLAB-Toolbox`` will appear in the working directory
+The script will download the PicoScenes MATLAB Toolbox archive file ``PicoScenes-MATLAB-Toolbox.tar.gz`` to your *present working directory (pwd)*. You may unzip it to you ``${HOME}`` by GUI file explorer or by command ``tar -zxf PicoScenes-MATLAB-Toolbox.tar.gz ~``.
 
-- Install PicoScenes-MATLAB-Toolbox
-    You should install ``PicoScenes-MATLAB-Toolbox`` after download successfully. Open your matlab and change working directory to ``PicoScenes-MATLAB-Toolbox``. Then run the following command in matlab command window.
+Install PicoScenes MATLAB Toolbox (in MATLAB)
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox`` directory and run the following command in MATLAB Command Window:
 
     .. code-block:: matlab
 
         install_PicoScenes_MATLAB_Toolbox
 
-    In a few minutes, you will successfully install PicoScenes-MATLAB-Toolbox in your PC, as shown in the picture below.
+In a few seconds, seeing similar messages shown in the picture below means that you have successfully installed the PicoScenes MATLAB Toolbox.
 
     .. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
         :figwidth: 1000px
         :target: /images/install-PicoScenes-MATLAB-Toolbox.png
         :align: center
 
-        Screenshot: Install PicoScenes-MATLAB-Toolbox
+        Screenshot: Install PicoScenes MATLAB Toolbox in MATLAB
 
 Verifying the Installation
 ============================
@@ -198,12 +200,20 @@ Verify the hardware installation
     
     `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices. If a USRP is not shown in the list, it will also not be discovered or controlled by PicoScenes.
 
-Verify the software installation
+Verify the PicoScenes installation
 +++++++++++++++++++++++++++++++++
 
 Open a terminal and run `PicoScenes` again. If everything goes fine, you will see some booting messages of PicoScenes, including how many COTS NICs are found, how many USRPs are found and how many plugin are found.
 
 As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit PicoScenes.
+
+
+Verify the PicoScenes MATLAB Toolbox installation
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In MATLAB `Current Folder` or system file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, **draw-n-drop** the two sample .csi files into Command Window.  If GCC is correctly installed, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser during the first time use. 
+The compilation may take tens of seconds. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
+
 
 Performance Tuning (Optional)
 ================================

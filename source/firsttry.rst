@@ -9,7 +9,7 @@ On this page, we list all the Wi-Fi sensing scenarios supported by PicoScenes an
 Preliminary: How to specify which device we'd like to use?
 -----------------------------------------------------------------------------
 
-This was not a problems for previous CSI tools, because they only support one device. 
+This was not a problem for the previous CSI tools, because they only support one device. 
 In order to support multi-NIC concurrent operation in PicoScenes, an reliable and easy-to-use device (Wi-Fi NIC and SDR) naming system is required. For commercial Wi-Fi NICs and SDR, we bring different solutions.
 
 For Commercial Wi-Fi NICs
@@ -54,6 +54,7 @@ The above PicoScenes command has three program options *"-d debug -i 3 --mode lo
 
 The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in *present working directory (pwd)*. Open MATLAB, drag the .csi file into Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
+.. _dual_nic_separate_machine:
 
 Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
 --------------------------------------------------------------------------------------------------------------------
@@ -63,7 +64,7 @@ Due to its Tx/Rx flexibility, monitor mode + packet injection is the mostly used
     - enables monitor mode + packet injection style measurement for QCA9300 [not possible with Atheros CSI Tool]
     - adds an intuitive bash script ``array_prepare_for_picoscenes`` to put Wi-Fi NICs into monitor mode
 
-Based on the above improvements, users only need to do three steps to measure CSI:
+Based on the above improvements, there are 5 steps to measure CSI:
 
 #. On both side, Lookup the Wi-Fi NIC's PhyPath ID by ``array_status``;
 #. On both side, run ``array_prepare_for_picoscenes <NIC_PHYPath> <freq> <mode>`` to put the Wi-Fi NICs into monitor mode with the given channel frequency and HT mode. You may specify the frequency and mode values to any supported Wi-Fi channels, such as "2412 HT20', "2432 HT40-",  "5815 HT40+", etc. You can even omit <freq> and <mode>, in this case, "5200 HT20" will be the default.
@@ -87,9 +88,22 @@ The above commands assume that both the Tx/Rx ends are QCA9300 NICs. If Tx/Rx co
 
     "QCA9300", "QCA9300", use the Tx and Rx above commands
     "QCA9300", "IWL5300", append ``--5300`` to the Tx end command
-    "IWL5300", "QCA9300", NOT SUPPORTED
+    "IWL5300", "QCA9300", PicoScenes DO NOT SUPPORTED
     "IWL5300", "IWL5300", use the above Tx and Rx commands
 
 
 Two QCA9300/IWL5300 NICs installed on one PC, in monitor + injection mode (Difficulty Level: Easy)
 -------------------------------------------------------------------------------------------------------------------
+
+The measurement in this scenario leverages the multi-NIC concurrent feature of PicoScenes, however, the commands do not change. Users should refer to ::ref:`dual_nic_separate_machine` to understand the meaning of commands.
+
+Assuming Wi-Fi NICs with PhyPath ``3`` and ``4`` are *injector* and *logger*, respectively, the following code performs the monitor + injection on a single PC with a very intuitive CLI interface:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug;
+                -i 4 --mode logger;
+                -i 3 --mode injector --repeat 1000 --delay 5000;
+                -q"
+
+Compared to the commands shown in the above scenarios, 

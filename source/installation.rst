@@ -233,8 +233,8 @@ If your research depends heavily on SDR, the following two system-level performa
         GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
 
 
-Troubleshooting
-=================
+.. Troubleshooting
+.. =================
 
-The following lists some commonly seen errors and solutions:
+.. The following lists some commonly seen errors and solutions:
 

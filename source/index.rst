@@ -34,7 +34,6 @@ News
    onSDR/useSDR
    plugin/plugin_index
    cheatsheet
-   performance
    License
-   tcd
+   .. tcd
    credits

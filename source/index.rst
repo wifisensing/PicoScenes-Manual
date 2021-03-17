@@ -34,7 +34,6 @@ News
    onSDR/useSDR
    plugin/plugin_index
    cheatsheet
-   hardwareconnection
    performance
    License
    tcd

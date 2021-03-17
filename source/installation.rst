@@ -110,7 +110,7 @@ If your system satisfies the above requirements, you can now start the installat
 
             sudo apt install picoscenes-all
 
-    After a minute of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the CLI. You should read the EULA, and decide if you agree to the EULA terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading by pressing Enter or Space on <Ok> button.
+    After a minute of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA, and decide if you agree to the EULA terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading by pressing Enter or Space on <Ok> button.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
@@ -128,19 +128,19 @@ If your system satisfies the above requirements, you can now start the installat
 
         Screenshot: User decides whether to accept the EULA terms
 
+    .. hint:: If you wrongfully press <No>, PicoScenes installer will show you the solution to reinitialize the installation.
+        
 - Reboot your system
-    Reboot your system to validate the above installation.
+    You will have to reboot your system to validate the installation, otherwise the modified drivers for QCA9300 and IWL5300 will not be activated.
 
-- Run PicoScenes for the first time
-    If PicoScenes is successfully installed, `PicoScenes` command will be available in your terminal.  Open a terminal and run `PicoScenes`, however, you may encounter an error saying that "This is a scheduled exception ..."
-    
-    During the first time run, PicoScenes tries to bootstrap its privilege escalation, hence it is indeed a scheduled exception.
+- The first run
+    The installation of PicoScenes is almost finished except one last step. 
+    You should run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes.
+    During the first launch, PicoScenes will pop an error saying that "This is a scheduled exception ...". 
+    Yes, it is indeed a scheduled exception.
 
-    .. todo::
-        place a picture of the first-time run error
-
-- Installation Finished
-    Until now, the installation of PicoScenes finished.
+    Run ``PicoScenes`` in the terminal again, and the error should be gone.
+    Until now, PicoScenes is successfully installed on your system.
 
 
 Verifying the Installation
@@ -157,7 +157,7 @@ Verify the hardware installation
 
             array_status
     
-    `array_status` is a bash script installed by PicoScenes. It lists all the installed Wi-Fi NICs (except Wi-Fi USB dongles). Check if all the installed Wi-Fi NICs are shown in the list. PicoScenes uses the identical device discovery mechanism. Therefore, if a Wi-Fi NICs is not shown in the list, it will not be discovered and controlled by PicoScenes.
+    `array_status` is a bash script installed by PicoScenes. It lists all the installed Wi-Fi NICs (except Wi-Fi USB dongles). You should check whether all the installed Wi-Fi NICs are shown in the list. If a Wi-Fi NIC is not shown in the list, it will also not be discovered or controlled by PicoScenes.
 
 - For USRP N210/X310 series:
     Open a terminal and run the following command
@@ -166,7 +166,7 @@ Verify the hardware installation
 
             udh_find_devices
     
-    `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices.
+    `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices. If a USRP is not shown in the list, it will also not be discovered or controlled by PicoScenes.
 
 Verify the software installation
 +++++++++++++++++++++++++++++++++
@@ -174,3 +174,20 @@ Verify the software installation
 Open a terminal and run `PicoScenes` again. If everything goes fine, you will see some booting messages of PicoScenes, including how many COTS NICs are found, how many USRPs are found and how many plugin are found.
 
 As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit PicoScenes.
+
+Performance Tuning (Optional)
+================================
+
+If your research depends heavily on SDR, the following two system-level performance tunings can yield substantial performance improvements.
+
+- Disable Hyper-threading
+    The PicoScenes's Wi-Fi baseband implementation is *currently* a single-threaded processing flow, thus its performance highly depends on the single-core CPU performance. Disabling hyper-threading can provide roughly 10% increase in total throughout. There is usually an option in BIOS to disable it.
+
+- Disable Spectre/Meltdown vulnerability protection
+    **If you are in absolute safe environment**, disabling this vulnerability protection can improve the performance of the speculative execution and the overall throughput.
+
+    This can be done by replacing the default ``GRUB_CMDLINE_LINUX_DEFAULT='...'`` line with the following line in your ``/etc/default/grub`` file. Modifying this file requires root privilege.
+    
+    .. code-block:: bash
+
+        GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"

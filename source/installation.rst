@@ -143,6 +143,11 @@ If your system satisfies the above requirements, you can now start the installat
     Until now, PicoScenes is successfully installed on your system.
 
 
+PicoScenes MATLAB Toolbox Installation
+========================================
+
+
+
 Verifying the Installation
 ============================
 
@@ -191,3 +196,10 @@ If your research depends heavily on SDR, the following two system-level performa
     .. code-block:: bash
 
         GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
+
+
+Troubleshooting
+=================
+
+The following lists some commonly seen errors and solutions:
+

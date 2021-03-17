@@ -1,4 +1,4 @@
-CSI Measurement using PicoScenes: First Try
+CSI Measurement using PicoScenes: The First Try
 ============================================
 
 Using IWL5300 NIC

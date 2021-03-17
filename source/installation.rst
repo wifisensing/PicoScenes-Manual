@@ -20,7 +20,7 @@ Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation
 
     The maximum number of available slots is usually less than 3, because the motherboard offers at most 5 slots and some of them are occupied by graphic card, 10GbE ethernet, etc.
 
-    To overcome this issue, you may need to use some motherboards primarily designed for cryptocurrency mining, such as ASUS B250 Mining Expert. These motherboards have dozens of PCI-E 1x slots, and you may use *PCI-E slot risers* to connect multiple NICs.
+    To overcome this issue, you may need to use some motherboards primarily designed for cryptocurrency mining, such as MSI B360-F Pro. These motherboards have dozens of PCI-E 1x slots, and you may use *PCI-E slot risers* to connect multiple NICs.
 
 Multi-Mini PCI-E slots-based multi-NIC installation
     This is the most convenient approach for multi-NIC installation. Multiple onboard Mini PCI-E slots spares the need for Mini PCI-E to PCI-E 1x adaptors, and also present a highly compact factor. 

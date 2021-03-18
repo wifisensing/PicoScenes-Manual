@@ -30,9 +30,7 @@ News
    installation
    firsttry
    advanced_measurement/advanced
-   interactive_measurement/interactive
    onSDR/useSDR
-   plugin/plugin_index
    parameters
    cheatsheet
    License

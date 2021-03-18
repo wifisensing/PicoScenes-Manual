@@ -336,3 +336,143 @@ USRP frontend options
 Per-Plugin level options (Top)
 -----------------------------------
 
+Echo probe option
++++++++++++++++++++++++++++++++++++
+- ``-mode arg``
+    + Description: Working mode.
+    + Default: N/A
+    + Value Range: ``injector``, ``logger```, ``initiator``, ``responder``
+    + Notes: N/A
+    + Example: ``--mode injector``
+
+EchoProbe initiator options
++++++++++++++++++++++++++++++++++++
+- ``--target-mac-address``
+    + Description: MAC address of the injection target [ magic Intel ``00:16:ea:12:34:56`` is default].
+    + Default: N/A
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: N/A
+- ``--5300``
+    + Description: Both Destination and Source MAC addresses are set to [ magic Intel ``00:16:ea:12:34:56`` ].
+    + Default: N/A
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: N/A
+- ``--cf``
+    + Description: MATLAB-style specification for carrier frequency scan range, format ``begin:step:end``.
+    + Default: N/A
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--cf 5200e6:20e6:5800e6``
+- ``--sf``
+    + Description: MATLAB-style specification for baseband sampling frequency multipler scan range, format ``begin:step:end``.
+    + Default: N/A
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--sf 10e6:5e6:20e6``
+- ``--repeat``
+    + Description: The injection number per cf/bw combination.
+    + Default: 100
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--repeat 1e4``
+- ``--delay``
+    + Description: The delay between successive injections(unit in us).
+    + Default: 5e5
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--delay 5e3``
+- ``--delayed-start``
+    + Description: A one-time delay before injection(unit in us)
+    + Default: 0
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--delayed-start 5e5``
+- ``--format``
+    + Description: 802.11 frame format.
+    + Default: HT
+    + Value Range: ``nonHT``, ``HT``, ``VHT``, ``HESU``
+    + Notes: N/A
+    + Example: ``--format VHT``
+- ``--cbw``
+    + Description: Channel Bandwidth (CBW) for injection(unit in MHz).
+    + Default: 20
+    + Value Range: ``20``, ``40``, ``80``, ``160``
+    + Notes: N/A
+    + Example: ``--cbw 40``
+- ``--mcs``
+    + Description: The MCS index for one single spatial stream.
+    + Default: 0
+    + Value Range: 0 ~ 11
+    + Notes: N/A
+    + Example: ``--mcs 4``
+- ``--sts``
+    + Description: Number of spatial time stream (STS).
+    + Default: 1
+    + Value Range: 1 ~ 4
+    + Notes: N/A
+    + Example: ``--sts 2``
+- ``--ess``
+    + Description: Number of Extension Spatial Stream for TX.
+    + Default: 0
+    + Value Range: 0 ~ 3
+    + Notes: N/A
+    + Example: ``--ess 2``
+- ``--gi``
+    + Description: Guarding Interval.
+    + Default: 800
+    + Value Range: ``400``, ``800``, ``1600``, ``3200``
+    + Notes: N/A
+    + Example: ``--gi 1600``
+- ``--coding``
+    + Description: Code scheme.
+    + Default: BCC
+    + Value Range: ``LDPC``, ``BCC``
+    + Notes: N/A
+    + Example: ``--coding LDPC``
+- ``--injector-content``
+    + Description: Content type for injector mode.
+    + Default: full
+    + Value Range: ``full``, ``header``, ``ndp``
+    + Notes: N/A
+    + Example: ``--injector-content header``
+- ``--ifs``
+    + Description: Inter-Frame Spacing in seconds.
+    + Default: 20e-6
+    + Value Range: N/A
+    + Notes: N/A
+    + Example: ``--ifs 10e-6``
+
+Echo responder options
++++++++++++++++++++++++++++++++++++
+- ``--ack-type``
+    + Description: EchoProbe reply strategy.
+    + Default: full
+    + Value Range: ``full``, ``csi``, ``extra``, ``header``
+    + Notes: N/A
+    + Example: ``--ack-type csi``
+- ``--ack-mcs``
+    + Description: MCS value (for one single spatial stream) for ack packets, unspecified as default.
+    + Default: N/A
+    + Value Range: 0 ~ 11
+    + Notes: N/A
+    + Example: ``--ack-mcs 4``
+- ``--ack-sts``
+    + Description: The number of spatial time stream (STS) for ack packets, unspecified as default.
+    + Default: N/A
+    + Value Range: 0 ~ 23
+    + Notes: N/A
+    + Example: ``--ack-sts 3``
+- ``--ack-cbw``
+    + Description: Bandwidth for ack packets (unit in MHz), unspecified as default.
+    + Default: N/A
+    + Value Range:  ``20``, ``40``, ``80``, ``160``
+    + Notes: N/A
+    + Example: ``--ack-cbw 40``
+- ``--ack-gi``
+    + Description: Guarding-interval for ack packets, unspecified as default.
+    + Default: N/A
+    + Value Range:  ``400``, ``800``, ``1600``, ``3200``
+    + Notes: N/A
+    + Example: ``--ack-gi 800``

@@ -90,22 +90,30 @@ The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the 
     "IWL5300", "IWL5300", use the above Tx and Rx commands
 
 
+.. _dual_nics_on_one_machine:
+
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
 -------------------------------------------------------------------------------------------------------------------
 
 The measurement in this scenario leverages the multi-NIC concurrent operation functionality.
 PicoScenes adopts an intuitive CLI interface, so that users can specify concurrent operation without changing the commands. Since the commands used in this scenario remains the same as last scenario, users should refer to ::ref:`dual_nic_separate_machine` to understand the meaning of commands first.
 
-Let assume Wi-Fi NICs with PhyPath ``3`` and ``4`` are the *injector* and *logger*, respectively,  the following code performs the monitor + injection on one single PC:
+Let assume Wi-Fi NICs with PhyPath ``3`` and ``4`` are the *injector* and *logger*, respectively,  the following bash script performs the monitor + injection on one single PC:
 
 .. code-block:: bash
+    
+    #!/bin/sh -e 
+
+    array_prepare_for_picoscenes "3 4" 2412 HT20
 
     PicoScenes "-d debug;
                 -i 4 --mode logger; // this command line format support comments. Comments start with //
                 -i 3 --mode injector --repeat 1000 --delay 5000; // NIC <3> in injector mode, injects 1000 packets with 5000us interval
                 -q // -q is a shortcut for --quit"
 
-Compared to the commands shown in the last scenario, this enhanced version wraps the entire the Tx and Rx commands as one long string input. The commands for each NIC are separated by a semicolon ``;``. You can also add comments as exemplified in the command.
+The first convenient feature is that ``array_prepare_for_picoscenes`` provides multi-NIC specification capability, which, in the above command, specify both ``3`` and ``4`` to work at 2412 HT20 channel.
+
+For the PicoScenes command, this enhanced version wraps the entire the Tx and Rx commands as one long string input. The commands for each NIC are separated by a semicolon ``;``. You can also add comments as exemplified in the command.
 
 PicoScenes parses this long string by first localizing the semicolons and then the splitting the long string into multiple per-NIC command strings. It then parses and executes the per-NIC command strings in order. 
 
@@ -113,25 +121,90 @@ PicoScenes parses this long string by first localizing the semicolons and then t
 Two QCA9300/IWL5300 NICs performs round trip CSI measurement (Difficulty Level: Easy)
 --------------------------------------------------------------------------------------
 
-To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. 
+.. note:: To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. User should refer to ::ref:`dual_nics_on_one_machine` to understand the the long string command style.
 
-:download:`Test </_static/X201-External-Antennas.jpg.zip>` 
+In this experiment, two NICS will perform the round-trip CSI measurement. The exact protocol is as below:
+
+#. Prepare both NICs to the same channel and channel mode.
+#. NIC A injects packets in 802.11n format;
+#. NIC B receives the packet and measure the CSI;
+#. NIC B replied to NIC A in 802.11n format and *optionally* package the measured CSI as payload;
+#. NIC A receives the reply from NIC B and measure the CSI. Until now, a round-trip CSI measurement finishes.
+#. Optionally, if NIC B packages B's measured CSI as payload, then NIC A obtains the CSI measurements from both directions immediately.
+
+The above CSI measurement protocol, despite a quite simple protocol, cannot be realized by the previous CSI tools, because they don't integrate the packet injection control, not to mention the difference between QCA9300/IWL5300.
+
+PicoScenes realizes the above round-trip CSI measurement via EchoProbe plugin. Besides the simple *injector* and *logger* modes used in the above scenarios, EchoProbe also provides *initiator* and *responder* modes, which are dedicated for round-trip CSI measurement. The following bash script realizes the measurement:
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    array_prepare_for_picoscenes "3 4" 2412 HT20
+
+    PicoScenes "-d debug;
+                -i 4 --mode responder;
+                -i 3 --mode initiator --repeat 1000 --delay 5000;
+                -q"
+
+The above command puts NIC ``4`` into *responder* mode and let NIC ``3``, initiate and repeat the round-trip CSI measurement for 1000 times with a 5000us interval.
+Compared to the last scenario, the only difference is the mode. NIC ``4`` works in *responder* mode and NIC ``3`` works in *initiator* mode. The internal logic of both modes are as follows.
+
+- Responder mode: besides the basic CSI logging functionality, *responder* mode checks the frame content, and immediately reply the frame if it is a `EchoProbe ProbeRequest` frame;
+- Initiator mode: besides the basic frame injection functionality, *initiator* mode uses an internal `timeout and re-transmission` mechanism to realize the round-trip CSI measurement. 
+
+.. _dual_nics_scan:
+
+Two QCA9300/IWL5300 NICs performs round trip CSI measurement while scans wide spectrum (Difficulty Level: Medium)
+---------------------------------------------------------------------------------------------------------------------
+
+In the experiment, both NICs will perform continuous CSI measurement over large spectrum. PicoScenes (or EchoProbe plugin) leverages the bi-directional communication ability of *Initiator* and *Responder* modes to synchronize the frequency hopping. The following command performs the continuous CSI measurement over the entire 2.4 GHz band with 5 MHz step. And in each carrier frequency, 100 round-trip measurements are performed.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    array_prepare_for_picoscenes "3 4" 2412 HT20
+
+    PicoScenes "-d debug;
+                -i 4 --freq 2412e6 --mode responder;
+                -i 3 --freq 2412e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6;
+                -q"
+
+The above command adds two new options, ``--freq`` and ``--cf``. ``--freq``, as the name implies, specifies the working carrier frequency for the current NIC. It support scientific notion, thus, ``--freq 2412e6`` means to tune the NIC's carrier frequency to 2412 MHz. ``--cf`` specify the range and step for spectrum scanning. It adopts the  MALTAB-style `begin:step:end` format to specify the starting frequency, frequency interval per step and ending frequency. ``--cf 2412e6:5e6:2484e6`` in the above command indicates to scan the spectrum from 2412 MHz to 2484 MHz with 5 MHz step. A point worth noting is that ``--freq`` is not internally related with ``--cf``. It just spec
+ify the initial working frequency.
+
+
+.. note:: IWL5300 doesn't support the arbitrary tuning for carrier frequency, therefore, it can only be tuned to the standardized channel frequencies.
+
+
+.. warning:: The spectrum scanning is based on the round-trip communication, not pre-scheduled. If the round-trip measurement fails due to excessive number of retransmission, the spectrum scanning will fail too. 
 
 
 
+Two QCA9300 NICs scans both the spectrum and bandwidth (Difficulty Level: Medium)
+-----------------------------------------------------------------------------------
+
+This experiment add just two new options to the above scenario. See ::ref:`dual_nics_scan` first. The following the bash script that scans both the carrier frequency and bandwidth. The carrier frequency is the `inner loop` and bandwidth is the `outer loop`.
+
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    array_prepare_for_picoscenes "3 4" 2412 HT20
+
+    PicoScenes "-d debug;
+                -i 4 --freq 2412e6 --rate 20e6 --mode responder;
+                -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6;
+                -q"
+
+
+The two new options are ``--rate`` and ``--sf``. ``--rate`` specifies the initial bandwidth, it is not internally related with ``--sf`` option. ``--sf`` specifies the bandwidth scanning range and has the same MATLAB-like style.
 
 
 
+Analyze CSI data with PicoScenes MATLAB Toolbox
+-----------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
+TBD

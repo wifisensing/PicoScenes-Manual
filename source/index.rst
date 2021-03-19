@@ -28,7 +28,7 @@ News
    :caption: Table of Contents:
    
    installation
-   firsttry
+   scenarios
    advanced_measurement/advanced
    onSDR/useSDR
    parameters

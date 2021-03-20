@@ -32,4 +32,5 @@ News
    parameters
    matlab
    License
+   resources
    credits

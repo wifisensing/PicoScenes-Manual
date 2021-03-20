@@ -37,10 +37,13 @@ The combined form of multiple USRPs can also be easily represented. For example,
 .. important:: The order of the IP address matters! For example, 0-th and 3rd channel of ``usrp192.168.40.2,192.168.41.2`` refers to the first channel of the X310 with IP address 192.168.40.2 and the second channel of X310 with IP address 192.168.41.2.
 
 
+Commercial Wi-Fi NICs based PicoScenes working scenarios
+-----------------------------------------------------------
+
 .. _iwl5300-wifi-ap:
 
 IWL5300 + Wi-Fi AP (Difficulty Level: Beginner)
---------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic (like ping the AP), we can obtain continuous and smooth CSI measurement. 
 
@@ -57,7 +60,7 @@ The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in *present worki
 .. _dual_nic_separate_machine:
 
 Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
---------------------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Due to its Tx/Rx flexibility, monitor mode + packet injection is the mostly used CSI measurement setup. PicoScenes significantly improves the measurement experience in three aspects:
 
@@ -93,7 +96,7 @@ The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the 
 .. _dual_nics_on_one_machine:
 
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
--------------------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The measurement in this scenario leverages the multi-NIC concurrent operation functionality.
 PicoScenes adopts an intuitive CLI interface, so that users can specify concurrent operation without changing the commands. Since the commands used in this scenario remains the same as last scenario, users should refer to ::ref:`dual_nic_separate_machine` to understand the meaning of commands first.
@@ -119,7 +122,7 @@ PicoScenes parses this long string by first localizing the semicolons and then t
 
 
 Two QCA9300/IWL5300 NICs performs round trip CSI measurement (Difficulty Level: Easy)
---------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. User should refer to ::ref:`dual_nics_on_one_machine` to understand the the long string command style.
 
@@ -156,7 +159,7 @@ Compared to the last scenario, the only difference is the mode. NIC ``4`` works 
 .. _dual_nics_scan:
 
 Two QCA9300/IWL5300 NICs performs round trip CSI measurement while scans wide spectrum (Difficulty Level: Medium)
----------------------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the experiment, both NICs will perform continuous CSI measurement over large spectrum. PicoScenes (or EchoProbe plugin) leverages the bi-directional communication ability of *Initiator* and *Responder* modes to synchronize the frequency hopping. The following command performs the continuous CSI measurement over the entire 2.4 GHz band with 5 MHz step. And in each carrier frequency, 100 round-trip measurements are performed.
 
@@ -171,8 +174,7 @@ In the experiment, both NICs will perform continuous CSI measurement over large 
                 -i 3 --freq 2412e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6;
                 -q"
 
-The above command adds two new options, ``--freq`` and ``--cf``. ``--freq``, as the name implies, specifies the working carrier frequency for the current NIC. It support scientific notion, thus, ``--freq 2412e6`` means to tune the NIC's carrier frequency to 2412 MHz. ``--cf`` specify the range and step for spectrum scanning. It adopts the  MALTAB-style `begin:step:end` format to specify the starting frequency, frequency interval per step and ending frequency. ``--cf 2412e6:5e6:2484e6`` in the above command indicates to scan the spectrum from 2412 MHz to 2484 MHz with 5 MHz step. A point worth noting is that ``--freq`` is not internally related with ``--cf``. It just spec
-ify the initial working frequency.
+The above command adds two new options, ``--freq`` and ``--cf``. ``--freq``, as the name implies, specifies the working carrier frequency for the current NIC. It support scientific notion, thus, ``--freq 2412e6`` means to tune the NIC's carrier frequency to 2412 MHz. ``--cf`` specify the range and step for spectrum scanning. It adopts the  MALTAB-style `begin:step:end` format to specify the starting frequency, frequency interval per step and ending frequency. ``--cf 2412e6:5e6:2484e6`` in the above command indicates to scan the spectrum from 2412 MHz to 2484 MHz with 5 MHz step. A point worth noting is that ``--freq`` is not internally related with ``--cf``. It just specifies the initial working frequency.
 
 
 .. note:: IWL5300 doesn't support the arbitrary tuning for carrier frequency, therefore, it can only be tuned to the standardized channel frequencies.
@@ -183,7 +185,7 @@ ify the initial working frequency.
 
 
 Two QCA9300 NICs scans both the spectrum and bandwidth (Difficulty Level: Medium)
------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This experiment add just two new options to the above scenario. See ::ref:`dual_nics_scan` first. The following the bash script that scans both the carrier frequency and bandwidth. The carrier frequency is the `inner loop` and bandwidth is the `outer loop`.
 
@@ -203,8 +205,72 @@ This experiment add just two new options to the above scenario. See ::ref:`dual_
 The two new options are ``--rate`` and ``--sf``. ``--rate`` specifies the initial bandwidth, it is not internally related with ``--sf`` option. ``--sf`` specifies the bandwidth scanning range and has the same MATLAB-like style.
 
 
+Two QCA9300 NICs scans both the spectrum and bandwidth, with advanced measurement settings (Difficulty Level: Medium Plus)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Analyze CSI data with PicoScenes MATLAB Toolbox
------------------------------------------------------------------------------------
+The following script is based on the last scenario ::ref:`dual_nics_scan`, but adds some options to demonstrate the more advanced measurement settings.
 
-TBD
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    array_prepare_for_picoscenes "3 4" 5200 HT40-
+
+    PicoScenes "-d debug;
+                -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15;
+                -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
+                -q"
+
+
+The above commands demonstrates the mostly used Tx/Rx options, namely ``--cbw``, ``--sts``, ``--mcs``, ``--txcm``, ``--rxcm``, ``--gi`, ``--ess``, ``--txpower``, and two EchoProbe ACK options ``--ack-mcs`` and ``--ack-type``. ``--cbw`` indicates to transmit the frame in HT40 format. ``--sts`` and ``--mcs`` specify the number of space-time stream (:math:`N_{STS}`) and MCS. ``--txcm`` and ``--rxcm`` are the Tx/Rx chain mask, ``--txcm 5`` means using the 1st and 3rd antennas for transmission, and ``--rxcm 3`` means using the 1st and 2nd antenna for receiving. ``--gi 400`` enables the Short Guard Interval (400ns) for HT-data potion. ``--ess 1`` means adding one extra spatial sounding HT-LTF. Adding the two conventional spatial stream (``--sts 2``) and one extra spatial stream, the transmitted packet has three HT-LTF, thus, three CSI measurement. ``--txpower 15`` specifies the transmission power to be 15 dBm.
+
+EchoProbe plugin also introduces several options to control the transmission of reply frames. ``--ack-mcs 3`` tells the responder to use MCS=3 if the responder doesn't specify MCS explicitly. There are also ``--ack-sts``, ``--ack-gi`` and ``--ack-cbw`` options. ``--ack-type header`` tells the responder to not reply the full CSI but only a header.
+
+Users may refer to :doc:`parameters` for more detailed explanations.
+
+
+.. important:: PicoScenes uses the 802.11ac/ax style MCS/STS definition which decouples :math:`N_{STS}` (``--sts``) and per-stream MCS (``--mcs``). For example, MCS=9 in 802.11n version is represented by two terms in 802.11ac/ax: :math:`N_{STS}=2` (``--sts 2``) and MCS=1 (``--mcs 1``). 
+
+SDR-based measurement scenarios
+---------------------------------------------
+
+PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
+
+Listening to Wi-Fi Traffic, Measure CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the most frequently used CSI measurement scenarios for SDR-based frontend. To fully demonstrate the capability of PicoScenes, we assume you use the powerful USRP X310 with UBX-160 daughterboard as the RF frontend, which supports up to 200 MHz baseband sampling rate and 10 to 6000 MHz carrier frequency range, the following bash script opens a 2x2 MIMO Rx channels, listens and measures CSI for all the overheard Wi-Fi packets in 5815 MHz channel with 40 MHz bandwidth, regardless of the protocols.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.40.2 --mode logger --freq 5815e6 --rate 40e6 --rx-cbw 40 --rx-channel 0,1 --rx-ant TX/RX --rx-gain 15 
+                "
+
+The above command introduces four SDR-exclusive and Rx-related options: ``--rx-cbw``, ``--rx-channel``, ``--rx-ant`` and ``--rx-gain``. ``--rx-cbw 40`` specifies the Rx baseband to decode any incoming Wi-Fi signals as 40 MHz CBW format. ``--rx-channel 0,1`` specifies to receives the signals from 0-th and 1st channels of X310, which enables the 2x2 receiver side MIMO. ``--rx-ant TX/TX`` specifies to use the TX/RX antenna as the Rx antenna for both the 0-th and 1st channels (Most USRP daughterboards has two antennas TX/RX and RX2. As the name implies TX/RX can be used for both transmission and reception). Last, ``--rx-gain 15`` amplifies the received signals by 15 dB to improve the Rx SNR, and this value should be adjusted according to the Tx end transmission power (--txpower option in PicoScenes) and the measurement scenario.  Users may refer to :doc:`parameters` for more detailed explanations.
+
+
+USRP injects Packets, QCA9300/IWL5300 measure CSI (Difficulty Level: Easy)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following example bash script injects 802.11ac packets in 5815 MHz channel with 40 MHz bandwidth, 2 spatial streams (:math:`N_{STS}=2`) and MCS 4.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 40e6 --cbw 40 --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
+                "
+
+The above command introduces four SDR-exclusive and Tx-related options:
+
+Dual USRP, measure CSI under arbitrary bandwidth and spectrum (Difficulty Level: Easy)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Dual USRP MIMO transmission or reception (Difficulty Level: Medium)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

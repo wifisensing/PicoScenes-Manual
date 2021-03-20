@@ -12,9 +12,9 @@ PicoScenes is architecturally versatile and flexible. It encapsulates all the lo
 
 We hope you enjoy the next ride of Wi-Fi sensing research, accompanied by PicoScenes!
 
-.. tip::
+.. note::
 
-   This documentation is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please `Contact Us <mailto:zpj@xidian.edu.cn>`_.
+   You can contribute the documentation! This documentation is open sourced. If you find any errors, want to help us improve this documentation, or want to share some more technical details about PicoScenes, you can folk this documentation at GitLab, make your modification in your local repo and issue a Merge Request to us.
 
 News
 ------------------
@@ -29,9 +29,6 @@ News
    
    installation
    scenarios
-   advanced_measurement/advanced
-   onSDR/useSDR
    parameters
-   cheatsheet
    License
    credits

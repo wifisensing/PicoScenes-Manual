@@ -1,5 +1,5 @@
-PicoScenes Program Options
-==============================
+PicoScenes Program Options Reference
+========================================
 
 Program Options Hierarchy
 -----------------------------

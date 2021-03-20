@@ -1,10 +1,61 @@
-PicoScenes Program Options Reference
-========================================
+PicoScenes Command Line Interface and Program Option Reference
+=================================================================
+
+PicoScenes Command Line Interface 
+------------------------------------
+
+As shown in the :doc:`scenarios`, various commands and options can be written in one single command string which is started and ended by quote ``"``.
+In this section, we use the following example commands to describe how PicoScenes parses these program options.
+
+
+.. code-block:: bash
+
+    PicoScenes "-d debug;
+                // the following commands are for each NIC.
+                -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;
+                -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
+                -q"
+
+For the above long command string, the first step of parsing is to segment the long string into several ``;`` ended `command sentences`. If a command sentence starts with ``//`` or ``#``, this is a line of comment and will be omitted. The remaining `command sentences` are:
+
+    #. ``-d debug``
+    #. -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;
+    #. -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
+    #. -q
+
+Each command sentence composes of several program options. Each program option usually starts with ``--``. For some high-frequent options, we provide shortcuts, like ``-i`` is for ``--interface``, ``-q`` is for ``--quit`` and ``-d`` is for ``--log-display-level``. Each program option may contain zero or more parameters, for example ``--no-hp`` doesn't require a parameter while user may provide multiple parameters for ``--tx-channel``, like ``--tx-channel 0,1,2,3``.
+
+Then **PicoScenes parses and executes the command sentence in input order**, while for multiple program options within the same command sentence, PicoScenes invokes **a sequence of four levels of program option parsers to `consume` them** and the order of the program options does not matter. The four levels of parsers in their order are Platform Startup Options, Platform Options, Frontend level options, and Per-Plugin level options. They are detailed in the following :ref:`option_hierachy`. Among them, Platform Startup Options and Platform Options are frontend-irrelevant, such as ``-d`` option which specifies the log message display level, and the other two levels of parser of frontend-related.
+
+Take the parsing processing of above command sentences as an example:
+    #. for the first command sentence:
+        #.  Platform Startup recognizes the ``-d debug`` option, and set the debug message display level to `debug`.
+        #.  Platform Option parser recognizes nothing.
+        #.  As no frontend is specified, Frontend Option parser and Per-Plugin Option parsers are skipped.
+    #. for the second command sentence:
+        #. Platform Startup Option parser recognizes nothing.
+        #. Platform Option parser recognizes ``-i 3``, indicating this the rest of the program options are all for NIC ``3``.
+        #. Frontend Option parser recognizes 5 program options ``--freq 2412e6``, ``--rate 20e6``, ``--rxcm 3`` ``--txcm 5``, and ``--txpower 16``. All these controls are for NIC ``3``.
+        #. Each PicoScenes plugin has the ability to parse command sentence, and PicoScenes will enumerate all the active plugin instances of NIC ``3`` and let them try to parse the current command sentence. In the above example, the program option parser of EchoProbe plugin can recognize ``--mode responder``, ``--cbw 40``, ``--sts 2``, ``--ess 1`` and ``--coding ldpc`` options. The `responder mode` of EchoProbe plugin is not a blocking mode, therefore, the parser of NIC ``3``'s EchoProbe plugin instance will exit.
+        #. PicoScenes continue to enumerate the rest plugins (if there are) and let them to parse the same command sentence.
+        #. All four level of parsers finish their job, PicoScenes continues to next command sentence.
+    #. for the third command sentence:
+        #. Platform Startup Option parser recognizes nothing.
+        #. Platform Option parser recognizes ``-i 4``, indicating this the rest of the program options are all for NIC ``4``.
+        #. Frontend Option parser recognizes 3 program options ``--freq 2412e6``, ``--rate 20e6``, ``--txcm 3``. All these controls are for NIC ``4``.
+        #. PicoScenes enumerates all the active plugin instances of NIC ``4`` and let them try to parse the current command sentence. The program option parser of EchoProbe plugin can recognize ``–mode initiator``, ``–-repeat 100``, ``-–delay 5000``, ``-–cf 2412e6:5e6:2484e6``, ``-–sf 20e6:5e6:40e6`` ``-–cbw 20``, ``-–sts 2``, ``-–mcs 0``, ``-–gi 400``,  ``-–ack-mcs 3`` and ``-–ack-type header`` options. The `initiator mode` of EchoProbe plugin is a blocking mode.  NIC ``4``'s EchoProbe plugin instance will perform the round-trip and specturm-scanning CSI measurement. When the measurement finishes or fails, EchoProbe will exit the blocking state.
+        #. PicoScenes continue to enumerate the rest plugins (if there are) and let them to parse the same command sentence.
+        #. All four level of parsers finish their job, PicoScenes continues to next command sentence.
+    #. for the fourth command sentence:
+        #. Platform Startup Option parser recognizes nothing.
+        #. Platform Option parser recognizes ``-q`` and trigger PicoScenes shutdown sequence.
+
+.. _option_hierachy:
 
 Program Options Hierarchy
 -----------------------------
 
-Various PicoScenes options (program parameters) are organized in a hierarchical structure as listed below:
+Various PicoScenes program options are organized in a hierarchical structure as listed below:
     - Per-Plugin level options (Top)
         Each PicoScenes plugin can have its own program options. For example, EchoProbe plugin has a large set of options controlling many aspects of packet injection and round-trip measurement
 

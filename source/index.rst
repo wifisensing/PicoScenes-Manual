@@ -31,6 +31,6 @@ News
    scenarios
    parameters
    matlab
-   License
    resources
    credits
+   License

@@ -8,7 +8,7 @@ For the QCA9300, PicoScenes unlocks the **arbitrary tuning** for both the carrie
 
 For SDR, PicoScenes embeds a high-performance software baseband implementation for 802.11a/g/n/ac/ax protocols. It **covers almost all the technical features**, including both the LDPC and BCC encoding/decoding, MCS 0~11 modulation, up to 160 MHz channel bandwidth (CBW), up to 4x4 MIMO, and even the 802.11ac/ax multi-user (MU) mode. In our benchmark, PicoScenes sets a record of >1 kHz real-time CSI measurement at a 20 MHz bandwidth, >4 kHz (real-time) and even >40 kHz (signal replay) insanely fast packet injection rates, and >100 Hz CSI measurement at a maximally 200 MHz bandwidth.
 
-PicoScenes is architecturally versatile and flexible. It encapsulates all the low-level features into unified and hardware-independent APIs and exposes them to the upper-level plugin layer. Users can **quickly prototype their own measurement plugins**. We demonstrate this platform flexibility through EchoProbe, a PicoScenes plugin, which features ms-grade round-trip CSI measurement and also the spectrum scanning CSI measurement capability. 
+PicoScenes is architecturally versatile and flexible. It encapsulates all the low-level features into unified and hardware-independent APIs and exposes them to the upper-level plugin layer. Users can **quickly prototype their own measurement plugins**. We demonstrate this platform flexibility through EchoProbe, a PicoScenes plugin, which features ms-grade round-trip CSI measurement and the spectrum scanning CSI measurement capability. 
 
 We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
 

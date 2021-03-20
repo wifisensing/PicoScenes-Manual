@@ -192,13 +192,55 @@ Verify the hardware installation
     `array_status` is a bash script installed by PicoScenes. It lists all the installed Wi-Fi NICs (except Wi-Fi USB dongles). You should check whether all the installed Wi-Fi NICs are shown in the list. If a Wi-Fi NIC is not shown in the list, it will also not be discovered or controlled by PicoScenes.
 
 - For USRP N210/X310 series:
-    Open a terminal and run the following command
+    Before using the USRP devices, first check whether the devices can work normally.
     
+    Open a terminal and run the following command
+
+    Discover the device
+
     .. code-block:: bash
 
             udh_find_devices
-    
+
     `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices. If a USRP is not shown in the list, it will also not be discovered or controlled by PicoScenes.
+
+    .. code-block:: bash
+
+            uhd_usrp_probe
+
+    `uhd_usrp_probe` can check whether the firmware of the device is consistent with the UHD version installed on the PC.
+
+    If the versions are inconsistent, you need to burn new firmware for USRP:
+
+    If you are using a USRP N210 device:
+
+    .. code-block:: bash
+
+        uhd_image_loader --args=type=usrp2
+
+    If you are using a USRP X310 device:
+
+    .. code-block:: bash
+
+        uhd_image_loader --args=type=x300
+
+    Check whether you can receive the signal    
+
+    .. code-block:: bash
+
+        uhd_fft --args="addr=192.168.30.2" -f 2200e6
+
+    In `uhd_fft`,you should fill in the `addr` parameter according to your device address.
+
+    Finally, execute the following three commands in sequence to make the device run completely once,this process may take a few minutes.
+
+    .. code-block:: bash
+
+        uhd_cal_rx_iq_balance
+        uhd_cal_tx_dc_offset
+        uhd_cal_tx_iq_balance
+
+    If the above three commands can run successfully, the device can work normally, otherwise, you need to check the specific problems of the device.
 
 Verify the PicoScenes installation
 ++++++++++++++++++++++++++++++++++++

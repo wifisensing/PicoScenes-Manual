@@ -1,4 +1,4 @@
-CSI Measurement using PicoScenes: Get Started
+CSI Measurement using PicoScenes
 =================================================
 
 On this page, we list all the Wi-Fi sensing scenarios supported by PicoScenes and demonstrate the software's primary usage. In each scenario, we provide a takeaway bash script that users can exercise the experiment right away.
@@ -217,12 +217,12 @@ The following script is based on the last scenario ::ref:`dual_nics_scan`, but a
     array_prepare_for_picoscenes "3 4" 5200 HT40-
 
     PicoScenes "-d debug;
-                -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15;
+                -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;
                 -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
                 -q"
 
 
-The above commands demonstrates the mostly used Tx/Rx options, namely ``--cbw``, ``--sts``, ``--mcs``, ``--txcm``, ``--rxcm``, ``--gi`, ``--ess``, ``--txpower``, and two EchoProbe ACK options ``--ack-mcs`` and ``--ack-type``. ``--cbw`` indicates to transmit the frame in HT40 format. ``--sts`` and ``--mcs`` specify the number of space-time stream (:math:`N_{STS}`) and MCS. ``--txcm`` and ``--rxcm`` are the Tx/Rx chain mask, ``--txcm 5`` means using the 1st and 3rd antennas for transmission, and ``--rxcm 3`` means using the 1st and 2nd antenna for receiving. ``--gi 400`` enables the Short Guard Interval (400ns) for HT-data potion. ``--ess 1`` means adding one extra spatial sounding HT-LTF. Adding the two conventional spatial stream (``--sts 2``) and one extra spatial stream, the transmitted packet has three HT-LTF, thus, three CSI measurement. ``--txpower 15`` specifies the transmission power to be 15 dBm.
+The above commands demonstrates the mostly used Tx/Rx options, namely ``--cbw``, ``--sts``, ``--mcs``, ``--txcm``, ``--rxcm``, ``--gi`, ``--ess``, ``--txpower``, ``--coding``, and two EchoProbe ACK options ``--ack-mcs`` and ``--ack-type``. ``--cbw`` indicates to transmit the frame in HT40 format. ``--sts`` and ``--mcs`` specify the number of space-time stream (:math:`N_{STS}`) and MCS. ``--txcm`` and ``--rxcm`` are the Tx/Rx chain mask, ``--txcm 5`` means using the 1st and 3rd antennas for transmission, and ``--rxcm 3`` means using the 1st and 2nd antenna for receiving. ``--gi 400`` enables the Short Guard Interval (400ns) for HT-data potion. ``--ess 1`` means adding one extra spatial sounding HT-LTF. Adding the two conventional spatial stream (``--sts 2``) and one extra spatial stream, the transmitted packet has three HT-LTF, thus, three CSI measurement. ``--txpower 15`` specifies the transmission power to be 15 dBm. Last, ``--coding ldpc`` specifies the NIC baseband to encode the packet using low-density parity-check (LDPC) coding scheme.
 
 EchoProbe plugin also introduces several options to control the transmission of reply frames. ``--ack-mcs 3`` tells the responder to use MCS=3 if the responder doesn't specify MCS explicitly. There are also ``--ack-sts``, ``--ack-gi`` and ``--ack-cbw`` options. ``--ack-type header`` tells the responder to not reply the full CSI but only a header.
 
@@ -262,15 +262,41 @@ PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following e
     #!/bin/sh -e 
 
     PicoScenes "-d debug;
-                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 40e6 --cbw 40 --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
+                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 50e6 --cbw 80 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
                 "
 
-The above command introduces four SDR-exclusive and Tx-related options:
+The above command introduces two SDR-exclusive and Tx-related options: ``--format`` and ``--tx-channel``. ``--format vht`` specifies the PicoScenes baseband to transmit the signal in 802.11ac (Very High Throughput, VHT) format. ``--tx-channel 0,1`` assigns the 0-th and 1st channels for transmission to support the following ``--sts 2 --mcs 4`` MIMO transmission.
 
-Dual USRP, measure CSI under arbitrary bandwidth and spectrum (Difficulty Level: Easy)
+Dual USRP, measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+USRP N210 and X310 cannot tune the baseband sampling rate to any specified bandwidth. For example, USRP X310, with 200 MHz master clock rate, can only tune to :math:`\frac{200}{n}, n\in\mathcal{N}^+` MHz rates, like 200/100/66.67/50/40/33.3 ... MHz. In order to support other sampling rates, like 80/160 MHz bandwidth in 802.11ac/ax protocols, PicoScenes introduces resampling ratio for both the Tx and Rx. The following bash scripts demonstrates the packet injection and CSI measurement 160 MHz bandwidth.
 
-Dual USRP MIMO transmission or reception (Difficulty Level: Medium)
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.41.2 --mode logger --freq 5815e6 --rate 200e6 --rx-resample-ratio 0.8 --cbw 160 --code ldpc --rx-channel 0,1 --rx-gain 15; 
+                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
+                -q
+                "
+
+The above command tunes both the baseband sampling rate of the Tx and Rx end to a 200 MHz, which is a hardware-supported sampling rate by X310. To transmit and receive 160 MHz bandwidth signal, both ends use ``--tx-resample-ratio 1.25`` and ``--rx-resample-ratio 0.8`` to resamples the signals. More specifically, Tx end interpolates the baseband generated signal by 1.25x so that the transmission of 1.25x interpolated signals in 200 MHz is equivalent to 160 MHz bandwidth signal. Rx end decimates the raw received signals by 0.8x so that the 200 MHz sampled signals can be down-clocked to 160 MHz.
+
+Dual-USRP MIMO transmission or reception (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+PicoScenes can currently combine two USRPs to form an 4x4 MIMO array. The following bash scripts uses four USRP X310s (each with two UBX-160 daughterboards) to demonstrate 4x4 MIMO packet injection and CSI measurement.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.42.2,192.168.43.2 --mode logger --freq 5815e6 --rate 20e6 --cbw 20 --rx-channel 0,1,2,3 --rx-gain 15; 
+                -i usrp192.168.40.2,192.168.41.2 --mode injector --freq 5815e6 --rate 20e6 --cbw 20 --format vht --tx-channel 0,1,2,3 --sts 4 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
+                -q
+                "
+
+The above command combines 4 USRP X310s two by two to form the the 4x4 MIMO transmitter and 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/receiving antennas, respectively.

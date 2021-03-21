@@ -31,6 +31,8 @@ News
    scenarios
    parameters
    matlab
+   utilities
+   plugin
    resources
    credits
    License

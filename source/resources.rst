@@ -10,7 +10,7 @@ This paper introduces PicoScenes and also report very extensive performance eval
 
 .. important:: If PicoScenes software (including the main and utility programs, bash scripts, PicoScenes MATLAB Toolbox and any PicoScenes plugins regardless of the ownership) are used by any form in your academic research, **you should cite the above work**. This citation requirement is also included in the PicoScenes Software EULA.
 
-Project Repositories
+Project repositories
 ----------------------------
 
 - PicoScenes projects group: https://gitlab.com/wifisensing. The following are some of the open source projects.

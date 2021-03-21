@@ -1,7 +1,9 @@
 Resources
 =============
 
-Our academic paper on PicoScenes
+.. _picoscenes_paper:
+
+The academic paper on PicoScenes
 ------------------------------------
 
 Zhiping Jiang, Tom H. Luan, Xincheng Ren, Dongtao Lv, Han Hao, Jing Wang, Kun Zhao, Wei Xi, Yueshen Xu, Rui Li, Eliminating the Barriers: Demystifying Wi-Fi Baseband Design and Introducing the PicoScenes Wi-Fi Sensing Platform, `preprint on arxiv <https://arxiv.org/abs/2010.10233>`_.
@@ -22,11 +24,13 @@ Project repositories
 Alternatives to PicoScenes
 --------------------------------
 
-PicoScenes are inspired and partially based on the other CSI data extraction tools. The following is a short list of the existing academic friendly CSI tools:
-    - `Intel 5300 CSI Tool <http://dhalperi.github.io/linux-80211n-csitool/>`_, based on IWL5300 NIC
-    - `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, based on QCA9300 NIC.
-    - `Nexmon CSI Tool <https://github.com/seemoo-lab/nexmon_csi>`_, based on Broadcom 43xx series (BCM43xx) NIC.
-    - `ESP32 CSI Tool <https://stevenmhernandez.github.io/ESP32-CSI-Tool/>`_, based on ESP32 IoT module.
+PicoScenes project is inspired and partially based on the existing CSI data extraction tools. The following is a short list of the existing academic friendly CSI tools:
+
+    - `Intel 5300 CSI Tool <http://dhalperi.github.io/linux-80211n-csitool/>`_, based on IWL5300 NIC, release in 2011.
+    - `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, based on QCA9300 NIC, released in 2015.
+    - `Nexmon CSI Tool <https://github.com/seemoo-lab/nexmon_csi>`_, based on Broadcom 43xx series (BCM43xx) NIC, release in 2019.
+    - `ESP32 CSI Tool <https://stevenmhernandez.github.io/ESP32-CSI-Tool/>`_, based on ESP32 IoT module, release in 2020.
+
 
 Technical support
 -----------------------------

@@ -1,5 +1,5 @@
-Resources
-=============
+Useful Resources
+==================
 
 .. _picoscenes_paper:
 

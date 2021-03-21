@@ -34,5 +34,5 @@ News
    utilities
    plugin
    resources
-   credits
    License
+   credits

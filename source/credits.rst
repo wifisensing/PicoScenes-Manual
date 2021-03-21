@@ -9,5 +9,5 @@ Credits
 - Xu Wang, 王旭 (Ph.D student with the School of Computer Science and Technology, Xidian University)
 - Chen He, 何琛 (Graduate student with the School of Computer Science and Technology, Xidian University)
 - Han Hao, 蒿翰 (Ph.D students with the School of Computer Science and Technology, Xi’an Jiaotong University)
-- Prof. Tom H. Luan, 栾浩教授 (professor with the School of Cyber Engineering, Xidian University)
-- Prof. Rui Li, 李瑞教授 (professor with the School of Computer Science and Technology, Xidian University)
+- Prof. Tom H. Luan, 栾浩 (professor with the School of Cyber Engineering, Xidian University)
+- Prof. Rui Li, 李瑞 (professor with the School of Computer Science and Technology, Xidian University)

@@ -55,16 +55,3 @@ Debug your modification
 
 Imitate and develope your own PicoScenes plugins
 +++++++++++++++++++++++++++++++++++++++++++++++++
-
-Introducing PS-PDK via sample plugins
---------------------------------------
-
-Demo Plugin
-++++++++++++++++
-
-
-Forwarder Plugin
-++++++++++++++++++++
-
-EchoProbe Plugin
-+++++++++++++++++++

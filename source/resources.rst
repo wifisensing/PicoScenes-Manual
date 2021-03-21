@@ -15,7 +15,7 @@ Project Repositories
 
 - PicoScenes projects group: https://gitlab.com/wifisensing. The following are some of the open source projects.
     - `RXS Parsing Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_: the core CSI data parsing routine and the related utility code. This project is shared between the PicoScenes main program and PicoScenes MATLAB Toolbox via git submodule.
-    - `PicoScenes Plugin Development Kit (PS-PDK) <https://gitlab.com/wifisensing/PicoScenes-PDK>`_: despite named PDK, it is the source repositories of three PicoScenes plugin, the Demo Plugin, UDP Forwarder and EchoProbe. 
+    - `PicoScenes Plugin Development Kit (PS-PDK) <https://gitlab.com/wifisensing/PicoScenes-PDK>`_: the source repositories of three PicoScenes plugin, the Demo Plugin, UDP Forwarder and EchoProbe. We named it PS-PDK, because most PicoScenes plugins are developed based on this repo. 
     - `PicoScenes Manual <https://gitlab.com/wifisensing/PicoScenes-Manual>`_: the reStructuredText source of this documentation.
 
 

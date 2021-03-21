@@ -27,7 +27,7 @@ The above figure, excerpted from :ref:`picoscenes_paper`,   shows the architectu
 PicoScenes plugin development: Get Started 
 ----------------------------------------------
 
-Before you creating your own PicoScenes plugins from scratch, you have `seven` steps to gradually develop your understanding of the PicoScenes architecture and the coding skill set. During this processing, you will learn how to git clone PS-PDK code, compile it, modify it, debug it and imitate it. You will have a general understanding of the `modern C++` project development on the Linux platform.
+Before you creating your own PicoScenes plugins from scratch, you have `seven` steps to gradually develop your understanding of the PicoScenes architecture and the coding skill set. During this processing, you will learn how to git clone PS-PDK code, compile it, modify it, debug it and imitate it. You also will have a general understanding of the `modern C++` development on the Linux platform.
 
 Install PicoScenes software package
 +++++++++++++++++++++++++++++++++++++++

@@ -77,14 +77,15 @@ If PicoScenes and all the development dependencies are successfully installed, y
 
 If everything goes fine, the above command rebuilds and reinstalls the latest PS-PDK repository.
 
-Read in-source documents and understand 
-++++++++++++++++++++++++++++++++++++++++
+Read the code of the sample plugins
++++++++++++++++++++++++++++++++++++++
 
 Do some modification to the existing plugins
 +++++++++++++++++++++++++++++++++++++++++++++
 
 Debug your modification
-+++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++
 
 Imitate and develope your own PicoScenes plugins
 +++++++++++++++++++++++++++++++++++++++++++++++++
+

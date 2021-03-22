@@ -32,7 +32,10 @@ PicoScenes project is inspired and partially based on the existing CSI data extr
     - `ESP32 CSI Tool <https://stevenmhernandez.github.io/ESP32-CSI-Tool/>`_, based on ESP32 IoT module, release in 2020.
 
 
-Technical support
+.. _tech_support:
+
+
+Technical Support
 -----------------------------
 We provide technical support via PicoScenes `project issues tracker project <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may raise the software bugs, encountered problems and suggestions via the  issue tracker.
 

@@ -63,7 +63,7 @@ Follow the official manual:
     - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
     - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
 
-Some advices base on our experience:
+Some suggestions based on our previous experience:
     - For X310, **don't use the PCI-E cable-based connection**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X310; therefore multi-X310 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
     - For both N210/X310, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N210 and X310 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X310s or eight independent full-duplex channels.
     - For both the N210 and X310, please consider using the UBX-40/UBX-160 daughterboard first. UBX-40 and UBX-160, though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can you realize the phased-array functionality.
@@ -79,7 +79,7 @@ Prerequisites
 
 - Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
 - Internet connection: the Internet connection is required during the installation process and is also required for regular license checking in future use.
-- The latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system may be forced to update to the latest kernel version.
+- Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
 - The latest MATLAB version on Linux/macOS: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Linux/macOS platforms.
     
     .. note::
@@ -88,28 +88,30 @@ Prerequisites
 Install PicoScenes
 ++++++++++++++++++++
 
-If your system satisfies the above requirements, you can now start the installation.
+If your system meets the above requirements, you can start the installation now.
 
-- Download and install PicoScenes Source Updater
-    - Download PicoScenes Source Updater by clicking :download:`PicoScenes <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>`
+#. Download and install PicoScenes Source Updater
+    - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose 'Open with ....'
     
-    - Start the installer by double-clicking and then click `Install Package`
+    - Click `Install`.
 
-- Update your system apt repository cache and install PicoScenes
-    Open a terminal and run the following command
+    .. note:: PicoScenes Source Updater doesn't install PicoScenes software but registers the PicoScenes software repository to your system so that PicoScenes can be installed and auto-upgraded via the Debian apt facilities.
+
+#. Update the cache of apt repositories
+    Open a terminal and run the following command:
     
     .. code-block:: bash
 
         sudo apt update
 
-- Install PicoScenes packages
-    In the same terminal (or open a new one) and run the following command
+#. Install PicoScenes software
+    Run the following command:
         
     .. code-block:: bash
 
         sudo apt install picoscenes-all
 
-    After a minute of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA, and decide if you agree to the EULA terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading by pressing Enter or Space on <Ok> button.
+    After a few minutes of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the terminal. You will read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
@@ -118,28 +120,22 @@ If your system satisfies the above requirements, you can now start the installat
 
         Screenshot: PicoScenes software EULA
 
-    After your pressing <Ok>, a Yes or No prompt box appears, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
+        After your pressing the <Ok>, a Yes or No prompt box appears, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
 
     .. figure:: /images/Configuring-picoscenes-platform.png
         :figwidth: 1000px
         :target: /images/Configuring-picoscenes-platform.png
         :align: center
 
-        Screenshot: User decides whether to accept the EULA terms
+        Screenshot: Users decide whether to accept the EULA terms
 
-    .. hint:: If you wrongfully press <No>, PicoScenes installer will show you the solution to reinitialize the installation.
+    .. hint:: If you wrongfully press the <No>, the PicoScenes installer will show you the solution to reinitialize the installation.
         
 - Reboot your system
-    You will have to reboot your system to validate the installation, otherwise the modified drivers for QCA9300 and IWL5300 will not be activated.
+    You may have to reboot your system to validate the installation; otherwise, the modified drivers for QCA9300 and IWL5300 will not be activated.
 
 - The first run
-    The installation of PicoScenes is almost finished except one last step. 
-    You should run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes.
-    During the first launch, PicoScenes will pop an error saying that "This is a scheduled exception ...". 
-    Yes, it is indeed a scheduled exception.
-
-    Run ``PicoScenes`` in the terminal again, and the error should be gone.
-    Until now, PicoScenes is successfully installed on your system.
+    You run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes. Soon after the first launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it is indeed a planned crash**. Run ``PicoScenes`` in the terminal again, and the error should be gone.
 
 
 PicoScenes MATLAB Toolbox Installation

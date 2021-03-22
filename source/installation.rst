@@ -278,7 +278,7 @@ If your research depends heavily on SDR, the following two system-level performa
 Troubleshooting
 =================
 
-For quick reference, the following lists some more frequently seen errors during the installation.
+The following shows some of the most frequently seen errors and their solutions for quick reference.
 For other issues happened during the installation/update/use, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
 
 

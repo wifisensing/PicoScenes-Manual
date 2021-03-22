@@ -120,7 +120,7 @@ If your system meets the above requirements, you can start the installation now.
 
         Screenshot: PicoScenes software EULA
 
-        After your pressing the <Ok>, a Yes or No prompt box appears, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
+        After your pressing the <Ok>, a Yes or No prompt box appears as shown below, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
 
     .. figure:: /images/Configuring-picoscenes-platform.png
         :figwidth: 1000px

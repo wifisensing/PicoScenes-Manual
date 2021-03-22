@@ -91,7 +91,7 @@ Install PicoScenes via apt
 If your system meets the above requirements, you can start the installation now.
 
 #. Download and install PicoScenes Source Updater
-    - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose 'Open with ``GDeb Packet Installer``'
+    - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose 'Open with ``GDebi Package Installer``'
     
     - Click `Install Package`.
 

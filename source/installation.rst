@@ -10,7 +10,7 @@ PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and I
 
 One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
 
-Installation for (Multiple) QCA9300 or IWL5300 NICs
+Installation of (Multiple) QCA9300 or IWL5300 NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 We recommend three multi-NIC installation methods.
@@ -53,7 +53,7 @@ PCI-E bridge adapter-based multi-NIC installation
         27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 
-Installation for (Multiple) USRP N210 and X310
+Installation of (Multiple) USRP N210 and X310
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 Follow the official manual:
@@ -71,7 +71,7 @@ Some suggestions based on our previous experience:
     - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
     - For clock distribution, OctoClock-G is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRPs.
 
-PicoScenes Installation
+Install PicoScenes
 =========================
 
 Prerequisites
@@ -85,8 +85,8 @@ Prerequisites
     .. note::
         PicoScenes MATLAB Toolbox is being ported the Windows platform.
 
-Install PicoScenes
-++++++++++++++++++++
+Install PicoScenes via apt
+++++++++++++++++++++++++++++
 
 If your system meets the above requirements, you can start the installation now.
 
@@ -103,6 +103,14 @@ If your system meets the above requirements, you can start the installation now.
     .. code-block:: bash
 
         sudo apt update
+
+    When this command finishes, you can verify the result. Run ``apt list picoscenes-*`` in the terminal. You should see at least the following packages:
+
+    .. code-block:: bash
+
+        picoscenes-all   picoscenes-platform   picoscenes-source-updater  picoscenes-driver-modules-XXXX
+
+    Seeing these available `picoscenes-*` packages means PicoScenes repository is successfully added to your system.
 
 #. Install PicoScenes software
     Run the following command:
@@ -138,7 +146,7 @@ If your system meets the above requirements, you can start the installation now.
     You run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes. Soon after the first launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it is indeed a planned crash**. Run ``PicoScenes`` in the terminal again, and the error should be gone.
 
 
-PicoScenes MATLAB Toolbox Installation
+Install PicoScenes MATLAB Toolbox
 ========================================
 
 Download PicoScenes MATLAB Toolbox

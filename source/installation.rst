@@ -284,7 +284,7 @@ For other issues happened during the installation/update/use, you may seek :ref:
 
 **Q1**: I encountered "E: fail to fetch XXX, File has unexpected size (xxx != xxx). ..." error during apt installation.
 
-A: The most possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problems, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
+A: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problems, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
 
 
 

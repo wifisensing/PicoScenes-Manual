@@ -56,12 +56,14 @@ PCI-E bridge adapter-based multi-NIC installation
 Installation of (Multiple) USRP N210 and X310
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Follow the official manual:
-    PicoScenes’s support for USRP devices is established upon UHD software, the USRP hardware driver. Therefore, you should first set up your hardware/software according to the official   `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For N210 and X310 models, you should read the following three documents carefully:
+Follow the official USRP manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
-    - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
-    - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
+PicoScenes’s support for USRP devices is established upon UHD software, the USRP hardware driver. Therefore, you should first set up your hardware/software according to the official   `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For N210 and X310 models, you should read the following three documents carefully:
+
+- `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
+- `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
+- `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
 
 Some suggestions based on our previous experience:
     - For X310, **don't use the PCI-E cable-based connection**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X310; therefore multi-X310 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
@@ -70,6 +72,67 @@ Some suggestions based on our previous experience:
     - Please pay special attention to the allocation of IP addresses. For network-based connections, the NIC port and the connected USRP must be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
     - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
     - For clock distribution, OctoClock-G is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRPs.
+
+Verify the installation of N210/X310
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is a four-stage verification process to ensure that your USRP is ready for PicoScenes.
+
+Confirm the hardware connection
+*********************************
+
+Open a terminal and run the following command
+
+.. code-block:: bash
+
+        udh_find_devices
+
+`udh_find_devices` is the device discovery program provided by UHD. It will list all the connected USRP devices. If a device is not shown in the list, you should refer to the USRP manual to check the hardware connection.
+
+
+Confirm the firmware version
+*********************************
+
+.. code-block:: bash
+
+        uhd_usrp_probe
+
+`uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use ``uhd_image_loader`` command to flash the latest firmwares to the USRP:
+
+For USRP N210 device, run:
+
+.. code-block:: bash
+
+    uhd_image_loader --args=type=usrp2
+
+For USRP X310 device, run:
+
+.. code-block:: bash
+
+    uhd_image_loader --args=type=x300
+
+
+Confirm the signal reception (Rx)
+*********************************
+
+Check whether your USRP can receive the signal:
+
+.. code-block:: bash
+
+    uhd_fft --args="addr=<YOUR_USRP_IP_ADDRESS>" -f 2200e6 -s 10e6
+
+In `uhd_fft`,you should fill in the `addr` parameter according to your device address.
+
+Perform Tx/Rx calibration
+***********************************************************
+
+Finally, execute the following three commands in sequence to calibrate the Tx/Rx signal.
+
+.. code-block:: bash
+
+    uhd_cal_rx_iq_balance
+    uhd_cal_tx_dc_offset
+    uhd_cal_tx_iq_balance
 
 Install PicoScenes
 =========================
@@ -145,11 +208,12 @@ If your system meets the above requirements, you can start the installation now.
 - The first run
     You run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes. Soon after the first launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it is indeed a planned crash**. Run ``PicoScenes`` in the terminal again, and the error should be gone.
 
+    As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit.
 
 Install PicoScenes MATLAB Toolbox
 ========================================
 
-Download PicoScenes MATLAB Toolbox
+Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++
 
 Once PicoScenes is successfully installed, a bash script is provided to download the latest PicoScenes MATLAB Toolbox. Open a terminal and run the following command:
@@ -158,12 +222,12 @@ Once PicoScenes is successfully installed, a bash script is provided to download
 
         download_matlab_toolbox
 
-The script will download the PicoScenes MATLAB Toolbox archive file ``PicoScenes-MATLAB-Toolbox.tar.gz`` to your *present working directory (pwd)*. You may unzip it to you ``${HOME}`` by GUI file explorer or by command ``tar -zxf PicoScenes-MATLAB-Toolbox.tar.gz ~``.
+The script will download the archive file of PicoScenes MATLAB Toolbox ``PicoScenes-MATLAB-Toolbox.tar.gz`` to your *present working directory (pwd)*. You may unzip it to you ``${HOME}`` by some GUI programs or by a bash command ``tar -zxf PicoScenes-MATLAB-Toolbox.tar.gz ~``.
 
 Install PicoScenes MATLAB Toolbox (in MATLAB)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox`` directory and run the following command in MATLAB Command Window:
+Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox`` directory and run the following command in Command Window:
 
     .. code-block:: matlab
 
@@ -178,87 +242,11 @@ In a few seconds, seeing similar messages shown in the picture below means that 
 
         Screenshot: Install PicoScenes MATLAB Toolbox in MATLAB
 
-Verifying the Installation
-============================
 
+Verify the installation
+++++++++++++++++++++++++++
 
-Verify the hardware installation
-+++++++++++++++++++++++++++++++++
-
-- For QCA9300/IWL5300 NICs: use array_status
-    Open a terminal and run the following command
-    
-    .. code-block:: bash
-
-            array_status
-    
-    `array_status` is a bash script installed by PicoScenes. It lists all the installed Wi-Fi NICs (except Wi-Fi USB dongles). You should check whether all the installed Wi-Fi NICs are shown in the list. If a Wi-Fi NIC is not shown in the list, it will also not be discovered or controlled by PicoScenes.
-
-- For USRP N210/X310 series:
-    Before using the USRP devices, first check whether the devices can work normally.
-    
-    Open a terminal and run the following command
-
-    Discover the device
-
-    .. code-block:: bash
-
-            udh_find_devices
-
-    `udh_find_devices` is the device discovery program provided by UHD. It will lists all the found devices. If a USRP is not shown in the list, it will also not be discovered or controlled by PicoScenes.
-
-    .. code-block:: bash
-
-            uhd_usrp_probe
-
-    `uhd_usrp_probe` can check whether the firmware of the device is consistent with the UHD version installed on the PC.
-
-    If the versions are inconsistent, you need to burn new firmware for USRP:
-
-    If you are using a USRP N210 device:
-
-    .. code-block:: bash
-
-        uhd_image_loader --args=type=usrp2
-
-    If you are using a USRP X310 device:
-
-    .. code-block:: bash
-
-        uhd_image_loader --args=type=x300
-
-    Check whether you can receive the signal    
-
-    .. code-block:: bash
-
-        uhd_fft --args="addr=192.168.30.2" -f 2200e6
-
-    In `uhd_fft`,you should fill in the `addr` parameter according to your device address.
-
-    Finally, execute the following three commands in sequence to make the device run completely once,this process may take a few minutes.
-
-    .. code-block:: bash
-
-        uhd_cal_rx_iq_balance
-        uhd_cal_tx_dc_offset
-        uhd_cal_tx_iq_balance
-
-    If the above three commands can run successfully, the device can work normally, otherwise, you need to check the specific problems of the device.
-
-Verify the PicoScenes installation
-++++++++++++++++++++++++++++++++++++
-
-Open a terminal and run `PicoScenes` again. If everything goes fine, you will see some booting messages of PicoScenes, including how many COTS NICs are found, how many USRPs are found and how many plugin are found.
-
-As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit PicoScenes.
-
-
-Verify the PicoScenes MATLAB Toolbox installation
-++++++++++++++++++++++++++++++++++++++++++++++++++
-
-In MATLAB `Current Folder` or system file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, **draw-n-drop** the two sample .csi files into Command Window.  If GCC is correctly installed, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser during the first time use. 
-The compilation may take tens of seconds. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
-
+In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, **draw-n-drop** the two sample .csi files into Command Window.  On requesting to parse .csi files for the first time, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
 
 Performance Tuning (for Heavy SDR User)
 =========================================

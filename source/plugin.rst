@@ -86,7 +86,7 @@ The entire PS-PDK projects is managed by `CMake`, and contains three working plu
 
 We recommand JetBrains CLion as the IDE for PicoScenes plugin development. You can modify and debug the existing plugins and finally create your own.
 
-Debug your modification
+Debug PicoScenes plugins
 +++++++++++++++++++++++++++++++++++++++++++++
 
 Since the plugin .so file cannot run by itself, a tricky problem of plugin development emerges, `how to debug a plugin?` 

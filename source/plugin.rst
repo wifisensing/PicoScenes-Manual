@@ -32,8 +32,7 @@ Before you creating your own PicoScenes plugins from scratch, you have `seven` s
 Install PicoScenes software package
 +++++++++++++++++++++++++++++++++++++++
 
-PS-PDK, as a standard C++ library including `C/C++ headers` and `libraries`, is already in your system if you have successfully installed PicoScenes software. The C++ headers and the binary libraries of PS-PDK are installed at ``/usr/local/PicoScenes/include/PicoScenes`` and ``/usr/local/PicoScenes/lib``, respectively. You should refer to the :doc:`/installation` document to ensure your installation.
-
+PicoScenes Plugin Development Kit (PS-PDK), as a standard C++ library including the PicoScenes `C/C++ headers` and `libraries`, is already in your system if you have installed PicoScenes software. The C++ headers and the binary libraries of PS-PDK are installed at ``/usr/local/PicoScenes/include/PicoScenes`` and ``/usr/local/PicoScenes/lib``, respectively. You should refer to the document :doc:`/installation` to ensure your installation.
 
 Install necessary development dependencies
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -42,25 +41,25 @@ Run the following command to install the dependencies.
  
 .. code-block:: bash
 
-    sudo apt install -y git build-essential libboost-all-dev libssl-dev libcpprest-dev libsodium-dev libfmt-dev libuhd-dev libopenblas-dev libfftw3-dev pkg-config
+    sudo apt install -y git cmake build-essential libboost-all-dev libssl-dev libcpprest-dev libsodium-dev libfmt-dev libuhd-dev libopenblas-dev libfftw3-dev pkg-config
 
 Clone, build and install PicoScenes PDK project 
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Run the following command to clone the PicoScenes-PDK repository
+Run the following command to `git clone` the PicoScenes-PDK project
  
 .. code-block:: bash
 
     git clone https://gitlab.com/wifisensing/PicoScenes-PDK --recursive
 
-If PicoScenes and all the development dependencies are successfully installed, you can run the following command to first time build and install the three plugins of PicoScenes-PDK project.
+If PicoScenes and all the development dependencies are successfully installed, you can run the following command to build and install the three plugins of PicoScenes-PDK project.
 
 .. code-block:: bash
 
     cd PicoScenes-PDK # or cd to the cloned directory
     ./Fast_Build_Intall_PicoScenes.sh
 
-`Fast_Build_Intall_PicoScenes.sh` is a bash script with the following content, which rebuild the plugins and the .deb package and install the .deb package.
+`Fast_Build_Intall_PicoScenes.sh` is a bash script with the following content, which rebuilds the plugins and the .deb package and install the .deb package.
 
 .. code-block:: bash
 

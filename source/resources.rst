@@ -20,18 +20,6 @@ Project repositories
     - `PicoScenes Plugin Development Kit (PS-PDK) <https://gitlab.com/wifisensing/PicoScenes-PDK>`_: the source repositories of three PicoScenes plugins, namely the Demo Plugin, UDP Forwarder and EchoProbe. We name it PS-PDK, because most PicoScenes plugins are developed based on this repo. 
     - `PicoScenes Manual <https://gitlab.com/wifisensing/PicoScenes-Manual>`_: the reStructuredText source of this documentation.
 
-
-Alternatives to PicoScenes
---------------------------------
-
-PicoScenes project is inspired and partially based on the existing CSI data extraction tools. The following is a short list of the existing academic friendly CSI tools:
-
-    - `Intel 5300 CSI Tool <http://dhalperi.github.io/linux-80211n-csitool/>`_, based on IWL5300 NIC, release in 2011.
-    - `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, based on QCA9300 NIC, released in 2015.
-    - `Nexmon CSI Tool <https://github.com/seemoo-lab/nexmon_csi>`_, based on Broadcom 43xx series (BCM43xx) NIC, release in 2019.
-    - `ESP32 CSI Tool <https://stevenmhernandez.github.io/ESP32-CSI-Tool/>`_, based on ESP32 IoT module, release in 2020.
-
-
 .. _tech_support:
 
 

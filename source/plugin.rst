@@ -86,7 +86,7 @@ Do some modification to the existing plugins
 Debug your modification
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Since the plugin .so file cannot run by itself, a tricky problem of plugin development emerges `how to debug a plugin?` 
+Since the plugin .so file cannot run by itself, a tricky problem of plugin development emerges, `how to debug a plugin?` 
 
 Xincheng Ren, one of our contributors, records a .gif video describing the plugin debug process. In this video, we use JetBrains CLion as our IDE. To debug the EchoProbe plugin, rather than specifying the .so plugin file as the `debug main program`, you must specify the PicoScenes main program at ``/usr/local/PicoScenes/bin/`` to be the `debug main program`. Second, you should also add ``--plugin-dir /path-to-plugin`` program option to tell PicoScenes main program to load your plugins.
 

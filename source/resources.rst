@@ -26,5 +26,3 @@ Project repositories
 Technical Support
 -----------------------------
 We provide technical support via PicoScenes `project issues tracker project <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may raise the software bugs, encountered problems and suggestions via the  issue tracker.
-
-You can also 

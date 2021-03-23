@@ -76,11 +76,15 @@ If PicoScenes and all the development dependencies are successfully installed, y
 
 If everything goes fine, the above command rebuilds and reinstalls the latest PS-PDK repository.
 
-Read the code of the sample plugins
-+++++++++++++++++++++++++++++++++++++
 
-Do some modification to the existing plugins
-+++++++++++++++++++++++++++++++++++++++++++++
+Imitate and develope your own PicoScenes plugins
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+“`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
+
+The entire PS-PDK projects is managed by `CMake`, and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder. We have added clear and sufficient comments to the existing code helping you understand the plugin structure, invocation sequence and many operation details.
+
+We recommand JetBrains CLion as the IDE for PicoScenes plugin development. You can modify and debug the existing plugins and finally create your own.
 
 Debug your modification
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -97,7 +101,4 @@ Xincheng Ren, one of our contributors, records a .gif video describing the plugi
         Debug PicoScenes plugins by debug PicoScenes main program
 
 You can download this .gif video from :download:`Debug Plugin <images/Plugin-Debug.gif>`.
-
-Imitate and develope your own PicoScenes plugins
-+++++++++++++++++++++++++++++++++++++++++++++++++
 

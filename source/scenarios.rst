@@ -6,6 +6,8 @@ On this page, we list all the Wi-Fi sensing scenarios supported by PicoScenes an
 
 .. important:: Before getting started, make sure you have successfully install the related hardware and the PicoScenes software. See also :doc:`installation` ahead.
 
+.. _specify_nic::
+
 Preliminary: How to specify which device we'd like to use?
 -----------------------------------------------------------------------------
 

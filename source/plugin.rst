@@ -84,23 +84,20 @@ Do some modification to the existing plugins
 +++++++++++++++++++++++++++++++++++++++++++++
 
 Debug your modification
-++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
 
-You can use IDE(such as CLion) to debug PicoScenes-Plugins.
+Since the plugin .so file cannot run by itself, a tricky problem of plugin development emerges `how to debug a plugin?` 
 
+Xincheng Ren, one of our contributor, records a .gif video describing the plugin debug process. In this video, we use JetBrains CLion as our IDE. To debug EchoProbe plugin, rather than specifying the .so plugin file as the `debug main program`, you must specify the PicoScenes main program at ``/usr/local/PicoScenes/bin/`` to be the `debug main program`. Second, you should also add ``--plugin-dir /path-to-plugin`` program option to tell PicoScenes main program to load your plugins.
 
     .. figure:: /images/Plugin-Debug.gif
         :figwidth: 1000px
         :target: /images/Plugin-Debug.gif
         :align: center
 
-        Debug PicoScenes-Plugins
+        Debug PicoScenes plugins by debug PicoScenes main program
 
-.. warning:: When you add paramters in debug configurations, you must add ``--plugin-dir /path-to-plugin``, otherwise you can't debug.
-
-
-Or you can click this link to detailed view.
-:download:`Debug-Plugin <images/Plugin-Debug.gif>`
+You can download this .gif video from :download:`Debug Plugin <images/Plugin-Debug.gif>`.
 
 Imitate and develope your own PicoScenes plugins
 +++++++++++++++++++++++++++++++++++++++++++++++++

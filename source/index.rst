@@ -35,6 +35,6 @@ News
    utilities
    plugin
    resources
+   status
    License
    credits
-   status

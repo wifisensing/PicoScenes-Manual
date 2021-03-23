@@ -86,6 +86,22 @@ Do some modification to the existing plugins
 Debug your modification
 ++++++++++++++++++++++++++++++++++++++++
 
+You can use IDE(such as CLion) to debug PicoScenes-Plugins.
+
+
+    .. figure:: /images/Plugin-Debug.gif
+        :figwidth: 1000px
+        :target: /images/Plugin-Debug.gif
+        :align: center
+
+        Debug PicoScenes-Plugins
+
+.. warning:: When you add paramters in debug configurations, you must add ``--plugin-dir /path-to-plugin``, otherwise you can't debug.
+
+
+Or you can click this link to detailed view.
+:download:`Debug-Plugin <images/Plugin-Debug.gif>`
+
 Imitate and develope your own PicoScenes plugins
 +++++++++++++++++++++++++++++++++++++++++++++++++
 

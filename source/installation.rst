@@ -251,15 +251,15 @@ In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MAT
 Performance Tuning (for Heavy SDR User)
 =========================================
 
-If your research depends heavily on SDR, the following two system-level performance tunings can yield substantial performance improvements.
+If your research depends heavily on SDR, the following performance tuning tricks can yield substantial performance improvements.
 
 - Disable Hyper-threading
-    The PicoScenes's Wi-Fi baseband implementation is *currently* a single-threaded processing flow, thus its performance highly depends on the single-core CPU performance. Disabling hyper-threading can provide roughly 10% increase in total throughout. There is usually an option in BIOS to disable it.
+    The PicoScenes's Wi-Fi baseband implementation is *currently* a single-threaded processing flow; therefore, its performance highly depends on the single-core CPU performance. Disabling hyper-threading can provide a roughly 10% increase in total throughout. There is usually an option in BIOS to disable it.
 
 - Disable Spectre/Meltdown vulnerability protection
-    **If you are in absolute safe environment**, disabling this vulnerability protection can improve the performance of the speculative execution and the overall throughput.
+    **If you are in an absolutely safe environment**, disabling this vulnerability protection can improve the performance of the speculative execution and the overall throughput.
 
-    This can be done by replacing the default ``GRUB_CMDLINE_LINUX_DEFAULT='...'`` line with the following line in your ``/etc/default/grub`` file. Modifying this file requires root privilege.
+    To disable the protection, you open /etc/default/grub file with root privilege and replace the default GRUB_CMDLINE_LINUX_DEFAULT='...' line with the following line.
     
     .. code-block:: bash
 
@@ -269,13 +269,12 @@ If your research depends heavily on SDR, the following two system-level performa
 Troubleshooting
 =================
 
-The following shows some of the most frequently seen errors and their solutions for quick reference.
-For other issues happened during the installation/update/use, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
+The following shows some of the most frequent errors and their solutions for quick reference. For other issues that happened during the installation, upgrade or later use, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
 
 
-**Q1**: I encountered "E: fail to fetch XXX, File has unexpected size (xxx != xxx). ..." error during apt installation.
+**Q1**: I encounter an error during apt installation saying, "E: fail to fetch XXX, File has unexpected size (xxx != xxx). ..."
 
-A: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problems, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
+A: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problem, you may seek :ref:`tech_support`.
 
 
 

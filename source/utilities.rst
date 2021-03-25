@@ -36,8 +36,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
             Reloading iwlwifi module ...
 
 #. array_status: list all PCI-E connected Wi-Fi NICs
-    As discussed in :ref:`specify_nic`, PicoScenes uses ID system to refer to the specific Wi-Fi NICs. ``array_status`` shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is `all`, which lists all NICs. The following is a sample output:
-
+    As discussed in specify_nic, PicoScenes uses an ID system to refer to the specific Wi-Fi NICs. array_status shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is all, which lists all NICs. The following is a sample output:
     .. code-block:: bash
 
         csi@csi-System:~$ array_status
@@ -50,7 +49,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
     
 
 #. array_prepare_for_picoscenes: put the NIC into monitor mode, get them unmanaged by Network-Manager, and more ...
-    The most convenient CSI measurement mode for QCA9300 and IWL5300 is the packet injection-monitor mode. To put NICs in this CSI measurement mode, some preparation needs to be done, and ``array_prepare_for_picoscenes`` is the shortcut for the preparation. The following sample command prepares the NICs with PhyPath ``3`` and ``4`` for CSI measurement.
+    The most convenient CSI measurement mode for QCA9300 and IWL5300 is the packet injection-monitor mode. Some preparation needs to be done to put NICs in the CSI measurement mode, and ``array_prepare_for_picoscenes`` is the shortcut for the preparation. The following sample command prepares the NICs with PhyPath ``3`` and ``4`` for CSI measurement.
 
     .. code-block:: bash
 
@@ -82,10 +81,38 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
     You may run ``array_prepare_for_picoscenes -h`` for help.
 
 
-#. RestoreNetwork: reverse the ``array_prepare_for_picoscenes``
-    Wi-Fi NICs that are prepared by ``array_prepare_for_picoscenes`` cannot scan or connect to Wi-Fi networks. You may use RestoreNetwork to restore ordinary Wi-Fi connection.
+#. RestoreNetwork: un-prepare the NICs for normal Wi-Fi connections
+    Wi-Fi NICs that are prepared by ``array_prepare_for_picoscenes`` cannot connect to normal Wi-Fi networks. You may use RestoreNetwork to restore ordinary Wi-Fi connection.
 
-#. download_matlab_toolbox: download PicoScenes MATLAB Toolbox
+    .. code-block:: bash
+
+        csi@csi-System:~$ array_prepare_for_picoscenes "3 4" "5200 HT20"
+        Change CPU frequency governor to performance ...
+        CPU frequency governor has been set to performance for 10 core(s).
+        Un-managing NICs from Network-Manager ...
+        Unlocking RF-Kill...
+        Disabling power management...
+        Disconnecting Wi-Fi...
+        Stopping monitor interfaces...
+        Changing MAC address...
+        Skip setting the mac address (00:16:ea:12:34:56) for Intel 5300 NIC (wlp3s0)...
+        Adding monitor interfaces...
+        Adding a monitor interface for phy1 (phy1), named phy1mon ...
+        Adding a monitor interface for phy13 (phy13), named phy13mon ...
+        Changing working frequency to 5200 HT20 ...
+        Preparation is done.
+        ----------------------
+        Device Status of Wi-Fi NIC array "all":
+        PhyPath DEV PHY [MON] DEV_MacAddr [MON_MacAddr] [CF] [BW] ProductName
+        3 wlp3s0 phy13 phy13mon 00:21:6a:2a:8f:82 00:21:6a:2a:8f:82 5200 20 Ultimate N WiFi Link 5300 
+        4 wlp4s0 phy1 phy1mon 00:16:ea:12:34:56 00:0e:8e:59:8a:b7 5200 20 AR93xx Wireless Network Adapter 
+        7 wlp7s0 phy14 44:af:28:57:6c:9b Wi-Fi 6 AX200 
+        ----------------------
+    
+
+
+
+#. **download_matlab_toolbox: download PicoScenes MATLAB Toolbox**
 
 Besides the above scripts, PicoScenes also ships some other useful scripts. **Some of them are directly invoked by PicoScenes main program**.
 You may view all PicoScenes scripts at ``/usr/local/PicoScenes/bin/scripts``.

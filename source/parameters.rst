@@ -17,38 +17,38 @@ As shown in the :doc:`scenarios`, multiple command options can be written in one
 
 The first step of command parsing is to segment the long string into several ``;`` ended `command sentences`. The second command sentence starts with ``//`` or ``#``, it is recognized as a line of comment and is skipped. The remaining command sentences are:
 
-    #. ``-d debug``
-    #. -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;
-    #. -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
-    #. -q
+#. ``-d debug``
+#. ``-i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc``;
+#. ``-i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header``;
+#. ``-q``
 
 Each command sentence composes of one or multiple `program options`. Each program option usually starts with ``--``. For some frequently used options, we provide shortcuts, like ``-i`` is for ``--interface``, ``-q`` is for ``--quit`` and ``-d`` is for ``--log-display-level``. Each program option consists of the option name and zero or more parameters, for example ``--no-hp`` doesn't require a parameter, and user may provide multiple parameters for ``--tx-channel``, like ``--tx-channel 0,1,2,3``.
 
 **PicoScenes parses and executes the command sentence in input order**. For the program options within one command sentence, PicoScenes invokes **four levels of program option parsers to parse them**; therefore, the order of the program options does not matter. The four levels of parsers, in their hierarchical order, are Platform Startup Options, Platform Options, Frontend Level Options, and Per-Plugin Level Options. They are detailed in the following Program Options Hierarchy. Platform Startup Options and Platform Options are frontend-irrelevant, and the other two levels of parsers are frontend-related.
 
+The following process simulates the real parsing process of the above command sentences.
 
-Take the parsing processing of above command sentences as an example:
-    #. for the first command sentence:
-        #.  Platform Startup recognizes the ``-d debug`` option, and set the debug message display level to `debug`.
-        #.  Platform Option parser recognizes nothing.
-        #.  As no frontend is specified, Frontend Option parser and Per-Plugin Option parsers are skipped.
-    #. for the second command sentence:
-        #. Platform Startup Option parser recognizes nothing.
-        #. Platform Option parser recognizes ``-i 3``, indicating this the rest of the program options are all for NIC ``3``.
-        #. Frontend Option parser recognizes 5 program options ``--freq 2412e6``, ``--rate 20e6``, ``--rxcm 3`` ``--txcm 5``, and ``--txpower 16``. All these controls are for NIC ``3``.
-        #. Each PicoScenes plugin has the ability to parse command sentence, and PicoScenes will enumerate all the active plugin instances of NIC ``3`` and let them try to parse the current command sentence. In the above example, the program option parser of EchoProbe plugin can recognize ``--mode responder``, ``--cbw 40``, ``--sts 2``, ``--ess 1`` and ``--coding ldpc`` options. The `responder mode` of EchoProbe plugin is not a blocking mode, therefore, the parser of NIC ``3``'s EchoProbe plugin instance will exit.
-        #. PicoScenes continue to enumerate the rest plugins (if there are) and let them to parse the same command sentence.
-        #. All four level of parsers finish their job, PicoScenes continues to next command sentence.
-    #. for the third command sentence:
-        #. Platform Startup Option parser recognizes nothing.
-        #. Platform Option parser recognizes ``-i 4``, indicating this the rest of the program options are all for NIC ``4``.
-        #. Frontend Option parser recognizes 3 program options ``--freq 2412e6``, ``--rate 20e6``, ``--txcm 3``. All these controls are for NIC ``4``.
-        #. PicoScenes enumerates all the active plugin instances of NIC ``4`` and let them try to parse the current command sentence. The program option parser of EchoProbe plugin can recognize ``–mode initiator``, ``–-repeat 100``, ``-–delay 5000``, ``-–cf 2412e6:5e6:2484e6``, ``-–sf 20e6:5e6:40e6`` ``-–cbw 20``, ``-–sts 2``, ``-–mcs 0``, ``-–gi 400``,  ``-–ack-mcs 3`` and ``-–ack-type header`` options. The `initiator mode` of EchoProbe plugin is a blocking mode.  NIC ``4``'s EchoProbe plugin instance will perform the round-trip and specturm-scanning CSI measurement. When the measurement finishes or fails, EchoProbe will exit the blocking state.
-        #. PicoScenes continue to enumerate the rest plugins (if there are) and let them to parse the same command sentence.
-        #. All four level of parsers finish their job, PicoScenes continues to next command sentence.
-    #. for the fourth command sentence:
-        #. Platform Startup Option parser recognizes nothing.
-        #. Platform Option parser recognizes ``-q`` and trigger PicoScenes shutdown sequence.
+#. for the first command sentence ``-d debug``:
+    #.  Platform Startup Option parser recognizes the ``-d debug`` option, and set the debug message display level to `debug`.
+    #.  Platform Option parser recognizes nothing.
+    #.  As no frontend is specified, Frontend Option parser and Per-Plugin Option parsers are skipped.
+#. for the second command sentence ``-i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc``:
+    #. Platform Startup Option parser recognizes nothing.
+    #. Platform Option parser recognizes ``-i 3``, indicating that the rest of the program options within this command sentence are all for NIC ``3``.
+    #. Frontend Option parser recognizes 5 hardware-tuning options: ``--freq 2412e6``, ``--rate 20e6``, ``--rxcm 3`` ``--txcm 5``, and ``--txpower 16``. All these controls are for NIC ``3``, and Frontend Option parser doesn't perform the hardware tuning but delegates these parameters to the FrontEnd class.
+    #. Each PicoScenes plugin has the ability to parse command sentence, and PicoScenes enumerates all the active plugin instances of NIC ``3`` and let them parse the current command sentence. In the above example, the program option parser of EchoProbe plugin recognizes 5 options, namely, ``--mode responder``, ``--cbw 40``, ``--sts 2``, ``--ess 1`` and ``--coding ldpc``. The `responder mode` of EchoProbe plugin is not a thread-blocking mode, therefore, the parser of EchoProbe plugin will save the parameters and exit.
+    #. PicoScenes continues to enumerate the rest of the plugins (if there are) and let them parse the same command sentence.
+    #. All four level of parsers finish their jobs, PicoScenes continues to next command sentence.
+#. for the third command sentence ``-i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header``:
+    #. Platform Startup Option parser recognizes nothing.
+    #. Platform Option parser recognizes ``-i 4``, indicating this the rest of the program options are all for NIC ``4``.
+    #. Frontend Option parser recognizes 3 program options ``--freq 2412e6``, ``--rate 20e6``, ``--txcm 3``. All these controls are for NIC ``4``, and Frontend Option parser doesn't perform the hardware tuning but delegates these parameters to the FrontEnd class.
+    #. PicoScenes enumerates all the active plugin instances of NIC ``4`` and let them parse the current command sentence. The program option parser of EchoProbe plugin recognizes 11 options, namely, ``–mode initiator``, ``–-repeat 100``, ``-–delay 5000``, ``-–cf 2412e6:5e6:2484e6``, ``-–sf 20e6:5e6:40e6`` ``-–cbw 20``, ``-–sts 2``, ``-–mcs 0``, ``-–gi 400``,  ``-–ack-mcs 3`` and ``-–ack-type header``. The `initiator mode` of EchoProbe plugin is a blocking mode.  NIC ``4``'s EchoProbe plugin instance will perform the round-trip and spectrum-scanning CSI measurement. When the measurement finishes or fails, EchoProbe will exit the blocking state.
+    #. PicoScenes continue to enumerate the rest of the plugins (if there are) and let them parse the same command sentence.
+    #. All four level of parsers finish their jobs, PicoScenes continues to next command sentence.
+#. for the fourth command sentence ``-q``:
+    #. Platform Startup Option parser recognizes nothing.
+    #. Platform Option parser recognizes ``-q`` and trigger PicoScenes shutdown sequence.
 
 .. _option_hierachy:
 

@@ -56,20 +56,20 @@ Program Options Hierarchy
 -----------------------------
 
 Various PicoScenes program options are organized in a hierarchical structure as listed below:
-    - Per-Plugin level options (Top)
-        Each PicoScenes plugin can have its own program options. For example, EchoProbe plugin has a large set of options controlling many aspects of packet injection and round-trip measurement
+    - Per-Plugin level Options (Top)
+        Each PicoScenes plugin can have its own program options. For example, the EchoProbe plugin has a large set of options controlling the packet injection and round-trip measurement.
 
-    - Frontend level options
-        PicoScenes provides two independent sets of options for QCA9300/IWL5300 and SDR hardware frontend. User specify different options for different Wi-Fi NICs or USRPs.
+    - Frontend Level Options
+        PicoScenes provides two independent sets of options for QCA9300/IWL5300 and SDR frontends, respectively. Users specify different options for different Wi-Fi NICs or USRPs.
 
     - Platform Options
-        These are a few global options that are valid *after* the launch of the PicoScenes platform.
+        These are a few global options valid *after* the launch of the PicoScenes platform.
 
     - Platform Startup Options (Bottom)
-        These are a few global options that are valid *before* the launch of the PicoScenes platform.
+        These are a few global options valid *before* the launch of the PicoScenes platform.
 
-    In the following text, we present the detailed description for each PicoScenes (including EchoProbe plugin) options.
-
+    We present the detailed description for each PicoScenes (including EchoProbe plugin) options in the following text.
+    
     .. tip:: You can also look up the **complete** program options by running the command ``PicoScenes --help``, if you have successfully installed the PicoScenes.
 
 

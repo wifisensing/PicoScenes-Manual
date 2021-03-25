@@ -4,8 +4,7 @@ PicoScenes Command Line Interface and Program Option Reference
 PicoScenes Command Line Interface 
 ------------------------------------
 
-As shown in the :doc:`scenarios`, various commands and options can be written in one single command string which is started and ended by quote ``"``.
-In this section, we use the following example commands to describe how PicoScenes parses these program options.
+As shown in the :doc:`scenarios`, multiple command options can be written in one single command string, which is surrounded by quotation marks. This section uses the following example commands to describe how PicoScenes parses the program options.
 
 
 .. code-block:: bash
@@ -16,16 +15,17 @@ In this section, we use the following example commands to describe how PicoScene
                 -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
                 -q"
 
-For the above long command string, the first step of parsing is to segment the long string into several ``;`` ended `command sentences`. If a command sentence starts with ``//`` or ``#``, this is a line of comment and will be omitted. The remaining `command sentences` are:
+The first step of command parsing is to segment the long string into several ``;`` ended `command sentences`. The second command sentence starts with ``//`` or ``#``, it is recognized as a line of comment and is skipped. The remaining command sentences are:
 
     #. ``-d debug``
     #. -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;
     #. -i 3 --freq 2412e6 --rate 20e6 --mode initiator --repeat 100 --delay 5000 --cf 2412e6:5e6:2484e6 --sf 20e6:5e6:40e6 --cbw 20 --sts 2 --mcs 0 --gi 400 --txcm 3 --ack-mcs 3  --ack-type header;
     #. -q
 
-Each command sentence composes of several program options. Each program option usually starts with ``--``. For some high-frequent options, we provide shortcuts, like ``-i`` is for ``--interface``, ``-q`` is for ``--quit`` and ``-d`` is for ``--log-display-level``. Each program option may contain zero or more parameters, for example ``--no-hp`` doesn't require a parameter while user may provide multiple parameters for ``--tx-channel``, like ``--tx-channel 0,1,2,3``.
+Each command sentence composes of one or multiple `program options`. Each program option usually starts with ``--``. For some frequently used options, we provide shortcuts, like ``-i`` is for ``--interface``, ``-q`` is for ``--quit`` and ``-d`` is for ``--log-display-level``. Each program option consists of the option name and zero or more parameters, for example ``--no-hp`` doesn't require a parameter, and user may provide multiple parameters for ``--tx-channel``, like ``--tx-channel 0,1,2,3``.
 
-Then **PicoScenes parses and executes the command sentence in input order**, while for multiple program options within the same command sentence, PicoScenes invokes **a sequence of four levels of program option parsers to `consume` them** and the order of the program options does not matter. The four levels of parsers in their order are Platform Startup Options, Platform Options, Frontend level options, and Per-Plugin level options. They are detailed in the following :ref:`option_hierachy`. Among them, Platform Startup Options and Platform Options are frontend-irrelevant, such as ``-d`` option which specifies the log message display level, and the other two levels of parser of frontend-related.
+**PicoScenes parses and executes the command sentence in input order**. For the program options within one command sentence, PicoScenes invokes **four levels of program option parsers to parse them**; therefore, the order of the program options does not matter. The four levels of parsers, in their hierarchical order, are Platform Startup Options, Platform Options, Frontend Level Options, and Per-Plugin Level Options. They are detailed in the following Program Options Hierarchy. Platform Startup Options and Platform Options are frontend-irrelevant, and the other two levels of parsers are frontend-related.
+
 
 Take the parsing processing of above command sentences as an example:
     #. for the first command sentence:

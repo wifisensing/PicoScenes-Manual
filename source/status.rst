@@ -10,3 +10,4 @@ PicoScenes has entered the Public Test phase. During this period, we issue the F
 Development Status
 ========================
 
+Mar. 25, 2021 doing the final crafting, adding documentation.

@@ -1,6 +1,6 @@
-================
-Installation
-================
+============================
+Installation PicoScenes
+============================
 
 
 Hardware Installation

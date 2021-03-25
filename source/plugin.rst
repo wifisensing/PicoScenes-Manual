@@ -1,50 +1,24 @@
 Developing Your PicoScenes Plugins
 =====================================
 
-Architecture of PicoScenes
------------------------------
-
-.. figure:: /images/picoscenes_architecture.jpg
-    :figwidth: 1000px
-    :target: /images/picoscenes_architecture.jpg
-    :align: center
-
-    Architecture of PicoScenes software
-
-
-The above figure, excerpted from :ref:`picoscenes_paper`,   shows the architecture of PicoScenes software. The following text, also excerpted from the paper, briefly introduces the architecture of PicoScenes.
-
-    PicoScenes consists of 3 layers from bottom to top, as shown on the left of the figure, namely, the PicoScenes drivers, the PicoScenes platform and the PicoScenes plugin subsystem.
-
-    **PicoScenes Drivers** We created our own versions of kernel drivers for both the QCA9300 and the IWL5300. These drivers extract the CSI and expose various hardware controls directly to the user space.
-    We have improved upon the original drivers in three main respects...
-                        
-    **PicoScenes Platform** is essentially the middleware for Wi-Fi sensing. In addition to basic CSI data collection, it integrates packet-injection-based Tx control. It also abstracts the details of all types of frontend devices and exposes unified, powerful and user-friendly APIs to the measurement-specific plugin layer....
-
-    **PicoScenes Plugin Subsystem** performs application- and measurement-specific tasks.
-    The plugins invoke the hardware-independent APIs exposed by the platform to implement various Wi-Fi sensing or communication tasks in a task-centric manner...
-
-PicoScenes plugin development: Get Started 
-----------------------------------------------
-
-Before you creating your own PicoScenes plugins from scratch, you have `seven` steps to gradually develop your understanding of the PicoScenes architecture and the coding skill set. During this processing, you will learn how to git clone PS-PDK code, compile it, modify it, debug it and imitate it. You also will have a general understanding of the `modern C++` development on the Linux platform.
+Before creating your own PicoScenes plugins from scratch, you have seven steps to gradually develop your understanding of the PicoScenes architecture and the coding skillset. During this processing, you will learn how to git clone PS-PDK code, compile it, modify it, debug it and imitate it. You also will have a general understanding of the `modern C++` development on the Linux platform.
 
 Install PicoScenes software package
-+++++++++++++++++++++++++++++++++++++++
+----------------------------------------------
 
-PicoScenes Plugin Development Kit (PS-PDK), as a standard C++ library including the PicoScenes `C/C++ headers` and `libraries`, is already in your system if you have installed PicoScenes software. The C++ headers and the binary libraries of PS-PDK are installed at ``/usr/local/PicoScenes/include/PicoScenes`` and ``/usr/local/PicoScenes/lib``, respectively. You should refer to the document :doc:`/installation` to ensure your installation.
+PicoScenes Plugin Development Kit (PS-PDK), as a standard C++ library, includes the PicoScenes `C/C++ headers` and `libraries`. If you have installed PicoScenes software, PS-PDK is already in your system. The headers and the binary library files are installed at ``/usr/local/PicoScenes/include/PicoScenes`` and ``/usr/local/PicoScenes/lib``, respectively. You may refer to the document :doc:`/installation` to ensure your installation.
 
 Install necessary development dependencies
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+----------------------------------------------
 
-Run the following command to install the dependencies.
+Run the following command to install the dependencies for PS-PDK development.
  
 .. code-block:: bash
 
     sudo apt install -y git cmake build-essential libboost-all-dev libssl-dev libcpprest-dev libsodium-dev libfmt-dev libuhd-dev libopenblas-dev libfftw3-dev pkg-config
 
 Clone, build and install PicoScenes PDK project 
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+-------------------------------------------------
 
 Run the following command to `git clone` the PicoScenes-PDK project
  
@@ -78,7 +52,7 @@ If everything goes fine, the above command rebuilds and reinstalls the latest PS
 
 
 Imitate and develope your own PicoScenes plugins
-+++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 
 “`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
 
@@ -87,7 +61,7 @@ The entire PS-PDK projects is managed by `CMake`, and contains three working plu
 We recommand JetBrains CLion as the IDE for PicoScenes plugin development. You can modify and debug the existing plugins and finally create your own.
 
 Debug PicoScenes plugins
-+++++++++++++++++++++++++++++++++++++++++++++
+----------------------------------------------
 
 Since the plugin .so file cannot run by itself, a tricky problem of plugin development emerges, `how to debug a plugin?` 
 

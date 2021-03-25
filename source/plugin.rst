@@ -56,9 +56,7 @@ Imitate and develope your own PicoScenes plugins
 
 “`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
 
-The entire PS-PDK projects is managed by `CMake`, and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder. We have added clear and sufficient comments to the existing code helping you understand the plugin structure, invocation sequence and many operation details.
-
-We recommand JetBrains CLion as the IDE for PicoScenes plugin development. You can modify and debug the existing plugins and finally create your own.
+The entire PS-PDK project is managed by `CMake` and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder. We have added clear and sufficient comments to the existing code helping you understand the plugin structure, invocation sequence and many operation details. We recommand JetBrains CLion as the IDE for PicoScenes plugin development.
 
 Debug PicoScenes plugins
 ----------------------------------------------

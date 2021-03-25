@@ -1,12 +1,12 @@
 Utility Programs and Bash Scripts
 =====================================
 
-Besides the main `PicoScenes` program, we also provide several handy bash scripts.
+Besides the `PicoScenes` main program, we also provide several handy bash scripts.
 
 #. switch5300Firmware: switch between the normal and CSI-measurement firmware for IWL5300 NIC
-    CSI measurement on IWL5300 is empowered by a special CSI measurement firmware, which cannot connect to the encryption-protected Wi-Fi network. To restore the normal connection, you have to switch to the ordinary firmware. This script does the firmware switch. It has three modes:
+    CSI measurement on IWL5300 is powered by a special CSI measurement firmware, which cannot connect to the encryption-protected Wi-Fi network. To restore the regular connection, you have to switch to the ordinary firmware. This script does the firmware switch. It has three modes:
 
-    - Directly run ``switch5300Firmware`` will perform the auto-switching between the ordinary firmware and the CSI firmware.
+    - Running ``switch5300Firmware`` without argument will perform the auto-switching between the ordinary firmware and the CSI firmware.
   
         .. code-block:: bash
 
@@ -20,14 +20,14 @@ Besides the main `PicoScenes` program, we also provide several handy bash script
             Switching to CSI measurement version...
             Reloading iwlwifi module ...
 
-    - Run ``switch5300Firmware csi`` to force switch to CSI firmware
+    - Run ``switch5300Firmware csi`` to force switch to the CSI firmware
         .. code-block:: bash
 
             csi@csi-System:~$ switch5300Firmware csi
             Switching to CSI measurement version...
             Reloading iwlwifi module ...
 
-    - Run ``switch5300Firmware ordinary`` to force switch to ordinary firmware
+    - Run ``switch5300Firmware ordinary`` to force switch to the ordinary firmware
 
         .. code-block:: bash
 

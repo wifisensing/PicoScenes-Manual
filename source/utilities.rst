@@ -114,5 +114,5 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
 
 #. **download_matlab_toolbox: download PicoScenes MATLAB Toolbox**
 
-Besides the above scripts, PicoScenes also ships some other useful scripts. **Some of them are directly invoked by PicoScenes main program**.
-You may view all PicoScenes scripts at ``/usr/local/PicoScenes/bin/scripts``.
+Besides the above scripts, PicoScenes also ships some other useful scripts. Some of them are directly invoked by the PicoScenes main program.
+You may find them at ``/usr/local/PicoScenes/bin/scripts``.

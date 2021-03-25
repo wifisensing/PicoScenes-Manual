@@ -51,7 +51,14 @@ The members and their description in a .csi file are as follows
 
     `header`_, "The header", "struct"
     `basic`_, "The basic information", "struct"
-    `rxExtraInfo`_, "complex doublecomplex doublecomplex doublecomplex doublecomplex doublecomplex doublecomplex doublecomplex double", "struct"
+    `rxExtraInfo`_, "
+    | complex doubleco
+    | mplex doublecomplex doublecomple
+    | x doublecomple
+    | x doublecomplex do
+    | ublecomplex doublecomplex do
+    | uble
+    ", "struct"
     `txExtraInfo`_, "", "struct"
     `channel`_, "", "struct"
     "csi", "CSI data", "complex double"

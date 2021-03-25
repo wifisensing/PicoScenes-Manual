@@ -37,7 +37,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
 
 #. array_status: list all PCI-E connected Wi-Fi NICs
     As discussed in specify_nic, PicoScenes uses an ID system to refer to the specific Wi-Fi NICs. array_status shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is all, which lists all NICs. The following is a sample output:
-    .. code-block:: bash
+    .. code-block:: console
 
         csi@csi-System:~$ array_status
         ----------------------
@@ -51,7 +51,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
 #. array_prepare_for_picoscenes: put the NIC into monitor mode, get them unmanaged by Network-Manager, and more ...
     The most convenient CSI measurement mode for QCA9300 and IWL5300 is the packet injection-monitor mode. Some preparation needs to be done to put NICs in the CSI measurement mode, and ``array_prepare_for_picoscenes`` is the shortcut for the preparation. The following sample command prepares the NICs with PhyPath ``3`` and ``4`` for CSI measurement.
 
-    .. code-block:: bash
+    .. code-block:: console
 
         csi@csi-System:~$ array_prepare_for_picoscenes "3 4" "5200 HT20"
         Change CPU frequency governor to performance ...
@@ -84,7 +84,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
 #. RestoreNetwork: un-prepare the NICs for normal Wi-Fi connections
     Wi-Fi NICs that are prepared by ``array_prepare_for_picoscenes`` cannot connect to normal Wi-Fi networks. You may use RestoreNetwork to restore ordinary Wi-Fi connection.
 
-    .. code-block:: bash
+    .. code-block:: console
 
         csi@csi-System:~$ array_prepare_for_picoscenes "3 4" "5200 HT20"
         Change CPU frequency governor to performance ...

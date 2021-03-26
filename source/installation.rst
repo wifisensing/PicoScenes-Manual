@@ -210,6 +210,8 @@ If your system meets the above requirements, you can start the installation now.
 
     As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit.
 
+.. _install_matlab:
+
 Install PicoScenes MATLAB Toolbox
 ========================================
 

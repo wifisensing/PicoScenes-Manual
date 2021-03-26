@@ -40,10 +40,15 @@ To parse a .csi file, you have three options:
 
 After parsing, you can see a bundle with the same name as the .csi file in the MATLAB workspace.
 
-Data structure member
+Data structure
 ----------------------
 
-Variables and their description in a .csi file are as follows
+This part will show the data structure of the parsed .csi file
+
+If data can be parsed into a bundle, you will get data of the `Bundle Version`_ , otherwise get the `Raw Version`_
+
+Bundle version
+>>>>>>>>>>>>>>>
 
 .. csv-table:: Variables and their description in a packet
     :header: "Variable", "Description", "Value type"
@@ -63,7 +68,7 @@ Variables and their description in a .csi file are as follows
 
 
 header
->>>>>>
+:::::::
 
 .. csv-table:: Variables in header
     :header: "Variable", "Description", "Value type"
@@ -80,7 +85,7 @@ header
     "TxId", "", "uint16"
 
 basic
->>>>>>
+:::::
 
 .. csv-table:: Variables in basic
     :header: "Variable", "Description", "Value type"
@@ -103,7 +108,7 @@ basic
     "rssi3", "", "uint8"
 
 rxExtraInfo
->>>>>>>>>>>>>
+:::::::::::::::
 
 .. csv-table:: Variables in rxExtraInfo
     :header: "Variable", "Description", "Value type"
@@ -127,7 +132,7 @@ rxExtraInfo
     "pll_refdiv", "", "uint8"
 
 txExtraInfo
->>>>>>>>>>>>>>
+:::::::::::::
 
 .. csv-table:: Variables in txExtraInfo
     :header: "Variable", "Description", "Value type"
@@ -152,7 +157,7 @@ txExtraInfo
     "pll_refdiv", "", "uint8"
 
 channel
->>>>>>>>>>>
+:::::::::::::::
 
 .. csv-table:: Variables in channel
     :header: "Variable", "Description", "Value type"
@@ -171,7 +176,7 @@ channel
     "ant_sel", "", "uint8"
 
 baseband
->>>>>>>>>>>
+::::::::::::::
 
 .. csv-table:: Variables in baseband
     :header: "Variable", "Description", "Value type"
@@ -180,3 +185,98 @@ baseband
     "LegacyCSI", ""
     "basebandSignals", ""
     "PreEQSymbols", ""
+
+
+Raw version
+>>>>>>>>>>>>>>>
+
+.. csv-table:: Variables and their description (raw version)
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 40, 20
+
+    `StandardHeader`_, "", "struct"
+    "RxSBasic_", "The basic information, same as the basic of bundle version", "struct"
+    "RxExtraInfo", "The content in rxExtraInfo_ plus the content in ExtraInfo_", "struct"
+    "TxExtraInfo", "The content in txExtraInfo_ plus the content in ExtraInfo_", "struct"
+    "CSI", "The content in channel_ plus CSI, Mag, Phase and SubcarrierIndex", "struct"
+    `PicoScenesHeader`_, "", "struct"
+    "MPDU", "", "uint8"
+
+.. _RxSBasic: `basic`_
+
+StandardHeader
+:::::::::::::::
+
+.. csv-table:: Variables in StandardHeader
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 40, 20
+
+    `ControlField`_, "The header", "struct"
+    "Addr1", "", "uint8"
+    "Addr2", "", "uint8"
+    "Addr3", "", "uint8"
+    "Fragment", "", "uint16"
+    "Sequence", "", "uint16"
+
+ControlField
+'''''''''''''
+
+.. csv-table:: Variables in ControlField
+    :header: "Variable", "Description", "Value Type"
+    :widths: 20, 40, 20
+
+    "Version", "", "uint16"
+    "Type", "", "uint16"
+    "SubType", "", "uint16"
+    "ToDS", "", "uint16"
+    "MoreFrags", "", "uint16"
+    "Retry", "", "uint16"
+    "PowerManagement", "", "uint16"
+    "More", "", "uint16"
+    "Protected", "", "uint16"
+    "Order", "", "uint16"
+
+PicoScenesHeader
+::::::::::::::::
+
+.. csv-table:: Variables in PicoScenesHeader
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 40, 20
+
+    "MagicValue", "", "uint32"
+    "Version", "", "uint32"
+    "DeviceType", "", "uint16"
+    "FrameType", "", "uint8"
+    "TaskId", "", "uint16"
+    "TxId", "", "uint16"
+
+ExtraInfo
+::::::::::::
+
+.. csv-table:: Variables in extraInfo
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 40, 20
+
+    "version", "", "uint64"
+    "hasLength", "", "uint8"
+    "hasVersion", "", "uint8"
+    "hasMacAddr_cur", "", "uint8"
+    "hasMacAddr_rom", "", "uint8"
+    "hasChansel", "", "uint8"
+    "hasBMode", "", "uint8"
+    "hasEVM", "", "uint8"
+    "hasTxChainMask", "", "uint8"
+    "hasRxChainMask", "", "uint8"
+    "hasTxpower", "", "uint8"
+    "hasCFO", "", "uint8"
+    "hasTxTSF", "", "uint8"
+    "hasLastHwTxTSF", "", "uint8"
+    "hasChannelFlags", "", "uint8"
+    "hasTxNess", "", "uint8"
+    "hasTuningPolicy", "", "uint8"
+    "hasPLLRate", "", "uint8"
+    "hasPLLClkSel", "", "uint8"
+    "hasPLLRefDiv", "", "uint8"
+    "hasAGC", "", "uint8"
+    "hasAntennaSelection", "", "uint8"
+    "hasSamplingRate", "", "uint8"

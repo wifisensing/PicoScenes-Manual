@@ -6,7 +6,7 @@ Installation PicoScenes
 Hardware Installation
 =======================
 
-PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, two USRP models, the N210 and X310 models. For other USRP models, such as the B200/E300/N300 series, PicoScenes *should* be able to support them. However, the incompatibility caused by hardware variations is possible.
+PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and literally all USRP models. Among them, B210, N210 and X310 models have been practically tested in our lab. For other high-end USRP models, such as the E300/N300 series, PicoScenes *should* be able to support them in out-of-box way.
 
 One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -279,7 +279,9 @@ The following shows some of the most frequent errors and their solutions for qui
 A: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problem, you may seek :ref:`tech_support`.
 
 
+**Q2**: I encounter an error during USRP B200 series installation, "Could not find the image 'usrp_b200_fw.hex' in the image directory /usr/share/uhd/images ...."
 
+A: run ``sudo /usr/lib/uhd/utils/uhd_images_downloader.py`` to download **all** USRP images.
 
 
 

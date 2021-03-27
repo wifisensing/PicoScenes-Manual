@@ -30,7 +30,7 @@ In the following, we briefly introduce the resulting data structures of the Raw 
 Raw version
 >>>>>>>>>>>>>>>
 
-Each cell of the Raw Parsing result contains the following items:
+Each cell of the Raw Parsing result contains the following items. You may click the links on the left to view its detailed structure.
 
 .. csv-table:: Variables and their description (raw version)
     :header: "Variable", "Description", "Value type"

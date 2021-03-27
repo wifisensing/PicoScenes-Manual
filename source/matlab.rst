@@ -36,13 +36,13 @@ Each cell of the Raw Parsing result contains the following items:
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    `StandardHeader`_, "802.11 Standard header content", "MATLAB struct"
-    "RxSBasic_", "The basic information, same as the basic of bundle version", "MATLAB struct"
-    "RxExtraInfo", "The content in rxExtraInfo_ plus the content in ExtraInfo_", "MATLAB struct"
-    "TxExtraInfo", "The content in txExtraInfo_ plus the content in ExtraInfo_", "MATLAB struct"
-    "CSI", "The content in channel_ plus CSI, Mag, Phase and SubcarrierIndex", "MATLAB struct"
-    `PicoScenesHeader`_, "", "MATLAB struct"
-    "MPDU", "", "uint8"
+    `StandardHeader`_, "802.11 MAC header", "MATLAB struct"
+    "RxSBasic_", "Channel information (basic set)", "MATLAB struct"
+    "RxExtraInfo", "Extra channel information measured at Rx end", "MATLAB struct"
+    "TxExtraInfo", "Extra channel information measured at Tx end (optional)", "MATLAB struct"
+    "CSI", "CSI information", "MATLAB struct"
+    `PicoScenesHeader`_, "PicoScenes Header (optional)", "MATLAB struct"
+    "MPDU", "Raw MPDU data wo/ FCS", "uint8 array"
 
 .. _RxSBasic: `basic`_
 

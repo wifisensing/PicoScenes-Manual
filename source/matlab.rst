@@ -23,25 +23,25 @@ Data Structure
 
 The PMT parses the .csi files in two stages, the Raw Parsing and Bundled Parsing. 
     - The Raw Parsing: PMT first parses the per-CSI measurement into a MATLAB `cell`. If a .csi file contains :math:`N` CSI measurements, the Raw Parsing will produce a measurement cell array with :math:`N` elements. This parsing level is mandatory for next-level processing. However, CSI measurements being separated in MATLAB cells is apparently not convenient for further analysis.
-    - The Bundled Parsing: To overcome the inconveniences of the Raw Parsing, PMT tries to merge the cells into a unified structure--much easier for analysis. However, the merging may fail if the internal data structure are different across all measurements.
+    - The Bundled Parsing: To overcome the inconveniences of the Raw Parsing, PMT tries to merge the cells into a unified structure--much easier for analysis. However, the merging may fail if the internal data structures are different across all measurements.
 
-In the following, we briefly introduce the data structures of raw version and the bundled version.
+In the following, we briefly introduce the resulting data structures of the Raw Parsing and the Bundled Parsing.
 
 Raw version
 >>>>>>>>>>>>>>>
 
-Each cell of the Raw Parsing contains the following items:
+Each cell of the Raw Parsing result contains the following items:
 
 .. csv-table:: Variables and their description (raw version)
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    `StandardHeader`_, "802.11 Standard header content", "struct"
-    "RxSBasic_", "The basic information, same as the basic of bundle version", "struct"
-    "RxExtraInfo", "The content in rxExtraInfo_ plus the content in ExtraInfo_", "struct"
-    "TxExtraInfo", "The content in txExtraInfo_ plus the content in ExtraInfo_", "struct"
-    "CSI", "The content in channel_ plus CSI, Mag, Phase and SubcarrierIndex", "struct"
-    `PicoScenesHeader`_, "", "struct"
+    `StandardHeader`_, "802.11 Standard header content", "MATLAB struct"
+    "RxSBasic_", "The basic information, same as the basic of bundle version", "MATLAB struct"
+    "RxExtraInfo", "The content in rxExtraInfo_ plus the content in ExtraInfo_", "MATLAB struct"
+    "TxExtraInfo", "The content in txExtraInfo_ plus the content in ExtraInfo_", "MATLAB struct"
+    "CSI", "The content in channel_ plus CSI, Mag, Phase and SubcarrierIndex", "MATLAB struct"
+    `PicoScenesHeader`_, "", "MATLAB struct"
     "MPDU", "", "uint8"
 
 .. _RxSBasic: `basic`_
@@ -53,7 +53,7 @@ StandardHeader
     :header: "Variable", "Description", "Value type"
     :widths: 20, 40, 20
 
-    `ControlField`_, "The header", "struct"
+    `ControlField`_, "The header", "MATLAB struct"
     "Addr1", "", "uint8"
     "Addr2", "", "uint8"
     "Addr3", "", "uint8"
@@ -131,16 +131,16 @@ Bundle version
     :header: "Variable", "Description", "Value type"
     :widths: 20, 40, 20
 
-    `header`_, "The header", "struct"
-    `basic`_, "The basic information", "struct"
-    `rxExtraInfo`_, "", "struct"
-    `txExtraInfo`_, "", "struct"
-    `channel`_, "channel information", "struct"
+    `header`_, "The header", "MATLAB struct"
+    `basic`_, "The basic information", "MATLAB struct"
+    `rxExtraInfo`_, "", "MATLAB struct"
+    `txExtraInfo`_, "", "MATLAB struct"
+    `channel`_, "channel information", "MATLAB struct"
     "csi", "CSI data", "complex double"
     "mag", "CSI Magnitude(dB), parsed from CSI", "double"
     "phase", "CSI Phase(rad), parsed from CSI", "double"
     "subcarrierIndex", "Index for each subcarrier", "int16"
-    `baseband`_, "", "struct"
+    `baseband`_, "", "MATLAB struct"
     "bundleName", "Bundle's name, as same as .csi file name", "string"
 
 

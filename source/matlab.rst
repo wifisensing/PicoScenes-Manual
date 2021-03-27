@@ -53,12 +53,12 @@ StandardHeader
     :header: "Variable", "Description", "Value type"
     :widths: 20, 40, 20
 
-    `ControlField`_, "The header", "MATLAB struct"
-    "Addr1", "", "uint8"
-    "Addr2", "", "uint8"
-    "Addr3", "", "uint8"
-    "Fragment", "", "uint16"
-    "Sequence", "", "uint16"
+    `ControlField`_, "The Frame Control field", "MATLAB struct"
+    "Addr1", "Address 1", "uint8"
+    "Addr2", "Address 2", "uint8"
+    "Addr3", "Address 3", "uint8"
+    "Fragment", "Fragment Number", "uint16"
+    "Sequence", "Sequence Number", "uint16"
 
 ControlField
 '''''''''''''
@@ -67,16 +67,17 @@ ControlField
     :header: "Variable", "Description", "Value Type"
     :widths: 20, 40, 20
 
-    "Version", "", "uint16"
-    "Type", "", "uint16"
-    "SubType", "", "uint16"
-    "ToDS", "", "uint16"
-    "MoreFrags", "", "uint16"
-    "Retry", "", "uint16"
-    "PowerManagement", "", "uint16"
-    "More", "", "uint16"
-    "Protected", "", "uint16"
-    "Order", "", "uint16"
+    "Version", "802.11 Protocol Version 2-bit", "uint16"
+    "Type", "Frame Type 2-bit", "uint16"
+    "SubType", "Frame Subtype 4-bit", "uint16"
+    "ToDS", "To DS bit", "uint16"
+    "FromDS", "From DS bit", "uint16"
+    "MoreFrags", "More Fragment bit", "uint16"
+    "Retry", "Retry bit", "uint16"
+    "PowerManagement", "Power Management bit", "uint16"
+    "More", "More Data bit", "uint16"
+    "Protected", "Protected Frame bit", "uint16"
+    "Order", "+HTC/Order bit", "uint16"
 
 PicoScenesHeader
 ::::::::::::::::

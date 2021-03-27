@@ -5,7 +5,7 @@ PicoScenes MATLAB Toolbox (PMT) enables MATLAB to parse the '.csi' file generate
 
 System Requirement & Installation
 -----------------------------------------
-Before getting started, you should refer to  :doc:`installation` and :ref:`install_matlab` for the installation process.
+Before getting started with PMT, make sure PicoScenes and PMT are both correctly installed. Refer to  :doc:`installation` and :ref:`install_matlab` for more details.
 
 Usage
 -------------------
@@ -13,17 +13,17 @@ To parse a .csi file, you have three options:
 
     #. Double-click the selected .csi file in MATLAB Current Folder;
     #. Drag'n'Drop one or multiple .csi files into MATLAB Command Window;
-    #. Open .csi FileBatchLoader APP, a MATLAB APP, click 'Select .csi Files' and choose .csi files or directories.
+    #. Open `CSI File Batch Loader` App, a MATLAB App, click 'Select .csi files' and select the .csi files or the directories containing .csi files;
     #. run ``opencsi(FILE_PATH)``
 
-After parsing, you will see bundles with the same names as the .csi files in the MATLAB Workspace.
+After parsing, you will see bundles with the same names as the .csi files in MATLAB Workspace.
 
 Data Structure
 ----------------------
 
-The parsing has two stages, namely the Raw Parsing and Bundled Parsing. 
-    - The Raw Parsing: PMT first parses the per-CSI measurement into each MATLAB `cell` and :math:`N` CSI measurements corresponds to :math:`N` cells. This level of parsing is mandatory for upper-level processing. However, continuous CSI measurement are scattered into each MATLAB cell, which is not convenient for further analysis.
-    - The Bundle Parsing: To overcome the inconveniences of the Raw Parsing, PMT will try to merge the cells into one unified structure--much easier for analysis. However, this stage may fail, if there are `outliers`.
+The PMT parses the .csi files in two stages, the Raw Parsing and Bundled Parsing. 
+    - The Raw Parsing: PMT first parses the per-CSI measurement into a MATLAB `cell`. If a .csi file contains :math:`N` CSI measurements, the Raw Parsing will produce a measurement cell array with :math:`N` elements. This parsing level is mandatory for next-level processing. However, CSI measurements being separated in MATLAB cells is apparently not convenient for further analysis.
+    - The Bundled Parsing: To overcome the inconveniences of the Raw Parsing, PMT tries to merge the cells into a unified structure--much easier for analysis. However, the merging may fail if the internal data structure are different across all measurements.
 
 In the following, we briefly introduce the data structures of raw version and the bundled version.
 

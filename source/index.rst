@@ -18,10 +18,8 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
 
 News
 ------------------
-- Mar. 23, 2021: Installation section finished.
-- Mar. 20, 2021: Add ten typical CSI measurement scenarios
-- Mar. 16, 2021: Add hardware installation
-- Mar. 11, 2021: Start writing documents.
+
+- Mar. 26, 2021: PicoScenes adds support for USRP B200 series SDR.
 
 .. toctree::
    :maxdepth: 3

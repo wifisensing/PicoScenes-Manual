@@ -10,4 +10,6 @@ PicoScenes has entered the Public Test phase. During this period, we issue the F
 Development Status
 ========================
 
+Mar. 26, 2021: PicoScenes now supports USRP B200 series SDR.
+
 Mar. 25, 2021: doing the final perfection, fixing bugs and adding documentation.

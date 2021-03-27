@@ -30,7 +30,7 @@ You may have noticed the problems that the system-assigned NIC IDs are not consi
 For USRP devices
 ~~~~~~~~~~~~~~~~~~~~
 
-We devise a simple and intuitive naming/ID method for USRP-- ``usrp<IPADDRESS_or_RESOURCEID>``. For example, for an X310 with IP address 192.168.40.2, it can be represented by ``usrp192.168.40.2``.
+We devise a simple and intuitive naming/ID method for USRP-- ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID>``. For example, for an X310 with IP address 192.168.40.2, it can be represented by ``usrp192.168.40.2``.
 The combined form of multiple USRPs can also be easily represented. For example, the combined form of two X310s can be represented by ``usrp192.168.40.2,192.168.41.2``.
 
 .. important:: The order of the IP address matters! For example, 0-th and 3rd channel of ``usrp192.168.40.2,192.168.41.2`` refers to the first channel of the X310 with IP address 192.168.40.2 and the second channel of X310 with IP address 192.168.41.2.

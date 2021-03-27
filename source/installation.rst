@@ -6,7 +6,7 @@ Installation PicoScenes
 Hardware Installation
 =======================
 
-PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, two USRP models, the N210 and X310 models. For other USRP models, such as the B200/E300/N300 series, PicoScenes *should* be able to support them. However, the incompatibility caused by hardware variations is possible.
+PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and literally all USRP models. Among them, B210, N210 and X310 models have been practically tested in our lab. For other high-end USRP models, such as the E300/N300 series, PicoScenes *should* be able to support them in out-of-box way.
 
 One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -68,6 +68,7 @@ PicoScenes’s support for USRP devices is established upon UHD software, the US
 Some suggestions based on our previous experience:
     - For X310, **don't use the PCI-E cable-based connection**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X310; therefore multi-X310 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
     - For both N210/X310, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N210 and X310 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X310s or eight independent full-duplex channels.
+    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRPs of the same model, and currently only N2x0 and X3x0 series are combination-ready.
     - For both the N210 and X310, please consider using the UBX-40/UBX-160 daughterboard first. UBX-40 and UBX-160, though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can you realize the phased-array functionality.
     - Please pay special attention to the allocation of IP addresses. For network-based connections, the NIC port and the connected USRP must be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
     - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
@@ -248,7 +249,7 @@ In a few seconds, seeing similar messages shown in the picture below means that 
 Verify the installation
 ++++++++++++++++++++++++++
 
-In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, **draw-n-drop** the two sample .csi files into Command Window.  On requesting to parse .csi files for the first time, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
+In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, *drag'n'drop* the two sample .csi files into Command Window.  On requesting to parse .csi files for the first time, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
 
 Performance Tuning (for Heavy SDR User)
 =========================================
@@ -279,7 +280,9 @@ The following shows some of the most frequent errors and their solutions for qui
 A: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` again to sync your local apt cache. If you still encounter this problem, you may seek :ref:`tech_support`.
 
 
+**Q2**: I encounter an error during USRP B200 series installation, "Could not find the image 'usrp_b200_fw.hex' in the image directory /usr/share/uhd/images ...."
 
+A: run ``sudo /usr/lib/uhd/utils/uhd_images_downloader.py`` to download **all** USRP images.
 
 
 

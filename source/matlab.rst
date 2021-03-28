@@ -5,16 +5,16 @@ PicoScenes MATLAB Toolbox (PMT) enables MATLAB to parse the '.csi' file generate
 
 System Requirement & Installation
 -----------------------------------------
-Before getting started with PMT, make sure PicoScenes and PMT are both correctly installed. Refer to  :doc:`installation` and :ref:`install_matlab` for more details.
+Before getting started with PMT, make sure PicoScenes and PMT are both correctly installed. Refer to  :doc:`installation` and :ref:`install_matlab` for detailed installation steps.
 
 Usage
 -------------------
-To parse a .csi file, you have three options:
+You have four ways to parse a .csi file:
 
     #. Double-click the selected .csi file in MATLAB Current Folder;
     #. Drag'n'Drop one or multiple .csi files into MATLAB Command Window;
     #. Open `CSI File Batch Loader` App, a MATLAB App, click 'Select .csi files' and select the .csi files or the directories containing .csi files;
-    #. run ``opencsi(FILE_PATH)``
+    #. run ``opencsi(FILE_PATH)`` in MATLAB Command Window, where `FILE_PATH` is the path to the selected .csi file.
 
 After parsing, you will see bundles with the same names as the .csi files in MATLAB Workspace.
 
@@ -37,21 +37,22 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     :widths: 20, 60, 20
 
     `StandardHeader`_, "802.11 MAC header", "MATLAB struct"
-    "RxSBasic_", "Channel information (basic set)", "MATLAB struct"
-    "RxExtraInfo", "Extra channel information measured at Rx end", "MATLAB struct"
-    "TxExtraInfo", "Extra channel information measured at Tx end (optional)", "MATLAB struct"
-    "CSI", "CSI information", "MATLAB struct"
-    `PicoScenesHeader`_, "PicoScenes Header (optional)", "MATLAB struct"
-    "MPDU", "Raw MPDU data wo/ FCS", "uint8 array"
+    `RxSBasic`_, "RxSBasic Segment", "MATLAB struct"
+    "RxExtraInfo", "ExtraInfo Segment (measured at Rx end)", "MATLAB struct"
+    "CSI", "CSI Segment", "MATLAB struct"
+    "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
+    `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
+    "TxExtraInfo", "ExtraInfo Segment (measured at Tx end, optional)", "MATLAB struct"
+    "Baseband", "Baseband Signal Segment (measured at Rx end, for USRP frontend)", "MATLAB struct"
 
-.. _RxSBasic: `basic`_
+.. _StandardHeader:
 
-StandardHeader
+Standard Header
 :::::::::::::::
 
 .. csv-table:: Variables of StandardHeader struct
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     `ControlField`_, "The Frame Control field", "MATLAB struct"
     "Addr1", "Address 1", "uint8"
@@ -60,12 +61,14 @@ StandardHeader
     "Fragment", "Fragment Number", "uint16"
     "Sequence", "Sequence Number", "uint16"
 
-ControlField
+.. _ControlField:
+
+Control Field
 '''''''''''''
 
 .. csv-table:: Variables in ControlField
     :header: "Variable", "Description", "Value Type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "Version", "802.11 Protocol Version 2-bit", "uint16"
     "Type", "Frame Type 2-bit", "uint16"
@@ -79,28 +82,56 @@ ControlField
     "Protected", "Protected Frame bit", "uint16"
     "Order", "+HTC/Order bit", "uint16"
 
-PicoScenesHeader
-::::::::::::::::
+.. _RxSBasic:
 
-.. csv-table:: Variables in PicoScenesHeader
+RXSBasic Segment
+::::::::::::::::::::
+
+.. csv-table:: Variables in basic
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
-    "MagicValue", "", "uint32"
-    "Version", "", "uint32"
-    "DeviceType", "", "uint16"
-    "FrameType", "", "uint8"
-    "TaskId", "", "uint16"
-    "TxId", "", "uint16"
+    "deviceType", "The type of device sending the data", "uint16"
+    "timestamp", "The timestamp when the subcarrier was received", "uint64"
+    "channelFreq", "Carrier frequency in MHz", "uint16"
+    "packetFormat", "0/1/2/3/4 for NonHT, HT, VHT, HE-SU and HE-MU, respectively", "int8"
+    "CBW", "Channel BandWidth, 20/40/80/160 for HT20/HT40+ or -/VHT(or HE)80/VHT(or HE)160 format", "uint16"
+    "GI", "Guard Interval, 400/800/1600/3200 for 0.4/0.8/1.6/3.2us", "uint16"
+    "MCS", "MCS index, in 802.11ac/ax format (no spatial streams)", "uint8"
+    "numSTS", "Number of Space-Time Streams", "uint8"
+    "numESS", "Number of Extra Spatial Sounding (802.11n feat.)", "uint8"
+    "numRx", "Number of Rx Chains", "uint8"
+    "noiseFloor", "Baseband noise floor", "int8"
+    "rssi", "RSSI value(dBm)", "uint8"
+    "rssi1", "RSSI of the 1st radio chain", "uint8"
+    "rssi2", "RSSI of the 2nd radio chain", "uint8"
+    "rssi3", "RSSI of the 3rd radio chain", "uint8"
+
+        
+.. _PicoScenesHeader:
+
+PicoScenes Common Header
+::::::::::::::::::::::::::
+
+.. csv-table:: Variables of PicoScenes Common Header struct
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 60, 20
+
+    "MagicValue", "a fixed value of 0x20150315, used for PicoScenes Common Header identification", "uint32"
+    "Version", "Version number of PicoScenes Common Header", "uint32"
+    "DeviceType", "Device Type Id (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "uint16"
+    "FrameType", "The frame type ID defined by PicoScenes plugins", "uint8"
+    "TaskId", "A general-purpose random ID, used for packet alignment", "uint16"
+    "TxId", "A general-purpose random ID, used for Tx sequence tracking", "uint16"
 
 ExtraInfo
 ::::::::::::
 
 .. csv-table:: Variables in extraInfo
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
-    "version", "", "uint64"
+    "version", "The version of ExtraInfo Segment", "uint64"
     "hasLength", "", "uint8"
     "hasVersion", "", "uint8"
     "hasMacAddr_cur", "", "uint8"
@@ -130,7 +161,7 @@ Bundle version
 
 .. csv-table:: Variables and their description in a packet
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     `header`_, "The header", "MATLAB struct"
     `basic`_, "The basic information", "MATLAB struct"
@@ -150,7 +181,7 @@ header
 
 .. csv-table:: Variables in header
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "Addr1", "", "uint8"
     "Addr2", "", "uint8"
@@ -162,35 +193,12 @@ header
     "TaskId", "", "uint16"
     "TxId", "", "uint16"
 
-basic
-:::::
-
-.. csv-table:: Variables in basic
-    :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
-
-    "deviceType", "The type of device sending the data", "uint16"
-    "timestamp", "The timestamp when the subcarrier was received", "uint64"
-    "channelFreq", "", "uint16"
-    "packetFormat", "", "int8"
-    "CBW", "Carrier BandWidth", "uint16"
-    "GI", "Guard Interval for each subcarrier", "uint16"
-    "MCS", "Modulation and Coding Scheme index", "uint8"
-    "numSTS", "", "uint8"
-    "numESS", "", "uint8"
-    "numRx", "", "uint8"
-    "noiseFloor", "", "int8"
-    "rssi", "RSSI value(dB)", "uint8"
-    "rssi1", "", "uint8"
-    "rssi2", "", "uint8"
-    "rssi3", "", "uint8"
-
 rxExtraInfo
 :::::::::::::::
 
 .. csv-table:: Variables in rxExtraInfo
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "version", "", "uint64"
     "txchansel", "", "uint32"
@@ -214,7 +222,7 @@ txExtraInfo
 
 .. csv-table:: Variables in txExtraInfo
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "version", "", "uint64"
     "txchansel", "", "uint32"
@@ -239,7 +247,7 @@ channel
 
 .. csv-table:: Variables in channel
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "DeviceType", "The type of device sending the data", "double"
     "PacketFormat", "", "double"
@@ -258,7 +266,7 @@ baseband
 
 .. csv-table:: Variables in baseband
     :header: "Variable", "Description", "Value type"
-    :widths: 20, 40, 20
+    :widths: 20, 60, 20
 
     "LegacyCSI", ""
     "basebandSignals", ""

@@ -1,5 +1,5 @@
 ============================
-Installation PicoScenes
+PicoScenes Installation
 ============================
 
 

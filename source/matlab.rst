@@ -49,7 +49,7 @@ Each cell of the Raw Parsing result contains the following items. You may click 
 StandardHeader
 :::::::::::::::
 
-.. csv-table:: Variables in StandardHeader
+.. csv-table:: Variables of StandardHeader struct
     :header: "Variable", "Description", "Value type"
     :widths: 20, 40, 20
 

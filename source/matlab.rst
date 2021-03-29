@@ -127,33 +127,34 @@ PicoScenes Common Header
 ExtraInfo
 ::::::::::::
 
-.. csv-table:: Variables in extraInfo
+.. csv-table:: Variables in ExtraInfo
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
     "version", "The version of ExtraInfo Segment", "uint64"
-    "hasLength", "", "uint8"
-    "hasVersion", "", "uint8"
-    "hasMacAddr_cur", "", "uint8"
-    "hasMacAddr_rom", "", "uint8"
-    "hasChansel", "", "uint8"
-    "hasBMode", "", "uint8"
-    "hasEVM", "", "uint8"
-    "hasTxChainMask", "", "uint8"
-    "hasRxChainMask", "", "uint8"
-    "hasTxpower", "", "uint8"
-    "hasCFO", "", "uint8"
-    "hasTxTSF", "", "uint8"
-    "hasLastHwTxTSF", "", "uint8"
-    "hasChannelFlags", "", "uint8"
-    "hasTxNess", "", "uint8"
-    "hasTuningPolicy", "", "uint8"
-    "hasPLLRate", "", "uint8"
-    "hasPLLClkSel", "", "uint8"
-    "hasPLLRefDiv", "", "uint8"
-    "hasAGC", "", "uint8"
-    "hasAntennaSelection", "", "uint8"
-    "hasSamplingRate", "", "uint8"
+    "hasLength", "Boolean indicating if length field presents in the ExtraInfor segment.", "uint8"
+    "hasVersion", "Boolean indicating if version field presents in the ExtraInfor segment.", "uint8"
+    "hasMacAddr_cur", "Boolean indicating if current MAC Address presents in the ExtraInfor segment.", "uint8"
+    "hasMacAddr_rom", "Boolean indicating if hardware MAC Address presents in the ExtraInfor segment.", "uint8"
+    "hasChansel", "Boolean indicating if QCA9300 CHANSEL field presents in the ExtraInfor segment.", "uint8"
+    "hasBMode", "Boolean indicating if QCA9300 BMode field presents in the ExtraInfor segment.", "uint8"
+    "hasEVM", "Boolean indicating if EVM field presents in the ExtraInfor segment.", "uint8"
+    "hasTxChainMask", "Boolean indicating if Tx chain mask presents in the ExtraInfor segment.", "uint8"
+    "hasRxChainMask", "Boolean indicating if Rx chain mask presents in the ExtraInfor segment.", "uint8"
+    "hasTxpower", "Boolean indicating if Tx transmit power presents in the ExtraInfor segment.", "uint8"
+    "hasTxTSF", "Boolean indicating if (QCA9300) scheduled Tx time field presents in the ExtraInfor segment.", "uint8"
+    "hasLastHwTxTSF", "Boolean indicating if (QCA9300) last Tx time field presents in the ExtraInfor segment.", "uint8"
+    "hasChannelFlags", "Boolean indicating if QCA9300/IWL5300 channel flag presents in the ExtraInfor segment.", "uint8"
+    "hasTxNess", "Boolean indicating if Tx Number of Extra Spatial Sounding (NESS) field presents in the ExtraInfor segment.", "uint8"
+    "hasTuningPolicy", "Boolean indicating if (QCA9300) carrier frequency tuning policy field presents in the ExtraInfor segment.", "uint8"
+    "hasPLLRate", "Boolean indicating if QCA9300 PLL rate field presents in the ExtraInfor segment.", "uint8"
+    "hasPLLClkSel", "Boolean indicating if QCA9300 PLL clock selector field presents in the ExtraInfor segment.", "uint8"
+    "hasPLLRefDiv", "Boolean indicating if QCA9300 PLL Reference clock divider field presents in the ExtraInfor segment.", "uint8"
+    "hasAGC", "Boolean indicating if AGC field presents in the ExtraInfor segment.", "uint8"
+    "hasAntennaSelection", "Boolean indicating if IWL5300 antenna permutation field presents in the ExtraInfor segment.", "uint8"
+    "hasSamplingRate", "Boolean indicating if baseband sampling rate presents in the ExtraInfor segment.", "uint8"
+    "hasCFO", "Boolean indicating if carrier frequency offset field presents in the ExtraInfor segment.", "uint8"
+    
 
 
 Bundle version

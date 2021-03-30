@@ -216,16 +216,40 @@ If your system meets the above requirements, you can start the installation now.
 Install PicoScenes MATLAB Toolbox
 ========================================
 
+PicoScenes MATLAB Toolbox can work on Windows 10, Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). So you can install PicoScenes MATLAB Toolbox on Windows 10 or Ubuntu 20.04. You must do some preparatory work before you install PicoScenes MATLAB Toolbox.
+
+Preparation work on Windows 10 OS
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Assuming the installation path of mingw64 is ``D:\Develop\mingw``.
+
+- Install MATLAB(minimum version is R2020b);
+- Install mingw64(minimum version of gcc is 8.1);
+- Configure your system environment variables of mingw64. Add ``D:\Develop\mingw\bin`` in your ``Path``;
+- Configure MATLAB environment variables of mingw64. Open your MATLAB, run ``setenv('MW_MINGW64_LOC', 'D:\Develop\mingw')`` in command window, then run ``mex -setup C++``.
+
+Preparation work on Ubuntu 20.04
++++++++++++++++++++++++++++++++++++
+
+- Install MATLAB(minimum version is R2020b);
+- Install gcc through APT.
+
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++
 
-Once PicoScenes is successfully installed, a bash script is provided to download the latest PicoScenes MATLAB Toolbox. Open a terminal and run the following command:
+On Ubuntu, you have two ways to download PicoScenes MATLAB Toolbox:
+
+- Once PicoScenes is successfully installed, a bash script is provided to download the latest PicoScenes MATLAB Toolbox. Open a terminal and run the following command:
         
     .. code-block:: bash
 
         download_matlab_toolbox
 
 The script will download the archive file of PicoScenes MATLAB Toolbox ``PicoScenes-MATLAB-Toolbox.tar.gz`` to your *present working directory (pwd)*. You may unzip it to you ``${HOME}`` by some GUI programs or by a bash command ``tar -zxf PicoScenes-MATLAB-Toolbox.tar.gz ~``.
+
+- Click the :download:`PicoScenes MATLAB Toolbox <https://zpj.io/PicoScenes/matlab-toolbox/PicoScenes-MATLAB-Toolbox.tar.gz>` link to download.
+
+On Windows 10, the only way to download PicoScenes MATLAB Toolbox is click the download link above.
 
 Install PicoScenes MATLAB Toolbox (in MATLAB)
 ++++++++++++++++++++++++++++++++++++++++++++++
@@ -235,6 +259,7 @@ Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox
     .. code-block:: matlab
 
         install_PicoScenes_MATLAB_Toolbox
+        compileRXSParser
 
 In a few seconds, seeing similar messages shown in the picture below means that you have successfully installed the PicoScenes MATLAB Toolbox.
 

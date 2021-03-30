@@ -165,53 +165,6 @@ ExtraInfo
     "hasAntennaSelection", "Boolean indicating if IWL5300 antenna permutation field presents in the ExtraInfo segment.", "uint8"
     "hasSamplingRate", "Boolean indicating if baseband sampling rate presents in the ExtraInfo segment.", "uint8"
     "hasCFO", "Boolean indicating if carrier frequency offset field presents in the ExtraInfo segment.", "uint8"
-
-
-
-Bundle version
->>>>>>>>>>>>>>>
-
-.. csv-table:: Variables and their description in a packet
-    :header: "Variable", "Description", "Value type"
-    :widths: 20, 60, 20
-
-    `header`_, "The header", "MATLAB struct"
-    `basic`_, "The basic information", "MATLAB struct"
-    `rxExtraInfo`_, "", "MATLAB struct"
-    `txExtraInfo`_, "", "MATLAB struct"
-    `channel`_, "channel information", "MATLAB struct"
-    "csi", "CSI data", "complex double"
-    "mag", "CSI Magnitude(dB), parsed from CSI", "double"
-    "phase", "CSI Phase(rad), parsed from CSI", "double"
-    "subcarrierIndex", "Index for each subcarrier", "int16"
-    `baseband`_, "", "MATLAB struct"
-    "bundleName", "Bundle's name, as same as .csi file name", "string"
-
-
-header
-:::::::
-
-.. csv-table:: Variables in header
-    :header: "Variable", "Description", "Value type"
-    :widths: 20, 60, 20
-
-    "Addr1", "", "uint8"
-    "Addr2", "", "uint8"
-    "Addr3", "", "uint8"
-    "Fragment", "", "uint16"
-    "Sequence", "", "uint16"
-    "DeviceType", "The type of device sending the data", "uint16"
-    "FrameType", "", "uint8"
-    "TaskId", "", "uint16"
-    "TxId", "", "uint16"
-
-rxExtraInfo
-:::::::::::::::
-
-.. csv-table:: Variables in rxExtraInfo
-    :header: "Variable", "Description", "Value type"
-    :widths: 20, 60, 20
-
     "version", "", "uint64"
     "txchansel", "", "uint32"
     "txbmode", "", "uint8"
@@ -228,31 +181,30 @@ rxExtraInfo
     "pll_rate", "", "uint16"
     "pll_clock_select", "", "uint8"
     "pll_refdiv", "", "uint8"
+    "sf", "Sampling frequency", "uint64"
+    "txtsf", "", "uint32"
+    "tx_ness", "", "uint8"
 
-txExtraInfo
-:::::::::::::
 
-.. csv-table:: Variables in txExtraInfo
+
+Bundle version
+>>>>>>>>>>>>>>>
+
+.. csv-table:: Variables and their description in a packet
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "version", "", "uint64"
-    "txchansel", "", "uint32"
-    "txbmode", "", "uint8"
-    "txmacaddr_rom", "", "char"
-    "txmacaddr_cur", "", "char"
-    "tx_chainmask", "", "uint8"
-    "rx_chainmask", "", "uint8"
-    "txpower", "Transmit power of Tx", "uint8"
-    "cf", "", "uint64"
-    "sf", "Sampling frequency", "uint64"
-    "txtsf", "", "uint32"
-    "last_txtsf", "", "uint32"
-    "channel_mode", "", "uint16"
-    "tx_ness", "", "uint8"
-    "pll_rate", "PLL rate", "uint16"
-    "pll_clock_select", "", "uint8"
-    "pll_refdiv", "", "uint8"
+    "header", "`Standard header`_ + `PicoScenes Common Header`_ in raw version", "MATLAB struct"
+    "basic", "Basic Segment, the same as the `RXSBasic Segment`_", "MATLAB struct"
+    "rxExtraInfo", "The same as the `ExtraInfo`_", "MATLAB struct"
+    "txExtraInfo", "The same as the `ExtraInfo`_", "MATLAB struct"
+    `channel`_, "channel information", "MATLAB struct"
+    "csi", "CSI data", "complex double"
+    "mag", "CSI Magnitude(dB), parsed from CSI", "double"
+    "phase", "CSI Phase(rad), parsed from CSI", "double"
+    "subcarrierIndex", "Index for each subcarrier", "int16"
+    `baseband`_, "", "MATLAB struct"
+    "bundleName", "Bundle's name, as same as .csi file name", "string"
 
 channel
 :::::::::::::::

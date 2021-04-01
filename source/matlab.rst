@@ -49,11 +49,11 @@ Each cell of the Raw Parsing result contains the following items. You may click 
 
     `StandardHeader`_, "802.11 MAC header", "MATLAB struct"
     `RxSBasic`_, "RxSBasic Segment", "MATLAB struct"
-    "RxExtraInfo", "ExtraInfo Segment (measured at Rx end)", "MATLAB struct"
+    "RxExtraInfo", "`ExtraInfo`_ Segment (measured at Rx end)", "MATLAB struct"
     "CSI", "CSI Segment", "MATLAB struct"
     "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
     `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
-    "TxExtraInfo", "ExtraInfo Segment (measured at Tx end, optional)", "MATLAB struct"
+    "TxExtraInfo", "`ExtraInfo`_ Segment (measured at Tx end, optional)", "MATLAB struct"
     "Baseband", "Baseband Signal Segment (measured at Rx end, for USRP frontend)", "MATLAB struct"
 
 .. _StandardHeader:
@@ -110,10 +110,10 @@ RXSBasic Segment
     "GI", "Guard Interval, 400/800/1600/3200 for 0.4/0.8/1.6/3.2us", "uint16"
     "MCS", "MCS index, in 802.11ac/ax format (no spatial streams)", "uint8"
     "numSTS", "Number of Space-Time Streams", "uint8"
-    "numESS", "Number of Extra Spatial Sounding (802.11n feat.)", "uint8"
+    "numESS", "Number of Extra Spatial Sounding (an 802.11n only feature)", "uint8"
     "numRx", "Number of Rx Chains", "uint8"
     "noiseFloor", "Baseband noise floor", "int8"
-    "rssi", "RSSI value(dBm)", "uint8"
+    "rssi", "RSSI value (dBm)", "uint8"
     "rssi1", "RSSI of the 1st radio chain", "uint8"
     "rssi2", "RSSI of the 2nd radio chain", "uint8"
     "rssi3", "RSSI of the 3rd radio chain", "uint8"

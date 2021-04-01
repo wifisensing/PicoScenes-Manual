@@ -14,7 +14,7 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
 
 .. note::
 
-   You can contribute the documentation! This documentation is open source. If you find any errors, want to help us improve this documentation, or share some more technical details about PicoScenes, you can fork this documentation at GitLab, make your modification in your local repo and issue a Merge Request to us.
+   This document is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please find :ref:`tech_support` via PicoScenes Issue Tracker.
 
 News
 ------------------

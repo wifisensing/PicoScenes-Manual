@@ -53,7 +53,7 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     "CSI", "CSI Segment", "MATLAB struct"
     "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
     `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
-    "TxExtraInfo", "`ExtraInfo`_ Segment (measured at Tx end, optional)", "MATLAB struct"
+    "TxExtraInfo", "`ExtraInfo`_ Segment (assembled at Tx end, optional)", "MATLAB struct"
     "Baseband", "Baseband Signal Segment (measured at Rx end, for USRP frontend)", "MATLAB struct"
 
 .. _StandardHeader:

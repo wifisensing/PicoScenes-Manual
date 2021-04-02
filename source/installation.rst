@@ -151,7 +151,7 @@ Prerequisites
 - Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
 - Internet connection: the Internet connection is required during the installation process and is also required for regular license checking in future use.
 - Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
-- The latest MATLAB version on Windows/Linux/macOS: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Windows/Linux/macOS platforms.
+- The latest MATLAB version on Linux/macOS/Windows: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Linux/macOS/Windows platforms.
 
 Install PicoScenes via apt
 ++++++++++++++++++++++++++++
@@ -237,17 +237,7 @@ Because the PicoScenes MATLAB Toolbox (PMT) and the PicoScenes main program use 
     MATLAB Version, "MATLAB 2020b or above", "MATLAB 2020b or above", "MATLAB 2020b or above"
     Compiler, GCC 9.3+, Apple Clang 12+ (Xcode 12.4+), MinGW64
 
-
-PicoScenes MATLAB Toolbox supports MATLAB
-Windows 10, Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). So you can install PicoScenes MATLAB Toolbox on Windows 10 or Ubuntu 20.04. You must do some preparatory work before you install PicoScenes MATLAB Toolbox.
-
-Preparation steps on Windows 10
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Install MATLAB (version R2020b or above);
-- Install Mingw-w64 (version 8.0 or above);
-- Assuming the installation path of Mingw-w64 is ``D:\Develop\mingw``, `append` ``D:\Develop\mingw\bin`` to your OS Environment Variables ``Path``;
-- Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'D:\Develop\mingw')`` and ``mex -setup C++`` in MATLAB Command Window.
+The following are the preparation steps for each supported OS.
 
 Preparation steps on Ubuntu 20.04
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -260,6 +250,14 @@ Preparation steps on macOS Big Sur 11.2
 
 - Install MATLAB (version R2020b or above);
 - Install Xcode 12.4 (or above) from macOS App Store 
+
+Preparation steps on Windows 10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Install MATLAB (version R2020b or above);
+- Install Mingw-w64 (version 8.0 or above);
+- Assuming the installation path of Mingw-w64 is ``D:\Develop\mingw``, `append` ``D:\Develop\mingw\bin`` to your OS Environment Variables ``Path``;
+- Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'D:\Develop\mingw')`` and ``mex -setup C++`` in MATLAB Command Window.
 
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++

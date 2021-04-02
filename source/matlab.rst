@@ -144,7 +144,6 @@ ExtraInfo
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "version", "The version of ExtraInfo Segment", "uint64"
     "hasLength", "Checking if the length field presents in the ExtraInfo segment.", "uint8"
     "hasVersion", "Checking if the version field presents in the ExtraInfo segment.", "uint8"
     "hasMacAddr_cur", "Checking if the current MAC Address presents in the ExtraInfo segment.", "uint8"
@@ -168,7 +167,7 @@ ExtraInfo
     "hasSamplingRate", "Checking if the baseband sampling rate presents in the ExtraInfo segment.", "uint8"
     "hasCFO", "Checking if the carrier frequency offset field presents in the ExtraInfo segment.", "uint8"
     "length", "Length of the current ExtraInfo", "uint16"
-    "version", "The version of current ExtraInfo data structure", "uint64"
+    "version", "The version of the current ExtraInfo data structure", "uint64"
     "macaddr_cur", "The last 3 bytes of the current MAC Address", "1x3 uint8"
     "macaddr_rom", "The last 3 bytes of the ROM MAC Address", "1x3 uint8"
     "chansel", "QCA9300 CHANSEL value", "uint32"

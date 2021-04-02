@@ -56,7 +56,7 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
     "TxExtraInfo", "`ExtraInfo`_ Segment (assembled and transmitted by Tx end, optional)", "MATLAB struct"
     "BasebandSignals", "The complete time domain baseband signals", "complex double array"
-    "PreEQSymbols", "Packet's OFDM symbols before the fine-grained equalization, measured by SDR frontend", " :math:`N_{SC}\times N_{SYM}` complex double array"
+    "PreEQSymbols", "Packet's OFDM symbols before the fine-grained equalization, measured by SDR frontend", "`N_{SC} x N_{SYM}` complex double array"
 
 .. _StandardHeader:
 

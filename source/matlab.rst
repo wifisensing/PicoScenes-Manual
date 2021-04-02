@@ -50,11 +50,13 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     `StandardHeader`_, "802.11 MAC header", "MATLAB struct"
     `RxSBasic`_, "RxSBasic Segment", "MATLAB struct"
     "RxExtraInfo", "`ExtraInfo`_ Segment (measured at Rx end)", "MATLAB struct"
-    "CSI", "CSI Segment", "MATLAB struct"
+    "CSI", "`CSI`_ measured from HT/VHT/HE-LTF field", "MATLAB struct"
+    "LegacyCSI", "`CSI`_ measured from L-LTF field, measured by SDR frontend", "MATLAB struct"
     "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
     `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
-    "TxExtraInfo", "`ExtraInfo`_ Segment (assembled at Tx end, optional)", "MATLAB struct"
-    "Baseband", "Baseband Signal Segment (measured at Rx end, for USRP frontend)", "MATLAB struct"
+    "TxExtraInfo", "`ExtraInfo`_ Segment (assembled and transmitted by Tx end, optional)", "MATLAB struct"
+    "BasebandSignals", "BasebandSignal Segment, which holds the complete baseband signals of the current packet, measured by SDR frontend", "MATLAB struct"
+    "PreEQSymbols", "PreEQSymbols Segment, which holds the packet OFDM symbols before the fine-grained equalization, measured by SDR frontend", "MATLAB struct"
 
 .. _StandardHeader:
 
@@ -102,8 +104,8 @@ RXSBasic Segment
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "deviceType", "The type of device sending the data", "uint16"
-    "timestamp", "The timestamp when the subcarrier was received", "uint64"
+    "deviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "uint16"
+    "timestamp", "The timestamp when the baseband recognizes the packet", "uint64"
     "channelFreq", "Carrier frequency in MHz", "uint16"
     "packetFormat", "0/1/2/3/4 for NonHT, HT, VHT, HE-SU and HE-MU, respectively", "int8"
     "CBW", "Channel BandWidth, 20/40/80/160 for HT20/HT40+ or -/VHT(or HE)80/VHT(or HE)160 format", "uint16"
@@ -128,9 +130,9 @@ PicoScenes Common Header
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "MagicValue", "a fixed value of 0x20150315, used for PicoScenes Common Header identification", "uint32"
-    "Version", "Version number of PicoScenes Common Header", "uint32"
-    "DeviceType", "Device Type Id (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "uint16"
+    "MagicValue", "a fixed value of 0x20150315, used for PicoScenes Common Header recognition", "uint32"
+    "Version", "Version number of the PicoScenes Common Header", "uint32"
+    "DeviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "uint16"
     "FrameType", "The frame type ID defined by PicoScenes plugins", "uint8"
     "TaskId", "A general-purpose random ID, used for packet alignment", "uint16"
     "TxId", "A general-purpose random ID, used for Tx sequence tracking", "uint16"
@@ -184,3 +186,29 @@ ExtraInfo
     "sf", "Sampling frequency", "uint64"
     "txtsf", "", "uint32"
     "tx_ness", "", "uint8"
+
+
+.. _CSI:
+
+CSI Segment
+::::::::::::
+
+.. csv-table:: Variables in ExtraInfo
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 60, 20
+
+    "DeviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "double"
+    "packetFormat", "0/1/2/3/4 for NonHT, HT, VHT, HE-SU and HE-MU, respectively", "double"
+    "CBW", "Channel BandWidth, 20/40/80/160 for HT20/HT40+ or -/VHT(or HE)80/VHT(or HE)160 format", "double"
+    "CarrierFreq", "Carrier frequency in Hz", "double"
+    "SamplingRate", "Baseband sampling rate", "double"
+    "SubcarrierBandwidth", "The subcarrier bandwidth", "double"
+    "numTones", "The number of OFDM subcarriers", "uint16"
+    "numTx", "Number of transmit Space-Time Streams", "uint8"
+    "numRx", "Number of Rx Chains", "uint8"
+    "numESS", "Number of Extra Spatial Sounding (an 802.11n only feature)", "uint8"
+    "ant_sel", "IWL5300 antenna permutation value", "uint8"
+    "CSI", "CSI data", "complex double array"
+    "Mag", "CSI magnitude data", "double array"
+    "Phase", "CSI phase data", "double array"
+    "SubcarrierIndex", "the indices of OFDM subcarriers", "int16 array"

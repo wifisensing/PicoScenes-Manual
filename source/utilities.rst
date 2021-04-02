@@ -40,7 +40,6 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
     .. code-block:: console
 
         csi@csi-System:~$ array_status
-        ----------------------
         Device Status of Wi-Fi NIC array "all":
         PhyPath DEV PHY [MON] DEV_MacAddr [MON_MacAddr] [CF] [BW] ProductName
         3 wlp3s0 phy5 00:21:6a:2a:8f:82 Ultimate N WiFi Link 5300 

@@ -101,12 +101,6 @@ Confirm the firmware version
 
 `uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use ``uhd_image_loader`` command to flash the latest firmwares to the USRP:
 
-For the USRP B2x0 device, run:
-
-.. code-block:: bash
-
-    uhd_image_loader --args=type=b200
-
 For the USRP N2x0 device, run:
 
 .. code-block:: bash
@@ -123,15 +117,15 @@ For the USRP X3x0 device, run:
 Confirm the signal reception (Rx)
 *********************************
 
-Check whether your USRP can receive the signal:
+Use ``uhd_fft`` command to check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
-    uhd_fft --args="addr=<YOUR_USRP_IP_ADDRESS_OR_SERIAL_ID>" -f 2200e6 -s 10e6
+    uhd_fft --args="ADDRESS_STRING" -f 2200e6 -s 10e6
 
-In `uhd_fft`,you should fill in the `addr` parameter according to your device address.
+where ``ADDRESS_STRING`` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
 
-Perform Tx/Rx calibration
+Perform Tx/Rx calibration (Optional)
 ***********************************************************
 
 Finally, execute the following three commands in sequence to calibrate the Tx/Rx signal.

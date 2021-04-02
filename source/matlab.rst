@@ -18,8 +18,8 @@ You have four ways to parse a .csi file:
 
 After parsing, you will see bundles with the same names as the .csi files in MATLAB Workspace.
 
-Data Structure
-----------------------
+Structures of the PicoScenes Tx and Rx frames
+------------------------------------------------
 
     .. _framestructure:
 
@@ -36,10 +36,10 @@ The PMT parses the .csi files in two stages, the Raw Parsing and Bundled Parsing
     - The Raw Parsing: PMT first parses the per-CSI measurement into a MATLAB `cell`. If a .csi file contains :math:`N` CSI measurements, the Raw Parsing will produce a measurement cell array with :math:`N` elements. This parsing level is mandatory for next-level processing. However, CSI measurements being separated in MATLAB cells is apparently not convenient for further analysis.
     - The Bundled Parsing: To overcome the inconveniences of the Raw Parsing, PMT tries to merge the cells into a unified structure--much easier for analysis. However, the merging may fail if the internal data structures are different across all measurements.
 
-In the following, we briefly introduce the resulting data structures of the Raw Parsing and the Bundled Parsing.
+In the following, we introduce the data structures of the Raw Parsing stage. 
 
-Raw version
->>>>>>>>>>>>>>>
+Data structures of the Raw Parsing
+------------------------------------
 
 Each cell of the Raw Parsing result contains the following items. You may click the links on the left to view its detailed structure.
 

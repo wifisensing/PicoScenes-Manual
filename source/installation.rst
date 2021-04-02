@@ -6,7 +6,7 @@ PicoScenes Installation
 Hardware Installation
 =======================
 
-PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and literally all USRP models. Among them, B210, N210 and X310 models have been practically tested in our lab. For other high-end USRP models, such as the E300/N300 series, PicoScenes *should* be able to support them in out-of-box way.
+PicoScenes currently supports two commercial Wi-Fi NIC models, the QCA9300 and IWL5300, and USRP SDR devices. Specifically, USRP B210, N210 and X310 models are tested and used in our lab.
 
 One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -16,9 +16,9 @@ Installation of (Multiple) QCA9300 or IWL5300 NICs
 We recommend three multi-NIC installation methods.
 
 Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation
-    With the help of the Mini PCI-E to PCI-E 1x adapter, you can install the QCA9300 and IWL5300 directly on the motherboard. 
+    With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install the QCA9300 and IWL5300 NICs directly on the motherboard of the desktop PC. 
 
-    However, although the motherboard typically offers 4-6 PCI-E slots, the number of PCI-E slots remaining is less than 3 because the graphic card, attached NVMe board, or 10GbE ethernet may occupy 2 or 3 slots.
+    However, although the motherboard typically offers 3-5 PCI-E slots, the remain number of PCI-E slots is usually less than 2 because the graphic card, attached NVMe board, or 10GbE ethernet may occupy 2 or 3 slots.
 
     To overcome this issue, you may choose the motherboard primarily designed for cryptocurrency mining, such as MSI B360-F Pro. These motherboards have more than a dozen of PCI-E 1x slots, and you can use *PCI-E slot riser* to install a Wi-Fi NIC for each of them.
 
@@ -28,7 +28,7 @@ Multi-Mini PCI-E slots-based multi-NIC installation
     
     Pursuing a wire-free multi-NIC solution, we recommend ThinkPad X201. Despite a ten-year-old laptop model, its motherboard provided two full/half-height Mini PCI-E slots, and we can install the QCA9300 or IWL5300 NICs in both of them.
 
-    Even better, **X201 enables you to install three SMA-based external antennas!** The FPC-connected daughter board of X201, which accounts for Modem, audio In/Out and a USB port, can be safely removed, leaving three size compatible holes for installing SMA external antennas. The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
+    Even better, **X201 enables you to install three SMA-based external antennas!** The FPC-connected daughterboard of X201, which accounts for Modem, audio In/Out and a USB port, can be safely removed, leaving three size compatible holes for installing SMA external antennas. The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
 
     .. figure:: /images/X201-External-Antennas.jpg
         :figwidth: 1000px
@@ -53,29 +53,30 @@ PCI-E bridge adapter-based multi-NIC installation
         27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 
-Installation of (Multiple) USRP N210 and X310
+Installation of (Multiple) USRP Devices
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 Follow the official USRP manual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes’s support for USRP devices is established upon UHD software, the USRP hardware driver. Therefore, you should first set up your hardware/software according to the official   `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For N210 and X310 models, you should read the following three documents carefully:
+PicoScenes’s support for USRP devices is established upon UHD software, the USRP hardware driver. Therefore, you should first set up your hardware/software according to the official   `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For B2x0, N2x0 and X3x0 models, you should read the following three documents carefully:
 
-- `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
+- `USRP Hardware Driver and USRP Manual: B200/B210/B200mini/B205mini <https://kb.ettus.com/B200/B210/B200mini/B205mini>`_
 - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
 - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
+- `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
 
 Some suggestions based on our previous experience:
-    - For X310, **don't use the PCI-E cable-based connection**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X310; therefore multi-X310 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
-    - For both N210/X310, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N210 and X310 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X310s or eight independent full-duplex channels.
-    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRPs of the same model, and currently only N2x0 and X3x0 series are combination-ready.
-    - For both the N210 and X310, please consider using the UBX-40/UBX-160 daughterboard first. UBX-40 and UBX-160, though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can you realize the phased-array functionality.
+    - For X3x0 series, PicoScenes supports the PCI-E cable-based connection, **but we don't recommend that**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X3x0 device; therefore multi-X3x0 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
+    - For both the N2x0 and X3x0 series, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N2x0 and X3x0 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X3x0s or eight independent full-duplex channels.
+    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, **UHD only supports combining multiple USRP devices of the same model, and currently only N2x0 and X3x0 series are combination-ready**.
+    - For both the N2x0 and X3x0 series, please consider using the UBX-40/UBX-160 daughterboard in priority. UBX-40 and UBX-160, though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can you realize the phased-array functionality.
     - Please pay special attention to the allocation of IP addresses. For network-based connections, the NIC port and the connected USRP must be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
-    - For N210, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
-    - For clock distribution, OctoClock-G is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRPs.
+    - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
+    - For clock distribution, OctoClock-G is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRP devices.
 
-Verify the installation of N210/X310
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Verify the installation of the USRP N2x0/X3x0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There is a four-stage verification process to ensure that your USRP is ready for PicoScenes.
 
@@ -100,13 +101,19 @@ Confirm the firmware version
 
 `uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use ``uhd_image_loader`` command to flash the latest firmwares to the USRP:
 
-For USRP N210 device, run:
+For the USRP B2x0 device, run:
+
+.. code-block:: bash
+
+    uhd_image_loader --args=type=b200
+
+For the USRP N2x0 device, run:
 
 .. code-block:: bash
 
     uhd_image_loader --args=type=usrp2
 
-For USRP X310 device, run:
+For the USRP X3x0 device, run:
 
 .. code-block:: bash
 
@@ -120,7 +127,7 @@ Check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
-    uhd_fft --args="addr=<YOUR_USRP_IP_ADDRESS>" -f 2200e6 -s 10e6
+    uhd_fft --args="addr=<YOUR_USRP_IP_ADDRESS_OR_SERIAL_ID>" -f 2200e6 -s 10e6
 
 In `uhd_fft`,you should fill in the `addr` parameter according to your device address.
 
@@ -144,10 +151,7 @@ Prerequisites
 - Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
 - Internet connection: the Internet connection is required during the installation process and is also required for regular license checking in future use.
 - Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
-- The latest MATLAB version on Linux/macOS: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Linux/macOS platforms.
-    
-    .. note::
-        PicoScenes MATLAB Toolbox is being ported the Windows platform.
+- The latest MATLAB version on Windows/Linux/macOS: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Windows/Linux/macOS platforms.
 
 Install PicoScenes via apt
 ++++++++++++++++++++++++++++

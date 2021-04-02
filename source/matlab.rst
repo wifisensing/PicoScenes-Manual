@@ -55,8 +55,8 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
     `PicoScenesHeader`_, "PicoScenes Common Header (optional)", "MATLAB struct"
     "TxExtraInfo", "`ExtraInfo`_ Segment (assembled and transmitted by Tx end, optional)", "MATLAB struct"
-    "BasebandSignals", "BasebandSignal Segment, which holds the complete baseband signals of the current packet, measured by SDR frontend", "MATLAB struct"
-    "PreEQSymbols", "PreEQSymbols Segment, which holds the packet OFDM symbols before the fine-grained equalization, measured by SDR frontend", "MATLAB struct"
+    "BasebandSignals", "The complete time domain baseband signals", "complex double array"
+    "PreEQSymbols", "Packet's OFDM symbols before the fine-grained equalization, measured by SDR frontend", ":math:`N_{SC}\times N_{SYM}` complex double array"
 
 .. _StandardHeader:
 

@@ -12,4 +12,4 @@ Development Status
 
 `PicoScenes Platform Changelog <https://zpj.io/PicoScenes/platform-changelog.md>`_
 
-`PicoScenes Plugin Development Kit (PDK) Changelog <https://zpj.io/PicoScenes/platform-changelog.md>`_
+`PicoScenes Plugin Development Kit (PDK) Changelog <https://zpj.io/PicoScenes/pdk-changelog.md>`_

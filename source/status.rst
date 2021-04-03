@@ -10,6 +10,6 @@ PicoScenes has entered the Public Test phase. During this period, we issue the F
 Development Status
 ========================
 
-`PicoScenes Platform Changelog <https://zpj.io/PicoScenes/platform-changelog.md>`_
+`PicoScenes Platform Changelog <https://zpj.io/PicoScenes/platform-changelog.md>`_ (Markdown document)
 
-`PicoScenes Plugin Development Kit (PDK) Changelog <https://zpj.io/PicoScenes/pdk-changelog.md>`_
+`PicoScenes Plugin Development Kit (PDK) Changelog <https://zpj.io/PicoScenes/pdk-changelog.md>`_ (Markdown document)

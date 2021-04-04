@@ -16,10 +16,13 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
 
    This document is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please find :ref:`tech_support` via PicoScenes Issue Tracker.
 
-News
-------------------
+.. figure:: /images/wideband_csi.jpg
+   :figwidth: 1000px
+   :target: /images/wideband_csi.jpg
+   :align: center
 
-- Mar. 26, 2021: PicoScenes adds support for USRP B200 series SDR.
+   PicoScenes provides out-of-box CSI measurement for the beyond-standard bandwidths.
+
 
 .. toctree::
    :maxdepth: 3

@@ -1,4 +1,4 @@
-Gallery
+PicoScenes Gallery
 ===================
 
 CSI measurement under variable and beyond-standard bandwidths

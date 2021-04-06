@@ -18,6 +18,8 @@ For more details, you may refer to :ref:`picoscenes_paper`.
 
 .. hint:: Why do the CSI measurements misaligned with each other? you wanna stitch them together? You may refer to :ref:`picoscenes_paper`.
 
+.. todo:: add spectrum scanning script
+
 
 CSI measurement under variable and beyond-standard bandwidths
 ---------------------------------------------------------------------------
@@ -33,3 +35,8 @@ For more details, you may refer to :ref:`picoscenes_paper`.
    :align: center
 
    PicoScenes provides out-of-box CSI measurement for the beyond-standard bandwidths.
+
+
+
+Concurrent multi-NIC CSI measurement
+---------------------------------------------------------------------------

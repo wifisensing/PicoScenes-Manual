@@ -35,7 +35,7 @@ Multi-Mini PCI-E slots-based multi-NIC installation
         :target: /images/X201-External-Antennas.jpg
         :align: center
 
-        Modified ThinkPad X201 laptop equipped with 3 external SMA antennas
+        Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
 
     .. warning::
         The official BIOS of ThinkPad X201 forbids changing Wi-Fi NIC. Before changing or adding another Wi-Fi NIC, you may have to flash the modified BIOS, which white-lists the 3rd-party and the second Wi-Fi NICs. You may visit https://zpj.io/replace-install-nics-for-thinkpad-x201/ for assistance (A Chinese document, machine translation may be required).

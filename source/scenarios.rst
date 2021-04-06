@@ -19,6 +19,8 @@ For Commercial Wi-Fi NICs
 
 Open a terminal and run ``array_status``. After a second or two, a list of all the installed Wi-Fi NICs will be shown in the terminal. The following screenshot shows a sample list of devices.
 
+.. todo:: add the missing screenshot...
+
 Looking at the first four columns of the output, we see that ``array_status`` shows four IDs or names for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We explain the latter three first and then PhyPath:
 
 - **PhyId**: this is the system level *Physical ID* for a Wi-Fi NIC assigned by the Linux kernel. This ID is mainly used for low-level hardware control. This ID is subjected to change on every reboot.

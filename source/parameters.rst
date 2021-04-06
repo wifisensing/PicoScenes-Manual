@@ -304,7 +304,7 @@ USRP frontend options
     + Description: Replay baseband signals saved in the ``.bbsignals`` file as if the signal is received from the RF frontend. This is actually the Rx signal replay.
     + Default: N/A
     + Value Range: N/A
-    + Notes: The Rx signal replay keeps the same pace with the Rx baseband, thereforethere will be no signal dropping.
+    + Notes: The Rx signal replay keeps the same pace with the Rx baseband, therefore there will be no signal dropping.
     + Example: ``--rx-from-file demo``
 - ``--rx-sensitivity arg``
     + Description: Specify the lowest power level (specified in dB) above the rx noise floor to trigger packet detection.

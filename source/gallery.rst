@@ -38,5 +38,14 @@ For more details, you may refer to :ref:`picoscenes_paper`.
 
 
 
-Concurrent multi-NIC CSI measurement
+27-NIC Wi-Fi sensing array
 ---------------------------------------------------------------------------
+
+To fully demonstrate the capacity of multi-NIC CSI measurement, we setup a 27-NIC Wi-Fi sensing array. The array contains 27 QCA9300 NICs and 10 1-to-3 PCI-E bridge adapters. For more details, you may refer to the evaluation part of :ref:`picoscenes_paper`.
+
+.. figure:: /images/NICArrayLayout-horizontal.jpg
+   :figwidth: 1000px
+   :target: /images/NICArrayLayout-horizontal.jpg
+   :align: center
+
+   Picture of the 27-NIC Wi-Fi sensing array. The right figure shows its physical layout. The whole array is well-packaged in an IKEA box. 

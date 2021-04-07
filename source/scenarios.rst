@@ -19,7 +19,12 @@ For Commercial Wi-Fi NICs
 
 Open a terminal and run ``array_status``. After a second or two, a list of all the installed Wi-Fi NICs will be shown in the terminal. The following screenshot shows a sample list of devices.
 
-.. todo:: add the missing screenshot...
+.. figure:: /images/array_status.png
+   :figwidth: 600px
+   :target: /images/array_status.png
+   :align: center
+
+   Each Wi-Fi NIC has `four` IDs.
 
 Looking at the first four columns of the output, we see that ``array_status`` shows four IDs or names for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We explain the latter three first and then PhyPath:
 

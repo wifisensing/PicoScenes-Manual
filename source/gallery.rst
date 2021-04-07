@@ -2,11 +2,10 @@ PicoScenes Gallery
 ===================
 
 
-CSI measurement over continuous and beyond-standard spectrum by QCA9300
----------------------------------------------------------------------------
+CSI measurement over a large and continuous spectrum by QCA9300
+-------------------------------------------------------------------------------
 
-For QCA9300 NIC frontend, PicoScenes enables the arbitrary tuning for carrier frequency over 2.4 and 5 GHz bands, more specifically, 2.2 to 2.9 GHz in 2.4 GHz band and 4.4 to 6.1 GHz in 5 GHz band. 
-PicoScenes provides a unified command-line interface (``--freq`` argument) to control the carrier frequency for both the commercial Wi-Fi NIC and SDR frontends.
+PicoScenes unlocks the arbitrary tuning for carrier frequency for the QCA9300 NIC. More specifically, QCA9300 can operate at any carrier frequency between 2.2 to 2.9 GHz in the 2.4 GHz band and 4.4 to 6.1 GHz in the 5 GHz band. PicoScenes provides the ``--freq`` command option to specify the carrier frequency, e.g., ``--freq 4900e6``.
 For more details, you may refer to :ref:`picoscenes_paper`.
 
 .. figure:: /images/scan_cf_figure/cf_scan.jpg
@@ -14,7 +13,7 @@ For more details, you may refer to :ref:`picoscenes_paper`.
    :target: /images/scan_cf_figure/cf_scan.jpg
    :align: center
 
-   PicoScenes can provide continuous and overlapped CSI measurement over the beyond-standard spectrum.
+   Continuous and overlapped CSI measurements over a large spectrum can be obtained via PicoScenes on QCA9300.
 
 .. hint:: Why do the CSI measurements misalign with each other? Do you wanna stitch them together? You may refer to :ref:`picoscenes_paper`.
 

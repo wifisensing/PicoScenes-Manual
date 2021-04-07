@@ -136,7 +136,7 @@ Finally, execute the following three commands in sequence to calibrate the Tx/Rx
     uhd_cal_tx_dc_offset
     uhd_cal_tx_iq_balance
 
-Install PicoScenes
+Software Installation
 =========================
 
 Prerequisites

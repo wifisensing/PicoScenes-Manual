@@ -21,7 +21,7 @@ CSI measurements under tunable and wide baseband bandwidths
 ------------------------------------------------------------
 For the QCA9300 NIC, PicoScenes unlocks the fine-grained tuning for baseband bandwidth from `5 to 80 MHz` with a minimum step of 2.5 MHz.
 PicoScenes also provides `up to 200` MHz baseband bandwidth on the SDR devices. 
-PicoScenes uses ``--rate`` command option to specify the baseband bandwidth for both the commercial Wi-Fi NIC and SDR frontends.
+PicoScenes uses ``--rate`` command option to specify the baseband bandwidth for both the commercial Wi-Fi NIC and SDR frontends, e.g., `--rate 55e6`.
 For more details, you may refer to :ref:`picoscenes_paper`.
 
 .. figure:: /images/wideband_csi.jpg

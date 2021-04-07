@@ -16,7 +16,7 @@ For more details, you may refer to :ref:`picoscenes_paper`.
 
    PicoScenes can provide continuous and overlapped CSI measurement over the beyond-standard spectrum.
 
-.. hint:: Why do the CSI measurements misaligned with each other? you wanna stitch them together? You may refer to :ref:`picoscenes_paper`.
+.. hint:: Why do the CSI measurements misalign with each other? you wanna stitch them together? You may refer to :ref:`picoscenes_paper`.
 
 .. todo:: add spectrum scanning script
 

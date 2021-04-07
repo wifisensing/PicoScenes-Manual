@@ -80,7 +80,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
     You may run ``array_prepare_for_picoscenes -h`` for help.
 
 
-#. RestoreNetwork: un-prepare the NICs for normal Wi-Fi connections
+#. RestoreNetwork: Restore ordinary Wi-Fi connection
     Wi-Fi NICs that are prepared by ``array_prepare_for_picoscenes`` cannot connect to normal Wi-Fi networks. You may use RestoreNetwork to restore ordinary Wi-Fi connection.
 
     .. code-block:: console
@@ -107,11 +107,3 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
         4 wlp4s0 phy1 phy1mon 00:16:ea:12:34:56 00:0e:8e:59:8a:b7 5200 20 AR93xx Wireless Network Adapter 
         7 wlp7s0 phy14 44:af:28:57:6c:9b Wi-Fi 6 AX200 
         ----------------------
-    
-
-
-
-#. **download_matlab_toolbox: download PicoScenes MATLAB Toolbox**
-
-Besides the above scripts, PicoScenes also ships some other useful scripts. Some of them are directly invoked by the PicoScenes main program.
-You may find them at ``/usr/local/PicoScenes/bin/scripts``.

@@ -59,9 +59,9 @@ Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-
 #. Assume the PhyPath is ``3``, then run command ``PicoScenes -d debug -i 3 --mode logger`` in a terminal.
 #. Exit CSI logging by pressing Ctrl+C.
 
-The above PicoScenes command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes change the display level log message to debug (-d debug); make device <AnyId=3> switch to CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
+The above PicoScenes command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level log message to debug (-d debug); makes device <AnyId=3> switch to CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
 
-The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory (pwd)*. Open MATLAB, drag the .csi file into Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory (pwd)*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 If you want to learn more in detail, please download the source code to view. 
 :download:`2_2_1 <_static/2_2_1.sh>` 
@@ -88,7 +88,7 @@ Based on these improvements, CSI measurement in monitor + injection mode is simp
 The explanations to the commands are as follows.
     
 - The Rx end has the identical program options as the last scenarios. See also :ref:`iwl5300-wifi-ap`.
-- The Tx end options ``PicoScenes -d debug -i <NIC_PHYPath> --mode injector --repeat 1000 --delay 5000 -q`` can be interpreted as *"PicoScenes change the display level of log message to debug (-d debug); make device <AnyId=NIC_PHYPath> switch to CSI injector mode (-i <NIC_PHYPath> --mode injector); injector will inject 1000 packets (--repeat 1000) with 200 Hz injection rate or with 5000us interval (--delay 5000); when injector finishes the job, PicoScenes quit (-q)"*. See :doc:`parameters` for more detailed explanations.
+- The Tx end options ``PicoScenes -d debug -i <NIC_PHYPath> --mode injector --repeat 1000 --delay 5000 -q`` can be interpreted as *"PicoScenes changes the display level of log message to debug (-d debug); make device <AnyId=NIC_PHYPath> switch to CSI injector mode (-i <NIC_PHYPath> --mode injector); injector will inject 1000 packets (--repeat 1000) with 200 Hz injection rate or with 5000us interval (--delay 5000); when injector finishes the job, PicoScenes quits (-q)"*. See :doc:`parameters` for more detailed explanations.
 
 The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the Tx/Rx combination changes, users may need to change the command. The details are listed below.
 

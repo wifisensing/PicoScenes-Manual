@@ -32,9 +32,9 @@ PicoScenes技术交流微信群 (WeChat group mainly for Chinese users)
 
 欢迎国内各位研究Wi-Fi感知的老师同学加入以下微信群，有任何技术问题，我们会第一时间协助您解决。
 
-.. figure:: /images/wechat_group.jpg
+.. figure:: /images/wechat_group.jpeg
    :figwidth: 300px
-   :target: /images/wechat_group.jpg
+   :target: /images/wechat_group.jpeg
    :align: center
 
    PicoScenes技术交流微信群

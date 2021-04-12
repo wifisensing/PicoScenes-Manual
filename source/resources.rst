@@ -26,3 +26,15 @@ Project repositories
 Technical Support
 -----------------------------
 We provide technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker.
+
+PicoScenes技术交流微信群 (WeChat group mainly for Chinese users)
+-------------------------------------------------------------------
+
+欢迎国内各位研究Wi-Fi感知的老师同学加入以下微信群，有任何技术问题，我们会第一时间协助您解决。
+
+.. figure:: /images/wechat_group.jpg
+   :figwidth: 300px
+   :target: /images/wechat_group.jpg
+   :align: center
+
+   PicoScenes技术交流微信群

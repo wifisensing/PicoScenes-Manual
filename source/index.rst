@@ -28,7 +28,7 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
    matlab
    utilities
    plugin
-   resources
    status
+   resources
    License
    credits

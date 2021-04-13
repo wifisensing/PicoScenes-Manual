@@ -30,5 +30,6 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
    plugin
    status
    resources
+   troubleshooting
    License
    credits

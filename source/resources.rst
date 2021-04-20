@@ -27,7 +27,7 @@ Technical Support
 -----------------------------
 We provide technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker.
 
-PicoScenes微信群 (WeChat Group of the PicoScenes community)
+PicoScenes微信群 (PicoScenes WeChat group)
 -------------------------------------------------------------------
 You may use WeChat App to scan the QR code below to join the PicoScenes community.
 

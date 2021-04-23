@@ -2,7 +2,7 @@ PicoScenes Users
 =================================================
 
 From the easiest CSI-data collection using the Intel 5300 NIC to the SDR-based 802.11ax multi-user (MU) experiments,
-PicoScenes is powering the next wave of the Wi-Fi sensing research. The following lists the affiliations that use PicoScenes platform in their latest research.
+PicoScenes is powering the next wave of the Wi-Fi sensing research. The following grid lists the affiliations that use PicoScenes platform in their latest research.
 
 .. list-table:: Research affiliations that use the PicoScenes platform
    :widths: 25 25 25 25 25

@@ -44,3 +44,20 @@ To fully demonstrate the capacity of multi-NIC CSI measurement, we setup a 27-NI
    :align: center
 
    Picture of the 27-NIC Wi-Fi sensing array. The right figure shows its physical layout. The whole array is well-packaged in an IKEA box. 
+
+Large spectrum stitching using two QCA9300 NICs
+-------------------------------------------------------
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/6KKxpc7fh2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+Large spectrum stitching using A USRP X310 and a QCA9300 NIC
+------------------------------------------------------------------
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/RZUQ5Fm4LLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

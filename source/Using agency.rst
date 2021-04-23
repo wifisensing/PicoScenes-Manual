@@ -19,7 +19,7 @@ Using agency
   
           Peking University
 
-     - .. figure:: /images/Xidian_University.jfif
+     - .. figure:: /images/Xidian_University.png
           :align: center  
           :figwidth: 175px        
   

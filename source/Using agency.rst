@@ -7,7 +7,7 @@ Using agency
    :header-rows: 0
    :align: center
    
-   * - .. figure:: /images/Tsinghua_University.jpg
+   * - .. figure:: /images/Tsinghua_University.png
           :align: center 
           :figwidth: 175px      
        

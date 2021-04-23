@@ -19,20 +19,40 @@ Using agency
   
           Peking University
 
-     - .. figure:: /images/Peking_University.jpg
+     - .. figure:: /images/Xidian_University.jpeg
           :align: center  
           :figwidth: 175px        
   
-          Peking University
+          Xidian University
 
-     - .. figure:: /images/Peking_University.jpg
+     - .. figure:: /images/Xi’an_Jiaotong_University.png
           :align: center  
           :figwidth: 175px        
 
-          Peking University
+          Xi’an Jiaotong University
           
-     - .. figure:: /images/Peking_University.jpg
+     - .. figure:: /images/Zhejiang_University.png
           :align: center  
           :figwidth: 175px        
 
-          Peking University
+          Zhejiang University
+
+   * - .. figure:: /images/Shandong_University_of_Science_and_Technology.png
+          :align: center 
+          :figwidth: 175px      
+       
+          Shandong University of
+
+          Science and Technology 
+
+     - .. figure:: /images/Kunming_University_of_Science_and_Technology.jfif
+          :align: center  
+          :figwidth: 175px        
+  
+          Kunming University of 
+          
+          Science and Technology
+
+     - 
+     -           
+     - 

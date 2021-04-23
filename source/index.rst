@@ -22,6 +22,7 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
    :caption: Table of Contents:
    
    gallery
+   user
    installation
    scenarios
    parameters
@@ -33,4 +34,3 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
    troubleshooting
    License
    credits
-   user

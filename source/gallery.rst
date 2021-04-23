@@ -59,7 +59,8 @@ YouTube
 Youku
 
 .. raw:: html
-   <iframe height=498 width=510 src='https://player.youku.com/embed/XNDkxMzY3NDg4OA==' frameborder=0 'allowfullscreen'></iframe>
+
+   <iframe height=560 width=315 src='https://player.youku.com/embed/XNDkxMzY3NDg4OA==' frameborder=0 'allowfullscreen'></iframe>
 
 
 
@@ -79,4 +80,4 @@ Youku
 
 .. raw:: html
 
-   <iframe height=498 width=510 src='https://player.youku.com/embed/XNDk1ODgzOTMwMA==' frameborder=0 'allowfullscreen'></iframe>
+   <iframe height=560 width=315 src='https://player.youku.com/embed/XNDk1ODgzOTMwMA==' frameborder=0 'allowfullscreen'></iframe>

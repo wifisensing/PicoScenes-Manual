@@ -12,5 +12,8 @@ Using agency
        
           Tsinghua University 
 
-     - Row 2, column 2
+     - .. figure:: /images/Peking_University.jpg
+          :align: center          
+  
+          Peking University
      - Row 2, column 3

@@ -9,50 +9,31 @@ Using agency
    
    * - .. figure:: /images/Tsinghua_University.png
           :align: center 
-          :figwidth: 175px      
-       
-          Tsinghua University 
+          :figwidth: 175px     
 
      - .. figure:: /images/Peking_University.jpg
           :align: center  
-          :figwidth: 175px        
-  
-          Peking University
+          :figwidth: 175px   
 
      - .. figure:: /images/Xidian_University.png
           :align: center  
-          :figwidth: 175px        
-  
-          Xidian University
+          :figwidth: 175px  
 
      - .. figure:: /images/Xi’an_Jiaotong_University.png
           :align: center  
           :figwidth: 175px        
-
-          Xi’an Jiaotong University
           
      - .. figure:: /images/Zhejiang_University.png
           :align: center  
-          :figwidth: 175px        
-
-          Zhejiang University
+          :figwidth: 175px     
 
    * - .. figure:: /images/Shandong_University_of_Science_and_Technology.png
           :align: center 
-          :figwidth: 175px      
-       
-          Shandong University of
-
-          Science and Technology 
+          :figwidth: 175px     
 
      - .. figure:: /images/Kunming_University_of_Science_and_Technology.jfif
           :align: center  
-          :figwidth: 175px        
-  
-          Kunming University of 
-          
-          Science and Technology
-
+          :figwidth: 175px 
      - 
      -           
      - 

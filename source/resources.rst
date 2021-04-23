@@ -42,7 +42,7 @@ If WeChat is one of your favorite IM APP, you may also join the following PicoSc
 
    PicoScenes Technical Support WeChat group
 
-Other useful resources on Wi-Fi/RF Sensing
+Other useful resources on Wi-Fi/RF/Smart Sensing
 ----------------------------------------------
 
-- *IoT Book* by Jiliang Wang, Tsinghua University (A Chinese book) 
+- `IoT Book <https://iot-book.github.io>`_ by Jiliang Wang, Tsinghua University (A full Chinese book). 王老师的这本IoT Book覆盖了智能感知相关的的众多研究方向的最新进展及上手宝典，是入门智能感知相关研究不可多得的教材。

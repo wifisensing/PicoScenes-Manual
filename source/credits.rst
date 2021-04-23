@@ -1,7 +1,7 @@
 Credits
 ==========
 
-The creation of PicoScenes is the result of the collaborative efforts form the following members.
+The creation of PicoScenes is the result of the collaborative efforts from the following members.
 
 - Dr. Zhiping Jiang, 蒋志平 (Assistant professor with the School of Computer Science and Technology, Xidian University)
 - Xincheng Ren, 任新承 (Graduate student with the School of Computer Science and Technology, Xidian University)

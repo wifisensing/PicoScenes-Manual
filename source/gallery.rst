@@ -48,7 +48,7 @@ To fully demonstrate the capacity of multi-NIC CSI measurement, we setup a 27-NI
 Large spectrum stitching using two QCA9300 NICs
 -------------------------------------------------------
 
-This short video demonstrates the spectrum stitching using PicoScenes platform and two QCA9300 NICs. I uploads the same video to YouTube and Youku (for China mainland users).
+This short video demonstrates the spectrum scanning and stitching using the PicoScenes platform and two QCA9300 NICs. I upload the same video to both YouTube and Youku (for China mainland users).
 
 YouTube
 
@@ -68,7 +68,7 @@ Youku
 Large spectrum stitching using A USRP X310 and a QCA9300 NIC
 ------------------------------------------------------------------
 
-This short video demonstrates the spectrum stitching using PicoScenes platform with one USRP X310 and a QCA9300 NIC. I uploads the same video to YouTube and Youku (for China mainland users).
+This short video demonstrates the spectrum scanning and stitching using the PicoScenes platform with one USRP X310 and a QCA9300 NIC. I upload the same video to both YouTube and Youku (for China mainland users).
 
 YouTube
 

@@ -4,6 +4,6 @@
     }
 }
 
-.rst-versions.rst-badge {
+.rst-versions.rst-badge .rst-current-version {
     display: none;
 }

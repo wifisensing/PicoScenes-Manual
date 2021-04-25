@@ -11,3 +11,7 @@
 .bd-sidebar div.navbar_extra_footer {
     display: none !important;
 }
+
+.full-screen-button {
+    display: none;
+}

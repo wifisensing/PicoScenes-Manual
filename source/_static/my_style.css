@@ -4,10 +4,10 @@
     }
 }
 
-.rst-versions.rst-badge .rst-current-version {
-    display: none;
+.rst-versions.rst-badge {
+    display: none !important;
 }
 
 .bd-sidebar div.navbar_extra_footer {
-    display: none;
+    display: none !important;
 }

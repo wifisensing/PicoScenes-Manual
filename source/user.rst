@@ -9,35 +9,38 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
    :header-rows: 0
    :align: center
    
-   * - .. figure:: /images/Tsinghua_University.png
+   * - .. figure:: /images/logos/Tsinghua_University.png
           :align: center 
           :figwidth: 175px     
 
-     - .. figure:: /images/Peking_University.jpg
+     - .. figure:: /images/logos/Peking_University.jpg
           :align: center  
           :figwidth: 175px   
 
-     - .. figure:: /images/Xidian_University.png
+     - .. figure:: /images/logos/Xidian_University.png
           :align: center  
           :figwidth: 175px  
 
-     - .. figure:: /images/Xi’an_Jiaotong_University.png
+     - .. figure:: /images/logos/Xi’an_Jiaotong_University.png
           :align: center  
           :figwidth: 175px        
           
-     - .. figure:: /images/Zhejiang_University.png
+     - .. figure:: /images/logos/Zhejiang_University.png
           :align: center  
           :figwidth: 175px     
 
-   * - .. figure:: /images/Shandong_University_of_Science_and_Technology.png
+   * - .. figure:: /images/logos/Shandong_University_of_Science_and_Technology.png
           :align: center 
           :figwidth: 175px     
 
-     - .. figure:: /images/Kunming_University_of_Science_and_Technology.jfif
+     - .. figure:: /images/logos/Kunming_University_of_Science_and_Technology.jfif
           :align: center  
           :figwidth: 175px 
-     - 
-     -           
-     - 
+          
+     - .. figure:: /images/logos/uestc.jpg
+          :align: center  
+          :figwidth: 175px 
+     -     
+     -      
 
 .. hint:: If you are using PicoScenes but the above grid misses your affiliation, please `tell us <mailto:zpj@xidian.edu.cn>`_.

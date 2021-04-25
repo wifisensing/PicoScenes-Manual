@@ -7,3 +7,7 @@
 .rst-versions.rst-badge .rst-current-version {
     display: none;
 }
+
+.bd-sidebar div.navbar_extra_footer {
+    display: none;
+}

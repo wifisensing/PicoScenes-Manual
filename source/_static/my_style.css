@@ -19,3 +19,11 @@
 html {
     font-size: 18px !important;
 }
+
+.prev-next-bottom {
+    height: 5em;
+}
+
+body {
+    line-height: 1.4;
+}

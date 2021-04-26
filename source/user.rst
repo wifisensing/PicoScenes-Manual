@@ -12,8 +12,6 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
    * - .. figure:: /images/logos/Tsinghua_University.png
           :align: center 
           :figwidth: 175px  
-          
-          Tsinghua University
 
      - .. figure:: /images/logos/Peking_University.png
           :align: center  
@@ -38,8 +36,6 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/Kunming_University_of_Science_and_Technology.jfif
           :align: center  
           :figwidth: 175px 
-
-          Kunming University of Science and Technology
           
      - .. figure:: /images/logos/uestc.jpg
           :align: center  

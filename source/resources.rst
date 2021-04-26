@@ -37,7 +37,7 @@ If WeChat is one of your favorite IM APP, you may also join the following PicoSc
 
 .. figure:: /images/wechat_group.png
    :figwidth: 300px
-   :target: /images/wechat_group.jpeg
+   :target: /images/wechat_group.png
    :align: center
 
    PicoScenes Technical Support WeChat group

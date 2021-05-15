@@ -55,7 +55,7 @@ CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
 IWL5300 + Wi-Fi AP (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, we can obtain continuous and smooth CSI measurement. 
+The IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating Wi-Fi traffic, for example by `ping` command, we can obtain the CSI measurement. 
 
 Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are only three steps to measure CSI from IWL5300:
 
@@ -70,10 +70,12 @@ The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present w
 If you want to learn more details, you may download and run the following bash script: 
 :download:`2_2_1 <_static/2_2_1.sh>` 
 
+.. hint:: The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can connect to the password-free APs. PicoScenes also provides a convenient ``switch5300Firmware`` script to switch between the normal and CSI measurement firmwares for IWL5300 NICs. For more information, you may refer to :doc:`utilities`.
+
 .. _dual_nic_separate_machine:
 
 Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Monitor mode + packet injection is the most used CSI measurement setup in the previous research. PicoScenes significantly improves the measurement experience in three aspects:
 
@@ -112,7 +114,7 @@ If you want to learn more in detail, please download the source code to view.
 .. _dual_nics_on_one_machine:
 
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The measurement in this scenario leverages the multi-NIC concurrent operation functionality. PicoScenes adopts an intuitive CLI interface, allowing users to specify concurrent operations for multiple NICs. Since the commands used in this scenario remain the same as the last scenario, users should refer to ::ref:`dual_nic_separate_machine` to understand the meaning of commands first.
 
@@ -122,7 +124,7 @@ Let assume Wi-Fi NICs with PhyPath ``3`` and ``4`` are the *injector* and *logge
     
     #!/bin/sh -e 
 
-    array_prepare_for_picoscenes "3 4" 2412 HT20
+    array_prepare_for_picoscenes "3 4" "2412 HT20"
 
     PicoScenes "-d debug;
                 -i 4 --mode logger; // this command line format support comments. Comments start with //
@@ -160,7 +162,7 @@ PicoScenes realizes the above round-trip CSI measurement via EchoProbe plugin. B
 
     #!/bin/sh -e 
 
-    array_prepare_for_picoscenes "3 4" 2412 HT20
+    array_prepare_for_picoscenes "3 4" "2412 HT20"
 
     PicoScenes "-d debug;
                 -i 4 --mode responder;
@@ -186,7 +188,7 @@ In the experiment, both NICs will perform continuous CSI measurements over a lar
 
     #!/bin/sh -e 
 
-    array_prepare_for_picoscenes "3 4" 2412 HT20
+    array_prepare_for_picoscenes "3 4" "2412 HT20"
 
     PicoScenes "-d debug;
                 -i 4 --freq 2412e6 --mode responder;
@@ -216,7 +218,7 @@ This experiment add just two new options to the above scenario. See ::ref:`dual_
 
     #!/bin/sh -e 
 
-    array_prepare_for_picoscenes "3 4" 2412 HT20
+    array_prepare_for_picoscenes "3 4" "2412 HT20"
 
     PicoScenes "-d debug;
                 -i 4 --freq 2412e6 --rate 20e6 --mode responder;
@@ -238,7 +240,7 @@ The following script is based on the last scenario ::ref:`dual_nics_scan`, but a
 
     #!/bin/sh -e 
 
-    array_prepare_for_picoscenes "3 4" 5200 HT40-
+    array_prepare_for_picoscenes "3 4" "5200 HT40-" # Don't miss the quotation marks for the channel specification!
 
     PicoScenes "-d debug;
                 -i 4 --freq 2412e6 --rate 20e6 --mode responder --rxcm 3 --cbw 40 --sts 2 --txcm 5 -ess 1 --txpower 15 --coding ldpc;

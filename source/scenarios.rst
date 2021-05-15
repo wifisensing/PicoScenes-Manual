@@ -1,7 +1,7 @@
 CSI Measurement using PicoScenes
 =================================================
 
-On this page, we list all the Wi-Fi sensing scenarios supported by PicoScenes and demonstrate the software's primary usage. In each scenario, we provide a takeaway bash script that users can exercise the experiment right away.
+On this page, we list some of the most frequently used Wi-Fi sensing scenarios and how they are supported by PicoScenes. In each scenario, we provide a takeaway bash script that users can perform the experiment right away.
 
 
 .. important:: Before getting started, make sure you have successfully installed the PicoScenes software and CSI measurement hardware. See also :doc:`installation` ahead.
@@ -11,8 +11,8 @@ On this page, we list all the Wi-Fi sensing scenarios supported by PicoScenes an
 Preliminary: How to specify which device we'd like to use?
 -----------------------------------------------------------------------------
 
-This was not a problem for the previous CSI tools, because they only support one device. 
-In order to support multi-NIC concurrent operation in PicoScenes, a reliable and easy-to-use device (Wi-Fi NIC and SDR) naming/ID system is required. We propose easy and intuitive solutions for both the commercial Wi-Fi NICs and SDR.
+This is not a problem for the previous CSI tools, because they only support one single device. 
+For PicoScenes, in order to support multi-NIC concurrent operation, a reliable and easy-to-use device naming protocol (for both the commercial Wi-Fi NIC and SDR devices) is required.
 
 For Commercial Wi-Fi NICs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,21 +26,25 @@ Open a terminal and run ``array_status``. After a second or two, a list of all t
 
    Each Wi-Fi NIC has `four` IDs.
 
-Looking at the first four columns of the output, we see that ``array_status`` shows four IDs or names for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We explain the latter three first and then PhyPath:
+Looking at the first four columns of the output, we see that ``array_status`` shows four IDs for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We first explain the latter three and then PhyPath:
 
-- **PhyId**: this is the system level *Physical ID* for a Wi-Fi NIC assigned by the Linux kernel. This ID is mainly used for low-level hardware control. This ID is subjected to change on every reboot.
-- **DevId**: this is the system level *Device ID* for a Wi-Fi NIC assigned by the Linux kernel. This ID is mainly used for normal Wi-Fi connections. This ID is subjected to change on every reboot.
+- **PhyId**: this is the system level *Physical ID* assigned by the Linux `mac80211` module. This ID is mainly used for low-level hardware control. This ID is subjected to change on every reboot.
+- **DevId**: this is the system level *Device ID* assigned by the Linux `mac80211` module. This ID is mainly used for normal Wi-Fi connections. This ID is subjected to change on every reboot.
 - **MonId**: this is the *Monitor interface ID* for a Wi-Fi NIC. The monitor interface and its ID can be created and assigned by the user. This ID is mainly used for traffic monitoring and packet injection. User can change this ID at any time.
 
-You may have noticed the problems that the system-assigned NIC IDs are not consistent across reboots, which inconveniences the selection from multiple NICs. To overcome this problem, we devise a new ID, named PhyPath. The biggest advantage is that **PhyPath is bound to the PCI-E connection hierarchy, consistent across reboots and even system reinstallations**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates that it is the third device in the PCI-E hierarchy, and a Wi-Fi NIC with PhyPath ``53`` indicates that the position of this NIC in the PCI-E hierarchy is the 3rd leaf node of the 5th branch node. PhyPath is supported throughout the PicoScenes system, including the PicoScenes program, plugins and bash scripts. We recommend users use PhyPath in all scenarios.
+You may have noticed the problem that the system-assigned IDs are not consistent across reboots, which inconveniences the selection from multiple NICs. To overcome this problem, we devise a new ID, named PhyPath, which is as listed in the first column of the screenshot. The biggest advantage is that **PhyPath is bound to the PCI-E connection hierarchy, consistent across reboots and even system reinstallations**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates that it is the third device in the PCI-E hierarchy, and a Wi-Fi NIC with PhyPath ``53`` indicates that the position of this NIC in the PCI-E hierarchy is the 3rd leaf node of the 5th branch node. PhyPath is supported throughout the PicoScenes system, including the PicoScenes program, plugins and bash scripts. We recommend users use PhyPath in all scenarios.
 
-For USRP devices
+For USRP Devices
 ~~~~~~~~~~~~~~~~~~~~
 
-We devise a simple and intuitive naming/ID method for USRP-- ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID>``. For example, for an X310 with IP address 192.168.40.2, it can be represented by ``usrp192.168.40.2``.
-The combined form of multiple USRPs can also be easily represented. For example, the combined form of two X310s can be represented by ``usrp192.168.40.2,192.168.41.2``.
+We devise a simple and intuitive naming protocol for USRP devices: ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>``. For example, for a USRP X310 device with ip-addr=192.168.40.2, serial=DID1234, name=myX310 or resourceId=RID4567, it can be represented by **four** IDs: ``usrp192.168.40.2``, ``usrpDID1234``, ``usrpmyX310`` or ``usrpRID4567``. This naming protocol also supports the combined form of multiple USRP devices. For example, the combination of four USRP X310 devices (each with 192.168.40.2, 192.168.41.2, 192.168.42.2, 192.168.43.2 IP addresses) can be represented by ``usrp192.168.40.2,192.168.41.2,192.168.42.2,192.168.43.2``.
 
-.. important:: The order of the IP address matters! For example, 0-th and 3rd channel of ``usrp192.168.40.2,192.168.41.2`` refers to the first channel of the X310 with IP address 192.168.40.2 and the second channel of X310 with IP address 192.168.41.2.
+.. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
+
+For Virtual SDR Devices
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``. Since a Virtual SDR device can have up to 8 TX/RX channels, we don't support multi-device combination for Virtual SDR devices.
 
 
 CSI Measurement by PicoScenes on Commercial Wi-Fi NICs

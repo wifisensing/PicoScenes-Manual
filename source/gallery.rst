@@ -29,7 +29,7 @@ For more details, you may refer to :ref:`picoscenes_paper`.
    :target: /images/wideband_csi.jpg
    :align: center
 
-   PicoScenes provides out-of-box CSI measurement for the tunable and wide bandwidths.
+   PicoScenes provides the out-of-box CSI measurement functionality for the tunable and wide bandwidths.
 
 
 

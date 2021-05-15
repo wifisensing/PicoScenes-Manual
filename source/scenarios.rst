@@ -8,7 +8,7 @@ On this page, we list some of the most frequently used Wi-Fi sensing scenarios a
 
 .. _specify_nic:
 
-Preliminary: How to specify which device we'd like to use?
+Before Getting Started: Device Naming
 -----------------------------------------------------------------------------
 
 This is not a problem for the previous CSI tools, because they only support one single device. 
@@ -37,7 +37,7 @@ You may have noticed the problem that the system-assigned IDs are not consistent
 For USRP Devices
 ~~~~~~~~~~~~~~~~~~~~
 
-We devise a simple and intuitive naming protocol for USRP devices: ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>``. For example, for a USRP X310 device with ip-addr=192.168.40.2, serial=DID1234, name=myX310 or resourceId=RID4567, it can be represented by **four** IDs: ``usrp192.168.40.2``, ``usrpDID1234``, ``usrpmyX310`` or ``usrpRID4567``. This naming protocol also supports the combined form of multiple USRP devices. For example, the combination of four USRP X310 devices (each with 192.168.40.2, 192.168.41.2, 192.168.42.2, 192.168.43.2 IP addresses) can be represented by ``usrp192.168.40.2,192.168.41.2,192.168.42.2,192.168.43.2``.
+We devise a simple and intuitive naming protocol for USRP devices: ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>``. For example, for a USRP X310 device with ip-addr=192.168.40.2, serial=DID1234, name=myX310 or resourceId=RID4567, it can be represented by **four** IDs: ``usrp192.168.40.2``, ``usrpDID1234``, ``usrpmyX310`` or ``usrpRID4567``. This naming protocol also supports the combined form of multiple USRP devices. For example, the combination of two USRP X310 devices (with IP addresses of 192.168.40.2 and 192.168.41.2) can be represented by ``usrp192.168.40.2,192.168.41.2``.
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
@@ -57,17 +57,17 @@ IWL5300 + Wi-Fi AP (Difficulty Level: Beginner)
 
 IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, we can obtain continuous and smooth CSI measurement. 
 
-Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are only three steps to measure CSI on IWL5300:
+Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are only three steps to measure CSI from IWL5300:
 
 #. Lookup the IWL5300 NIC's PhyPath ID by ``array_status``. 
 #. Assume the PhyPath is ``3``, then run command ``PicoScenes -d debug -i 3 --mode logger`` in a terminal.
 #. Exit CSI logging by pressing Ctrl+C.
 
-The above PicoScenes command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level log message to debug (-d debug); makes device <AnyId=3> switch to CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
+The above command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level log message to debug (-d debug); makes the device with an Id of 3 switch to the CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
 
-The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory (pwd)*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-If you want to learn more in detail, please download the source code to view. 
+If you want to learn more details, you may download and run the following bash script: 
 :download:`2_2_1 <_static/2_2_1.sh>` 
 
 .. _dual_nic_separate_machine:

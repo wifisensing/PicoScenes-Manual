@@ -4,20 +4,19 @@ CSI Measurement using PicoScenes
 On this page, we list some of the most frequently used Wi-Fi sensing scenarios and how they are supported by PicoScenes. In each scenario, we provide a takeaway bash script that users can perform the experiment right away.
 
 
-.. important:: Before getting started, make sure you have successfully installed the PicoScenes software and CSI measurement hardware. See also :doc:`installation` ahead.
+.. important:: In this section, we assume you have already installed the PicoScenes software and the supported hardware. Not sure for that? See :doc:`installation` ahead.
 
 .. _specify_nic:
 
 Before Getting Started: Device Naming
 -----------------------------------------------------------------------------
 
-This is not a problem for the previous CSI tools, because they only support one single device. 
 In PicoScenes, a reliable and easy-to-use device naming protocol (for both the commercial Wi-Fi NIC and SDR devices) is required to support the multi-NIC concurrent operation. In the following, we introduce the naming protocols for the commercial Wi-Fi NICs, SDR and the Virtual SDR devices.
 
 For Commercial Wi-Fi NICs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open a terminal and run ``array_status``. After a second or two, a list of all the installed Wi-Fi NICs will be shown in the terminal. The following screenshot shows a sample list of devices.
+Open a terminal and run ``array_status``. After a second or two, a list of all the PCI-E based Wi-Fi NICs will be shown in the terminal. The following screenshot shows a sample device list.
 
 .. figure:: /images/array_status.png
    :figwidth: 600px
@@ -26,7 +25,7 @@ Open a terminal and run ``array_status``. After a second or two, a list of all t
 
    Each Wi-Fi NIC has `four` IDs.
 
-Looking at the first four columns of the output, we see that ``array_status`` shows four IDs for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We first explain the latter three IDs and then PhyPath:
+Looking at the first four columns of the output, ``array_status`` provides four IDs for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We first explain the latter three IDs and then PhyPath.
 
 - **PhyId**: this is the system level *Physical ID* assigned by the Linux `mac80211` module. This ID is mainly used for low-level hardware control. This ID is subjected to change on every reboot.
 - **DevId**: this is the system level *Device ID* assigned by the Linux `mac80211` module. This ID is mainly used for normal Wi-Fi connections. This ID is subjected to change on every reboot.

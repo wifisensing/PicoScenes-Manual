@@ -54,7 +54,7 @@ CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
 IWL5300 + Wi-Fi AP (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating Wi-Fi traffic, for example by `ping` command, we can obtain the CSI measurement. 
+The IWL5300 NIC can measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. By creating Wi-Fi traffic, for example by *ping* command, we can obtain the CSI measurement. 
 
 Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are only three steps to measure CSI from IWL5300:
 

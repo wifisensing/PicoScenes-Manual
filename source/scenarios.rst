@@ -178,7 +178,7 @@ You may download and run the complete takeaway bash script for this scenario at
 
 .. _dual_nics_scan:
 
-Two QCA9300/IWL5300 NICs performs round trip CSI measurement while scans wide spectrum (Difficulty Level: Medium)
+Two QCA9300/IWL5300 NICs perform the round trip CSI measurement while scanning large spectrum (Difficulty Level: Medium)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the experiment, both NICs will perform continuous CSI measurements over a large spectrum. PicoScenes (or EchoProbe plugin) leverages the bi-directional communication ability of *Initiator* and *Responder* modes to synchronize the frequency hopping. The following command performs the continuous CSI measurement over the entire 2.4 GHz band with a 5 MHz step. And in each carrier frequency, 100 round-trip measurements are performed.

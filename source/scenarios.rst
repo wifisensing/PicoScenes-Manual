@@ -333,7 +333,7 @@ PicoScenes can combine at most four USRP X310 devices to form a 8x8 MIMO array (
                 -q
                 "
 
-The above command combines 4 USRP X310s two by two to form the a 4x4 MIMO transmitter and 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/receiving antennas, respectively.
+The above command uses 4 USRP X310s to form the a 4x4 MIMO transmitter and a 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/reception channels, respectively.
 
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_4 <_static/2_3_4.sh>` 

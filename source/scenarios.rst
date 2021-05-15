@@ -207,7 +207,7 @@ The above command adds two new options, ``--freq`` and ``--cf``. ``--freq``, as 
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_5 <_static/2_2_5.sh>` 
 
-Two QCA9300 NICs scans both the spectrum and bandwidth (Difficulty Level: Medium)
+Two QCA9300 NICs scan both the spectrum and bandwidth (Difficulty Level: Medium)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This experiment add just two new options to the above scenario. See ::ref:`dual_nics_scan` first. The following the bash script that scans both the carrier frequency and bandwidth. The carrier frequency is the `inner loop` and bandwidth is the `outer loop`.
@@ -230,7 +230,7 @@ The two new options are ``--rate`` and ``--sf``. ``--rate`` specifies the initia
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_6 <_static/2_2_6.sh>` 
 
-Two QCA9300 NICs scans both the spectrum and bandwidth, with advanced measurement settings (Difficulty Level: Medium Plus)
+Two QCA9300 NICs scan both the spectrum and bandwidth w/ advanced measurement settings (Difficulty Level: Medium Plus)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following script is based on the last scenario ::ref:`dual_nics_scan`, but adds a few more options to demonstrate the advanced measurement settings.
@@ -262,7 +262,7 @@ SDR-based measurement scenarios
 
 PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
 
-Listening to Wi-Fi Traffic, Measure CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
+Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is the most frequently used CSI measurement scenario for SDR-based frontend. To fully demonstrate the capability of PicoScenes, we assume you use the powerful USRP X310 with UBX-160 daughterboard as the RF frontend, which supports up to 200 MHz baseband sampling rate and 10 to 6000 MHz carrier frequency range, the following bash script opens a 2x2 MIMO Rx channels, listens and measures CSI for all the overheard Wi-Fi packets in 5815 MHz channel with 40 MHz bandwidth, regardless of the protocols.
@@ -280,7 +280,7 @@ The above command introduces four SDR-exclusive and Rx-related options: ``--rx-c
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_1 <_static/2_3_1.sh>` 
 
-USRP injects Packets, QCA9300/IWL5300 measure CSI (Difficulty Level: Easy)
+USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following example bash script injects 802.11ac packets in 5815 MHz channel with 40 MHz bandwidth, two spatial streams (:math:`N_{STS}=2`) and MCS 4.
@@ -298,7 +298,7 @@ The above command introduces two SDR-exclusive and Tx-related options: ``--forma
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_2 <_static/2_3_2.sh>` 
 
-Dual USRP, measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
+Two USRPs measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 USRP N210 and X310 cannot tune the baseband sampling rate to any specified bandwidth. For example, USRP X310, with 200 MHz master clock rate, can only tune to :math:`\frac{200}{n}, n\in\mathcal{N}^+` MHz rates, like 200/100/66.67/50/40/33.3 ... MHz. In order to support other sampling rates, like 80/160 MHz bandwidth in 802.11ac/ax protocols, PicoScenes introduces resampling ratio for both the Tx and Rx. The following bash script demonstrates the packet injection and CSI measurement 160 MHz bandwidth.

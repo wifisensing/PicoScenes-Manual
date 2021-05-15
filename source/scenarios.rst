@@ -318,10 +318,10 @@ The above command tunes both the baseband sampling rate of the Tx and Rx end to 
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_3 <_static/2_3_3.sh>` 
 
-Dual-USRP MIMO transmission or reception (Difficulty Level: Easy)
+Multi-USRP-based MIMO transmission and reception (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes can currently combine two USRPs to form a 4x4 MIMO array. The following bash script combines four USRP X310s (each with two UBX-160 daughterboards) two by two to demonstrate 4x4 MIMO packet injection and CSI measurement.
+PicoScenes can combine at most four USRP X310 devices to form a 8x8 MIMO array (each X310 with two independent TX/RX channels). The following bash script uses two USRP X310-based 4x4 MIMO arrays (four X310 devices and eight channels totally) to perform the simple packet injection and CSI measurement.
 
 .. code-block:: bash
 

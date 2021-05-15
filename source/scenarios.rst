@@ -66,7 +66,7 @@ The above command has three program options *"-d debug -i 3 --mode logger"*. The
 
 The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-If you want to learn more details, you may download and run the following bash script: 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_1 <_static/2_2_1.sh>` 
 
 .. hint:: The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can connect to the password-free APs. PicoScenes also provides a convenient ``switch5300Firmware`` script to switch between the normal and CSI measurement firmwares for IWL5300 NICs. For more information, you may refer to :doc:`utilities`.
@@ -106,7 +106,7 @@ The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the 
     "IWL5300", "QCA9300", PicoScenes DO NOT SUPPORTED
     "IWL5300", "IWL5300", use the above Tx and Rx commands
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash scripts for this scenario at 
 :download:`2_2_2-1 <_static/2_2_2-1.sh>` 
 :download:`2_2_2-2 <_static/2_2_2-2.sh>` 
 
@@ -136,7 +136,7 @@ For the PicoScenes command, this enhanced version wraps the Tx and Rx commands a
 
 PicoScenes parses this long string by first localizing the semicolons and then splitting the long command into multiple per-NIC command strings. It then parses and executes the per-NIC command strings in order. 
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_3 <_static/2_2_3.sh>` 
 
 Two QCA9300/IWL5300 NICs performs round trip CSI measurement (Difficulty Level: Easy)
@@ -173,7 +173,7 @@ The above command puts NIC ``4`` into responder mode and let NIC ``3``, initiate
 - Responder mode: besides the basic CSI logging functionality, *responder* mode checks the frame content, and immediately reply the frame if it is a `EchoProbe ProbeRequest` frame;
 - Initiator mode: besides the basic frame injection functionality, *initiator* mode uses an internal `timeout and re-transmission` mechanism to realize the round-trip CSI measurement. 
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_4 <_static/2_2_4.sh>` 
 
 .. _dual_nics_scan:
@@ -204,7 +204,7 @@ The above command adds two new options, ``--freq`` and ``--cf``. ``--freq``, as 
 
 .. warning:: The spectrum scanning is based on round-trip communication, not pre-scheduled. If the round-trip measurement fails due to excessive retransmission, the spectrum scanning will fail. 
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_5 <_static/2_2_5.sh>` 
 
 Two QCA9300 NICs scans both the spectrum and bandwidth (Difficulty Level: Medium)
@@ -227,7 +227,7 @@ This experiment add just two new options to the above scenario. See ::ref:`dual_
 
 The two new options are ``--rate`` and ``--sf``. ``--rate`` specifies the initial bandwidth; it is not related to ``--sf`` option. ``--sf`` specifies the bandwidth scanning range and has the same MATLAB-like style.
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_6 <_static/2_2_6.sh>` 
 
 Two QCA9300 NICs scans both the spectrum and bandwidth, with advanced measurement settings (Difficulty Level: Medium Plus)
@@ -254,7 +254,7 @@ EchoProbe plugin also introduces several options to control the transmission of 
 
 .. important:: PicoScenes uses the 802.11ac/ax style MCS/STS definition which decouples :math:`N_{STS}` (``--sts``) and per-stream MCS (``--mcs``). For example, MCS=9 in 802.11n version is represented by two terms in 802.11ac/ax: :math:`N_{STS}=2` (``--sts 2``) and MCS=1 (``--mcs 1``). 
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_7 <_static/2_2_7.sh>` 
 
 SDR-based measurement scenarios
@@ -277,7 +277,7 @@ This is the most frequently used CSI measurement scenario for SDR-based frontend
 
 The above command introduces four SDR-exclusive and Rx-related options: ``--rx-cbw``, ``--rx-channel``, ``--rx-ant`` and ``--rx-gain``. ``--rx-cbw 40`` specifies the Rx baseband to decode any incoming Wi-Fi signals as 40 MHz CBW format. ``--rx-channel 0,1`` specifies to receives the signals from 0-th and 1st channels of X310, which enables the 2x2 receiver side MIMO. ``--rx-ant TX/TX`` specifies to use the TX/RX antenna as the Rx antenna for both the 0-th and 1st channels (Most USRP daughterboards has two antennas TX/RX and RX2. As the name implies TX/RX can be used for both transmission and reception). Last, ``--rx-gain 15`` amplifies the received signals by 15 dB to improve the Rx SNR, and this value should be adjusted according to the Tx end transmission power (--txpower option in PicoScenes) and the measurement scenario.  Users may refer to :doc:`parameters` for more detailed explanations.
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_1 <_static/2_3_1.sh>` 
 
 USRP injects Packets, QCA9300/IWL5300 measure CSI (Difficulty Level: Easy)
@@ -295,7 +295,7 @@ PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following e
 
 The above command introduces two SDR-exclusive and Tx-related options: ``--format`` and ``--tx-channel``. ``--format vht`` specifies the PicoScenes baseband to transmit the signal in 802.11ac (Very High Throughput, VHT) format. ``--tx-channel 0,1`` assigns the 0-th and 1st channels for transmission to support the following ``--sts 2 --mcs 4`` MIMO transmission.
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_2 <_static/2_3_2.sh>` 
 
 Dual USRP, measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
@@ -315,7 +315,7 @@ USRP N210 and X310 cannot tune the baseband sampling rate to any specified bandw
 
 The above command tunes both the baseband sampling rate of the Tx and Rx end to a 200 MHz, which is a hardware-supported sampling rate by X310. To transmit and receive 160 MHz bandwidth signal, both ends use ``--tx-resample-ratio 1.25`` and ``--rx-resample-ratio 0.8`` to resamples the signals. More specifically, Tx end interpolates the baseband generated signal by 1.25x so that the transmission of 1.25x interpolated signals in 200 MHz is equivalent to 160 MHz bandwidth signal. Rx end decimates the raw received signals by 0.8x so that the 200 MHz sampled signals can be down-clocked to 160 MHz.
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_3 <_static/2_3_3.sh>` 
 
 Dual-USRP MIMO transmission or reception (Difficulty Level: Easy)
@@ -335,5 +335,5 @@ PicoScenes can currently combine two USRPs to form a 4x4 MIMO array. The followi
 
 The above command combines 4 USRP X310s two by two to form the a 4x4 MIMO transmitter and 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/receiving antennas, respectively.
 
-If you want to learn more in detail, please download the source code to view. 
+You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_3_4 <_static/2_3_4.sh>` 

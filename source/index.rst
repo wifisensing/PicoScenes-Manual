@@ -13,7 +13,7 @@ The Virtual SDR interface provides users a convenient way to generate, manipulat
 
 **For software**: PicoScenes goes far beyond a simple CSI data logger! It is architecturally versatile and flexible. It adopts the "Driver + Platform + Plugins" architecture. The Driver layer exposes the basic controls and the unlocked hardware features. The Platform, like a Wi-Fi sensing middleware, encapsulate all the low-level features into a set of unified and hardware-independent APIs and exposes them to the upper-level plugin layer. Plugin layer, agile and lightweight, realizes the measurement-specific missions, and users can **quickly prototype their own measurement plugins**. We demonstrate this platform flexibility through EchoProbe, a PicoScenes plugin, which features ms-grade round-trip CSI measurement and the spectrum scanning CSI measurement capability. 
 
-We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
+You may refer to :doc:`why` to know more about PicoScenes. We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
 
 .. note::
 

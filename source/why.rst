@@ -9,7 +9,7 @@ Support *All* CSI-Available Devices
 
 
 Control Multiple Wi-Fi NICs Simultaneously
--------------------------------------------
+---------------------------------------------
 
 
 Access QCA9300 and IWL5300's Unlocked Hardware features
@@ -30,7 +30,7 @@ Modern Wi-Fi Protocols (802.11ac/ax w/ multi-user) Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-In-Situ CSI parsing & Processing
+In-Situ CSI Parsing & Processing
 -----------------------------------
 
 

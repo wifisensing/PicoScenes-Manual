@@ -20,12 +20,13 @@ We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoS
    This document is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please find :ref:`tech_support` via PicoScenes Issue Tracker.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :numbered:
    :caption: Table of Contents:
    
    gallery
    user
+   why
    installation
    scenarios
    parameters

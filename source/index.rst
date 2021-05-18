@@ -24,9 +24,9 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
    :numbered:
    :caption: Table of Contents:
    
+   why
    gallery
    user
-   why
    installation
    scenarios
    parameters

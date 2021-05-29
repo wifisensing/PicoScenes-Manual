@@ -40,7 +40,18 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/uestc.jpg
           :align: center  
           :figwidth: 175px 
-     -     
-     -      
+     -  .. figure:: /images/logos/Beijing_University_of_Posts_and_Telecommunications.png
+          :align: center  
+          :figwidth: 175px 
+     -  .. figure:: /images/logos/National_University_of_Defense_Technology.png
+           :align: center  
+           :figwidth: 175px 
+
+   * -  
+     -
+     -
+     -
+     -
+
 
 .. hint:: If you are using PicoScenes but the above grid misses your affiliation, please `tell us <mailto:zpj@xidian.edu.cn>`_.

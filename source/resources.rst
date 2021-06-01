@@ -35,9 +35,9 @@ PicoScenes微信群 (PicoScenes WeChat group)
 +++++++++++++++++++++++++++++++++++++++++++
 If WeChat is one of your favorite IM APP, you may also join the following PicoScenes Technical Support WeChat group. You may reach us more instantly on WeChat, however, posting issues on the PicoScenes Issues Tracker can also benefit other users.
 
-.. figure:: /images/wechat_group.jpg
+.. figure:: /images/wechat_group.png
    :figwidth: 300px
-   :target: /images/wechat_group.jpg
+   :target: /images/wechat_group.png
    :align: center
 
    PicoScenes Technical Support WeChat group

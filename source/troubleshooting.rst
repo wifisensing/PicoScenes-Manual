@@ -5,7 +5,7 @@ The following shows some of the most frequently seen errors and their solutions 
 
 **Q**: I have successfully installed the PicoScenes software, however, I always encounter "[Warning] Incompatible kernel version, current version: XXX, expected version: YYY." problem.
 
-A: This is because your system loads the Incompatible kernel. Solution: reboot your computer and choose the expected kernel version YYY in grub menu. If your computer doesn't show the grub boot selection menu, you may refer to https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time/1091821#1091821 to restore the menu.
+A: This is because your system loads the Incompatible kernel. Solution: reboot your computer and choose the expected kernel version YYY in grub menu. If your computer doesn't show the grub boot selection menu, you may refer to https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time/16049#16049 to restore the menu.
 
 **Q**: I encounter an error during apt installation saying, "E: fail to fetch XXX, File has unexpected size (xxx != xxx). ..."
 

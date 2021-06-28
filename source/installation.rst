@@ -254,6 +254,15 @@ Preparation steps on Windows 10
 - Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'C:\TDM-GCC-64')`` and then ``mex -setup C++`` in MATLAB Command Window.
 - Click the option ``MinGW64 Compiler (C++)``
 
+The following is a screenshot of setting up TDM-GCC in MATLAB R2020b.
+
+    .. figure:: /images/tdm-gcc-matlab.jpg
+    :figwidth: 600px
+    :target: /images/tdm-gcc-matlab.jpg
+    :align: center
+
+    Screenshot: Setup TDM-GCC in MATLAB
+
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++
 
@@ -272,7 +281,7 @@ Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox
 In a few seconds, seeing similar messages shown in the picture below means that you have successfully installed the PicoScenes MATLAB Toolbox.
 
     .. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
-        :figwidth: 1000px
+        :figwidth: 800px
         :target: /images/install-PicoScenes-MATLAB-Toolbox.png
         :align: center
 

@@ -145,7 +145,7 @@ Prerequisites
 - Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
 - Internet connection: the Internet connection is required during the installation process and is also required for regular license checking in future use.
 - Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
-- The latest MATLAB version on Linux/macOS/Windows: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or R2021a version of MATLAB on Linux/macOS/Windows platforms.
+- The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
 
 Install PicoScenes via apt
 ++++++++++++++++++++++++++++
@@ -229,7 +229,7 @@ Because the PicoScenes MATLAB Toolbox (PMT) and the PicoScenes main program use 
 
     OS Version, "Ubuntu 20.04 or its variants", "macOS Big Sur 11.2", "Windows 10"
     MATLAB Version, "MATLAB 2020b or above", "MATLAB 2020b or above", "MATLAB 2020b or above"
-    Compiler, GCC 9.3+, Apple Clang 12+ (Xcode 12.4+), MinGW64
+    Compiler, GCC 9.3+, Apple Clang 12+ (Xcode 12.4+), TDM-GCC 64 (10.3+)
 
 The following are the preparation steps for each supported OS.
 
@@ -249,10 +249,10 @@ Preparation steps on Windows 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Install MATLAB (version R2020b or above);
-- Install `TDM-GCC-64 <https://jmeubank.github.io/tdm-gcc/>` (choose MinGW-w64 based version, version 10.3 or above);
-- By default, the installer of TDM-GCC-64 will add <TDM-GCC-64 PATH> your system Environment Variables. Here we assume the installation path is `C:\TDM-GCC-64`.
+- Install `TDM-GCC-64 <https://jmeubank.github.io/tdm-gcc/>`_ (choose MinGW-w64 based version, version 10.3+);
+- By default, the installer will add <TDM-GCC-64 PATH> your system Environment Variables. Here we assume the installation path is ``C:\\TDM-GCC-64``.
 - Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'C:\TDM-GCC-64')`` and then ``mex -setup C++`` in MATLAB Command Window.
-- Click the option `MinGW64 Compiler (C++) .........`
+- Click the option ``MinGW64 Compiler (C++)``
 
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++

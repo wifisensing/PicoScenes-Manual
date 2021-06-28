@@ -254,7 +254,7 @@ Preparation steps on Windows 10
 - Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'C:\TDM-GCC-64')`` and then ``mex -setup C++`` in MATLAB Command Window.
 - Click the option ``MinGW64 Compiler (C++)``
 
-The following is a screenshot of setting up TDM-GCC in MATLAB R2020b.
+The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
 
     .. figure:: /images/tdm-gcc-matlab.jpg
     :figwidth: 600px

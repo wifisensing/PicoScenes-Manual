@@ -249,9 +249,10 @@ Preparation steps on Windows 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Install MATLAB (version R2020b or above);
-- Install Mingw-w64 (version 8.0 or above);
-- Assuming the installation path of Mingw-w64 is ``D:\Develop\mingw``, `append` ``D:\Develop\mingw\bin`` to your OS Environment Variables ``Path``;
-- Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'D:\Develop\mingw')`` and ``mex -setup C++`` in MATLAB Command Window.
+- Install `TDM-GCC-64 <https://jmeubank.github.io/tdm-gcc/>` (choose MinGW-w64 based version, version 10.3 or above);
+- By default, the installer of TDM-GCC-64 will add <TDM-GCC-64 PATH> your system Environment Variables. Here we assume the installation path is `C:\TDM-GCC-64`.
+- Open MATLAB, run ``setenv('MW_MINGW64_LOC', 'C:\TDM-GCC-64')`` and then ``mex -setup C++`` in MATLAB Command Window.
+- Click the option `MinGW64 Compiler (C++) .........`
 
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++

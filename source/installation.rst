@@ -256,12 +256,12 @@ Preparation steps on Windows 10
 
 The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
 
-.. figure:: /images/tdm-gcc-matlab.jpg
-    :figwidth: 600px
-    :target: /images/tdm-gcc-matlab.jpg
-    :align: center
+    .. figure:: /images/tdm-gcc-matlab.jpg
+        :figwidth: 600px
+        :target: /images/tdm-gcc-matlab.jpg
+        :align: center
 
-    Screenshot: Setup TDM-GCC in MATLAB
+        Screenshot: Setup TDM-GCC in MATLAB
 
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++

@@ -32,7 +32,14 @@ For more details, you may refer to :ref:`picoscenes_paper`.
    PicoScenes provides the out-of-box CSI measurement functionality for the tunable and wide bandwidths.
 
 
+User tuneable Rx gain for the QCA9300 NIC
+-------------------------------------------
 
+For the QCA9300 NIC, PicoScenes unlocks the manual Rx gain control for all three radio chains. 
+With this feature, PicoScenes eliminates the troubles caused by the automatic gain control (AGC), and researchers can obtain continuos and smooth CSI amplitude measurements across packets.
+
+.. todo:: add video
+   
 27-NIC Wi-Fi sensing array
 ---------------------------------------------------------------------------
 

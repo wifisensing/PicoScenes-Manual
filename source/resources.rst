@@ -33,7 +33,7 @@ We provide the official and public technical support via `PicoScenes Issues Trac
 
 PicoScenes微信群 (PicoScenes WeChat group)
 +++++++++++++++++++++++++++++++++++++++++++
-If WeChat is one of your favorite IM APP, you may scan the following QR code to join our PicoScenes WeChat group. If you got trouble in joining the group, you may contact Zhiping Jiang by Adding Friend "jiangzhiping" in WeChat.
+If WeChat is one of your favorite IM APPs, you may scan the following QR code to join our PicoScenes WeChat group. If you got trouble in joining the group, you may directly contact Zhiping Jiang by Adding Friend "jiangzhiping" in WeChat.
 
 .. figure:: /images/wechat_group.png
    :figwidth: 300px

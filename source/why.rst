@@ -1,32 +1,37 @@
-Why Should Use PicoScenes
+Why Should Choose PicoScenes
 ===================================
 
 .. hint:: This paper is under active editing.
 
 
-Support *All* CSI-Available Devices
-------------------------------------------
+Concurrent CSI measurement from multiple Wi-Fi NICs or SDR devices
+--------------------------------------------------------------------
+
+To the best of our knowledge, 
+PicoScenes is currently (Aug. 2021) the **only** Wi-Fi sensing platform software that supports concurrent CSI measurement from multiple Wi-Fi NICs by one single computer.
+
+This feature significantly reduces the complexity of setting up and managing a multi-NIC CSI measurement.
+Taking our dual-NIC ThinkPad X201 as an example, researchers can perform the round-trip or concurrent CSI measurement by just one laptop. 
+We have even set up a 27-NIC array which is just impossible with the previous one-PC per NIC architecture.
+
+To achieve this goal, we rewrote the CSI extraction logic of both the QCA9300 and IWL5300 kernel drivers. Moreover, multi-threading is one of the the fundamental designs of the PicoScenes platform. In fact, PicoScenes platform assign at least five threads for each frontend (Wi-Fi COTS NICs or SDR) and its plugins.
+
+Accessing the unlocked hardware features of the QCA9300 and IWL5300
+---------------------------------------------------------------------
 
 
-Control Multiple Wi-Fi NICs Simultaneously
----------------------------------------------
 
-
-Access QCA9300 and IWL5300's Unlocked Hardware features
-------------------------------------------------------------
-
-Using USRP (SDR) in Your Wi-Fi Sensing Research
+Adopting SDR (USRP) in your Wi-Fi sensing research
 --------------------------------------------------
 
-Obtaining Complete RX PHY-Layer Information
+Obtaining complete RX PHY-layer information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-Fully Control PHY-Layer Transmission
+Fully control PHY-layer transmission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Modern Wi-Fi Protocols (802.11ac/ax w/ multi-user) Support
+Modern Wi-Fi protocols (802.11ac/ax w/ multi-user) support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -38,18 +43,27 @@ Use Virtual SDR Parse Signals
     :align: center
 
 
-In-Situ CSI Parsing & Processing
+In-situ CSI parsing & processing
 -----------------------------------
 
 
-Prototype Your Own Advanced CSI Measurement Protocol
+Prototype your own advanced CSI measurement protocol
 ------------------------------------------------------
 
 
-Super Easy Installation on Latest OS w/ Auto-update 
+Super easy installation on latest OS w/ auto-update 
 -------------------------------------------------------
 
 
-Technical Support--- Least Technical, Most Critical
+Support multiple CSI-available devices
+------------------------------------------
+
+PicoScenes platform currently supports the QCA9300 and IWL5300 Wi-Fi NIC models.
+
+In the upcoming Late 2021 release, PicoScenes will support ESP32, Intel AC9260/AX200 series NIC models.
+
+
+
+Technical support--- least technical, most critical
 -----------------------------------------------------
 

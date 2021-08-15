@@ -6,7 +6,7 @@ Useful Resources
 The academic paper of PicoScenes
 ------------------------------------
 
-Zhiping Jiang, Tom H. Luan, Xincheng Ren, Dongtao Lv, Han Hao, Jing Wang, Kun Zhao, Wei Xi, Yueshen Xu, Rui Li, `Eliminating the Barriers: Demystifying Wi-Fi Baseband Design and Introducing the PicoScenes Wi-Fi Sensing Platform`, `preprint on arxiv <https://arxiv.org/abs/2010.10233>`_.
+Zhiping Jiang, Tom H. Luan, Xincheng Ren, Dongtao Lv, Han Hao, Jing Wang, Kun Zhao, Wei Xi, Yueshen Xu, Rui Li, `Eliminating the Barriers: Demystifying Wi-Fi Baseband Design and Introducing the PicoScenes Wi-Fi Sensing Platform`, accepted by the IEEE Internet of Things Journal (IEEE IOT-J), `preprint on arxiv <https://arxiv.org/abs/2010.10233>`_.
 
 This paper introduces PicoScenes and also reports very extensive performance evaluations of PicoScenes. Many of the results are state of the art.
 

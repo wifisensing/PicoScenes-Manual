@@ -19,36 +19,33 @@ We recommend three multi-NIC installation methods.
 
 With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install multiple QCA9300 or IWL5300 NICs directly on the motherboard of a desktop PC. 
 
-However, typically, only 2 or 3 slots are spare to Wi-Fi NICs. To overcome this issue, you may choose the cryptocurrency mining motherboards, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
+However, typically, there are only 2 or 3 slots left spare for Wi-Fi NICs. To overcome this issue, you may choose the cryptocurrency mining motherboards, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
 
 2. **Multi-Mini PCI-E slots-based multi-NIC installation**
     
-This is the most convenient multi-NIC installation approach. Multiple onboard Mini PCI-E slots spare the need for Mini PCI-E to PCI-E 1x adaptors and also present a highly compact factor. 
-There are many Intel NUC models equipped with two Mini PCI-E slots. However, it is troublesome always to connect a power cable; after all, they are not laptops
+This is the most convenient approach for installing multiple NICs. The onboard Mini PCI-E slots spare the need for Mini PCI-E to PCI-E 1x adaptors.
     
-Pursuing a wire-free multi-NIC solution, we recommend ThinkPad X201. Despite a ten-year-old laptop model, its motherboard provided two full/half-height Mini PCI-E slots, and we can install the QCA9300 or IWL5300 NICs in both of them.
-
-Even better, **X201 enables you to install three SMA-based external antennas!** The FPC-connected daughterboard of X201, which accounts for Modem, audio In/Out and a USB port, can be safely removed, leaving three size compatible holes for installing SMA external antennas. The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
+With some hardware and software tricks, we modify ThinkPad X201 and install two Mini PCI-E based Wi-Fi NICs. Even more, **X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
 
 .. figure:: /images/X201-External-Antennas.jpg
     :figwidth: 1000px
     :target: /images/X201-External-Antennas.jpg
     :align: center
 
-Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
+    Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
 
-3. **PCI-E bridge adapter-based multi-NIC installation**
+1. **PCI-E bridge adapter-based multi-NIC installation**
 
 The PCI-E bridge adapter can split one PCI-E connection into multiple, just like a PCI-E hub. Therefore, you may install connect multiple NICs to only one of the motherboard PCI-E slots via the bridge adapter.
 
 And even more so, you may build a multi-layer hierarchy of the bridge adapters and install QCA9300 or IWL5300 to all its leaf nodes. In this way, you may install over 100 Wi-Fi NICs to your system in theory. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of the 1 to 3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
 
-    .. figure:: /images/NICArrayLayout-horizontal.jpg
-        :figwidth: 1000px
-        :target: /images/NICArrayLayout-horizontal.jpg
-        :align: center
+.. figure:: /images/NICArrayLayout-horizontal.jpg
+    :figwidth: 1000px
+    :target: /images/NICArrayLayout-horizontal.jpg
+    :align: center
 
-        27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
+    27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 
 Installation of (Multiple) USRP Devices

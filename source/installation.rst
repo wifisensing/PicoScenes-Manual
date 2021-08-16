@@ -145,7 +145,8 @@ Prerequisites
 ++++++++++++++++++++
 
 - Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, I recommend Linux Mint.
-- OS must be **installed atop real hardware**. All types of virtual machines or Linux subsystem are not supported.
+- OS must be **installed atop real hardware**. No virtualization is supported.
+- Your computer has at least 4 GB memory. Less than 4 GB memory may cause out-of-memory crash.
 - Internet connection: the Internet connection is required during the installation process and is also required for regular build expiration checking in future use.
 - Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
 - The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.

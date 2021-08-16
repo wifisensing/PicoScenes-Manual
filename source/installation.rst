@@ -15,15 +15,13 @@ Installation of (Multiple) QCA9300 or IWL5300 NICs
 
 We recommend three multi-NIC installation methods.
 
-1. Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation
-    
-With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install the QCA9300 and IWL5300 NICs directly on the motherboard of the desktop PC. 
+1. **Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation**
 
-However, although the motherboard typically offers 3-5 PCI-E slots, the remain number of PCI-E slots is usually less than 2 because the graphic card, attached NVMe board, or 10GbE ethernet may occupy 2 or 3 slots.
+With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install multiple QCA9300 or IWL5300 NICs directly on the motherboard of a desktop PC. 
 
-To overcome this issue, you may choose the motherboard primarily designed for cryptocurrency mining, such as MSI B360-F Pro. These motherboards have more than a dozen of PCI-E 1x slots, and you can use *PCI-E slot riser* to install a Wi-Fi NIC for each of them.
+However, typically, only 2 or 3 slots are spare to Wi-Fi NICs. To overcome this issue, you may choose the cryptocurrency mining motherboards, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
 
-2. Multi-Mini PCI-E slots-based multi-NIC installation
+1. **Multi-Mini PCI-E slots-based multi-NIC installation**
     
 This is the most convenient multi-NIC installation approach. Multiple onboard Mini PCI-E slots spare the need for Mini PCI-E to PCI-E 1x adaptors and also present a highly compact factor. 
 There are many Intel NUC models equipped with two Mini PCI-E slots. However, it is troublesome always to connect a power cable; after all, they are not laptops
@@ -39,7 +37,7 @@ Even better, **X201 enables you to install three SMA-based external antennas!** 
 
 Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
 
-3. PCI-E bridge adapter-based multi-NIC installation
+3. **PCI-E bridge adapter-based multi-NIC installation**
 
 The PCI-E bridge adapter can split one PCI-E connection into multiple, just like a PCI-E hub. Therefore, you may install connect multiple NICs to only one of the motherboard PCI-E slots via the bridge adapter.
 

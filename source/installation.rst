@@ -21,7 +21,7 @@ With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install multiple 
 
 However, typically, only 2 or 3 slots are spare to Wi-Fi NICs. To overcome this issue, you may choose the cryptocurrency mining motherboards, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
 
-1. **Multi-Mini PCI-E slots-based multi-NIC installation**
+2. **Multi-Mini PCI-E slots-based multi-NIC installation**
     
 This is the most convenient multi-NIC installation approach. Multiple onboard Mini PCI-E slots spare the need for Mini PCI-E to PCI-E 1x adaptors and also present a highly compact factor. 
 There are many Intel NUC models equipped with two Mini PCI-E slots. However, it is troublesome always to connect a power cable; after all, they are not laptops

@@ -34,7 +34,7 @@ With some hardware and software tricks, we modify ThinkPad X201 and install two 
 
     Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
 
-1. **PCI-E bridge adapter-based multi-NIC installation**
+3. **PCI-E bridge adapter-based multi-NIC installation**
 
 The PCI-E bridge adapter can split one PCI-E connection into multiple, just like a PCI-E hub. Therefore, you may install connect multiple NICs to only one of the motherboard PCI-E slots via the bridge adapter.
 
@@ -46,6 +46,13 @@ And even more so, you may build a multi-layer hierarchy of the bridge adapters a
     :align: center
 
     27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
+
+.. hint::
+    Do you want to access the research-ready hardware out of the box? 
+    
+    Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
+    
+    Go get it from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our first-hand experience help you modify the ThinkPad X201 or build customized Wi-Fi sensing array.
 
 
 Installation of (Multiple) USRP Devices

@@ -67,6 +67,15 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
            :align: center  
            :figwidth: 175px
 
+   * -  .. figure:: /images/logos/NJUPT.jpg
+           :align: center  
+           :figwidth: 175px 
+
+     -  
+     -  
+     -  
+     -  
+
 .. list-table:: Global users
    :widths: 25 25 25 25 25
    :header-rows: 0

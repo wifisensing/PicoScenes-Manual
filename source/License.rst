@@ -1,7 +1,7 @@
 Open Source Software Licenses
 ==============================
 
-PicoScenes are built upon many Open Source software libraries. The following are their licenses.
+PicoScenes are built upon many open-source software libraries. The following are their licenses.
 
 - Apache License V2.0
 

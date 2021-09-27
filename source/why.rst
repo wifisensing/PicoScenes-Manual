@@ -1,4 +1,4 @@
-Why Should Choose PicoScenes
+Why Use PicoScenes
 ===================================
 
 .. hint:: This paper is under active editing.

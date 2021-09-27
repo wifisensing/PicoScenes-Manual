@@ -7,7 +7,7 @@ PicoScenes is a versatile and powerful Wi-Fi sensing platform middleware. It hel
 
 PicoScenes supports **multi-NIC concurrent operation** (including the packet injection, packet reception, CSI measurement, *etc*.) of the Intel Wireless-AC9260/AX200 (AC9260/AX200), Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300), USRP-based software-defined radio (SDR) devices and even the virtual SDR* devices. 
 
-Based on the AC9260/AX200 NICs, PicoScenes becomes the first public-available platform that enables **CSI extraction for the all-format (802.11/a/g/n/ac/ax) frames with all-bandwidth support (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the CSI measurement for all over heard frames in monitor mode, which *transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application*.
+Based on the AC9260/AX200 NICs, PicoScenes is the first public-available platform that enables **CSI extraction for the all-format (802.11/a/g/n/ac/ax) frames with all-bandwidth support (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the CSI measurement for all over heard frames in monitor mode, which *transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application*.
 
 For the QCA9300 NIC, PicoScenes unlocks the **arbitrary tuning** for both the carrier frequency (a total of 2.4 GHz spectrum available) and baseband sampling rate (from 2.5 to 80 MHz), enables the **manual Rx gain control** (0 to 66 dB), QCA9300->IWL5300 CSI measurement, supports the Tx/Rx antenna specification and transmission of the extra spatial sounding LTF (HT-ELTF).
 

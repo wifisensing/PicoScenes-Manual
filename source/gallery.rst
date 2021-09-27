@@ -1,4 +1,4 @@
-PicoScenes Gallery
+Gallery
 ===================
 
 

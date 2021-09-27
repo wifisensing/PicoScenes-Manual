@@ -1,4 +1,4 @@
-PicoScenes Users
+Users
 =================================================
 
 From the easiest CSI-data collection using the Intel 5300 NIC to the SDR-based 802.11ax multi-user (MU) experiments,

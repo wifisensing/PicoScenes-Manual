@@ -23,7 +23,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 
 .. note::
 
-   This document is continuously being updated and expanded. If you have any suggestions, or do not find what you are looking for, then please find :ref:`tech_support` via PicoScenes Issue Tracker.
+   The whole documentation is being updated for the latest AC9260/AX200 support.
 
 .. toctree::
    :maxdepth: 2

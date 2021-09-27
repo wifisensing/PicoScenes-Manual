@@ -1,4 +1,4 @@
-PicoScenes Command Line Interface and Program Option Reference
+Command Line Interface and Program Option Reference
 =================================================================
 
 PicoScenes Command Line Interface 

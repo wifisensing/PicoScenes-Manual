@@ -23,7 +23,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 
 .. note::
 
-   The whole documentation is being updated for the latest AC9260/AX200 support. Context misalignment and some key information missing is expected.
+   The whole documentation is being updated for the latest AC9260/AX200 support. Inconsistent context and some key information missing is expected.
 
 .. toctree::
    :maxdepth: 2

@@ -6,13 +6,13 @@ Useful Resources
 The academic paper of PicoScenes
 ------------------------------------
 
-Zhiping Jiang, Tom H. Luan, Xincheng Ren, Dongtao Lv, Han Hao, Jing Wang, Kun Zhao, Wei Xi, Yueshen Xu, Rui Li, `Eliminating the Barriers: Demystifying Wi-Fi Baseband Design and Introducing the PicoScenes Wi-Fi Sensing Platform`,  in IEEE Internet of Things Journal (IEEE IOT-J), doi: 10.1109/JIOT.2021.3104666, `preprint on arxiv <https://arxiv.org/abs/2010.10233>`_.
+Zhiping Jiang, Tom H. Luan, Xincheng Ren, Dongtao Lv, Han Hao, Jing Wang, Kun Zhao, Wei Xi, Yueshen Xu, Rui Li, `Eliminating the Barriers: Demystifying Wi-Fi Baseband Design and Introducing the PicoScenes Wi-Fi Sensing Platform`,  in IEEE Internet of Things Journal (IEEE IOT-J), doi: `10.1109/JIOT.2021.3104666 <https://doi.org/10.1109/JIOT.2021.3104666>`_, `preprint on arxiv <https://arxiv.org/abs/2010.10233>`_.
 
 This paper introduces PicoScenes and also reports very extensive performance evaluations of PicoScenes. Many of the results are state of the art.
 
 .. important:: If PicoScenes software (including the main program, bash scripts, PicoScenes MATLAB Toolbox and any PicoScenes plugins regardless of the ownership) is used by any form in your academic research, **you should cite the above work**. This citation requirement is also included in the PicoScenes Software EULA.
 
-Project repositories
+Opensource repositories
 ----------------------------
 
 - PicoScenes projects group: https://gitlab.com/wifisensing. The following are some of the open source sub-projects.
@@ -46,6 +46,6 @@ PicoScenes淘宝店(PicoScenes Taobao Shop)
 
 
 Other useful resources on Wi-Fi/RF/Smart Sensing
-----------------------------------------------
+--------------------------------------------------
 
 - `IoT Book <https://iot-book.github.io>`_ by Jiliang Wang, Tsinghua University (A full Chinese book). 王老师的这本IoT Book覆盖了智能感知相关的的众多研究方向的最新进展及上手宝典，是入门智能感知相关研究不可多得的教材。

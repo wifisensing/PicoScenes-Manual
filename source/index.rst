@@ -5,9 +5,9 @@ PicoScenes is a versatile and powerful Wi-Fi sensing platform middleware. It hel
 
 **Hardware aspect**:
 
-PicoScenes supports **multi-NIC concurrent operation** (including the packet injection, packet reception, CSI measurement, *etc*.) of the Intel Wireless-AC9260/AX200/AX210 (AC9260/AX200/AX210), Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300), USRP-based software-defined radio (SDR) devices and even the virtual SDR* devices.
+PicoScenes supports **multi-NIC concurrent operation** (including the packet injection, packet reception, CSI measurement, *etc*.) of the Intel Wireless-AC9260/AX200 (AC9260/AX200), Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300), USRP-based software-defined radio (SDR) devices and even the virtual SDR devices.
 
-Based on the AX200/AX210 NIC, PicoScenes is the first public-available platform that enables **802.11ax-format CSI extraction from commodity Wi-Fi hardware**. More specifically, the platform supports **CSI extraction for all formats (802.11/a/g/n/ac/ax) and all bandwidths (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the **CSI measurement for all overheard frames** in monitor mode, which *unprecedentedly transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application*.
+Based on the AX200 NIC, PicoScenes is the first (and currently the only) public-available platform that enables **CSI extraction for the 802.11ax-format frames using the commodity Wi-Fi hardware**. More specifically, the platform supports **CSI extraction for all formats (802.11/a/g/n/ac/ax) and all bandwidths (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the **CSI measurement for all overheard frames** in monitor mode, which *unprecedentedly transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application*.
 
 For the QCA9300 NIC, PicoScenes unlocks the **arbitrary tuning** for both the carrier frequency (a total of 2.4 GHz spectrum available) and baseband sampling rate (from 2.5 to 80 MHz), enables the **manual Rx gain control** (0 to 66 dB), QCA9300->IWL5300 CSI measurement, supports the Tx/Rx antenna specification and transmission of the extra spatial sounding LTF (HT-ELTF).
 
@@ -17,7 +17,7 @@ The Virtual SDR interface provides users a convenient way to generate, manipulat
 
 **Software aspect**: 
 
-PicoScenes is far beyond a simple CSI data logger. It is architecturally versatile and flexible. The Platform, essentially a Wi-Fi sensing middleware, encapsulates all the low-level features into a set of unified and hardware-independent APIs and exposes them to the upper-level plugin layer. PicoScenes plugins realize various measurement-specific missions, and users can **quickly prototype their own measurement plugins**. We demonstrate this platform flexibility through EchoProbe, a PicoScenes plugin, which features ms-grade round-trip CSI measurement and the spectrum scanning CSI measurement capability. 
+PicoScenes is far beyond a simple CSI data logger. It is essentially a Wi-Fi sensing middleware, encapsulating all the low-level hardware controls into a set of unified APIs and exposing them to the upper-level plugin layer. PicoScenes plugins realize various measurement-specific missions, and users can **quickly prototype their own measurement plugins**. We demonstrate the platform flexibility through EchoProbe, a PicoScenes plugin, which features *ms*-grade round-trip CSI measurement, spectrum scanning CSI measurement and the basic CSI data logging capabilities. 
 
 You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
 

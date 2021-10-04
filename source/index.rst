@@ -1,22 +1,31 @@
 PicoScenes: CSI-based Wi-Fi Sensing Research, Supercharged!
 =============================================================
 
-PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing research. It helps researchers **overcome two key barriers of modern Wi-Fi sensing research: inadequate sensing hardware and measurement software**.
+PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing research. It helps researchers **overcome two key barriers of modern Wi-Fi sensing research: inadequate sensing hardware and incapable measurement software**.
 
 **Hardware aspect**:
 
-PicoScenes supports **multi-NIC concurrent operation** (including the CSI measurement, packet injection, parameter tunning, *etc*.) of the Intel Wireless-AC9260/AX200 (AC9260/AX200), Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300), USRP-based software-defined radio (SDR) devices and even the virtual SDR devices.
+PicoScenes **supports the most number of CSI-extractable frontend hardware**, including 4 commercial Wi-Fi NIC models and all models of USRP-based software-defined radio (SDR). Specifically, PicoScenes supports the Intel Wireless-AC9260/AX200 (AC9260/AX200), Qualcomm Atheros AR9300 (QCA9300), Intel Wireless Link 5300 (IWL5300), USRP-based software-defined radio (SDR) devices and even the virtual SDR devices.
 
 Based on the AX200 NIC, PicoScenes is the first, and currently the only, public-available platform that enables **CSI extraction for the 802.11ax-format frames using the commodity Wi-Fi hardware**. More specifically, the platform supports **CSI extraction for all formats (802.11/a/g/n/ac/ax) and all bandwidths (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the **CSI measurement for all overheard frames** in monitor mode, which *unprecedentedly transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application*.
 
 For the QCA9300 NIC, PicoScenes enables the **monitor mode-injection style CSI measurement** and unlocks the **arbitrary tuning for both the carrier frequency and baseband sampling rate** (a total of 2.4 GHz spectrum available and 2.5 to 80 MHz bandwidth), enables the **manual Rx gain control** (0 to 66 dB), QCA9300->IWL5300 CSI measurement, the Tx/Rx radio-chain specification and transmission of the extra spatial sounding LTFs (HT-ELTFs).
 
-For SDR, PicoScenes integrates a high-performance software baseband implementation for 802.11a/g/n/ac/ax protocols. It has four major highlights, feature support, PHY-layer control, performance and virtual SDR. First, it **covers almost all the advanced technical features**, including the LDPC and BCC codecs, MCS 0~11 modulation, 20 to 160 MHz channel bandwidth (CBW) formats, up to 4x4 MIMO and even the 802.11ac/ax multi-user (MU) mode. Second, PicoScenes **grants users the full control over the PHY-layer parameters**, such as the manual specification for the carrier frequency offset (CFO), sampling frequency offset (SFO), symbol timing offset (STO), I/Q mismatching and many OFDM encoding/decoding settings. Third, PicoScenes sets **a series of performance records for SDR**, such as up to 1 kHz CSI measurement at a 20 MHz bandwidth, a up to 4 kHz and up to 40 kHz insanely fast packet injection rates in real-time and signal-replay modes, respectively.
+For SDR, PicoScenes integrates a high-performance software baseband implementation for 802.11a/g/n/ac/ax protocols. It has four major highlights, feature support, PHY-layer control, performance and virtual SDR. 
+First, it **covers almost all the advanced technical features**, including the LDPC and BCC codecs, MCS 0~11 modulation, 20 to 160 MHz channel bandwidth (CBW) formats, up to 4x4 MIMO and even the 802.11ac/ax multi-user (MU) mode. 
+Second, PicoScenes **grants users the full control over the PHY-layer parameters**, such as the manual specification for the carrier frequency offset (CFO), sampling frequency offset (SFO), symbol timing offset (STO), I/Q mismatching and many OFDM encoding/decoding settings.
+Third, PicoScenes sets **a series of performance records for SDR**, such as up to 1 kHz CSI measurement at a 20 MHz bandwidth, a up to 4 kHz and up to 40 kHz insanely fast packet injection rates in real-time and signal-replay modes, respectively.
 Last, PicoScenes features a handy *Virtual SDR* mode, which provides users a convenient way to generate, manipulate and test decoding the Wi-Fi baseband signals **without connecting to a real SDR device**.
 
 **Software aspect**: 
 
-PicoScenes is far beyond a simple CSI data logger. It is essentially a Wi-Fi sensing middleware, encapsulating all the low-level hardware controls into a set of unified APIs and exposing them to the upper-level plugin layer. PicoScenes plugins realize various measurement-specific missions, and users can **quickly prototype their own measurement plugins**. We demonstrate the platform flexibility through EchoProbe, a PicoScenes plugin, which features *ms*-grade round-trip CSI measurement, spectrum scanning CSI measurement and the basic CSI data logging capabilities. 
+PicoScenes is far beyond a simple CSI data logger, but a versatile Wi-Fi sensing platform. As far as we know, It is the first and currently the only platform that supports **multi-NIC concurrent CSI measurement**, which significantly simplifies the array-based CSI measurement. Besides that, it also features the **all-format and all-bandwidth packet injection** which trigger a fixed-rate CSI measurement, live CSI plot and various low-level controls. 
+
+As a Wi-Fi sensing middleware, it encapsulates the per-NIC low-level hardware controls into a set of unified APIs and exposing them to the upper-level plugin layer. Through PicoScenes plugin mechanism, **complex and interactive CSI measurement tasks can be quickly prototyped in a mission-focus manner**. We demonstrate this advantage by EchoProbe, a PicoScenes plugin, which features *ms*-grade round-trip CSI measurement, large spectrum scanning and the most basic CSI data logging capabilities. 
+
+PicoScenes MATLAB Toolbox (PMT), the MATLAB parsing routine for the `.csi` file generated by the PicoScenes. The parsing can be as easy as just **dragging the `.csi` files into MATLAB**. The fundamental data structure is in versioned-segment format, which guarantees the forward compatibility across the future upgrade.
+
+The PicoScenes software ecosystem (customized driver, platform, and plugins) are built against the latest kernel, packaged in the debian `.deb` format, and auto-updated via the easy *apt upgrade* command. A fresh-new installation can be as short as 5 minutes. Setting up a CSI-measurement environment never can be such easy!
 
 You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
 

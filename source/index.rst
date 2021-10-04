@@ -33,6 +33,13 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 
    The whole documentation is being updated for the latest AC9260/AX200 support. Inconsistent context and some key information missing is expected.
 
+News!
+======
+
+- Oct. 4, 2021 Add versioning and auto-update for PicoScenes MATLAB Toolbox 
+- Oct. 3, 2021 Announcing the AX200 support officially!
+
+
 .. toctree::
    :maxdepth: 2
    :numbered:

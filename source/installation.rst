@@ -10,7 +10,7 @@ PicoScenes currently supports four commercial Wi-Fi NIC models, the AX200, AC926
 
 One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
 
-Installation of (Multiple) QCA9300 or IWL5300 NICs
+Installation of (Multiple) Wi-Fi NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 We recommend three multi-NIC installation methods.

@@ -6,26 +6,26 @@ PicoScenes Installation
 Hardware Installation
 =======================
 
-PicoScenes currently supports four commercial Wi-Fi NIC models, the AX200, AC9260, QCA9300 and IWL5300, and USRP SDR devices. Specifically, USRP B210, N210 and X310 models are tested and used in our lab.
+PicoScenes currently supports four commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200, AC9260, QCA9300 and IWL5300, and all USRP models.
 
-One of the most welcomed features of the PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection on a NIC or SDR array. To help you get the hardware ready quickly, we share our hardware preparation experience, mainly focusing on the multi-devices setup.
+The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 
-Installation of (Multiple) Wi-Fi NICs
+Installation of (Multiple) Commercial Wi-Fi NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We recommend three multi-NIC installation methods.
+We recommend four multi-NIC installation methods.
 
-1. **Mini PCI-E to PCI-E 1x adapter-based multi-NIC installation**
+1. **PCI-E 1x adapter based multi-NIC installation**
 
-With the help of the `Mini PCI-E to PCI-E 1x adapter`, you can install multiple QCA9300 or IWL5300 NICs directly on the motherboard of a desktop PC. 
+With the help of the `Mini PCI-E to PCI-E 1x adapter` or `M.2 to PCI-E 1x adapter`, you can install multiple AX200, QCA9300 or IWL5300 NICs directly on the motherboard of a desktop PC. 
 
-However, typically, there are only 2 or 3 slots left spare for Wi-Fi NICs. To overcome this issue, you may choose the cryptocurrency mining motherboards, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
+However, there are usually only 2 or 3 PCI-E slots left for the Wi-Fi NICs. To overcome this issue, you may choose the *cryptocurrency mining motherboards*, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
 
-2. **Multi-Mini PCI-E slots-based multi-NIC installation**
+2. **Multi-Mini PCI-E/M.2 slots based multi-NIC installation**
     
-This is the most convenient approach for installing multiple NICs. The onboard Mini PCI-E slots spare the need for Mini PCI-E to PCI-E 1x adaptors.
+This is the most convenient approach for installing multiple NICs. The onboard Mini PCI-E or M.2 slots spare the need for PCI-E 1x adaptors.
     
-With some hardware and software tricks, we modify ThinkPad X201 and install two Mini PCI-E based Wi-Fi NICs. Even more, **X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas.
+With some hardware and software tricks, we modify a old laptop model ThinkPad X201, and install two Mini PCI-E/M.2 based Wi-Fi NICs. Even more, **X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas. The laptop can also install AX200 using a M.2-to-Mini PCI-E converter.
 
 .. figure:: /images/X201-External-Antennas.jpg
     :figwidth: 1000px
@@ -38,7 +38,7 @@ With some hardware and software tricks, we modify ThinkPad X201 and install two 
 
 The PCI-E bridge adapter can split one PCI-E connection into multiple, just like a PCI-E hub. Therefore, you may install connect multiple NICs to only one of the motherboard PCI-E slots via the bridge adapter.
 
-And even more so, you may build a multi-layer hierarchy of the bridge adapters and install QCA9300 or IWL5300 to all its leaf nodes. In this way, you may install over 100 Wi-Fi NICs to your system in theory. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of the 1 to 3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
+And even more so, you may build a multi-layer hierarchy of the bridge adapters and install AX200, QCA9300 or IWL5300 to all its leaf nodes. In this way, you may install over 100 Wi-Fi NICs to your system in theory. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of the 1 to 3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
 
 .. figure:: /images/NICArrayLayout-horizontal.jpg
     :figwidth: 1000px
@@ -68,7 +68,11 @@ PicoScenes’s support for USRP devices is established upon UHD software, the US
 - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
 - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
 
-Some suggestions based on our previous experience:
+
+Our Suggestions on USRP Hardware Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Suggestions based on our previous experience:
     - For X3x0 series, PicoScenes supports the PCI-E cable-based connection, **but we don't recommend that**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X3x0 device; therefore multi-X3x0 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
     - For both the N2x0 and X3x0 series, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N2x0 and X3x0 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X3x0s or eight independent full-duplex channels.
     - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, **UHD only supports combining multiple USRP devices of the same model, and currently only N2x0 and X3x0 series are combination-ready**.
@@ -101,7 +105,7 @@ Confirm the firmware version
 
         uhd_usrp_probe
 
-`uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use ``uhd_image_loader`` command to flash the latest firmwares to the USRP:
+`uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use `uhd_image_loader` command to flash the latest firmwares to the USRP:
 
 For the USRP N2x0 device, run:
 
@@ -119,18 +123,18 @@ For the USRP X3x0 device, run:
 Confirm the signal reception (Rx)
 *********************************
 
-Use ``uhd_fft`` command to check whether your USRP can receive the signal:
+Use UHD's `uhd_fft` command to check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
     uhd_fft --args="ADDRESS_STRING" -f 2200e6 -s 10e6
 
-where ``ADDRESS_STRING`` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
+where `ADDRESS_STRING` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
 
 Perform Tx/Rx calibration (Optional)
 ***********************************************************
 
-Finally, execute the following three commands in sequence to calibrate the Tx/Rx signal.
+Finally, execute the following three commands in sequence to calibrate the Tx/Rx signal. This step is optional.
 
 .. code-block:: bash
 
@@ -138,30 +142,31 @@ Finally, execute the following three commands in sequence to calibrate the Tx/Rx
     uhd_cal_tx_dc_offset
     uhd_cal_tx_iq_balance
 
-Software Installation
-=========================
+PicoScenes Software Installation
+==================================
 
 Prerequisites
 ++++++++++++++++++++
 
-- Operating System: PicoScenes **only** supports Ubuntu 20.04 and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, I recommend Linux Mint.
-- OS must be **installed atop real hardware**. No virtualization is supported.
+- CPU should at least support the SSE4.2 instruction set, and AVX2 is recommended.
 - Your computer has at least 4 GB memory. Less than 4 GB memory may cause out-of-memory crash.
-- Internet connection: the Internet connection is required during the installation process and is also required for regular build expiration checking in future use.
-- Permit to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel version. During the first installation and subsequent upgrades, your system **may be forced to update to the latest kernel version**.
+- Operating System: PicoScenes **only** supports Ubuntu 20.04LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, I strongly recommend the Linux Mint distribution.
+- OS must be **installed atop real hardware**. No virtualization is supported.
+- Internet connection: internet connection is required during the installation process and is also required for regular build expiration checking in daily use.
+- Permission for installing the latest kernel version: PicoScenes depends on and is always built against the latest kernel versions. During the first-time installation and subsequent upgrades, your system **will be forced to update to the latest kernel version**.
 - The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox, the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
 
-Install PicoScenes via apt
-++++++++++++++++++++++++++++
+Install PicoScenes via *apt* command 
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-If your system meets the above requirements, you can start the installation now.
+Only if your system meets *all* above requirements, can you start the installation now.
 
 #. Download and install PicoScenes Source Updater
-    - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose 'Open with ``GDebi Package Installer``'
+    - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
     
-    - Click `Install Package`.
+    - Click *Install Package*
 
-    .. note:: PicoScenes Source Updater doesn't install PicoScenes software but registers the PicoScenes software repository to your system so that PicoScenes can be installed and auto-upgraded via the Debian apt facilities.
+    .. note:: PicoScenes Source Updater doesn't install the PicoScenes software but registers the PicoScenes software repository to your system, so that PicoScenes can be installed and auto-upgraded via the *apt* command.
 
 #. Update the cache of apt repositories
     Open a terminal and run the following command:
@@ -170,13 +175,13 @@ If your system meets the above requirements, you can start the installation now.
 
         sudo apt update
 
-    When this command finishes, you can verify the result. Run ``apt list picoscenes-*`` in the terminal. You should see at least the following packages:
+    When this command finishes, you can verify the result. Run ``apt list picoscenes-<Press TAB Key>`` in the terminal. You shall see at least the following packages:
 
     .. code-block:: bash
 
         picoscenes-all   picoscenes-platform   picoscenes-source-updater  picoscenes-driver-modules-XXXX
 
-    Seeing these available `picoscenes-*` packages means PicoScenes repository is successfully added to your system.
+    Seeing these `picoscenes-xxx` packages means PicoScenes repository is successfully registered to your system.
 
 #. Install PicoScenes software
     Run the following command:
@@ -185,7 +190,7 @@ If your system meets the above requirements, you can start the installation now.
 
         sudo apt install picoscenes-all
 
-    After a few minutes of package downloading (the duration depends on your network), a EULA message, similar to the following screenshot, will appear in the terminal. You will read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
+    After a few minutes of package downloading (the duration depends on your network), the PicoScenes EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
@@ -203,13 +208,13 @@ If your system meets the above requirements, you can start the installation now.
 
         Screenshot: Users decide whether to accept the EULA terms
 
-    .. hint:: If you wrongfully press the <No>, the PicoScenes installer will show you the solution to reinitialize the installation.
+    .. hint:: If you wrongfully press the <No>, the installer will show you the solution to reinitialize the installation.
         
 - Reboot your system
-    You may have to reboot your system to validate the installation; otherwise, the modified drivers for QCA9300 and IWL5300 will not be activated.
+    You may have to reboot your system to validate the installation; otherwise, the modified drivers for AX200, QCA9300 and IWL5300 will not be activated.
 
 - The first run
-    You run ``PicoScenes`` in a terminal (case sensitive), which is your first time opening PicoScenes. Soon after the first launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it is indeed a planned crash**. Run ``PicoScenes`` in the terminal again, and the error should be gone.
+    Run ``PicoScenes`` in a terminal (case sensitive). Soon after the launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it IS a planned crash**. Run ``PicoScenes`` again, and the error should be gone.
 
     As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit.
 
@@ -272,7 +277,7 @@ Obtain PicoScenes MATLAB Toolbox
 
 - Click the :download:`PicoScenes MATLAB Toolbox <https://zpj.io/PicoScenes/matlab-toolbox/PicoScenes-MATLAB-Toolbox.tar.gz>` link to download the zipped PicoScenes MATLAB Toolbox.
 
-Install PicoScenes MATLAB Toolbox, in MATLAB
+Install PicoScenes MATLAB Toolbox in MATLAB
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox`` directory and run the following command in Command Window:
@@ -313,3 +318,19 @@ If your research depends heavily on SDR, the following performance tuning tricks
     .. code-block:: bash
 
         GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
+
+Uninstallation of The PicoScenes Ecosystem
+============================================
+
+Uninstalling the PicoScenes binaries
+++++++++++++++++++++++++++++++++++++++
+
+- Run ``sudo apt remove picoscenes-driver-modules-<PRESS TAB KEY>`` to remove the modified NIC drivers. Due to the package dependency hierarchy, the depending picoscenes-platform and picoscenes-plugins-xxx packages will also be removed.
+- Run ``sudo apt remove picoscenes-<PRESS TAB KEY>`` to remove other PicoScenes related packages
+- Reboot your computer
+
+Uninstalling the PicoScenes MATLAB Toolbox
+++++++++++++++++++++++++++++++++++++++++++++
+
+- Run ``install_PicoScenes_MATLAB_Toolbox('uninstall')`` in MATLAB
+- Manually remove the PMT folder

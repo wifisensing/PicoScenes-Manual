@@ -6,7 +6,7 @@ PicoScenes Installation
 Hardware Installation
 =======================
 
-PicoScenes currently supports four commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200, AC9260, QCA9300 and IWL5300, and all USRP models.
+PicoScenes currently supports four commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200, QCA9300 and IWL5300, and all USRP models.
 
 The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 

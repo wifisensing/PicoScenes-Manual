@@ -22,7 +22,7 @@ This feature significantly reduces the complexity of setting up and managing a m
 Taking our dual-NIC ThinkPad X201 as an example, researchers can perform the round-trip or concurrent CSI measurement by just one laptop. 
 We have even set up a 27-NIC array which is just impossible with the previous one-PC per NIC architecture.
 
-To achieve this goal, we rewrote the CSI extraction logic of the AX200, AC9260, QCA9300 and IWL5300 kernel drivers. Moreover, multi-threading is one of the the fundamental designs of the PicoScenes platform. In fact, PicoScenes platform assign at least five threads for each frontend (Wi-Fi COTS NICs or SDR) and its plugins.
+To achieve this goal, we rewrote the CSI extraction logic of the AX200, QCA9300 and IWL5300 kernel drivers. Moreover, multi-threading is one of the the fundamental designs of the PicoScenes platform. In fact, PicoScenes platform assign at least five threads for each frontend (Wi-Fi COTS NICs or SDR) and its plugins.
 
 Accessing the unlocked hardware features of the QCA9300 and IWL5300
 ---------------------------------------------------------------------
@@ -66,10 +66,7 @@ Super easy installation on latest OS w/ auto-update
 Support multiple CSI-available devices
 ------------------------------------------
 
-PicoScenes platform currently supports the QCA9300 and IWL5300 Wi-Fi NIC models.
-
-In the upcoming Late 2021 release, PicoScenes will support ESP32, Intel AC9260/AX200 series NIC models.
-
+PicoScenes platform currently supports the AX200, QCA9300 and IWL5300 Wi-Fi NIC models.
 
 
 Technical support--- least technical, most critical

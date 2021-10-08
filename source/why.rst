@@ -1,7 +1,7 @@
 Why Use PicoScenes
 ===================================
 
-.. hint:: This paper is under active editing.
+.. hint:: This page is under active editing.
 
 
 The first public-available 802.11ax-format CSI measurement platform 

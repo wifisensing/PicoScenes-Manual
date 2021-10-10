@@ -9,11 +9,10 @@ Before getting started with PMT, make sure PicoScenes and PMT are both correctly
 
 Usage
 -------------------
-You have four ways to parse a .csi file:
+You have three ways to parse a .csi file:
 
     #. Double-click the selected .csi file in MATLAB Current Folder;
     #. Drag'n'Drop one or multiple .csi files into MATLAB Command Window;
-    #. Open `CSI File Batch Loader` App, a MATLAB App, click 'Select .csi files' and select the .csi files or the directories containing .csi files;
     #. run ``opencsi(FILE_PATH)`` in MATLAB Command Window, where `FILE_PATH` is the path to the selected .csi file.
 
 After parsing, you will see bundles with the same names as the .csi files in MATLAB Workspace.

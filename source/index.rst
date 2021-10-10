@@ -11,11 +11,12 @@ Based on the AX200 NIC, PicoScenes is the first and currently the only public-av
 
 For the QCA9300 NIC, PicoScenes enables the **monitor mode-injection style CSI measurement** and unlocks the **arbitrary tuning for both the carrier frequency and baseband sampling rate** (a total of 2.4 GHz spectrum available and 2.5 to 80 MHz bandwidth), enables the **manual Rx gain control** (0 to 66 dB), QCA9300->IWL5300 CSI measurement, the Tx/Rx radio-chain specification and transmission of the extra spatial sounding LTFs (HT-ELTFs).
 
-For SDR, PicoScenes integrates a high-performance software baseband implementation for 802.11a/g/n/ac/ax protocols. It has four major highlights, feature support, PHY-layer control, performance and virtual SDR. 
-First, it **covers almost all the advanced technical features**, including the LDPC and BCC codecs, MCS 0~11 modulation, 20 to 160 MHz channel bandwidth (CBW) formats, up to 4x4 MIMO and even the 802.11ac/ax multi-user (MU) mode. 
-Second, PicoScenes **grants users full control over the PHY-layer parameters**, such as the manual specification for the carrier frequency offset (CFO), sampling frequency offset (SFO), symbol timing offset (STO), I/Q mismatching and many OFDM encoding/decoding settings.
-Third, PicoScenes sets **a series of performance records for SDR**, such as up to 1 kHz CSI measurement at a 20 MHz bandwidth, up to 4 kHz and up to 40 kHz insanely fast packet injection rates in real-time and signal-replay modes, respectively.
-Last, PicoScenes features a handy *Virtual SDR* mode, which provides users a convenient way to generate, manipulate and test decoding the Wi-Fi baseband signals **without connecting to an actual SDR device**.
+For SDR, PicoScenes integrates a high-performance software baseband implementation for 802.11a/g/n/ac/ax protocols. It has four major highlights, protocol support, PHY-layer control, performance and virtual SDR. 
+
+- PicoScenes Wi-Fi baseband implementation **covers almost all the advanced technical features**, including the LDPC and BCC codecs, MCS 0~11 modulation, 20 to 160 MHz channel bandwidth (CBW) formats, up to 4x4 MIMO and even the 802.11ac/ax multi-user (MU) mode. 
+- PicoScenes **grants users full control over the PHY-layer parameters**, such as the manual specification for the carrier frequency offset (CFO), sampling frequency offset (SFO), symbol timing offset (STO), I/Q mismatching and many OFDM encoding/decoding settings.
+- PicoScenes sets **a series of performance records for SDR**, such as up to 1 kHz CSI measurement at a 20 MHz bandwidth, up to 4 kHz and up to 40 kHz insanely fast packet injection rates in real-time and signal-replay modes, respectively.
+- PicoScenes features a handy *Virtual SDR* mode, which provides users a convenient way to generate, manipulate and test decoding the Wi-Fi baseband signals **without connecting to an actual SDR device**.
 
 **Software aspect**: 
 

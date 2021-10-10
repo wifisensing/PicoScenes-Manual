@@ -56,5 +56,6 @@ News!
    plugin
    status
    resources
-   License
+   license
+   opensource_license
    credits

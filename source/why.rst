@@ -24,6 +24,24 @@ We have even set up a 27-NIC array which is just impossible with the previous on
 
 To achieve this goal, we rewrote the CSI extraction logic of the AX200, QCA9300 and IWL5300 kernel drivers. Moreover, multi-threading is one of the the fundamental designs of the PicoScenes platform. In fact, PicoScenes platform assign at least five threads for each frontend (Wi-Fi COTS NICs or SDR) and its plugins.
 
+
+Support most models of CSI-extractable hardware
+----------------------------------------------------
+
+PicoScenes provide the broadest hardware platform for the researchers to explore CSI. It currently supports three commercial CSI-extractable Wi-Fi NICs, AX200, QCA9300 and IWL5300, and is the only platform that supports CSI extraction from the USRP-based SDR devices. 
+
+Super easy installation with auto-update support
+------------------------------------------------------
+
+Compared to the existing CSI tools,
+PicoScenes platform has an unprecedentedly simplified installation process.
+Once you have installed the latest Ubuntu 20.04LTS (or its variant), all that need to be done is just three-steps:, downloading a KB-size .deb file, double-clock installing it, and at last installing PicoScenes via the popular ``apt install`` approach. View :doc:`/installation` for more details.
+
+We use the Continuous Integration (CI) to boost the development-release cycle of PicoScenes.
+Once we push a code update, CI will automatically perform the building, testing, binary packaging and APT repository updating.
+You will receive the update notification from the built-in update manager within an hour.
+
+
 Accessing the unlocked hardware features of the QCA9300 and IWL5300
 ---------------------------------------------------------------------
 
@@ -57,16 +75,6 @@ In-situ CSI parsing & processing
 
 Prototype your own advanced CSI measurement protocol
 ------------------------------------------------------
-
-
-Super easy installation on latest OS w/ auto-update 
--------------------------------------------------------
-
-
-Support multiple CSI-available devices
-------------------------------------------
-
-PicoScenes platform currently supports the AX200, QCA9300 and IWL5300 Wi-Fi NIC models.
 
 
 Technical support--- least technical, most critical

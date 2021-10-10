@@ -48,6 +48,7 @@ News!
    why
    gallery
    users
+   hardware
    installation
    scenarios
    parameters

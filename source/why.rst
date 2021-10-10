@@ -25,7 +25,7 @@ We have even set up a 27-NIC array which is just impossible with the previous on
 To achieve this goal, we rewrote the CSI extraction logic of the AX200, QCA9300 and IWL5300 kernel drivers. Moreover, multi-threading is one of the the fundamental designs of the PicoScenes platform. In fact, PicoScenes platform assign at least five threads for each frontend (Wi-Fi COTS NICs or SDR) and its plugins.
 
 
-Support most models of CSI-extractable hardware
+Support the most models of CSI-extractable hardware
 ----------------------------------------------------
 
 PicoScenes provide the broadest hardware platform for the researchers to explore CSI. It currently supports three commercial CSI-extractable Wi-Fi NICs, AX200, QCA9300 and IWL5300, and is the only platform that supports CSI extraction from the USRP-based SDR devices. 

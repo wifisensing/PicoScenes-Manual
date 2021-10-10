@@ -29,10 +29,6 @@ The PicoScenes software ecosystem (customized driver, platform, and plugins) is 
 
 You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy the next ride of Wi-Fi sensing research, supercharged by PicoScenes!
 
-.. important::
-
-   The whole documentation is being updated for the latest AX200 support. Inconsistent context and some key information missing is expected.
-
 News!
 ======
 

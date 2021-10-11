@@ -38,7 +38,8 @@ Future Plans
   - Beamforming support
   - Directional beamforming support
   - Improve Rx baseband performance at least by 3x
-  
+
+- Next-Gen CSI live plot
 - License Service
 
   - Online validation

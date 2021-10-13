@@ -50,4 +50,4 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 Open-source software
 -------------------------
 
-PicoScenes are built upon many open-source software libraries. Their license information is at ::doc:`/opensource_license`.
+PicoScenes are built upon many open-source software libraries. Their license information is at :doc:`/opensource_license`.

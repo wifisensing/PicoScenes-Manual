@@ -44,7 +44,7 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 
 **Zhejiang University**
 
-- Prof. Jinsong Han，韩劲松 (Professor with the Institute of Cyberspace Research, College of Computer Science and Technology)
+- Prof. Jinsong Han, 韩劲松 (Professor with the Institute of Cyberspace Research, College of Computer Science and Technology)
 
 
 Open-source software

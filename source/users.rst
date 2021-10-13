@@ -5,7 +5,7 @@ From the easiest CSI-data collection using the Intel 5300 NIC to the SDR-based 8
 PicoScenes is powering the next wave of the Wi-Fi sensing research. The following grid lists the affiliations that use PicoScenes platform in their latest research.
 
 .. list-table:: China Mainland Users
-   :widths: 25 25 25 25 25
+   :widths: 25 25 25 25
    :header-rows: 0
    :align: center
    
@@ -25,11 +25,11 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :align: center 
           :figwidth: 175px
 
-     - .. figure:: /images/logos/Beijing_University_of_Posts_and_Telecommunications.png
+   * - .. figure:: /images/logos/Beijing_University_of_Posts_and_Telecommunications.png
           :align: center  
           :figwidth: 175px 
 
-   * - .. figure:: /images/logos/Tsinghua_University.png
+     - .. figure:: /images/logos/Tsinghua_University.png
           :align: center 
           :figwidth: 175px
 
@@ -41,7 +41,7 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :align: center 
           :figwidth: 175px     
 
-     - .. figure:: /images/logos/uestc.jpg
+   * - .. figure:: /images/logos/uestc.jpg
           :align: center  
           :figwidth: 175px 
 
@@ -49,7 +49,7 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :align: center  
           :figwidth: 175px 
           
-   * -  .. figure:: /images/logos/National_University_of_Defense_Technology.png
+     -  .. figure:: /images/logos/National_University_of_Defense_Technology.png
            :align: center  
            :figwidth: 175px 
 
@@ -57,27 +57,26 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
            :align: center  
            :figwidth: 175px 
 
-     -  .. figure:: /images/logos/Tianjin_University_of_Science_and_Technology.png
+   * -  .. figure:: /images/logos/Tianjin_University_of_Science_and_Technology.png
            :align: center  
            :figwidth: 175px 
+
      -  .. figure:: /images/logos/XUPT.png
            :align: center  
            :figwidth: 175px
+
      -  .. figure:: /images/logos/dlut.jpg
            :align: center  
            :figwidth: 175px
 
-   * -  .. figure:: /images/logos/NJUPT.jpg
+     -  .. figure:: /images/logos/NJUPT.jpg
            :align: center  
            :figwidth: 175px 
-
      -
-     -  
-     -  
-     -  
+     -
 
 .. list-table:: Global Users
-   :widths: 25 25 25 25 25
+   :widths: 25 25 25 25
    :header-rows: 0
    :align: center
    
@@ -100,6 +99,8 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/UW.png
           :align: center  
           :figwidth: 175px 
+     
+     -
 
 *The above lists are in time order.*
 

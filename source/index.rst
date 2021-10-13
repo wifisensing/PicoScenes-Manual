@@ -57,5 +57,4 @@ News!
    status
    resources
    License
-   opensource_license
    credits

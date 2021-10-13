@@ -1,6 +1,9 @@
 Credits
 ==========
 
+Development Team
+----------------------
+
 The creation of PicoScenes is the result of collaborative efforts of the following members.
 
 .. list-table:: Development team of PicoScenes system
@@ -42,3 +45,9 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 **Zhejiang University**
 
 - Prof. Jinsong Han，韩劲松 (Professor with the Institute of Cyberspace Research, College of Computer Science and Technology)
+
+
+Open-source software
+-------------------------
+
+PicoScenes are built upon many open-source software libraries. Their license information is at ::doc:`/opensource_license`.

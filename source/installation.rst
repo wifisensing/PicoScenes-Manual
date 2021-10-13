@@ -28,7 +28,7 @@ This is the most convenient approach for installing multiple NICs. The onboard M
 With some hardware and software tricks, we modify a old laptop model ThinkPad X201, and install two Mini PCI-E/M.2 based Wi-Fi NICs. Even more, **X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas. The laptop can also install AX200 using a M.2-to-Mini PCI-E converter.
 
 .. figure:: /images/X201-External-Antennas.jpg
-    :figwidth: 1000px
+    :figwidth: 750px
     :target: /images/X201-External-Antennas.jpg
     :align: center
 
@@ -41,7 +41,7 @@ The PCI-E bridge adapter can split one PCI-E connection into multiple, just like
 And even more so, you may build a multi-layer hierarchy of the bridge adapters and install AX200, QCA9300 or IWL5300 to all its leaf nodes. In this way, you may install over 100 Wi-Fi NICs to your system in theory. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of the 1 to 3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
 
 .. figure:: /images/NICArrayLayout-horizontal.jpg
-    :figwidth: 1000px
+    :figwidth: 750px
     :target: /images/NICArrayLayout-horizontal.jpg
     :align: center
 

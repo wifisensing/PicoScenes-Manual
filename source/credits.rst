@@ -32,9 +32,9 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 - Xincheng Ren, 任新承 (Graduate student with the School of Computer Science and Technology)
 - Dongtao Lv, 吕东涛 (Graduate student with the School of Computer Science and Technology)
 - Xuetao Li, 李薜滔 (Graduated student with the School of Computer Science and Technology)
-- Jing Wang, 王璟 (Graduate student with the School of Computer Science and Technology)
 - Xu Wang, 王旭 (Ph.D student with the School of Computer Science and Technology)
 - Chen He, 何琛 (Graduated student with the School of Computer Science and Technology)
+- Jing Wang, 王璟 (Graduate student with the School of Computer Science and Technology)
 
 **Xi'an Jiaotong University**
 

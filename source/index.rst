@@ -33,8 +33,9 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
-- Oct. 10, 2021 Add :doc:`hardware` page
-- Oct. 4, 2021 Add versioning and auto-update for PicoScenes MATLAB Toolbox 
+- Oct. 16, 2021 Add AX200 usage in :doc:`scenarios` page.
+- Oct. 10, 2021 Add :doc:`hardware` page.
+- Oct. 4, 2021 Add versioning and auto-update for PicoScenes MATLAB Toolbox.
 - Oct. 3, 2021 Announcing the AX200 support officially!
 
 

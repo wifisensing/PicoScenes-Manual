@@ -99,7 +99,9 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :align: center  
           :figwidth: 175px 
      
-     -
+     - .. figure:: /images/logos/Samsung.png
+          :align: center  
+          :figwidth: 175px
 
      -
 

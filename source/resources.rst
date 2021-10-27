@@ -35,16 +35,6 @@ PicoScenes微信群 (PicoScenes WeChat group)
 +++++++++++++++++++++++++++++++++++++++++++
 If WeChat is one of your favorite IM APPs, you may join the PicoScenes WeChat Group by contacting Zhiping Jiang "jiangzhiping" in WeChat. As the group has exceeded 200 people, you can only be invited to the group.
 
-.. _shop:
-
-PicoScenes淘宝店(PicoScenes Taobao Shop)
--------------------------------------------
-
-经常有老师和同学们咨询我们，如何搭建CSI测量平台？如何DIY自己的多网卡测量系统？ 在硬件DIY这一块，我们团队还是有一些经验的，直接售卖我们自己搭建+测试通过的硬件还是可以帮助到一些初入门的课题组的。 另一方面，PicoScenes后期将通过发售license的方式多少犒劳一下我们团队。 因此，我们开了一个淘宝店，东西都不便宜，但 **都可以开发票** ，并且支持 **各种灵活的支付方案** 。
-
-欢迎大家捧场： `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_
-
-
 Other useful resources on Wi-Fi/RF/Smart Sensing
 --------------------------------------------------
 

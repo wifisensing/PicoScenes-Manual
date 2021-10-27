@@ -1,11 +1,9 @@
 Supported Hardware
 ==========================================
 
-.. hint:: This page is under active editing.
-
 In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware.
 
-.. csv-table:: Comparison of existing CSI-Extractable Hardware
+.. csv-table:: CSI-extractable hardware supported by PicoScenes
     :header: "", "AX200", "USRP-basd SDR (X310 as exemplified)", "QCA9300", "IWL5300"
     :widths: 30, 60, 60, 60, 60
 

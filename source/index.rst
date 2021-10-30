@@ -5,7 +5,7 @@ PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing re
 
 **In the hardware aspect**:
 
-PicoScenes supports the *most* models of CSI-extractable frontend hardware, including three commercial Wi-Fi NIC models and software-defined radio (SDR), including the Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**), Intel Wireless Link 5300 (**IWL5300**) and all models of the **USRP**-based SDR devices.
+PicoScenes supports the *most* models of CSI-extractable frontend hardware including three commercial Wi-Fi NIC models and software-defined radio (SDR). They are the Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**), Intel Wireless Link 5300 (**IWL5300**) and all models of the **USRP**-based SDR devices.
 
 - Based on the AX200 NIC, PicoScenes is the first and currently the only public-available platform that enables **CSI extraction for the 802.11ax-format frames** using the commodity Wi-Fi hardware. The platform supports CSI extraction for **all formats (802.11a/g/n/ac/ax)** and **all bandwidths (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the CSI measurement **for overheard frames in monitor mode**, which transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application.
 

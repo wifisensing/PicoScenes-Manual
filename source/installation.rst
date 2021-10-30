@@ -93,9 +93,9 @@ Open a terminal and run the following command
 
 .. code-block:: bash
 
-        udh_find_devices
+        uhd_find_devices
 
-`udh_find_devices` is the device discovery program provided by UHD. It will list all the connected USRP devices. If a device is not shown in the list, you should refer to the USRP manual to check the hardware connection.
+`uhd_find_devices` is the device discovery program provided by UHD. It will list all the connected USRP devices. If a device is not shown in the list, you should refer to the USRP manual to check the hardware connection.
 
 
 Confirm the firmware version

@@ -1,7 +1,9 @@
 PicoScenes License Plan (PSLP) 
 =======================================
 
-License mechanism is a promised way to ensure a more sustainable development of the PicoScenes system. For PicoScenes, we call it PicoScenes License Plan (PSLP). 
+License mechanism is a promising way to ensure more sustainable development of the PicoScenes system. For PicoScenes, we call it PicoScenes License Plan (PSLP). 
+
+PSLP adopts the rolling release, *i.e.*, PSLP will be updated every two months with refined license structure, user support, *etc*. For paid license, the subscription fee will also go up.
 
 
 PSLP v0.1.10
@@ -15,3 +17,18 @@ PSLP v0.1.10 is the Nov. 2021 version of PSLP and also the first PSLP. It is sim
 We provide a **bilingual document** which describes PSLP v0.1.10 in detail. Click here to download :download:`PSLP v0.1.10 Documentation <_static/PSLP_v0.1.10.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/ac91c2e40fb808bbc671a9c246a264c584b02eeb>`_ of the source code of this documentation site.
 
 The payment channels are under construction. Will be updated soon.
+
+PSLP v0.2.x
+-------------------
+
+PSLP v0.2.x will be the Jan. 2022 version of PSLP. 
+
+In this version, we plan to create a dedicated portal website for PicoScenes users. It will allow users to view and upgrade their license.
+
+
+PSLP v0.3.x
+-------------------
+
+PSLP v0.3.x will be the Mar. 2022 version of PSLP. 
+
+Maybe, more fine-grained license settings are expected.

@@ -33,7 +33,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
-- Oct. 31, 2021 Add PicoScenes License Plan (PSLP) v0.1.9 in :doc:`License` page.
+- Oct. 31, 2021 Add PicoScenes License Plan (PSLP) v0.1.10 in :doc:`License` page.
 - Oct. 24, 2021 Add all-format/all-bandwidth packet injection for AX200.
 - Oct. 16, 2021 Add AX200 usage in :doc:`scenarios` page.
 - Oct. 10, 2021 Add :doc:`hardware` page.

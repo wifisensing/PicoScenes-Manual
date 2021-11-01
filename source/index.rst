@@ -11,7 +11,7 @@ PicoScenes supports the *most* models of CSI-extractable frontend hardware inclu
 
 - For the QCA9300 NIC, PicoScenes unlocks the **arbitrary tuning for both the carrier frequency and baseband sampling rate** (a total of 2.4 GHz spectrum available and 2.5 to 80 MHz bandwidth), and the **manual Rx gain control** (0 to 66 dB). The platform also features the QCA9300->IWL5300 CSI measurement, the Tx/Rx radio-chain control and transmission of the extra spatial sounding LTFs (HT-ELTFs).
 
-- For SDR, PicoScenes integrates a high-performance C++ baseband implementation for 802.11a/g/n/ac/ax protocols. It has four major highlights: protocol support, PHY-layer control, performance and virtual SDR. 
+- For SDR, PicoScenes integrates a high-performance C++ baseband implementation for 802.11a/g/n/ac/ax protocols, enabling your SDR device to transmit and receive Wi-Fi frames in real time just like a full-functional Wi-Fi NIC. It has four major highlights: protocol support, PHY-layer control, performance and virtual SDR. 
 
   - PicoScenes Wi-Fi baseband implementation **covers almost all the advanced technical features**, including the LDPC and BCC codecs, MCS 0~11 modulation, 20 to 160 MHz channel bandwidth (CBW) formats, up to 4x4 MIMO and even the 802.11ac/ax multi-user (MU) mode. 
   - PicoScenes **grants users full control over the PHY-layer parameters**, such as the manual specification for the carrier frequency offset (CFO), sampling frequency offset (SFO), symbol timing offset (STO), I/Q mismatching and many OFDM encoding/decoding settings.

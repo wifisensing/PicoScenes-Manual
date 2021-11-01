@@ -16,7 +16,8 @@ Opensource repositories
 ----------------------------
 
 - PicoScenes projects group: https://gitlab.com/wifisensing. The following are some of the open source sub-projects.
-    - `RXS Parsing Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_: the core CSI data parsing routine and the related utility code. This project is shared between the PicoScenes main program and PicoScenes MATLAB Toolbox via git submodule.
+    - `PicoScenes Python Toolbox <https://gitlab.com/wifisensing/PicoScenes-Python-Toolbox>`_: the official PicoScenes Python Toolbox (PPT) that parse the PicoScenes .csi file in Python. This project is contributed by Tian Teng.
+    - `RXS Parsing Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_: the core CSI data parsing routine and the related utility code. This project is shared among the PicoScenes main program, PicoScenes MATLAB Toolbox and PicoScenes Python Toolbox via git submodule.
     - `PicoScenes Plugin Development Kit (PS-PDK) <https://gitlab.com/wifisensing/PicoScenes-PDK>`_: the source repositories of three PicoScenes plugins, namely the Demo Plugin, UDP Forwarder and EchoProbe. We name it PS-PDK, because most PicoScenes plugins are developed based on this repo. 
     - `PicoScenes Manual <https://gitlab.com/wifisensing/PicoScenes-Manual>`_: the reStructuredText source code of this documentation.
 
@@ -31,7 +32,7 @@ PicoScenes Issues Tracker
 
 We provide the official and public technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker. Once you post an issue, GitLab will notify us and we will reach it as soon as possible.
 
-PicoScenes微信群 (PicoScenes WeChat group)
+PicoScenes微信群(PicoScenes WeChat group)
 +++++++++++++++++++++++++++++++++++++++++++
 If WeChat is one of your favorite IM APPs, you may join the PicoScenes WeChat Group by contacting Zhiping Jiang "jiangzhiping" in WeChat. As the group has exceeded 200 people, you can only be invited to the group.
 

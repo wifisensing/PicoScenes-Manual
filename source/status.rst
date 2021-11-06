@@ -13,7 +13,23 @@ PicoScenes is still under active development. We are adding new features, new co
 Future Plans
 ----------------
 
-- 802.11a/g/n/ac/ax packet injection for AX200
+.. |check| raw:: html
+
+    <input checked=""  type="checkbox">
+
+.. |check_| raw:: html
+
+    <input checked=""  disabled="" type="checkbox">
+
+.. |uncheck| raw:: html
+
+    <input type="checkbox">
+
+.. |uncheck_| raw:: html
+
+    <input disabled="" type="checkbox">
+
+- 802.11a/g/n/ac/ax packet injection for AX200 |check_|
 - More low-level controls for AX200
 
   - Tx/Rx chainmask
@@ -23,9 +39,9 @@ Future Plans
   - Enable 11ax-MU format CSI
   - Filter support
   
-    - Format
-    - Source MAC address
-    - Firmware bug workaround
+    - Format |check_|
+    - Source MAC address |check_|
+    - Firmware bug workaround |check_|
   
 - AX210 support
 
@@ -42,7 +58,7 @@ Future Plans
 - Next-Gen CSI live plot
 - License Service
 
-  - Online validation
+  - Online validation |check_|
   - User Portal
 
 - Usability \& Documentation 

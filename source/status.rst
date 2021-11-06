@@ -34,7 +34,7 @@ Future Plans
 
   - Tx/Rx chainmask
   - Tx power
-  - Regulation domain overriding
+  - Regulation domain overriding |check_|
   - Improve interoperability with SDR
   - Enable 11ax-MU format CSI
   - Filter support

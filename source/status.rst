@@ -29,23 +29,24 @@ Future Plans
 
     <input disabled="" type="checkbox">
 
-- 802.11a/g/n/ac/ax packet injection for AX200 |check_|
-- More low-level controls for AX200
+- 802.11a/g/n/ac/ax packet injection on AX200/AX210 |check|
+- More low-level controls for AX200/AX2100
 
   - Tx/Rx chainmask
   - Tx power
-  - Regulation domain overriding |check_|
+  - Regulation domain overriding |check|
   - Improve interoperability with SDR
   - Enable 11ax-MU format CSI
   - Filter support
   
-    - Format |check_|
-    - Source MAC address |check_|
-    - Firmware bug workaround |check_|
+    - Format |check|
+    - Source MAC address |check|
+    - Firmware bug workaround |check|
   
 - AX210 support
 
-  - Enable XXX (a mysterious feature!!!!)
+  - **Enable Wi-Fi sensing in 6 GHz band!** |check|
+  - Fix bug in CSI measurement
   
 - SDR baseband
 
@@ -58,7 +59,7 @@ Future Plans
 - Next-Gen CSI live plot
 - License Service
 
-  - Online validation |check_|
+  - Online validation |check|
   - User Portal
 
 - Usability \& Documentation 

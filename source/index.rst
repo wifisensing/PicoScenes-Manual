@@ -5,8 +5,10 @@ PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing re
 
 **In the hardware aspect**:
 
-PicoScenes supports the *most* CSI-extractable hardware, namely Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**), Intel Wireless Link 5300 (**IWL5300**) and all models of the **USRP**-based SDR devices.
+PicoScenes supports the *most* CSI-extractable hardware, namely the Intel Wi-Fi 6E AX210 (**AX210**), Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**), Intel Wireless Link 5300 (**IWL5300**) and all models of the **USRP**-based SDR devices.
 
+- Based on the AX210 NIC, the next-gen of AX200 NIC, PicoScenes is the first and currently the only public-available platform that enables **packet injection and CSI measurement in the Wi-Fi 6 GHz band**. In this band, researchers can access the continuously available spectrum from 5955 MHz to 7115 MHz, **a total of 1.18 GHz spectrum**. Besides the 6-GHz band support, the AX210 inherits all the features of the AX200. **Wi-Fi sensing enters the 802.11ax + 6GHz era**!
+  
 - Based on the AX200 NIC, PicoScenes is the first and currently the only public-available platform that enables **CSI extraction for the 802.11ax-format frames** using the commodity Wi-Fi hardware. The platform supports CSI extraction for **all formats (802.11a/g/n/ac/ax)** and **all bandwidths (20/40/80/160 MHz)**. Besides that, PicoScenes also enables the **CSI measurement for the overheard frames in monitor mode**, which transforms all the surrounding Wi-Fi devices into the signal sources of your sensing application.
 
 - For the QCA9300 NIC, PicoScenes unlocks the **arbitrary tuning for both the carrier frequency and baseband sampling rate** (a total of 2.4 GHz spectrum available and 2.5 to 80 MHz bandwidth), and the **manual Rx gain control** (0 to 66 dB). The platform also features the QCA9300->IWL5300 CSI measurement, the Tx/Rx radio-chain control and transmission of the extra spatial sounding LTFs (HT-ELTFs).
@@ -33,6 +35,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
+- Nov. 9, 2021 PicoScenes now support Packet injection and CSI measurement in the 6 GHz band. Wi-Fi sensing enters the 802.11ax + 6GHz era!
 - Oct. 31, 2021 Add PicoScenes License Plan (PSLP) v0.1.10 in :doc:`License` page.
 - Oct. 24, 2021 Add all-format/all-bandwidth packet injection for AX200.
 - Oct. 16, 2021 Add AX200 usage in :doc:`scenarios` page.

@@ -45,7 +45,7 @@ Future Plans
   
 - AX210 support
 
-  - **Enable Wi-Fi sensing in 6 GHz band!** |check|
+  - **Enable Wi-Fi sensing in the 6 GHz band!** |check|
   - Fix bug in CSI measurement
   
 - SDR baseband

@@ -1,7 +1,7 @@
 PicoScenes: Supercharging Your Next Wi-Fi Sensing Research!
 =============================================================
 
-PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing research. It helps researchers **remove two bottlenecks** in Wi-Fi sensing research: inadequate hardware features and insufficient measurement software functionality.
+PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing research. It helps researchers **overcome two barriers** in the Wi-Fi sensing research: inadequate hardware features and insufficient measurement software functionality.
 
 **In the hardware aspect**:
 

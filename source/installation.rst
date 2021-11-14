@@ -52,7 +52,7 @@ And even more so, you may build a multi-layer hierarchy of the bridge adapters a
     
     Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
     
-    Go get it from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201.
+    Go get it from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
 
 
 Installation of (Multiple) USRP Devices

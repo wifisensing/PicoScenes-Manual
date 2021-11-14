@@ -3,10 +3,6 @@ Troubleshooting
 
 The following shows some of the most frequently seen errors and their solutions for quick reference. For other issues that happened during the installation, upgrading or later usage, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
 
-Known Issues til Nov. 9, 2021
-----------------------------------------------
-
-
 
 Errors during installation \& daily update
 ----------------------------------------------

@@ -7,6 +7,7 @@ The following Wi-Fi NICs are also available in our `PicoScenes Taobao Shop <http
 .. csv-table:: CSI-extractable hardware supported by PicoScenes
     :header: "", "AX210/AX200", "USRP-basd SDR (X310 as example)", "QCA9300", "IWL5300"
     :widths: 30, 60, 60, 60, 60
+    :stub-columns: 1
 
     "Type", "Wi-Fi NIC", "SDR via via USB3.0/10GbE Ethernet", "Wi-Fi NIC", "Wi-Fi NIC"
     "Form Factor", "M.2 2230", "External USRP device", "Mini PCI-E 1x ", "Mini PCI-E 1x"

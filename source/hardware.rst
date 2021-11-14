@@ -1,7 +1,8 @@
 Supported Hardware
 ==========================================
 
-In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware.
+In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware. 
+The following Wi-Fi NICs are also available in our `PicoScenes Taobao Shop <https://item.taobao.com/item.htm?id=648560374131>`_ ^_^.
 
 .. csv-table:: CSI-extractable hardware supported by PicoScenes
     :header: "", "AX210/AX200", "USRP-basd SDR (X310 as example)", "QCA9300", "IWL5300"
@@ -19,5 +20,3 @@ In this page, we briefly compare the capabilities of the PicoScenes-supported CS
     "CSI Measurement for the Overheard Frames in Monitor Mode", "**YES**", "**YES**", "No, only for 11n sounding frames", "No, only for the special 12:34:56 address"
     "Arbitrary Packet Injection", "**Yes**, all-format (a/g/n/ac/**ax**), all-bandwidth (20/40/80/160 MHz), all-coding (LDPC/BCC) and all-band (2.4/5/**6** GHz)", "**Yes**, all-format (a/g/n/ac/**ax**), all-bandwidth (20/40/80/160 MHz), all-coding(LDPC/BCC), arbitrary frequency (10-6000 MHz)", "Yes, a/g/n", "Yes, a/g/n"
     "CSI measurement miss rate", "Very low", "Low in slower clock/bandwidth, high with large bandwidth and MIMO", "Very low", "Very low"
-
-    PicoScenes的淘宝店 `售卖以上4种CSI测量网卡 <https://item.taobao.com/item.htm?id=648560374131>`_，欢迎惠顾^_^。

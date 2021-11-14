@@ -113,8 +113,9 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :align: center  
           :figwidth: 175px
 
-     -
-
+     - .. figure:: /images/logos/UCSD.png
+          :align: center  
+          :figwidth: 175px
      -
 
 *The above lists are in time order.*

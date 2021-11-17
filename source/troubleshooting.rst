@@ -30,6 +30,9 @@ Solution: This is because your system loads the Incompatible kernel. Solution: r
 
 If your computer doesn't show the grub boot selection menu, you may refer to https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time/16049#16049 to restore the menu.
 
+- *Problem*: **PicoScenes requires your system clock to be synchronous with a global NTP server.**
+
+Solution: This error usually happens when you connect to a AP but it has no internet connection and wrong clock/time setting. You may either switch to an internet-connected AP or update the AP's clock/time setting.
 
 - *Problem*: **Error during USRP B200 series installation, "Could not find the image 'usrp_b200_fw.hex' in the image directory /usr/share/uhd/images ...."**
 

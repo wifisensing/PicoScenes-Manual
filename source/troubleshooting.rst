@@ -26,7 +26,7 @@ Runtime errors
 
 - *Problem*: **[Warning] Incompatible kernel version, current version: XXX, expected version: YYY.**
 
-Solution: This is because your system loads the Incompatible kernel. Solution: reboot your computer and choose the expected kernel version YYY in grub menu. 
+Solution: This is because your system loads the incompatible kernel. Solution: reboot your computer and choose the expected kernel version YYY in grub menu. 
 
 If your computer doesn't show the grub boot selection menu, you may refer to https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time/16049#16049 to restore the menu.
 

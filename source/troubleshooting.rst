@@ -7,7 +7,7 @@ The following shows some of the most frequently seen errors and their solutions 
 Errors during installation \& daily update
 ----------------------------------------------
 
-- *Problem*: **Error during apt update, "  Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate.  Could not handshake: Error in the certificate verification..."**
+- *Problem*: **Error during apt update, "Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate. XXX.... The repository 'xxxx' does not have a Release file."**
 
 Solution: Re-install *ca-certificate* package by ``sudo apt-get install --reinstall ca-certificates``.
 

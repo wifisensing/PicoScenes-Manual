@@ -132,7 +132,9 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/Mitsubishi_Electric.png
           :align: center  
           :figwidth: 175px
-     - 
+     - .. figure:: /images/logos/UM.png
+          :align: center  
+          :figwidth: 175px
 
 *The above lists are in time order.*
 

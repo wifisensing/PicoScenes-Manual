@@ -38,6 +38,7 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 
 **Xi'an Jiaotong University**
 
+- Han Hao, 蒿翰 (Ph.D student with the School of Computer Science and Technology)
 - Prof. Wei Xi, 惠维 (Professor with the School of Computer Science and Technology)
 - Prof. Jizhong Zhao, 赵季中 (Professor with the School of Computer Science and Technology)
 - Dr. Kun Zhao, 赵鲲 (Assistant professor with the School of Computer Science and Technology)

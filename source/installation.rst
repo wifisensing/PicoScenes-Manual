@@ -148,8 +148,9 @@ PicoScenes Software Installation
 Prerequisites
 ++++++++++++++++++++
 
-- CPU should at least support the SSE4.2 instruction set, and AVX2 is recommended.
-- Your computer has at least 4 GB memory. Less than 4 GB memory may cause out-of-memory crash.
+- CPU MUST support the SSE4.2 instruction set, and AVX2 is recommended.
+- At least 4 GB memory, to prevent out-of-memory crash.
+- Secure Boot MUST be disabled. You can find the switch in BIOS settings.
 - Operating System: PicoScenes **only** supports Ubuntu 20.04LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, I strongly recommend the Linux Mint distribution.
 - OS must be **installed atop real hardware**. No virtualization is supported.
 - Internet connection: internet connection is required during the installation process and is also required for regular build expiration checking in daily use.

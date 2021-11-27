@@ -35,9 +35,8 @@ Future Plans
   - Tx/Rx chainmask
   - Tx power
   - Regulation domain overriding |check|
-  - Improve interoperability with SDR
-  - Enable 11ax-MU format CSI
-  - Filter support
+  - Improve interoperability with SDR |check|
+  - Filter support |check|
   
     - Format |check|
     - Source MAC address |check|
@@ -46,11 +45,12 @@ Future Plans
 - AX210 support
 
   - **Enable Wi-Fi sensing in the 6 GHz band!** |check|
-  - Fix bug in CSI measurement
+  - Fix bug in CSI measurement |check|
   
 - SDR baseband
 
-  - 802.11ax SU-EXT/MU/Trigger-Based support
+  - 802.11ax SU-EXT format |check|
+  - 802.11ax MU/Trigger-Based support
   - 802.11be support the SDR baseband implementation
   - Beamforming support
   - Directional beamforming support

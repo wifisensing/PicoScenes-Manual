@@ -159,6 +159,6 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - 
      - 
 
-*The above lists are in time order.*
+*The above list is in time order.*
 
 .. hint:: If you are using PicoScenes but the above grid misses your affiliation, please `tell us <mailto:zpj@xidian.edu.cn>`_.

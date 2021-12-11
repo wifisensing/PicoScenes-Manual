@@ -35,7 +35,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
-- Dec. 12, 2021 PicoScenes MATLAB Toolbox is now open-sourced through its independent git `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
+- Dec. 12, 2021 PicoScenes MATLAB Toolbox is now open-sourced through its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
 - Nov. 9, 2021 PicoScenes now supports the Packet injection and CSI measurement in the 6 GHz band. Wi-Fi sensing enters the 802.11ax + 6GHz era!
 - Oct. 31, 2021 Add PicoScenes License Plan (PSLP) v0.1.10 in :doc:`License` page.
 - Oct. 24, 2021 Add all-format/all-bandwidth packet injection for AX200.

@@ -277,7 +277,7 @@ The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
 Obtain PicoScenes MATLAB Toolbox
 +++++++++++++++++++++++++++++++++++
 
-- Click the :download:`PicoScenes MATLAB Toolbox <https://zpj.io/PicoScenes/matlab-toolbox/PicoScenes-MATLAB-Toolbox.tar.gz>` link to download the zipped PicoScenes MATLAB Toolbox.
+You can git clone or download the toolbox from its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
 
 Install PicoScenes MATLAB Toolbox in MATLAB
 ++++++++++++++++++++++++++++++++++++++++++++++

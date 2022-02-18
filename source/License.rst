@@ -6,7 +6,7 @@ License mechanism is a promising way to ensure more sustainable development of t
 PSLP adopts the rolling release, *i.e.*, PSLP will be updated every two months with refined license structure, user support, *etc*. The current PSLP version is v0.2.1
 
 
-PSLP v0.2.1 (Feb. 20, 2022 to Apr. 40, 2022)
+PSLP v0.2.1 (Feb. 20, 2022 to Apr. 20, 2022)
 -------------------
 
 PSLP v0.2.1 is the Feb. 2022 version of PSLP. 

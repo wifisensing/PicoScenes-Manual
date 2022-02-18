@@ -13,7 +13,7 @@ PSLP v0.2.1 is the Feb. 2022 version of PSLP.
 
 **TL;DR**: PSLP v0.2.1 offers **two license options, free and paid**. Compared to v0.1.11, this version relax several key features to Free License Users. The subscription fee of the paid license is still **8688 RMB or 1360 USD/computer/year** with an extra bulk purchase discount.
 
-We provide a **bilingual document** which describes PSLP v0.2.1 in detail. Click here to download :download:`PSLP v0.2.1 Documentation <_static/PSLP_v0.2.1.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/d4657728c2296a6844faedc1c32500c9936be379>`_ of the source code of this documentation site.
+We provide a **bilingual document** which describes PSLP v0.2.1 in detail. Click here to download :download:`PSLP v0.2.1 Documentation <_static/PSLP_v0.2.1.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/34259868f77729195fe1cc935ac2664a3892fe03>`_ of the source code of this documentation site.
 
 .. _payment:
 

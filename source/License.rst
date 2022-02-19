@@ -15,7 +15,7 @@ PSLP v0.2.2 is the Feb. 2022 version of PSLP.
 
 We provide a **bilingual document** which describes PSLP v0.2.2 in detail. Click here to download :download:`PSLP v0.2.2 Documentation <_static/PSLP_v0.2.2.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/6b6d474ab914ce89c8670254f3a6e632a90956d8>`_ of the source code of this documentation site.
 
-PicoScenes with PLSP v0.2.2 also optimizes the online verification and expiration checking, removes the strong internet dependency. As a result, the startup time is considerable reduced.
+PicoScenes with PLSP v0.2.2 also optimizes the online verification and expiration checking, and removes the strong internet dependency. As the result, the program startup time is considerable reduced.
 
 .. _payment:
 

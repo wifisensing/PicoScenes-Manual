@@ -3,17 +3,17 @@ PicoScenes License Plan (PSLP)
 
 License mechanism is a promising way to ensure more sustainable development of the PicoScenes system. For PicoScenes, we call it PicoScenes License Plan (PSLP). 
 
-PSLP adopts the rolling release, *i.e.*, PSLP will be updated every two months with refined license structure, user support, *etc*. The current PSLP version is v0.2.1
+PSLP adopts the rolling release, *i.e.*, PSLP will be updated every two months with refined license structure, user support, *etc*. The current PSLP version is v0.2.2
 
 
-PSLP v0.2.1 (Feb. 20, 2022 to Apr. 20, 2022)
+PSLP v0.2.2 (Feb. 20, 2022 to Apr. 20, 2022)
 -------------------
 
-PSLP v0.2.1 is the Feb. 2022 version of PSLP. 
+PSLP v0.2.2 is the Feb. 2022 version of PSLP. 
 
-**TL;DR**: PSLP v0.2.1 offers **two license options, free and paid**. Compared to v0.1.11, this version relax several key features to Free License Users. The subscription fee of the paid license is still **8688 RMB or 1360 USD/computer/year** with an extra bulk purchase discount.
+**TL;DR**: PSLP v0.2.2 offers **two license options, free and paid**. Compared to v0.1.11, this version relax several key features to Free License Users. The subscription fee of the paid license is still **8688 RMB or 1360 USD/computer/year** with an extra bulk purchase discount.
 
-We provide a **bilingual document** which describes PSLP v0.2.1 in detail. Click here to download :download:`PSLP v0.2.1 Documentation <_static/PSLP_v0.2.1.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/34259868f77729195fe1cc935ac2664a3892fe03>`_ of the source code of this documentation site.
+We provide a **bilingual document** which describes PSLP v0.2.2 in detail. Click here to download :download:`PSLP v0.2.2 Documentation <_static/PSLP_v0.2.2.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/34259868f77729195fe1cc935ac2664a3892fe03>`_ of the source code of this documentation site.
 
 .. _payment:
 

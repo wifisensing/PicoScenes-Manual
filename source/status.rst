@@ -32,8 +32,7 @@ Future Plans
 - 802.11a/g/n/ac/ax packet injection on AX200/AX210 |check|
 - More low-level controls for AX200/AX2100
 
-  - Tx/Rx chainmask
-  - Tx power
+  - Tx/Rx chainmask |check|
   - Regulation domain overriding |check|
   - Improve interoperability with SDR |check|
   - Filter support |check|
@@ -52,8 +51,8 @@ Future Plans
   - 802.11ax SU-EXT format |check|
   - 802.11ax MU/Trigger-Based support
   - 802.11be support the SDR baseband implementation
-  - Beamforming support
-  - Directional beamforming support
+  - Beamforming support |check|
+  - Directional beamforming support |check|
   - Improve Rx baseband performance at least by 3x
 
 - Next-Gen CSI live plot

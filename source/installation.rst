@@ -72,6 +72,8 @@ You should first set up your hardware according to the USRP official `Devices & 
 - `USRP Hardware Driver and USRP Manual: USRP X4x0 Series <https://files.ettus.com/manual/page_usrp_x4xx.html>`_
 - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
 
+.. hint:: The PicoScenes software installer also installs the UHD software, USRP hardware driver. Therefore, you can skip the sections about UHD installation or source code building.
+
 
 Our Suggestions on USRP Hardware Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

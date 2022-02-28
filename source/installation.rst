@@ -87,7 +87,7 @@ Suggestions based on our experience:
     - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
     - For clock synchronization, OctoClock-G from EttusResearch is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRP devices.
 
-Verify the installation of the USRP N2x0/X3x0
+Verify the installation of the USRP hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There is a four-stage verification process to ensure that your USRP is ready for PicoScenes.
@@ -133,7 +133,7 @@ Use UHD's `uhd_fft` command to check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
-    uhd_fft --args="ADDRESS_STRING" -f 2200e6 -s 10e6
+    uhd_fft --args="ADDRESS_STRING" -f 24120e6 -s 20e6
 
 where `ADDRESS_STRING` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
 

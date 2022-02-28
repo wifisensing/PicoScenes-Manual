@@ -13,7 +13,7 @@ PSLP v0.2.3 is the Feb. 2022 version of PSLP.
 
 **TL;DR**: PSLP v0.2.3 offers **two license options, free and paid**. Compared to v0.1.11, this version relax several key features to Free License Users. The subscription fee of the paid license is still **8688 RMB or 1360 USD/computer/year** with an extra bulk purchase discount.
 
-We provide a **bilingual document** which describes PSLP v0.2.3 in detail. Click here to download :download:`PSLP v0.2.3 Documentation <_static/PSLP_v0.2.3.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/b5114dc5e150804aaeabad727ad64ea0a9d7da58>`_ of the source code of this documentation site.
+We provide a **bilingual document** which describes PSLP v0.2.3 in detail. Click here to download :download:`PSLP v0.2.3 Documentation <_static/PSLP_v0.2.3.pdf>`. The accountability for this key license document can be tracked back to `this git commit <https://gitlab.com/wifisensing/PicoScenes-Manual/-/commit/7516ad5f81a3537ef20ad97abfc8602b21ed698f>`_ of the source code of this documentation site.
 
 PicoScenes with PLSP v0.2.3 also optimizes the online verification and expiration checking, and removes the strong internet dependency. As the result, the program startup time is considerable reduced.
 

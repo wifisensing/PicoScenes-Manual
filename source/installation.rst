@@ -6,7 +6,7 @@ PicoScenes Installation
 Hardware Installation
 =======================
 
-PicoScenes currently supports three commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200, QCA9300 and IWL5300, and all USRP models.
+PicoScenes currently supports four commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200/AX210, QCA9300 and IWL5300, and all USRP models.
 
 The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -48,40 +48,46 @@ And even more so, you may build a multi-layer hierarchy of the bridge adapters a
     27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
 
 .. hint::
-    Do you want to access the research-ready hardware out of the box? 
+    Do you want to access the research-ready hardware out of the box?  Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
     
-    Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
-    
-    Go get it from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
-
+    Go get them from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
 
 Installation of (Multiple) USRP Devices
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
+Install PicoScenes software first
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The setup & verification of USRP devices is a bit complicated. You should first follow :ref:`install_software` section to install PicoScenes software first, and then come back to continue the following hardware setup & verification steps.
+
 Follow the official USRP manual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes’s support for USRP devices is established upon UHD software, the USRP hardware driver. Therefore, you should first set up your hardware/software according to the official   `USRP Hardware Driver and USRP Manual <https://files.ettus.com/manual/index.html>`_. For B2x0, N2x0 and X3x0 models, you should read the following three documents carefully:
+You should first set up your hardware according to the USRP official `Devices & Usage Manual <https://files.ettus.com/manual/page_devices.html>`_. Read and follow the Get Started sections according to your USRP models.
 
 - `USRP Hardware Driver and USRP Manual: B200/B210/B200mini/B205mini <https://kb.ettus.com/B200/B210/B200mini/B205mini>`_
 - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
 - `USRP Hardware Driver and USRP Manual: USRP X3x0 Series <https://files.ettus.com/manual/page_usrp_x3x0.html>`_
+- `USRP Hardware Driver and USRP Manual: USRP N3x0 Series <https://files.ettus.com/manual/page_usrp_n3xx.html>`_
+- `USRP Hardware Driver and USRP Manual: USRP X4x0 Series <https://files.ettus.com/manual/page_usrp_x4xx.html>`_
 - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
+
+.. hint:: The PicoScenes software installer also installs the UHD software, USRP hardware driver. Therefore, you can skip the sections about UHD installation or source code building.
 
 
 Our Suggestions on USRP Hardware Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Suggestions based on our previous experience:
-    - For X3x0 series, PicoScenes supports the PCI-E cable-based connection, **but we don't recommend that**. Besides the notably expensive cables, it has two main drawbacks. First, the PCI-E-based connection is inefficient in that each link can only connect one X3x0 device; therefore multi-X3x0 connection requires you to install multiple PCI-E extension boards, which is very expensive and is even impossible for a regular desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further devalues the PCI-E-based link.
+Suggestions based on our experience:
+    - For X3x0 series, **we don't recommend the PCI-E cable-based connection, inefficient in both hardware and cost**. It has two major drawbacks. First, the PCI-E-based connection is hardware-inefficient that one cable/extension card can connect to one X3x0 device and multiple cards for multiple X3x0 devices, which are very expensive and are even impossible for a desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further limits its application.
     - For both the N2x0 and X3x0 series, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N2x0 and X3x0 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X3x0s or eight independent full-duplex channels.
     - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, **UHD only supports combining multiple USRP devices of the same model, and currently only N2x0 and X3x0 series are combination-ready**.
-    - For both the N2x0 and X3x0 series, please consider using the UBX-40/UBX-160 daughterboard in priority. UBX-40 and UBX-160, though expensive, are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can you realize the phased-array functionality.
-    - Please pay special attention to the allocation of IP addresses. For network-based connections, the NIC port and the connected USRP must be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
+    - For both the N2x0 and X3x0 series, please consider using the UBX-40/UBX-160 daughterboard. Although expensive, UBX-40/160 are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can PicoScenes realize the phased-array functionality.
+    - Please pay special attention to the allocation of IP addresses. For network-based connections, the Ethernet NIC port and the connected USRP MUST be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
     - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
-    - For clock distribution, OctoClock-G is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRP devices.
+    - For clock synchronization, OctoClock-G from EttusResearch is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRP devices.
 
-Verify the installation of the USRP N2x0/X3x0
+Verify the installation of the USRP hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There is a four-stage verification process to ensure that your USRP is ready for PicoScenes.
@@ -127,7 +133,7 @@ Use UHD's `uhd_fft` command to check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
-    uhd_fft --args="ADDRESS_STRING" -f 2200e6 -s 10e6
+    uhd_fft --args="ADDRESS_STRING" -f 24120e6 -s 20e6
 
 where `ADDRESS_STRING` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
 
@@ -141,6 +147,8 @@ Finally, execute the following three commands in sequence to calibrate the Tx/Rx
     uhd_cal_rx_iq_balance
     uhd_cal_tx_dc_offset
     uhd_cal_tx_iq_balance
+
+.. _install_software:
 
 PicoScenes Software Installation
 ==================================
@@ -221,7 +229,6 @@ Only if your system meets *all* above requirements, can you start the installati
     As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit.
 
 .. _install_matlab:
-
 
 Install PicoScenes MATLAB Toolbox
 ==========================================

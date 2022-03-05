@@ -30,7 +30,7 @@ Future Plans
     <input disabled="" type="checkbox">
 
 - 802.11a/g/n/ac/ax packet injection on AX200/AX210 |check|
-- More low-level controls for AX200/AX2100
+- More low-level controls for AX200/AX210
 
   - Tx/Rx chainmask |check|
   - Regulation domain overriding |check|

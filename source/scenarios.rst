@@ -55,7 +55,7 @@ CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
 
 .. _ax200-wifi-ap:
 
-AX200 + Wi-Fi AP (Difficulty Level: Beginner)
+AX200/210 + Wi-Fi AP (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AX200 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 
@@ -75,7 +75,7 @@ The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present w
 
 .. _ax200- monitor:
 
-Single AX200 in monitor mode (Difficulty Level: Beginner)
+Single AX200/210 in monitor mode (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AX200 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 

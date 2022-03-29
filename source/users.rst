@@ -116,6 +116,12 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      -  .. figure:: /images/logos/BJTU.png
            :align: center  
            :figwidth: 175px
+   * -  .. figure:: /images/logos/SZU.jpg
+           :align: center  
+           :figwidth: 175px 
+     -  
+     -  
+     -  
 
 .. list-table:: Global Users
    :widths: 25 25 25 25
@@ -188,10 +194,12 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/NSYSU.png
           :align: center  
           :figwidth: 175px
-   * - .. figure:: /images/logos/U_Hawaii_Manoa.png
+   * -  .. figure:: /images/logos/U_Hawaii_Manoa.png
           :align: center  
-          :figwidth: 175px     
-     -  
+          :figwidth: 175px   
+     -  .. figure:: /images/logos/DJU.jpg
+          :align: center  
+          :figwidth: 175px
      - 
      - 
 

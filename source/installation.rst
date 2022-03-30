@@ -6,7 +6,7 @@ PicoScenes Installation
 Hardware Installation
 =======================
 
-PicoScenes currently supports four commercial Wi-Fi NIC models and USRP-based SDR devices, namely the AX200/AX210, QCA9300 and IWL5300, and all USRP models.
+PicoScenes currently supports 4 commercial Wi-Fi NIC models and USRP-based SDR devices, including the AX200/AX210, QCA9300 and IWL5300, and all USRP models.
 
 The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -162,7 +162,7 @@ Prerequisites
 - Operating System: PicoScenes **only** supports Ubuntu 20.04LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, we recommend the Linux Mint distribution, and all our development is on Linux Mint.
 - OS must be **installed atop real hardware**. No virtualization is supported.
 - Internet connection: internet connection is required during the installation process and is also required for regular build expiration checking in daily use.
-- Permission for installing the latest kernel version: PicoScenes depends on and is always built against the latest kernel versions. During the first-time installation and subsequent upgrades, your system **will be forced to update to the latest kernel version**.
+- Permission to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel versions. During the first-time installation and subsequent upgrades, your system **will be forced to update to the latest kernel version**.
 - (Optional) The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox (PMT), the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
 - (Optional) Latest Python environment on Linux and macOS: PicoScenes Python Toolbox (PPT), the CSI measurement data decoding routine in python requires Python 3.8+ environment.
 
@@ -178,8 +178,15 @@ Only if your system meets *all* above requirements, can you start the installati
 
     .. note:: PicoScenes Source Updater doesn't install the PicoScenes software but registers the PicoScenes software repository to your system, so that PicoScenes can be installed and auto-upgraded via the *apt* command.
 
-#. Update the cache of apt repositories
+#. Install the latest ca-certificates package
     Open a terminal and run the following command:
+
+    .. code-block:: bash
+
+        sudo apt install --reinstall -y ca-certificates
+
+#. Update the cache of apt repositories
+    Run the following command:
     
     .. code-block:: bash
 

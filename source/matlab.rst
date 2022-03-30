@@ -50,14 +50,14 @@ The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
         Screenshot: Setup TDM-GCC in MATLAB
 
 Obtain PicoScenes MATLAB Toolbox
-+++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++
 
 PMT can only be obtained by **git clone --cursively** from its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
 
 Install PicoScenes MATLAB Toolbox in MATLAB
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox`` directory and run the following command in Command Window:
+Open MATLAB, change `Current Folder` to the unzipped ``PicoScenes-MATLAB-Toolbox-Core`` directory and run the following command in Command Window:
 
     .. code-block:: matlab
 
@@ -77,11 +77,11 @@ In a few seconds, seeing similar messages shown in the picture below means that 
 Verify the installation
 ++++++++++++++++++++++++++
 
-In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox/samples`` directory, *drag'n'drop* the two sample .csi files into Command Window.  On requesting to parse .csi files for the first time, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
+In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox-Core/samples`` directory, *drag'n'drop* the two sample .csi files into Command Window.  On requesting to parse .csi files for the first time, PicoScenes MATLAB Toolbox will compile the MATLAB MEX-based .csi file parser. If the compilation is successfully, two samples files samples_9300.csi and samples_x310.csi will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
 
 Usage
--------------------
-You have three ways to parse a .csi file:
+++++++++++++++++++++++++++
+You have three ways to parse a .csi file with PMT:
 
     #. Double-click the selected .csi file in MATLAB Current Folder;
     #. Drag'n'Drop one or multiple .csi files into MATLAB Command Window;
@@ -90,7 +90,7 @@ You have three ways to parse a .csi file:
 After parsing, you will see bundles with the same names as the .csi files in MATLAB Workspace.
 
 Structures of the PicoScenes Tx and Rx frames
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     .. _framestructure:
 
@@ -110,7 +110,7 @@ The PMT parses the .csi files in two stages, the Raw Parsing and Bundled Parsing
 In the following, we introduce the data structures of the Raw Parsing stage. 
 
 Data structures of the Raw Parsing
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each cell of the Raw Parsing result contains the following items. You may click the links on the left to view its detailed structure.
 

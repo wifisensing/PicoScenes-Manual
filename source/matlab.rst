@@ -273,7 +273,6 @@ MVMExtra Segment
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "DeviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "double"
     "FTMClock", "320 MHz clock tick of (3.125ns resolution) AX200/210", "double"
     "MuClock", "1us resolution clock AX200/210", "double"
     "RateNFlags", "Intel MVM flag for MCS and STS", "double"

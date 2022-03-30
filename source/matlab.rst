@@ -121,6 +121,8 @@ Each cell of the Raw Parsing result contains the following items. You may click 
     `StandardHeader`_, "802.11 MAC header", "MATLAB struct"
     `RxSBasic`_, "RxSBasic Segment", "MATLAB struct"
     "RxExtraInfo", "`ExtraInfo`_ Segment (measured at Rx end)", "MATLAB struct"
+    `MVMExtra`_, "Extra header information from AX200/210 NIC", "MATLAB struct"
+    "DPASRequest", "A non-public field", "MATLAB struct"
     "CSI", "`CSI`_ measured from HT/VHT/HE-LTF field", "MATLAB struct"
     "LegacyCSI", "`CSI`_ measured from L-LTF field, measured by SDR frontend", "MATLAB struct"
     "MPDU", "Raw MPDU data wo/ FCS bytes", "uint8 array"
@@ -261,6 +263,20 @@ ExtraInfo
     "sf", "Baseband sampling rate", "double"
     "cfo", "The estimated carrier frequency offset (CFO)", "double"
 
+
+.. _MVMExtra:
+
+MVMExtra Segment
+::::::::::::
+
+.. csv-table:: Variables in MVMExtra
+    :header: "Variable", "Description", "Value type"
+    :widths: 20, 60, 20
+
+    "DeviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "double"
+    "FTMClock", "320 MHz clock tick of (3.125ns resolution) AX200/210", "double"
+    "MuClock", "1us resolution clock AX200/210", "double"
+    "RateNFlags", "Intel MVM flag for MCS and STS", "double"
 
 .. _CSI:
 

@@ -273,7 +273,7 @@ MVMExtra Segment
     :header: "Variable", "Description", "Value type"
     :widths: 20, 60, 20
 
-    "FTMClock", "320 MHz clock tick of (3.125ns resolution) AX200/210", "double"
+    "FTMClock", "320 MHz clock tick of (3.125ns resolution) AX200/210 NIC (blocked for PSLP-FL user)", "double"
     "MuClock", "1us resolution clock AX200/210", "double"
     "RateNFlags", "Intel MVM flag for MCS and STS", "double"
 

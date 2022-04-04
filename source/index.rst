@@ -35,6 +35,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
+- Apr. 4, 2022 PicoScenes is `adding support for HackRF One <https://zpj.io/picoscenes-is-supporting-hackrf-one-and-more-sdr/>`_, the most cost-efficient SDR frontend!
 - Feb. 19, 2022 PicoScenes License Plan (PSLP) upgraded to v0.2.1, see :doc:`License` for more details.
 - Feb. 10, 2022 PicoScenes adds Tx Signal Precoding API.
 - Dec. 12, 2021 PicoScenes MATLAB Toolbox is now open-sourced through its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.

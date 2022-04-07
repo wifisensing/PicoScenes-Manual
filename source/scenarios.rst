@@ -43,6 +43,11 @@ We devise a simple and intuitive naming protocol for USRP devices: ``usrp<IPADDR
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
+For HackRF One devices
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the rest device numbers are the same order as the ``SoapySDRUtil --find="driver=hackrf"`` output.
+
 For Virtual SDR Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 

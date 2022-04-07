@@ -5,7 +5,7 @@ PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing re
 
 **In the hardware aspect**:
 
-PicoScenes supports the **most** CSI-extractable hardware, including both the commercial off-the-shelf (COTS) Wi-Fi NICs and software defined radio (SDR) devices. The supported COTS NICS are the Intel Wi-Fi 6E AX210 (**AX210**), Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**) and Intel Wireless Link 5300 (**IWL5300**). The supported SDR devices include the **HackRF One** and *all* models of the **USRP**.
+PicoScenes supports the **most** CSI-extractable hardware, including both the commercial off-the-shelf (COTS) Wi-Fi NICs and software defined radio (SDR) devices. The supported COTS NICS are the Intel Wi-Fi 6E AX210 (**AX210**), Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**) and Intel Wireless Link 5300 (**IWL5300**). The supported SDR devices include the **HackRF One**, *all* models of the **USRP** and even *more*.
 
 For COTS Wi-Fi NICs, PicoScenes provides many exclusive hardware features: 
 
@@ -15,7 +15,7 @@ For COTS Wi-Fi NICs, PicoScenes provides many exclusive hardware features:
   
   - For the QCA9300 NIC, PicoScenes unlocks the **arbitrary tuning for both the carrier frequency and baseband sampling rate** (a total of 2.4 GHz spectrum available and 2.5 to 80 MHz bandwidth), and the **manual Rx gain control** (0 to 66 dB). The platform also features the QCA9300->IWL5300 CSI measurement, the Tx/Rx radio-chain control and transmission of the extra spatial sounding LTFs (HT-ELTFs).
 
-For SDR, PicoScenes is currently the *only* platform that **can turn your SDR device into a SDR-based Wi-Fi NIC**, *i.e.*, transmitting/receiving Wi-Fi frames and measuring their CSI in real time just like a full-functional Wi-Fi NIC. It has four major highlights: full protocol compliance, rich PHY-layer control, complete and all-stage PHY-layer information, and high performance. 
+For SDR, PicoScenes is currently the *only* platform that **can transform a SDR device into a SDR-based Wi-Fi NIC**, *i.e.*, transmitting/receiving Wi-Fi frames and measuring their CSI in real time just like a full-functional Wi-Fi NIC. It has four major highlights: full protocol compliance, rich PHY-layer control, complete and all-stage PHY-layer information, and high performance. 
 
   - PicoScenes Wi-Fi baseband is fully compliant with 802.11a/g/n/ac/ax Wi-Fi standards. It **covers almost all the advanced technical features**, i.e., transmitting and receiving Wi-Fi frames in *all-format* (supporting 802.11a/g/n/ac/ax), *all-bandwidth* (20/40/80/160 MHz), *all-coding* (LDPC and BCC), *all-MCS* (MCS 0 to 11), and *up to 4x4 MIMO* supports.
   - PicoScenes **grants users rich controls over the Tx/Rx process**, such as operating in non-standard carrier frequency and bandwidth, manual specification for the Tx/Rx carrier frequency offset (CFO), Tx/Rx sampling frequency offset (SFO), Rx symbol timing offset (STO), Tx/Rx I/Q mismatching, Tx/Rx resampling, and many OFDM encoding/decoding settings. PicoScenes is also the first platform that **provides signal precoding/steering capabilities**. With this feature, users can implement beamforming, phased array or arbitrary Tx equalization. Taking the phased array as an example, user only need to specify the antenna position and desired angle of departure (AoD), PicoScenes will calculate the steering matrix and apply it into the 802.11n/ac/ax spatial mapping mechanism.

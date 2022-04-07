@@ -5,7 +5,7 @@ PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing re
 
 **In the hardware aspect**:
 
-PicoScenes supports the **most** CSI-extractable hardware, including both the commercial off-the-shelf (COTS) Wi-Fi NICs and software defined radio (SDR) devices. The supported COTS NICS are the Intel Wi-Fi 6E AX210 (**AX210**), Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**) and Intel Wireless Link 5300 (**IWL5300**). The supported SDR devices include the  HackRF One and *all* models of the **USRP**.
+PicoScenes supports the **most** CSI-extractable hardware, including both the commercial off-the-shelf (COTS) Wi-Fi NICs and software defined radio (SDR) devices. The supported COTS NICS are the Intel Wi-Fi 6E AX210 (**AX210**), Intel Wi-Fi 6 AX200 (**AX200**), Qualcomm Atheros AR9300 (**QCA9300**) and Intel Wireless Link 5300 (**IWL5300**). The supported SDR devices include the **HackRF One** and *all* models of the **USRP**.
 
 For COTS Wi-Fi NICs, PicoScenes provides many exclusive hardware features: 
 

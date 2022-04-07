@@ -9,7 +9,7 @@ The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <htt
     :widths: 30, 60, 60, 60, 60, 60
     :stub-columns: 1
 
-    "Type", "Wi-Fi NIC", "SDR via via USB3.0/10GbE Ethernet", "SDR via USB2.0", "Wi-Fi NIC", "Wi-Fi NIC"
+    "Type", "Wi-Fi NIC", "SDR via USB3.0 or 10GbE", "SDR via USB2.0", "Wi-Fi NIC", "Wi-Fi NIC"
     "Form Factor", "M.2 2230", "External USRP device", "External SDR device", "Mini PCI-E 1x ", "Mini PCI-E 1x"
     "Supported Protocols for CSI measurement", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11n", "802.11n"
     "Support Manual Rx Gain", "No", "**YES**", "**YES**", "**YES**", "No"

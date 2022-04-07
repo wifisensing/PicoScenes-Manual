@@ -148,6 +148,28 @@ Finally, execute the following three commands in sequence to calibrate the Tx/Rx
     uhd_cal_tx_dc_offset
     uhd_cal_tx_iq_balance
 
+Installation of (Multiple) HackRF One
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+The hardware installation of HackRF One is easy. Since the HackRF One is USB2.0 interface SDR device, multiple HackRF Ones can be easily connected to you computer.
+
+Verify the connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SoapySDRUtil, a utility program of SoapySDR library, can list all SoapySDR-supported SDR devices, which include HackRF One. SoapyUtils can be installed by 
+
+    .. code-block:: bash
+
+        sudo apt install -y soapysdr-tools
+
+Run SoapySDRUtil to list all connected HackRF One,
+
+    .. code-block:: bash
+
+        SoapySDRUtil --find="driver=hackrf"
+
+If your devices are connected, SoapySDRUtil should list one or multiple HackRF One information blocks.
+
 .. _install_software:
 
 PicoScenes Software Installation

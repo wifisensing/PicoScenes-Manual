@@ -37,6 +37,9 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
 News!
 ======
 
+- Apr. 16, 2022 Add "-preset" and "--list-presets" options. "--preset <PresetName>" option provides shortcuts to specify SDR or NIC frontends to work with 40/80/160-Channel, VHT/HESU format, and LDBC/BCC coding.
+    For example, "--preset TX_CBW_160_HESU" is a shortcut to "--rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format hesu --coding ldpc"
+    The complete list of the predefined presets can be queried by "--list-presets" option.
 - Apr. 7, 2022 PicoScenes now officially supports HackRF One, the most cost-efficient Wi-Fi sensing-ready SDR!
 - Apr. 4, 2022 PicoScenes is `adding support for HackRF One <https://zpj.io/picoscenes-is-supporting-hackrf-one-and-more-sdr/>`_, the most cost-efficient SDR frontend!
 - Feb. 19, 2022 PicoScenes License Plan (PSLP) upgraded to v0.2.1, see :doc:`License` for more details.

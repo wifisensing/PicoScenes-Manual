@@ -13,6 +13,9 @@ The most welcomed feature of PicoScenes is the concurrent operation of multiple 
 Installation of (Multiple) Commercial Wi-Fi NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Hardware setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 We recommend four multi-NIC installation methods.
 
 1. **PCI-E 1x adapter based multi-NIC installation**
@@ -51,6 +54,18 @@ And even more so, you may build a multi-layer hierarchy of the bridge adapters a
     Do you want to access the research-ready hardware out of the box?  Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
     
     Go get them from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
+
+
+.. _ax210_setup:
+
+Special guide for AX210/AX211 setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The latest Linux distros, such as Ubuntu 20.04.4 or 20.10, are using <5.17 kernel version, which don't support for the Intel AX210/211 NIC. 
+PicoScenes supports the AX210/AX211 NIC because PicoScenes-Driver modifies the Intel v5.17 driver and merges the hacks into v5.14, which is the most cutting-edge kernel version provided by Ubuntu 20.04.
+
+Unfortunately, there is a dilemma: *in order to install PicoScenes (to support AX210/211), you have to get internet connection; but these is no Wi-Fi connection before PicoScenes is installed.* 
+To solve this issue, you have two options: **get internet connection via the cable-ethernet or another kernel-supported Wi-Fi NIC**, such as another AX200 or a Wi-Fi usb dongle.
 
 Installation of (Multiple) USRP Devices
 ++++++++++++++++++++++++++++++++++++++++++++++++

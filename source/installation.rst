@@ -59,9 +59,9 @@ And even more so, you may build a multi-layer hierarchy of the bridge adapters a
 .. _ax210_setup:
 
 Special guide for AX210/AX211 setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The latest Linux distros, such as Ubuntu 20.04.4 or 20.10, are using <5.17 kernel version, which don't support for the Intel AX210/211 NIC. 
+The latest Linux distros, such as Ubuntu 20.04.4 or 20.10, are using < 5.17 kernel versions, which don't support the Intel AX210/211 NIC. 
 PicoScenes supports the AX210/AX211 NIC because PicoScenes-Driver modifies the Intel v5.17 driver and merges the hacks into v5.14, which is the most cutting-edge kernel version provided by Ubuntu 20.04.
 
 Unfortunately, there is a dilemma: *in order to install PicoScenes (to support AX210/211), you have to get internet connection; but these is no Wi-Fi connection before PicoScenes is installed.* 

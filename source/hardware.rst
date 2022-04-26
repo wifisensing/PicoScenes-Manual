@@ -5,12 +5,12 @@ In this page, we briefly compare the capabilities of the PicoScenes-supported CS
 The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <https://item.taobao.com/item.htm?id=648560374131>`_ ^_^.
 
 .. csv-table:: CSI-extractable hardware supported by PicoScenes
-    :header: "Hardware Model", "AX210/AX200", "USRP-based SDR (X310 as example)", "HackRF One", "QCA9300", "IWL5300"
+    :header: "Hardware Model", "AX210/AX200/AX211", "USRP-based SDR (X310 as example)", "HackRF One", "QCA9300", "IWL5300"
     :widths: 30, 60, 60, 60, 60, 60
     :stub-columns: 1
 
     "Type", "Wi-Fi NIC", "SDR via USB3.0 or 10GbE", "SDR via USB2.0", "Wi-Fi NIC", "Wi-Fi NIC"
-    "Form Factor", "M.2 2230", "External USRP device", "External SDR device", "Mini PCI-E 1x ", "Mini PCI-E 1x"
+    "Form Factor", "M.2 2230,  M.2 2230 w/ CNVi (AX211)", "External USRP device", "External SDR device", "Mini PCI-E 1x ", "Mini PCI-E 1x"
     "Supported Protocols for CSI measurement", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11n", "802.11n"
     "Support Manual Rx Gain", "No", "**YES**", "**YES**", "**YES**", "No"
     "Available Carrier Frequency Range (MHz)", "AX200: 2.4/5 GHz Bands, 470 MHz in total; **AX210**: 2.4/5/**6** GHz bands, **[5955, 7115] MHz continuous spectrum**!", "**Arbitrary tunable in [10, 6000] MHz**", "**Arbitrary tunable in [10, 7250] MHz**", "**Arbitrary tunable in [2.2-2.9] and [4.4-6.1] GHz**", "2.4/5 GHz Bands, 470 MHz in total"

@@ -42,7 +42,7 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="800" height="450" align="center" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" align="center" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="PicoScenes Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 bilibili
 
@@ -81,7 +81,7 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/6KKxpc7fh2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/6KKxpc7fh2w" title="Large Spectrum Stitching using Two QCA9300 NICs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Youku
 
@@ -99,7 +99,8 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/RZUQ5Fm4LLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/RZUQ5Fm4LLc" title="Large spectrum stitching using A USRP X310 and a QCA9300 NIC
+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Youku
 

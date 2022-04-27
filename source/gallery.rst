@@ -42,7 +42,8 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="800" height="450" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="PicoScenes Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="PicoScenes Now Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 bilibili
 
@@ -81,13 +82,13 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/6KKxpc7fh2w" title="Large Spectrum Stitching using Two QCA9300 NICs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/6KKxpc7fh2w" title="Large Spectrum Stitching using Two QCA9300 NICs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Youku
 
 .. raw:: html
 
-   <iframe height=315 width=560 src='https://player.youku.com/embed/XNDkxMzY3NDg4OA==' frameborder=0 'allowfullscreen'></iframe>
+   <iframe height=450 width=800 src='https://player.youku.com/embed/XNDkxMzY3NDg4OA==' frameborder=0 'allowfullscreen'></iframe>
 
 
 Large spectrum stitching using A USRP X310 and a QCA9300 NIC
@@ -99,11 +100,10 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/RZUQ5Fm4LLc" title="Large spectrum stitching using A USRP X310 and a QCA9300 NIC
-" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/RZUQ5Fm4LLc" title="Large spectrum stitching using A USRP X310 and a QCA9300 NIC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Youku
 
 .. raw:: html
 
-   <iframe height=315 width=560 src='https://player.youku.com/embed/XNDk1ODgzOTMwMA==' frameborder=0 'allowfullscreen'></iframe>
+   <iframe height=450 width=800 src='https://player.youku.com/embed/XNDk1ODgzOTMwMA==' frameborder=0 'allowfullscreen'></iframe>

@@ -1,6 +1,7 @@
 Gallery
 ===================
 
+This pages shows some of most highlighted features of PicoScenes.
 
 CSI measurements over a large and continuous spectrum by QCA9300
 -------------------------------------------------------------------------------
@@ -30,6 +31,24 @@ For more details, you may refer to :ref:`picoscenes_paper`.
    :align: center
 
    PicoScenes provides the out-of-box CSI measurement functionality for the tunable and wide bandwidths.
+
+Live CSI measurement and plot using HackRF One
+-------------------------------------------------
+
+PicoScenes supports the most cost-efficient SDR devices, HackRF One. With this only 200$ SDR, Wi-Fi sensing researchers can perform 802.11a/g/n/ac/ax packet injection, receive standard 20-MHz bandwidth packet in realtime, and access the comple PHY-layer information. For more information, please visit `PicoScenes now officially supports HackRF One <https://zpj.io/picoscenes-supports-hackrf/>`_.
+
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&amp;bvid=BV17Z4y127Jx&amp;cid=570756427&amp;page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
 
 
 User tuneable Rx gain for the QCA9300 NIC

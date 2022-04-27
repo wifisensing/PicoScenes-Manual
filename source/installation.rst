@@ -379,6 +379,8 @@ If your research depends heavily on SDR, the following performance tuning tricks
 
         GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
 
+.. _upgrade_software:
+
 Upgrade PicoScenes Software
 =====================================
 

@@ -42,13 +42,13 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" align="center" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 bilibili
 
 .. raw:: html
 
-   <iframe src="//player.bilibili.com/player.html?aid=383047528&amp;bvid=BV17Z4y127Jx&amp;cid=570756427&amp;page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&amp;bvid=BV17Z4y127Jx&amp;cid=570756427&amp;page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 450; height: 800; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
 
 
 User tuneable Rx gain for the QCA9300 NIC

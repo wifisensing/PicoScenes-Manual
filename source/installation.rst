@@ -396,6 +396,13 @@ Checking-for-upgrade is a built-in feature of PicoScenes, and it is trigger in e
     - Simply Run PicoScenes in the CLI without any program options, and wait a while.
     - If there is a upgrade available, PicoScenes will show a upgrade-hint message like shown below. We suggest you to check the change log to what see which part of PicoScenes is affected.
 
+        .. figure:: /images/PicoScenes_check_upgrade.png
+            :figwidth: 800px
+            :target: /images/PicoScenes_check_upgrade.jpg
+            :align: center
+
+            Screenshot: PicoScenes hints for the upgrade
+
 
 
 Upgrade the PicoScenes binaries
@@ -404,7 +411,16 @@ Upgrade the PicoScenes binaries
 The upgrade of PicoScenes is via the Debian package system, and is simplified to just few clicks. 
 
     - For Ubuntu GUI users, open ``Software Updater`` or similar APP. After refreshing the package repository, you will see *picoscenes-xxx* packages. Select these packages and click *Install Now*.
+
+        .. figure:: /images/Updater.png
+            :figwidth: 500px
+            :target: /images/Updater.png
+            :align: center
+
+            Screenshot: Upgrade PicoScenes software via Software Updater
+
     - For Ubuntu CLI users, just run the following command to update the package repository and upgrade *all* available packages.
+
         .. code-block:: bash
 
             sudo apt update && sudo apt upgrade

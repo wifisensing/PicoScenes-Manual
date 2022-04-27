@@ -1,7 +1,7 @@
 Development Status
 ========================
 
-PicoScenes is still under active development. We are adding new features, new controls, and fix bugs. Checkout the changelogs for the latest progress.
+PicoScenes is *still* under *very active* development. We are adding new features, new controls, and fix bugs. Checkout the changelogs for the latest progress.
 
 `PicoScenes Platform Changelog <https://zpj.io/PicoScenes/platform-changelog>`_
 

@@ -42,7 +42,7 @@ YouTube
 
 .. raw:: html
 
-   <iframe width="800" height="450" src="https://www.youtube.com/watch?v=L4OCDkU7Fnk" title="PicoScenes Now Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/L4OCDkU7Fnk" title="PicoScenes Now Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 bilibili

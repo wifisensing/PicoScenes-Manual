@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'PicoScenes Documentation'
+project = 'PicoScenes'
 copyright = '2021-2022, Dr. Zhiping Jiang and contributors'
 author = 'Dr. Zhiping Jiang and contributors'
 

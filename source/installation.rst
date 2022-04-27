@@ -1,6 +1,6 @@
-============================
-PicoScenes Installation
-============================
+====================================
+PicoScenes Installation & Upgrade
+====================================
 
 
 Hardware Installation
@@ -378,6 +378,43 @@ If your research depends heavily on SDR, the following performance tuning tricks
     .. code-block:: bash
 
         GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
+
+Upgrade PicoScenes Software
+=====================================
+
+Since PicoScenes is *still* under *very active* development, adding new features, adding new hardware support and fixing bugs, we recommand you upgrade PicoScenes software regularly.
+
+Check and Upgrade the PicoScenes Binaries
+++++++++++++++++++++++++++++++++++++++++++++
+
+Checking for upgrade
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Checking-for-upgrade is a built-in feature of PicoScenes, and it is trigger in every launch *if the internet connection is available*. To manually check for upgrade, just perform the following steps: 
+
+    - Connect to internet, making sure that no special steps, such as the web-based logging, are required to open a website from browser. 
+    - Simply Run PicoScenes in the CLI without any program options, and wait a while.
+    - If there is a upgrade available, PicoScenes will show a upgrade-hint message like shown below. We suggest you to check the change log to what see which part of PicoScenes is affected.
+
+
+
+Upgrade the PicoScenes binaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The upgrade of PicoScenes is via the Debian package system, and is simplified to just few clicks. 
+
+    - For Ubuntu GUI users, open ``Software Updater`` or similar APP. After refreshing the package repository, you will see *picoscenes-xxx* packages. Select these packages and click *Install Now*.
+    - For Ubuntu CLI users, just run the following command to update the package repository and upgrade *all* available packages.
+        .. code-block:: bash
+
+            sudo apt update && sudo apt upgrade
+
+
+Check and Upgrade the PicoScenes MATLAB Toolbox (PMT)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PMT is released via git, therefore the upgrade of PMT is to run *git pull & git submodule update* within the PMT directory.
+
 
 Uninstallation of The PicoScenes Ecosystem
 ============================================

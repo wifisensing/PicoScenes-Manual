@@ -447,5 +447,5 @@ Uninstalling the PicoScenes binaries
 Uninstalling the PicoScenes MATLAB Toolbox
 ++++++++++++++++++++++++++++++++++++++++++++
 
-- Run ``install_PicoScenes_MATLAB_Toolbox('uninstall')`` in MATLAB
-- Manually remove the PMT folder
+- Run ``uninstall_PicoScenes_MATLAB_Toolbox`` in MATLAB
+- Remove the PMT folder

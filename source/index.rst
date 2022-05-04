@@ -1,6 +1,22 @@
 PicoScenes: Supercharging Your Next Wi-Fi Sensing Research!
 =============================================================
 
+News!
+======
+- May, 3, 2022 Dr. Zhiping Jiang gave a tutorial talk on PicoScenes at CPS-IOT Week'2022. `The slides can be download here <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+- Apr. 27, 2022 Add a subsection :ref:`upgrade_software` in :doc:`/installation`.
+- Apr. 26, 2022 Add support for Intel AX211 Wi-Fi NIC, which is the CNVi-interfaced twin of the AX210 NIC.
+- Apr. 19, 2022 Add a subsection :ref:`ax210_setup` in :doc:`/installation`.
+- Apr. 16, 2022 Add "-preset" and "--list-presets" options. "--preset <PresetName>" option provides shortcuts to specify SDR or NIC frontends to work with 40/80/160-Channel, VHT/HESU format, and LDBC/BCC coding. For example, "--preset TX_CBW_160_HESU" is a shortcut to "--rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format hesu --coding ldpc". The complete list of the predefined presets can be queried by "--list-presets" option.
+- Apr. 7, 2022 `PicoScenes now officially supports HackRF One <https://zpj.io/picoscenes-supports-hackrf/>`_, the most cost-efficient Wi-Fi sensing-ready SDR!
+- Feb. 19, 2022 PicoScenes License Plan (PSLP) upgraded to v0.2.1, see :doc:`License` for more details.
+- Feb. 10, 2022 `PicoScenes adds Tx Signal Precoding API <https://zpj.io/picoscenes-supports-signal-precoding/>`_.
+- Dec. 12, 2021 PicoScenes MATLAB Toolbox is now open-sourced through its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
+- Nov. 9, 2021 PicoScenes now supports the Packet injection and CSI measurement in the 6 GHz band. `Wi-Fi sensing enters the 802.11ax + 6GHz era! <https://zpj.io/wifi-sensing-in-the-6-ghz-band_eng/>`_
+
+What is PicoScenes?
+=====================
+
 PicoScenes is a versatile and powerful middleware for CSI-based Wi-Fi sensing research. It helps researchers **overcome two barriers** in the Wi-Fi sensing research: inadequate **hardware** features and insufficient measurement **software** functionality.
 
 **In the hardware aspect**:

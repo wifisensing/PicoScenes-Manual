@@ -6,7 +6,7 @@ This pages shows some of most highlighted features of PicoScenes.
 AX210 NIC in STA mode measuring 160-MHz BW CSI and live-plotting
 -------------------------------------------------------------------------------
 
-This is the first short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+This is the first short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 
 YouTube
 
@@ -25,7 +25,7 @@ bilibili
 AX210 NIC in Monitor Mode measuring CSI for all overheard framed and live-plotting
 --------------------------------------------------------------------------------------
 
-This is the second short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+This is the second short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 
 YouTube
 
@@ -44,7 +44,7 @@ bilibili
 AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
 -----------------------------------------------------------------------------------------------
 
-This is the third short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+This is the third short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 
 YouTube
 
@@ -62,7 +62,7 @@ bilibili
 PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI (1 & 2)
 -----------------------------------------------------------------------------------------------
 
-This is the fourth and fifth short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+This is the fourth and fifth short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 
 YouTube
 
@@ -88,7 +88,7 @@ bilibili
 AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
 -----------------------------------------------------------------------------------------------
 
-This is the last short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+This is the last short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 
 YouTube
 

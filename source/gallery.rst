@@ -59,24 +59,6 @@ bilibili
 
    <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1sr4y187bL&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
 
-AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
------------------------------------------------------------------------------------------------
-
-This is the third short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
-
-YouTube
-
-.. raw:: html
-
-   <iframe width="800" height="450" src="https://www.youtube.com/embed/_X6JVb69-MA" title="AX210 NIC Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-bilibili
-
-.. raw:: html
-
-   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1sr4y187bL&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
-
 PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI (1 & 2)
 -----------------------------------------------------------------------------------------------
 
@@ -120,6 +102,22 @@ bilibili
 .. raw:: html
 
    <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1xS4y1h7Bk&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+Installation of PicoScenes MATLAB Toolbox and drag'n'drop style .csi file parsing
+-----------------------------------------------------------------------------------------------
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/zgDIn1cdvCo" title="Installation of PicoScenes MATLAB Toolbox and drag'n'drop style .csi file parsing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1NY4y1C79T&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
 
 CSI measurements over a large and continuous spectrum by QCA9300
 -------------------------------------------------------------------------------

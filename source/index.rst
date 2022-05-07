@@ -3,6 +3,7 @@ PicoScenes: Supercharging Your Next Wi-Fi Sensing Research!
 
 News!
 ======
+- May, 7, 2022 Upload 7 short demo videos presented at CPS-IOT Week'2022. See in :doc:`/gallery`.
 - May, 3, 2022 Dr. Zhiping Jiang gave a tutorial talk on PicoScenes at CPS-IOT Week'2022. `The slides can be download here <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
 - Apr. 27, 2022 Add a subsection :ref:`upgrade_software` in :doc:`/installation`.
 - Apr. 26, 2022 Add support for Intel AX211 Wi-Fi NIC, which is the CNVi-interfaced twin of the AX210 NIC.

@@ -3,6 +3,124 @@ Gallery
 
 This pages shows some of most highlighted features of PicoScenes.
 
+AX210 NIC in STA mode measuring 160-MHz BW CSI and live-plotting
+-------------------------------------------------------------------------------
+
+This is the first short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/UaCHtzW3Pm8" title="AX210 NIC in STA mode measuring 160-MHz BW CSI and live-plotting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1Qa411a7GV&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+
+AX210 NIC in Monitor Mode measuring CSI for all overheard framed and live-plotting
+--------------------------------------------------------------------------------------
+
+This is the second short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/btUCq68cews" title="AX210 NIC in Monitor Mode measuring CSI for all overheard framed and live-plotting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1F3411N7kt&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+
+AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
+-----------------------------------------------------------------------------------------------
+
+This is the third short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/_X6JVb69-MA" title="AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1sr4y187bL&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
+-----------------------------------------------------------------------------------------------
+
+This is the third short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/_X6JVb69-MA" title="AX210 NIC Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1sr4y187bL&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI (1 & 2)
+-----------------------------------------------------------------------------------------------
+
+This is the fourth and fifth short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/0x-ri8323es" title="PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/OKwOsIKSCGo" title="PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1734y1Y7Yp&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1k44y1u7TC&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
+AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210
+-----------------------------------------------------------------------------------------------
+
+This is the last short demo video presented in the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
+
+YouTube
+
+.. raw:: html
+
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/xlHs4KfVSJQ" title="PicoScenes driving two AX210 NICs to perform round-trip CSI measuring with freq. hopping in 6G band" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+bilibili
+
+.. raw:: html
+
+   <iframe src="//player.bilibili.com/player.html?aid=383047528&bvid=BV1xS4y1h7Bk&cid=570756427&page=1" scrolling="no" border="0" framespacing="0" allowfullscreen="true" style="width: 800px; height: 450px; max-width: 100%; align:center; padding:20px 0;" frameborder="no"> </iframe>
+
 CSI measurements over a large and continuous spectrum by QCA9300
 -------------------------------------------------------------------------------
 

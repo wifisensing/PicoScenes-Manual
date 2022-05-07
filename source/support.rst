@@ -3,11 +3,13 @@
 Technical Support
 ====================
 
-PicoScenes Issues Tracker
-------------------------------------
+PicoScenes Issues Tracker (PicoScenes官方交流问答）
+-------------------------------------------------
 
 
 We provide the official and public technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker. Once you post an issue, GitLab will notify us and we will reach it as soon as possible.
+
+**对于中文用户**：如果您不想咬文嚼字用英语交流，没问题！ 您中文提问，我们中文回复：）
 
 PicoScenes微信群(PicoScenes WeChat group)
 ------------------------------------

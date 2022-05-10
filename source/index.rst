@@ -64,10 +64,9 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
    parameters
    matlab
    utilities
-   troubleshooting
    plugin
    status
    resources
-   support
    License
+   troubleshooting
    credits

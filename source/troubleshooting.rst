@@ -1,11 +1,14 @@
-Troubleshooting
+Troubleshooting & Support
 =================================================
+
+Troubleshooting
+-----------------------
 
 The following shows some of the most frequently seen errors and their solutions for quick reference. For other issues that happened during the installation, upgrading or later usage, you may seek :ref:`tech_support` by submitting a bug report to PicoScenes Issues Tracker.
 
 
 Errors during installation \& daily update
-----------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++
 
 - *Problem*: **Error during apt update, "Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate. XXX.... The repository 'xxxx' does not have a Release file."**
 
@@ -20,7 +23,7 @@ Errors during installation \& daily update
     Solution: As PicoScenes is still under active development, we set a 60-day expiration for each PicoScenes build. If your current build is expired, follow :ref:`upgrade_software` in :doc:`/installation` to upgrade your PicoScenes software.
 
 Runtime errors
----------------------
+++++++++++++++++++++++++++++++++++++++++++++
 
 - *Problem*: **[Warning] Incompatible kernel version, current version: XXX, expected version: YYY.**
 
@@ -35,3 +38,21 @@ If your computer doesn't show the grub boot selection menu, you may refer to htt
 - *Problem*: **Error during USRP B200 series installation, "Could not find the image 'usrp_b200_fw.hex' in the image directory /usr/share/uhd/images ...."**
 
     Solution: run ``sudo /usr/lib/uhd/utils/uhd_images_downloader.py`` to download **all** USRP images.
+
+
+
+.. _tech_support:
+
+Technical Support
+-------------------------
+
+PicoScenes Issues Tracker (PicoScenes官方交流问答)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We provide the official and public technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker. Once you post an issue, GitLab will notify us and we will reach it as soon as possible.
+
+**对于中文用户**：如果您不想咬文嚼字用英语交流，没问题！ 您中文提问，我们中文回复：）
+
+PicoScenes微信群(PicoScenes WeChat group)
+++++++++++++++++++++++++++++++++++++++++++
+If WeChat is one of your favorite IM APPs, you may join the PicoScenes WeChat Group by contacting Zhiping Jiang "jiangzhiping" in WeChat. As the group has exceeded 200 people, you can only be invited to the group.

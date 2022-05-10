@@ -16,7 +16,7 @@ Errors during installation \& daily update
 
 - *Problem*: **Error during apt installation saying, "E: fail to fetch XXX, File has unexpected size (xxx != xxx). ..."**
 
-    Solution: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` to sync your local apt cache. If you still encounter this problem, you may seek :ref:`tech_support`.
+    Solution: The possible reason is that the PicoScenes repository is updated, but your local apt cache is not synced. To fix this error, you should run ``sudo apt update`` to sync your local apt cache.
 
 - *Problem*: **Current PicoScenes build is expired. You should upgrade PicoScenes to the latest version.**
 

@@ -20,7 +20,7 @@ IMPORTANT-READ CAREFULLY: This End User License Agreement ("EULA") is a legal ag
 
 5. SPECTRUM REGULATION. The SOFTWARE PRODUCT is a research-purpose software. If you use SOFTWARE PRODUCT to transmit wireless signal, it is your responsibility to make sure that you are in compliance with all laws for the country, frequency, and power levels in which the device is used. Additionally, some countries regulate reception in certain frequency bands. Again, it is your responsibility to maintain compliance with all local laws and regulations.
    
-6. TERMINATION UPON YOUR FAILURE. You agree that we can terminate this EULA immediately and without notice if you fail to comply with any term of this EULA. Upon such termination, you agree that we will show publicly the reasons of the termination. The shown information may include your name, your affiliation, your research activity, our analysis, and the proof of your failure.
+6. TERMINATION UPON YOUR FAILURE. You agree that we can terminate this EULA immediately and without notice if you fail to comply with any term of this EULA. Upon such termination, you agree that we can show publicly the reasons of the termination for indefinite time. The shown information may include your name, your affiliation, your research activity, our analysis, and the proof of your failure.
 
 7. UPDATE OF THIS EULA. From time to time, we may change the terms of this EULA. We will notify you of such change in software changelog and documentation. Your continued use of the SOFTWARE PRODUCT will indicate your agreement to the change.
 

@@ -3,7 +3,7 @@ PicoScenes Software End-Use License Agreement
 
 IMPORTANT-READ CAREFULLY: This End-User License Agreement ("EULA") is a legal agreement between (a) you (either an individual or a single entity) and (b) we (Dr. Zhiping Jiang) for the PicoScenes software accompanying this EULA, which includes PicoScenes software, Linux bash Script provided by PicoScenes software, PicoScenes MATLAB Toolbox, PicoScenes Python Toolbox, documentation and related academic research papers ("SOFTWARE PRODUCT" or "SOFTWARE").
  
-By downloading, copying, installing, or using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA. If you do not agree to following 6 terms of this EULA, you must NOT download, copy, install or use the SOFTWARE PRODUCT.
+**By downloading, copying, installing, or using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA**. If you do not agree to following 6 terms of this EULA, you must NOT download, copy, install or use the SOFTWARE PRODUCT.
  
     1. LICENSE GRANT. This EULA grants you the following non-exclusive rights:
 
@@ -25,4 +25,4 @@ By downloading, copying, installing, or using the SOFTWARE PRODUCT, you agree to
         a. We expressly disclaims any warranty for the SOFTWARE PRODUCT. The SOFTWARE PRODUCT and any related documentation is provided "as is" without warranty of any kind, either express or implied, including, without limitation, the implied warranties or merchantability, fitness for a particular purpose, or noninfringement. The entire risk arising out of use or performance of the SOFTWARE PRODUCT remains with you.
         b. In no event shall we be liable for any damages whatsoever (including, without limitation, damages for computer system, communication hardware, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use this product, even if we has been advised of the possibility of such damages.
  
-Should you have any questions concerning this EULA, or if you desire to contact Zhiping Jiang for any reason, please email to <zpj_AT_xidian.edu.cn>.ld you have any questions concerning this EULA, or if you desire to contact Zhiping Jiang for any reason, please email to <zpj@xidian.edu.cn>.
+Should you have any questions concerning this EULA, or if you desire to contact Zhiping Jiang for any reason, please email to <zpj_AT_xidian.edu.cn>.

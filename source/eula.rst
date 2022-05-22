@@ -3,7 +3,7 @@ PicoScenes Software End User License Agreement
 
 IMPORTANT-READ CAREFULLY: This End User License Agreement ("EULA") is a legal agreement between (a) you (either an individual or a single entity) and (b) we (Dr. Zhiping Jiang) for the PicoScenes software accompanying this EULA, which includes PicoScenes software, Linux bash Script provided by PicoScenes software, PicoScenes MATLAB Toolbox, PicoScenes Python Toolbox, documentation and related academic research papers ("SOFTWARE PRODUCT" or "SOFTWARE").
  
-**By downloading, copying, installing, or using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA**. If you do not agree to following terms of this EULA, you must NOT download, copy, install or use the SOFTWARE PRODUCT.
+**By downloading, copying, installing, or using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA**. If you do not agree to the following terms of this EULA, you must NOT download, copy, install or use the SOFTWARE PRODUCT.
  
 1. LICENSE GRANT. This EULA grants you the following non-exclusive rights:
 

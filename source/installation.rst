@@ -193,7 +193,7 @@ PicoScenes Software Installation
 Prerequisites
 ++++++++++++++++++++
 
-- You **agree to be bound by :doc:`/EULA`**.
+- You **agree to be bound by** :doc:`/EULA`.
 - CPU MUST support the SSE4.2 instruction set, and AVX2 is recommended.
 - At least 4 GB memory, to prevent out-of-memory crash.
 - Secure Boot MUST be disabled. You can find the switch in BIOS settings.

@@ -221,4 +221,5 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
           :figwidth: 175px
      - 
 
-*The above list is in time order.*
+1. The affiliations listed above is extracted from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.
+2. All affiliations above are added in time order.

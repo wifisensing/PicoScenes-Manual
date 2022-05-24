@@ -1,6 +1,7 @@
 PicoScenes: Supercharging Your Next Wi-Fi Sensing Research!
 =============================================================
 
+
 News!
 ======
 - May, 22, 2022 Add :doc:`/eula` page.
@@ -15,6 +16,7 @@ News!
 - Feb. 10, 2022 `PicoScenes adds Tx Signal Precoding API <https://zpj.io/picoscenes-supports-signal-precoding/>`_.
 - Dec. 12, 2021 PicoScenes MATLAB Toolbox is now open-sourced through its independent git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_.
 - Nov. 9, 2021 PicoScenes now supports the Packet injection and CSI measurement in the 6 GHz band. `Wi-Fi sensing enters the 802.11ax + 6GHz era! <https://zpj.io/wifi-sensing-in-the-6-ghz-band_eng/>`_
+
 
 What is PicoScenes?
 =====================

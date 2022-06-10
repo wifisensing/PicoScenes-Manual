@@ -230,7 +230,9 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/PrincetonUniversity.png
           :align: center  
           :figwidth: 175px
-     - 
+     - .. figure:: /images/logos/SNU.png
+          :align: center  
+          :figwidth: 175px 
      - 
 
 .. note:: 

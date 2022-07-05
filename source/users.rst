@@ -255,7 +255,9 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/IIT_Madras.png
           :align: center  
           :figwidth: 175px  
-     -         
+     - .. figure:: /images/logos/MNIT.png
+          :align: center  
+          :figwidth: 175px          
 .. note:: 
 
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.

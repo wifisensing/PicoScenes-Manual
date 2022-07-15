@@ -22,6 +22,10 @@ Errors during installation \& daily update
 
     Solution: As PicoScenes is still under active development, we set a 60-day expiration for each PicoScenes build. If your current build is expired, follow :ref:`upgrade_software` in :doc:`/installation` to upgrade your PicoScenes software.
 
+- *Problem*: **apt system get deadlocked during PicoScenes upgrade**
+
+    Solution: https://gitlab.com/wifisensing/picoscenes-issue-tracker/-/issues/61
+
 Runtime errors
 ++++++++++++++++++++++++++++++++++++++++++++
 

@@ -128,6 +128,16 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      -  .. figure:: /images/logos/WUT.jpg
           :align: center  
           :figwidth: 175px
+   * -  .. figure:: /images/logos/JiLin_University.jpg
+           :align: center  
+           :figwidth: 175px 
+     -  .. figure:: /images/logos/Central_China_Normal_University.jpeg
+          :align: center  
+          :figwidth: 175px
+     -  .. figure:: /images/logos/SNU.jpg
+          :align: center  
+          :figwidth: 175px
+     -  
 
 .. list-table:: Global Users
    :widths: 25 25 25 25
@@ -233,8 +243,21 @@ PicoScenes is powering the next wave of the Wi-Fi sensing research. The followin
      - .. figure:: /images/logos/SNU.png
           :align: center  
           :figwidth: 175px 
-     - 
-
+     - .. figure:: /images/logos/CUHK.jpg
+          :align: center  
+          :figwidth: 175px 
+   * - .. figure:: /images/logos/Nagoya_University.jpg
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/NYCU.png
+          :align: center  
+          :figwidth: 175px  
+     - .. figure:: /images/logos/IIT_Madras.png
+          :align: center  
+          :figwidth: 175px  
+     - .. figure:: /images/logos/MNIT.png
+          :align: center  
+          :figwidth: 175px          
 .. note:: 
 
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.

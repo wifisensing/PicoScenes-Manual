@@ -179,6 +179,7 @@ RXSBasic Segment
 
     "deviceType", "Device Type ID (0x9300 for QCA9300, 0x5300 for IWL5300, 0x1234 for USRP)", "uint16"
     "timestamp", "The timestamp when the baseband recognizes the packet", "uint64"
+    "SystemTime", "The Absolute ns-level timestamp measured at host-end", "uint64"
     "channelFreq", "Carrier frequency in MHz", "uint16"
     "packetFormat", "0/1/2/3/4 for NonHT, HT, VHT, HE-SU and HE-MU, respectively", "int8"
     "CBW", "Channel BandWidth, 20/40/80/160 for HT20/HT40+ or -/VHT(or HE)80/VHT(or HE)160 format", "uint16"

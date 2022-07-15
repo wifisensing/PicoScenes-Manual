@@ -46,7 +46,7 @@ If your computer doesn't show the grub boot selection menu, you may refer to htt
 MATLAB Toolbox errors
 ++++++++++++++++++++++++++++++++++++++++++++
 
-- *Problem*: ** libstdc++.so.6: version GLIBCXX_3.4.26 not found **
+- *Problem*: **libstdc++.so.6: version GLIBCXX_3.4.26 not found**
 
     Solution: install `matlab-support` package as described in :ref:`install_matlab`.
     Thanks *Jinen Li* from Shenzhen University (SZU) for providing this bug fix!

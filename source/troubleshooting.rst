@@ -39,6 +39,25 @@ If your computer doesn't show the grub boot selection menu, you may refer to htt
 
     Solution: run ``sudo /usr/lib/uhd/utils/uhd_images_downloader.py`` to download **all** USRP images.
 
+MATLAB Toolbox errors
+++++++++++++++++++++++++++++++++++++++++++++
+
+- *Problem*: ** libstdc++.so.6: version GLIBCXX_3.4.26 not found **
+
+    Solution: install `matlab-support` package by 
+
+        .. code-block:: bash
+
+            sudo apt install -y matlab-support
+
+        The installation of matlab-support requires 3 or 4 steps of user interaction: 
+
+            1. In the first screen, read the examples carefully and fill your MATLAB directory;
+            2. The MATLAB activation window may popup, activate your MATLAB;
+            3. "Authorized user for MATLAB", leave the field blank;
+            4. "Rename MATLAB's GCC libraries?" --> choose YES.
+
+        Thanks Jinen Li from Shenzhen University (SZU) for providing this bug fix!
 
 
 .. _tech_support:

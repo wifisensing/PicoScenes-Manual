@@ -301,6 +301,14 @@ Preparation steps on Ubuntu 20.04
 
 - Install MATLAB (version R2020b or above);
 - Run ``sudo apt install build-essential`` to install GCC
+- (Optional but recommended) Run ``sudo apt install matlab-support`` to install matlab-support package. It provides a shortcut to MATLAB (run *matlab* directly in bash) and also a workaround for a library not found issue.
+
+    The installation of matlab-support requires 3 or 4 steps of user interaction:
+
+        1. In the first screen, read the examples carefully and fill your MATLAB directory;
+        2. The MATLAB activation window *may* popup, activate your MATLAB;
+        3. "Authorized user for MATLAB", leave the field blank;
+        4. "Rename MATLAB's GCC libraries?" --> choose YES.
 
 Preparation steps on macOS Big Sur 11.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

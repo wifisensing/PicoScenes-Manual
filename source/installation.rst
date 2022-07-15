@@ -344,7 +344,7 @@ You can **ONLY** git clone the toolbox from its git repo `PicoScenes MATLAB Tool
 
     A: PMT-Core embeds the `RXS-Parsing-Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_ repo as a git submodule. The direct download excludes the submodule, so incomplete PMT-Core.
 
-    Q: Why --resursive?
+    Q: Why --recursive?
 
     A: git clone doesn't clone \& checkout its submodule by default.
 

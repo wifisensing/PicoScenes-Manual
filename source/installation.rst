@@ -337,11 +337,16 @@ The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
 Obtain PicoScenes MATLAB Toolbox Core (PMT-Core)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can **ONLY** git clone the toolbox from its git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_. Never download directly.
+You can **ONLY** git clone the toolbox from its git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_ with **--recursive** option. Never download directly.
 
 .. hint::
     Q: Why cannot download directly? 
+
     A: PMT-Core embeds the `RXS-Parsing-Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_ repo as a git submodule. The direct download excludes the submodule, so incomplete PMT-Core.
+
+    Q: Why --resursive?
+
+    A: git clone doesn't clone \& checkout its submodule by default.
 
 Install PicoScenes MATLAB Toolbox Core in MATLAB
 +++++++++++++++++++++++++++++++++++++++++++++++++++

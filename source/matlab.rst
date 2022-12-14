@@ -302,3 +302,11 @@ CSI Segment
     "Mag", "CSI magnitude data with size of :math:`N_{tone}\times N_{sts}\times N_{rx}`", "double array"
     "Phase", "CSI phase data with size of :math:`N_{tone}\times N_{sts}\times N_{rx}`", "double array"
     "SubcarrierIndex", "the indices of OFDM subcarriers", "int16 array"
+
+The MATLAB parser performs addtional pre-processing to the raw CSI data:
+
+    1. interpolate the 0-th and other *missing* pilot subcarriers for the CSI;
+    2. calculate the norm of CSI and save to "Mag";
+    3. unwrap the phase into "Phase";
+    4. perform CSD removal to "Phase", which removes the additional phase slope introduced by CSD (cyclic shift delay).
+    

@@ -6,7 +6,7 @@ PicoScenes Installation & Upgrade
 Hardware Installation
 =======================
 
-PicoScenes currently supports 4 commercial Wi-Fi NIC models and USRP-based SDR devices, including the AX200/AX210, QCA9300 and IWL5300, and all USRP models.
+PicoScenes currently supports 4 commercial Wi-Fi NIC models and SDR devices, including the AX200/AX210, QCA9300 and IWL5300, all USRP models, and HackRF One.
 
 The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -87,7 +87,7 @@ You should first set up your hardware according to the USRP official `Devices & 
 - `USRP Hardware Driver and USRP Manual: USRP X4x0 Series <https://files.ettus.com/manual/page_usrp_x4xx.html>`_
 - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
 
-.. hint:: The PicoScenes software installer also installs the UHD software, USRP hardware driver. Therefore, you can skip the sections about UHD installation or source code building.
+.. hint:: The PicoScenes software installer installs the UHD software, i.e., the USRP hardware driver. Therefore, you can skip the UHD installation or source code building steps.
 
 
 Our Suggestions on USRP Hardware Setup
@@ -148,42 +148,18 @@ Use UHD's `uhd_fft` command to check whether your USRP can receive the signal:
 
 .. code-block:: bash
 
-    uhd_fft --args="ADDRESS_STRING" -f 24120e6 -s 20e6
+    uhd_fft --args="ADDRESS_STRING" -f 2412e6 -s 20e6
 
 where `ADDRESS_STRING` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
 
-Perform Tx/Rx calibration (Optional)
-***********************************************************
+Perform Tx/Rx Self calibration (for USRP N2x0, X3x0 and N3x0 users)
+***********************************************************************
+The uncalibrated daughterboards have *very* serious signal distortion! Users should follow `Device Calibration <https://files.ettus.com/manual/page_calibration.html>`_ to perform the self-calibrations for EACH daughterboard. Pursuing the best signal quality, the frequency range of the calibration should cover the range of your measurement.
 
-Finally, execute the following three commands in sequence to calibrate the Tx/Rx signal. This step is optional.
-
-.. code-block:: bash
-
-    uhd_cal_rx_iq_balance
-    uhd_cal_tx_dc_offset
-    uhd_cal_tx_iq_balance
-
-Installation of (Multiple) HackRF One
+Installation of HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-The hardware installation of HackRF One is easy. Since the HackRF One is USB2.0 interface SDR device, multiple HackRF Ones can be easily connected to you computer.
-
-Verify the connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-SoapySDRUtil, a utility program of SoapySDR library, can list all SoapySDR-supported SDR devices, which include HackRF One. SoapyUtils can be installed by 
-
-    .. code-block:: bash
-
-        sudo apt install -y soapysdr-tools
-
-Run SoapySDRUtil to list all connected HackRF One,
-
-    .. code-block:: bash
-
-        SoapySDRUtil --find="driver=hackrf"
-
-If your devices are connected, SoapySDRUtil should list one or multiple HackRF One information blocks.
+The HackRF One is a USB2.0 interfaced SDR device, so you just plug the devices. Run ``SoapySDRUtil --find="driver=hackrf"`` to check the connection. If the connection, you will see the device information.
 
 .. _install_software:
 
@@ -197,8 +173,8 @@ Prerequisites
 - CPU MUST support the SSE4.2 instruction set, and AVX2 is recommended.
 - At least 4 GB memory, to prevent out-of-memory crash.
 - Secure Boot MUST be disabled. You can find the switch in BIOS settings.
-- Operating System: PicoScenes **only** supports Ubuntu 20.04LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.). Personally, we recommend the Linux Mint distribution, and all our development is on Linux Mint.
-- OS must be **installed atop real hardware**. No virtualization is supported.
+- Operating System: PicoScenes **only** supports Ubuntu 20.04 LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
+- OS must be **installed in real hardware**. No virtualization is supported.
 - Internet connection: internet connection is required during the installation process and is also required for regular build expiration checking in daily use.
 - Permission to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel versions. During the first-time installation and subsequent upgrades, your system **will be forced to update to the latest kernel version**.
 - (Optional) The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox (PMT), the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
@@ -245,7 +221,7 @@ Only if your system meets *all* above requirements, can you start the installati
 
         sudo apt install picoscenes-all
 
-    After a few minutes of package downloading (the duration depends on your network), the PicoScenes EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
+    After a few minutes of package downloading, the PicoScenes EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
@@ -266,10 +242,10 @@ Only if your system meets *all* above requirements, can you start the installati
     .. hint:: If you wrongfully press the <No>, the installer will show you the solution to reinitialize the installation.
         
 - Reboot your system
-    You may have to reboot your system to validate the installation; otherwise, the modified drivers for AX200, QCA9300 and IWL5300 will not be activated.
+    Reboot your system to validate the installation.
 
 - The first run
-    Run ``PicoScenes`` in a terminal (case sensitive). Soon after the launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it IS a planned crash**. Run ``PicoScenes`` again, and the error should be gone.
+    Run ``PicoScenes`` in a terminal (case sensitive!). Soon after the launch, PicoScenes will crash with an error message saying, "This is a scheduled exception ...".  Yes, **it IS a planned crash**. Run ``PicoScenes`` again, and the error should be gone.
 
     As PicoScenes is designed to be a `service` program, it will not quit automatically. You can press Ctrl+C to exit.
 

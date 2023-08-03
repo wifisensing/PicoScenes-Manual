@@ -1,9 +1,9 @@
 Gallery
 ===================
 
-This pages shows some of most highlighted features of PicoScenes.
+This page shows some of most highlighted features of PicoScenes.
 
-AX210 NIC in STA mode measuring 160-MHz BW CSI and live-plotting
+AX210 NIC in STA mode measuring the 160-MHz bandwidth CSI and live-plotting
 -------------------------------------------------------------------------------
 
 This is the first short demo video presented at the `CPS-IOT Week'2022 tutorial <https://zpj.io/give-tutorial-talk-on-picoscenes-at-cps-iot-week-2022/>`_.
@@ -15,7 +15,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/UaCHtzW3Pm8" title="AX210 NIC in STA mode measuring 160-MHz BW CSI and live-plotting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -34,7 +34,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/btUCq68cews" title="AX210 NIC in Monitor Mode measuring CSI for all overheard framed and live-plotting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -53,7 +53,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/_X6JVb69-MA" title="AX210 NIC  Measuring CSI in Monitor mode w/ 20/160-MHz BW Packet Injection from Another AX210" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -75,7 +75,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/OKwOsIKSCGo" title="PicoScenes Driving USRP B210 and HackRF One to Inject 11AX Packets and Measuring CSI 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -97,7 +97,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/xlHs4KfVSJQ" title="PicoScenes driving two AX210 NICs to perform round-trip CSI measuring with freq. hopping in 6G band" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -113,7 +113,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/zgDIn1cdvCo" title="Installation of PicoScenes MATLAB Toolbox and drag'n'drop style .csi file parsing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 
@@ -161,7 +161,7 @@ YouTube
    <iframe width="800" height="450" src="https://www.youtube.com/embed/L4OCDkU7Fnk" title="PicoScenes Now Supports HackRF One" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-bilibili
+Bilibili
 
 .. raw:: html
 

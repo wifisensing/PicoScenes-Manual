@@ -57,12 +57,12 @@ Installation of (Multiple) USRP Devices
 
 The installation, usage, and optimization of USRP are much more complex than that of a COTS NIC. Therefore, please follow the steps below to configure and verify the USRP hardware.
 
-1. Install PicoScenes Software 
+Install The PicoScenes Software 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes software utilizes the USRP Hardware Driver (UHD) provided by the operating system to drive the USRP hardware. Therefore, before setting up the USRP hardware, you should follow :ref:`install_software` section to install the PicoScenes software. Please note that PicoScenes depends on specific version of UHD, so if you have previously installed your own compiled version of UHD, please uninstall it first.
 
-2. Configure USRP Hardware
+Configure USRP Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You should set up your hardware according to the USRP official `Devices & Usage Manual <https://files.ettus.com/manual/page_devices.html>`_. Read and follow the Get Started sections according to your USRP models.
@@ -78,7 +78,7 @@ You should set up your hardware according to the USRP official `Devices & Usage 
 
 
 Suggestions on USRP Hardware Setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************
 
 Based on our experience, we have the following suggestions for USRP hardware setup:
 
@@ -90,59 +90,62 @@ Based on our experience, we have the following suggestions for USRP hardware set
     - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, although it has a narrow bandwidth.
     - For clock synchronization, the OctoClock-G from EttusResearch is a cost-effective choice that distributes GPS-disciplined clocks to up to eight USRP devices.
 
-Verify the installation of the USRP hardware
+Verifying the Hardware Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There is a four-stage verification process to ensure that your USRP is ready for PicoScenes.
+To ensure that your USRP is ready for PicoScenes, follow the four-stage verification process outlined below.
 
-Confirm the hardware connection
+Verify Hardware Connection
 *********************************
 
-Open a terminal and run the following command
+Open a terminal and execute the following command:
 
 .. code-block:: bash
 
         uhd_find_devices
 
-`uhd_find_devices` is the device discovery program provided by UHD. It will list all the connected USRP devices. If a device is not shown in the list, you should refer to the USRP manual to check the hardware connection.
+The `uhd_find_devices` command is provided by UHD as a device discovery program. It will list all the connected USRP devices. If your device is not displayed, refer to the USRP manual to check the hardware connection.
 
 
-Confirm the firmware version
+Verify Firmware Version
 *********************************
+
+Open a terminal and execute the following command:
 
 .. code-block:: bash
 
         uhd_usrp_probe
 
-`uhd_usrp_probe` prints the hardware details of all connected devices. It also checks whether the devices' firmwares are consistent with the UHD software installed on the host computer. If the inconsistency is detected, you may use `uhd_image_loader` command to flash the latest firmwares to the USRP:
+The `uhd_usrp_probe` command prints the hardware details of all connected devices and checks whether the devices' firmware versions are consistent with the UHD software installed on the host computer. If any inconsistencies are detected, you can use the `uhd_image_loader` command to flash the latest firmware to the USRP:
 
-For the USRP N2x0 device, run:
+For USRP N2x0 devices, run:
 
 .. code-block:: bash
 
     uhd_image_loader --args=type=usrp2
 
-For the USRP X3x0 device, run:
+For USRP X3x0 devices, run:
 
 .. code-block:: bash
 
     uhd_image_loader --args=type=x300
 
 
-Confirm the signal reception (Rx)
+Verify The Signal Reception (RX)
 *********************************
 
-Use UHD's `uhd_fft` command to check whether your USRP can receive the signal:
+Use UHD's `uhd_fft` command to check if your USRP can receive the signal. Execute the following command:
 
 .. code-block:: bash
 
     uhd_fft --args="ADDRESS_STRING" -f 2412e6 -s 20e6
 
-where `ADDRESS_STRING` is the USRP identification string. You may refer `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_ for more details.
+Replace `ADDRESS_STRING` with the USRP identification string. For more details, refer to the `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_.
 
-Perform Tx/Rx Self calibration (for USRP N2x0, X3x0 and N3x0 users)
+Perform Tx/Rx Self-Calibration (for USRP N2x0, X3x0, and N3x0 users)
 ***********************************************************************
-The uncalibrated daughterboards have *very* serious signal distortion! Users should follow `Device Calibration <https://files.ettus.com/manual/page_calibration.html>`_ to perform the self-calibrations for EACH daughterboard. Pursuing the best signal quality, the frequency range of the calibration should cover the range of your measurement.
+
+Uncalibrated daughterboards can introduce *serious* signal distortion. Users should follow the `Device Calibration <https://files.ettus.com/manual/page_calibration.html>`_ section to perform self-calibrations for EACH daughterboard. To achieve the best signal quality, calibrate the frequency range that covers your intended measurements.
 
 Installation of HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++

@@ -77,17 +77,18 @@ You should set up your hardware according to the USRP official `Devices & Usage 
 .. hint:: The PicoScenes software installer installs the UHD software. So, you skip the UHD installation or source code building steps.
 
 
-Our Suggestions on USRP Hardware Setup
+Suggestions on USRP Hardware Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Suggestions based on our experience:
-    - For X3x0 series, **we don't recommend the PCI-E cable-based connection, inefficient in both hardware and cost**. It has two major drawbacks. First, the PCI-E-based connection is hardware-inefficient that one cable/extension card can connect to one X3x0 device and multiple cards for multiple X3x0 devices, which are very expensive and are even impossible for a desktop PC with few spare PCI-E slots. Second, the UHD software doesn't support the hybrid combination of the PCI-E-based link and the GbE/10GbE-based link. This restriction further limits its application.
-    - For both the N2x0 and X3x0 series, **we recommend Intel X710 Quad Port 10 Gb Ethernet Adapter**, a reasonable and cost-effective solution for multiple N2x0 and X3x0 connections. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to 4 X3x0s or eight independent full-duplex channels.
-    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, **UHD only supports combining multiple USRP devices of the same model, and currently only N2x0 and X3x0 series are combination-ready**.
-    - For both the N2x0 and X3x0 series, please consider using the UBX-40/UBX-160 daughterboard. Although expensive, UBX-40/160 are the only full-duplex daughterboards that support daughterboard-level phase synchronization. And only with this level of synchronization, can PicoScenes realize the phased-array functionality.
-    - Please pay special attention to the allocation of IP addresses. For network-based connections, the Ethernet NIC port and the connected USRP MUST be in the same subnet. However, if they are not in the same subnet, the UHD device discovery program *udh_find_devices* can still find the devices, but PicoScenes cannot initialize the device correctly.
-    - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, except for its narrow bandwidth.
-    - For clock synchronization, OctoClock-G from EttusResearch is a cost-effective choice that distributes the GPS-disciplined clocks to up to eight USRP devices.
+Based on our experience, we have the following suggestions for USRP hardware setup:
+
+    - For the X3x0 series, it is not recommended to use a PCI-E cable-based connection due to inefficiency in both hardware and cost. This method has two major drawbacks. Firstly, the PCI-E-based connection is hardware-inefficient, as it requires one cable or extension card for each X3x0 device. This can be very expensive and may not be feasible for a desktop PC with limited spare PCI-E slots. Secondly, the UHD software does not support a hybrid combination of the PCI-E-based link and the GbE/10GbE-based link, further limiting its application.
+    - For both the N2x0 and X3x0 series, **we recommend using the Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for connecting multiple N2x0 and X3x0 devices. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to four X3x0s or eight independent full-duplex channels.
+    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRP devices of the same model, and currently, only the N2x0 and X3x0 series are combination-ready.
+    - For both the N2x0 and X3x0 series, it is advisable to consider using the UBX-40/UBX-160 daughterboard. Although these daughterboards are expensive, they are the only ones that support daughterboard-level phase synchronization, which is necessary for PicoScenes to achieve phased-array functionality.
+    - Pay special attention to the allocation of IP addresses. For network-based connections, the Ethernet NIC port and the connected USRP must be in the same subnet. If they are not in the same subnet, the UHD device discovery program 'uhd_find_devices' may still find the devices, but PicoScenes will not be able to initialize them correctly.
+    - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, although it has a narrow bandwidth.
+    - For clock synchronization, the OctoClock-G from EttusResearch is a cost-effective choice that distributes GPS-disciplined clocks to up to eight USRP devices.
 
 Verify the installation of the USRP hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

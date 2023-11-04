@@ -6,7 +6,7 @@ PicoScenes Installation & Upgrade
 Hardware Installation
 =======================
 
-PicoScenes currently supports 4 commercial Wi-Fi NIC models and SDR devices, including the AX200/AX210, QCA9300 and IWL5300, all USRP models, and HackRF One.
+PicoScenes currently supports 4 commercial Wi-Fi NIC models and SDR devices, including the AX200 (or AX201), AX210(or AX211), QCA9300 and IWL5300, all models of USRP devices, and the HackRF One.
 
 The most welcomed feature of PicoScenes is the concurrent operation of multiple RF frontends, i.e., simultaneous CSI measurement or packet injection using a commercial Wi-Fi NIC/SDR array. To help you get the hardware ready, we share some hardware preparation experience, mainly focusing on the multi-devices setup.
 
@@ -16,19 +16,19 @@ Installation of (Multiple) Commercial Wi-Fi NICs
 Hardware setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We recommend four multi-NIC installation methods.
+We recommend four methods for installing multiple NICs.
 
-1. **PCI-E 1x adapter based multi-NIC installation**
+1. **PCI-E 1x Adapter-based Multi-NIC Installation**
 
-With the help of the `Mini PCI-E to PCI-E 1x adapter` or `M.2 to PCI-E 1x adapter`, you can install multiple AX200, QCA9300 or IWL5300 NICs directly on the motherboard of a desktop PC. 
+With the help of the `Mini PCI-E to PCI-E 1x adapter` or `M.2 to PCI-E 1x adapter`, you can install multiple NICs directly on the motherboard of a desktop PC.
 
-However, there are usually only 2 or 3 PCI-E slots left for the Wi-Fi NICs. To overcome this issue, you may choose the *cryptocurrency mining motherboards*, such as MSI B360-F Pro. This type of motherboard have dozens of PCI-E 1x slots, and you can use *PCI-E slot riser* to install *dozens* of Wi-Fi NICs on one single motherboard.
+However, there are usually only 2 or 3 spare PCI-E slots left for the Wi-Fi NICs. To overcome this issue, you may choose **cryptocurrency mining motherboards**, such as the MSI B360-F Pro. These types of motherboards have dozens of PCI-E 1x slots, and you can use **PCI-E slot risers** to install *dozens* of Wi-Fi NICs on a single motherboard.
 
-2. **Multi-Mini PCI-E/M.2 slots based multi-NIC installation**
+2. **Multi-Mini PCI-E/M.2 Slots-Based Multi-NIC Installation**
+
+This is the most convenient approach for installing multiple NICs. The onboard Mini PCI-E or M.2 slots eliminate the need for PCI-E 1x adapters.
     
-This is the most convenient approach for installing multiple NICs. The onboard Mini PCI-E or M.2 slots spare the need for PCI-E 1x adaptors.
-    
-With some hardware and software tricks, we modify a old laptop model ThinkPad X201, and install two Mini PCI-E/M.2 based Wi-Fi NICs. Even more, **X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWl5300 and three external antennas. The laptop can also install AX200 using a M.2-to-Mini PCI-E converter.
+With some hardware and software tricks, we modified an old laptop model, the ThinkPad X201, and installed two Mini PCI-E/M.2-based Wi-Fi NICs. Moreover, **the X201 enables you to install three SMA-based external antennas!** The following photo shows our modified ThinkPad X201 equipped with both the QCA9300 and IWL5300 NICs and three external antennas. The laptop can also install an AX210/AX200 using an M.2-to-Mini PCI-E converter.
 
 .. figure:: /images/X201-External-Antennas.jpg
     :figwidth: 750px
@@ -37,28 +37,28 @@ With some hardware and software tricks, we modify a old laptop model ThinkPad X2
 
     Modified ThinkPad X201 laptop equipped with two Wi-Fi NICs (QCA9300 and IWL5300) and three external SMA antennas
 
-3. **PCI-E bridge adapter-based multi-NIC installation**
+3. **PCI-E Bridge Adapter-Based Multi-NIC Installation**
 
-The PCI-E bridge adapter can split one PCI-E connection into multiple, just like a PCI-E hub. Therefore, you may install connect multiple NICs to only one of the motherboard PCI-E slots via the bridge adapter.
+The PCI-E bridge adapter can split one PCI-E connection into multiple connections, similar to a PCI-E hub. Therefore, you can connect multiple NICs to only one of the motherboard's PCI-E slots via the bridge adapter.
 
-And even more so, you may build a multi-layer hierarchy of the bridge adapters and install AX200, QCA9300 or IWL5300 to all its leaf nodes. In this way, you may install over 100 Wi-Fi NICs to your system in theory. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of the 1 to 3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
+Moreover, you can build a multi-layer hierarchy of bridge adapters and install NICs to all the leaf nodes. In this way, you can theoretically install over 100 Wi-Fi NICs in your system. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of 1-to-3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
 
 .. figure:: /images/NICArrayLayout-horizontal.jpg
     :figwidth: 750px
     :target: /images/NICArrayLayout-horizontal.jpg
     :align: center
 
-    27-NIC Wi-Fi sensing array built upon 1-to-3 bridge adapters
+    27-NIC Wi-Fi sensing array built using 1-to-3 bridge adapters
 
 .. hint::
-    Do you want to access the research-ready hardware out of the box?  Do you want to skip the unfamiliar hardware selection, installation and tricky setup? 
+    Do you want to access research-ready hardware out of the box? Do you want to skip the unfamiliar hardware selection, installation, and tricky setup? 
     
-    Go get them from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
+    Get them from our Taobao shop `PicoScenes软硬件与服务 <https://shop235693252.taobao.com/>`_! Our shop sells the modified ThinkPad X201 and all supported Wi-Fi NICs.
 
 
 .. _ax210_setup:
 
-Special guide for AX210/AX211 setup
+Special Guide for AX210/AX211 Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The latest Linux distros, such as Ubuntu 20.04.4 or 20.10, are using < 5.17 kernel versions, which don't support the Intel AX210/211 NIC. 

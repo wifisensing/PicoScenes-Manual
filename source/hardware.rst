@@ -17,7 +17,7 @@ The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <htt
     "Available Bandwidths (MHz)", "20/40/80/**160**", "**tunable in [1, 400] (single channel), scalable up to 1600 by multiple channel** [#]_", "**Arbitrary tunable in [1, 20]**", "**Arbitrary tunable in [2.5, 80]**", "20/40"
     "Maximal MIMO Streams", "2", "4", "1", "3", "3"
     "Maximal CSI dimension", "**1992x2x2**", "**1992x1x1, Scalable to 1992x4x4 streams**", "242x1x1", "114x3x3", "30x3x3"
-    "Number of CSI per packet", "1", "**Up to 39 CSI measurements per A-MPDU** [#]_", "**Up to 39 CSI measurements per A-MPDU** [#]_", "**2, by HT-rate Extra Spatial Sounding (ESS)**", "**2, by HT-rate Extra Spatial Sounding (ESS)**"
+    "Number of CSI per packet", "1", "**Up to 39 CSI measurements per A-MPDU** [#]_", "**Up to 39 CSI measurements per A-MPDU** [2]_", "**2, by HT-rate Extra Spatial Sounding (ESS)**", "**2, by HT-rate Extra Spatial Sounding (ESS)**"
     "CSI Measurement for the Overheard Frames in Monitor Mode", "**YES**", "**YES**", "**YES**", "No, only for 11n sounding frames", "No, only for the special 12:34:56 address"
     "Arbitrary Packet Injection", "**Yes**, all-format (a/g/n/ac/**ax**), all-bandwidth (20/40/80/160 MHz), all-coding (LDPC/BCC) and all-band (2.4/5/**6** GHz)", "**Yes**, all-format (a/g/n/ac/**ax/be**), all-bandwidth (20/40/80/160/320 MHz), all-coding(LDPC/BCC), arbitrary frequency (10-6000 MHz)", "**Yes**, all-format (a/g/n/ac/**ax/be**), all-coding(LDPC/BCC), arbitrary frequency (10-7250 MHz), 20 MHz bandwidth", "Yes, a/g/n", "Yes, a/g/n"
         

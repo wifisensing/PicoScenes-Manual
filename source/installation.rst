@@ -13,10 +13,7 @@ The most welcomed feature of PicoScenes is the concurrent operation of multiple 
 Installation of (Multiple) Commercial Wi-Fi NICs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Hardware setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We recommend four methods for installing multiple NICs.
+We recommend three methods for installing multiple NICs.
 
 1. **PCI-E 1x Adapter-based Multi-NIC Installation**
 
@@ -58,15 +55,17 @@ Moreover, you can build a multi-layer hierarchy of bridge adapters and install N
 Installation of (Multiple) USRP Devices
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Install PicoScenes software first
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The installation, usage, and optimization of USRP are much more complex than that of a COTS NIC. Therefore, please follow the steps below to configure and verify the USRP hardware.
 
-The setup & verification of USRP devices is a bit complicated. You should first follow :ref:`install_software` section to install PicoScenes software first, and then come back to continue the following hardware setup & verification steps.
+1. Install PicoScenes Software 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the official USRP manual
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PicoScenes software utilizes the USRP Hardware Driver (UHD) provided by the operating system to drive the USRP hardware. Therefore, before setting up the USRP hardware, you should follow :ref:`install_software` section to install the PicoScenes software. Please note that PicoScenes depends on specific version of UHD, so if you have previously installed your own compiled version of UHD, please uninstall it first.
 
-You should first set up your hardware according to the USRP official `Devices & Usage Manual <https://files.ettus.com/manual/page_devices.html>`_. Read and follow the Get Started sections according to your USRP models.
+2. Configure USRP Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You should set up your hardware according to the USRP official `Devices & Usage Manual <https://files.ettus.com/manual/page_devices.html>`_. Read and follow the Get Started sections according to your USRP models.
 
 - `USRP Hardware Driver and USRP Manual: B200/B210/B200mini/B205mini <https://kb.ettus.com/B200/B210/B200mini/B205mini>`_
 - `USRP Hardware Driver and USRP Manual: USRP2 and N2x0 Series <https://files.ettus.com/manual/page_usrp2.html>`_
@@ -75,7 +74,7 @@ You should first set up your hardware according to the USRP official `Devices & 
 - `USRP Hardware Driver and USRP Manual: USRP X4x0 Series <https://files.ettus.com/manual/page_usrp_x4xx.html>`_
 - `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_
 
-.. hint:: The PicoScenes software installer installs the UHD software, i.e., the USRP hardware driver. Therefore, you can skip the UHD installation or source code building steps.
+.. hint:: The PicoScenes software installer installs the UHD software. So, you skip the UHD installation or source code building steps.
 
 
 Our Suggestions on USRP Hardware Setup

@@ -11,9 +11,9 @@ The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <htt
 
     "Type", "Wi-Fi NIC", "SDR via USB3.0 or 10GbE", "SDR via USB2.0", "Wi-Fi NIC", "Wi-Fi NIC"
     "Form Factor", "M.2 2230,  M.2 2230 w/ CNVi (AX211)", "External USRP device", "External SDR device", "Mini PCI-E 1x ", "Mini PCI-E 1x"
-    "Supported Protocols for CSI measurement", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax**", "802.11n", "802.11n"
-    "Support Manual Rx Gain", "No", "**YES**", "**YES**", "**YES**", "No"
-    "Available Carrier Frequency Range (MHz)", "AX200: 2.4/5 GHz Bands, 470 MHz in total; **AX210**: 2.4/5/**6** GHz bands, **[5955, 7115] MHz continuous spectrum**!", "**Arbitrary tunable in [10, 6000] MHz**", "**Arbitrary tunable in [10, 7250] MHz**", "**Arbitrary tunable in [2.2-2.9] and [4.4-6.1] GHz**", "2.4/5 GHz Bands, 470 MHz in total"
+    "Supported Protocols for CSI measurement", "802.11a/g/n/ac/**ax**", "802.11a/g/n/ac/**ax/be**", "802.11a/g/n/ac/**ax/be**", "802.11n", "802.11n"
+    "Rx AGC", "Yes, only automatic", "No, automatic by USRP B210", "No", "Yes, has manual mode", "No"
+    "Available Carrier Frequency Range (MHz)", "AX200: 2.4/5 GHz Bands, 470 MHz in total; **AX210/AX211**: 2.4/5/**6** GHz bands, **[5955, 7115] MHz**!", "**Arbitrary tunable in [10, 6000] MHz**", "**Arbitrary tunable in [10, 7250] MHz**", "**Arbitrary tunable in [2.2-2.9] and [4.4-6.1] GHz**", "2.4/5 GHz Bands, 470 MHz in total"
     "Available Bandwidths (MHz)", "20/40/80/**160**", "**Arbitrary tunable in [1, 200]**", "**Arbitrary tunable in [1, 20]**", "**Arbitrary tunable in [2.5, 80]**", "20/40"
     "Maximal MIMO Streams", "2", "4", "1", "3", "3"
     "Maximal CSI dimension", "**1992x2x2**", "**1992x4x4**", "242x1x1", "114x3x3", "30x3x3"

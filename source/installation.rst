@@ -318,72 +318,54 @@ The following screenshot demonstrates how to set up TDM-GCC-64 v10.3 in MATLAB R
 
         Screenshot: Setting up TDM-GCC in MATLAB
 
-Obtain PicoScenes MATLAB Toolbox Core (PMT-Core)
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Obtaining PicoScenes MATLAB Toolbox Core (PMT-Core)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can **ONLY** git clone the toolbox from its git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_ with **--recursive** option. Never download directly.
+To obtain the PicoScenes MATLAB Toolbox Core (PMT-Core), you should **ONLY** use the `git clone` command to clone from the toolbox's git repository `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_ . Make sure to include the **--recursive** option when cloning. It is important **not to download the toolbox directly**.
 
 .. hint::
-    Q: Why cannot download directly? 
+    Q: Why can't I download directly?
 
-    A: PMT-Core embeds the `RXS-Parsing-Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_ repo as a git submodule. The direct download excludes the submodule, so incomplete PMT-Core.
+    A: The PMT-Core includes the `RXS-Parsing-Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_ repository as a Git submodule. Directly downloading the toolbox would exclude the submodule, resulting in an incomplete PMT-Core.
 
-    Q: Why --recursive?
+    Q: Why use the `--recursive` option?
 
-    A: git clone doesn't clone \& checkout its submodule by default.
+    A: By default, the `git clone` command clones and checks out the main repository but not its submodules. The `--recursive` option ensures that the submodule is also cloned and checked out.
 
-Install PicoScenes MATLAB Toolbox Core in MATLAB
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Installing the PicoScenes MATLAB Toolbox Core
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Open MATLAB, change `Current Folder` to the ``PicoScenes-MATLAB-Toolbox-Core`` directory and run the following command in Command Window:
+Open MATLAB, navigate `Current Folder` to the ``PicoScenes-MATLAB-Toolbox-Core`` directory and run the following command in `Command Window`:
 
     .. code-block:: matlab
 
         install_PicoScenes_MATLAB_Toolbox
         compileRXSParser
 
-In a few seconds, seeing similar messages shown in the picture below means that you have successfully installed the PicoScenes MATLAB Toolbox Core.
+Wait for a few seconds. If you see similar messages as shown in the picture below, it means that you have successfully installed the PMT-Core.
 
     .. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
         :figwidth: 800px
         :target: /images/install-PicoScenes-MATLAB-Toolbox.png
         :align: center
 
-        Screenshot: Install PicoScenes MATLAB Toolbox in MATLAB
+        Screenshot: Installing PMT-Core in MATLAB
 
 
-Verify the installation
+Verifying installation
 ++++++++++++++++++++++++++
 
-In MATLAB `Current Folder` or Ubuntu file explorer, navigate to ``PicoScenes-MATLAB-Toolbox-Core/samples`` directory, *drag'n'drop* the sample .csi files (samples_9300.csi and samples_x310.csi) into Command Window one by one. Soon, they will be parsed into cell arrays named ``samples_9300`` and ``samples_x310``, respectively.
+In MATLAB `Current Folder`, navigate to ``PicoScenes-MATLAB-Toolbox-Core/samples`` directory, *drag'n'drop* a sample .csi file into `Command Window`. Soon, they will be parsed into MATLAB cell arrays.
 
 
-Install PicoScenes Python Toolbox
+Installing PicoScenes Python Toolbox
 ==========================================
 
 PicoScenes Python Toolbox (PPT) is used for parsing the .csi files in Python. Its installation and usage is documented in the project `repo <https://gitlab.com/wifisensing/PicoScenes-Python-Toolbox>`_.
 
-
-Performance Tuning (for Heavy SDR User)
-=========================================
-
-If your research depends heavily on SDR, the following performance tuning tricks can yield substantial performance improvements.
-
-- Disable Hyper-threading
-    The PicoScenes's Wi-Fi baseband implementation is *currently* a single-threaded processing flow; therefore, its performance highly depends on the single-core CPU performance. Disabling hyper-threading can provide a roughly 10% increase in total throughout. There is usually an option in BIOS to disable it.
-
-- Disable Spectre/Meltdown vulnerability protection
-    **If you are in an absolutely safe environment**, disabling this vulnerability protection can improve the performance of the speculative execution and the overall throughput.
-
-    To disable the protection, you open /etc/default/grub file with root privilege and replace the default GRUB_CMDLINE_LINUX_DEFAULT='...' line with the following line.
-    
-    .. code-block:: bash
-
-        GRUB_CMDLINE_LINUX_DEFAULT="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
-
 .. _upgrade_software:
 
-Upgrade PicoScenes Software
+Upgrading PicoScenes Software
 =====================================
 
 Since PicoScenes is *still* under *very active* development, adding new features, adding new hardware support and fixing bugs, we recommand you upgrade PicoScenes software regularly.
@@ -394,11 +376,12 @@ Check and Upgrade the PicoScenes Binaries
 Checking for upgrade
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Checking-for-upgrade is a built-in feature of PicoScenes, and it is trigger in every launch *if the internet connection is available*. To manually check for upgrade, just perform the following steps: 
+PicoScenes has a built-in feature to check for upgrades, which is triggered during every launch if an internet connection is available. To manually check for upgrades, follow these steps:
 
-    - Connect to internet, making sure that no special steps, such as the web-based logging, are required to open a website from browser. 
-    - Simply Run PicoScenes in the CLI without any program options, and wait a while.
-    - If there is a upgrade available, PicoScenes will show a upgrade-hint message like shown below. We suggest you to check the change log to what see which part of PicoScenes is affected.
+    - Ensure that you have an internet connection and that no special steps, such as web-based authentication, are required to open a website in your browser.
+    - Open a terminal and run `PicoScenes` without any program options.
+    - Wait for a while, and if an upgrade is available, PicoScenes will display an upgrade hint message. See the screenshot below.
+    - We recommend checking the change log to see which parts of PicoScenes are affected by the upgrade.
 
         .. figure:: /images/PicoScenes_check_upgrade.png
             :figwidth: 800px
@@ -409,44 +392,46 @@ Checking-for-upgrade is a built-in feature of PicoScenes, and it is trigger in e
 
 
 
-Upgrade the PicoScenes binaries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Upgrading the PicoScenes Binaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The upgrade of PicoScenes is via the Debian package system, and is simplified to just few clicks. 
+The upgrade process for PicoScenes is simplified through the Debian package system. Follow these steps to upgrade the software:
 
-    - For Ubuntu GUI users, open ``Software Updater`` or similar APP. After refreshing the package repository, you will see *picoscenes-xxx* packages. Select these packages and click *Install Now*.
+For Ubuntu GUI Users:
+- Open the "Software Updater" or a similar application.
+- - Select these packages and click "Install Now" to initiate the upgrade process. See the screenshot below.
 
-        .. figure:: /images/Updater.png
-            :figwidth: 500px
-            :target: /images/Updater.png
-            :align: center
+    .. figure:: /images/Updater.png
+        :figwidth: 500px
+        :target: /images/Updater.png
+        :align: center
 
-            Screenshot: Upgrade PicoScenes software via Software Updater
+        Screenshot: Upgrade PicoScenes software via Software Updater
 
-    - For Ubuntu CLI users, just run the following command to update the package repository and upgrade *all* available packages.
+For Ubuntu CLI users：
+- Open a terminal and run the following command to update the package repository and upgrade all available packages:
 
-        .. code-block:: bash
+    .. code-block:: bash
 
-            sudo apt update && sudo apt upgrade
+        sudo apt update && sudo apt upgrade
 
 
-Check and Upgrade the PicoScenes MATLAB Toolbox (PMT)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Checking and Upgrading the PMT-Core
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PMT is released via git, therefore the upgrade of PMT is to run *git pull & git submodule update* within the PMT directory.
-
+PMT-Core is released via git, therefore the upgrade of PMT-Core is to run *git pull & git submodule update* within the PMT directory.
 
 Uninstallation of The PicoScenes Ecosystem
 ============================================
 
-Uninstalling the PicoScenes binaries
+Uninstalling the PicoScenes Binaries
 ++++++++++++++++++++++++++++++++++++++
 
-- Run ``sudo apt remove picoscenes-driver-modules-<PRESS TAB KEY>`` to remove the modified NIC drivers. Due to the package dependency hierarchy, the depending picoscenes-platform and picoscenes-plugins-xxx packages will also be removed.
+- Run ``sudo apt remove picoscenes-driver-modules-<PRESS TAB KEY>`` to remove the modified NIC drivers. This will remove the modified NIC drivers, as well as the dependent packages such as picoscenes-platform and picoscenes-plugins-xxx.
 - Run ``sudo apt remove picoscenes-<PRESS TAB KEY>`` to remove other PicoScenes related packages
-- Reboot your computer
+- Reboot your computer to complete the uninstallation process.
 
-Uninstalling the PicoScenes MATLAB Toolbox
+Uninstalling the PMT-Core
 ++++++++++++++++++++++++++++++++++++++++++++
 
 - Run ``uninstall_PicoScenes_MATLAB_Toolbox`` in MATLAB

@@ -236,7 +236,7 @@ Please ensure that your system meets all the requirements mentioned earlier befo
 
     Screenshot: PicoScenes software EULA
 
-    After confirming the EULA, you will be prompted with a Yes or No question regarding accepting the EULA terms. Choose "<No>" to terminate the installation immediately or "<Yes>" to continue with the installation.
+After confirming the EULA, you will be prompted with a Yes or No question regarding accepting the EULA terms. Choose "<No>" to terminate the installation immediately or "<Yes>" to continue with the installation.
 
 .. figure:: /images/Configuring-picoscenes-platform.png
     :figwidth: 800px
@@ -311,12 +311,12 @@ Preparation steps for Windows
 
 The following screenshot demonstrates how to set up TDM-GCC-64 v10.3 in MATLAB R2020b.
 
-    .. figure:: /images/tdm-gcc-matlab.jpg
-        :figwidth: 800px
-        :target: /images/tdm-gcc-matlab.jpg
-        :align: center
+.. figure:: /images/tdm-gcc-matlab.jpg
+    :figwidth: 800px
+    :target: /images/tdm-gcc-matlab.jpg
+    :align: center
 
-        Screenshot: Setting up TDM-GCC in MATLAB
+    Screenshot: Setting up TDM-GCC in MATLAB
 
 Obtaining PicoScenes MATLAB Toolbox Core (PMT-Core)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -344,12 +344,12 @@ Open MATLAB, navigate `Current Folder` to the ``PicoScenes-MATLAB-Toolbox-Core``
 
 Wait for a few seconds. If you see similar messages as shown in the picture below, it means that you have successfully installed the PMT-Core.
 
-    .. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
-        :figwidth: 800px
-        :target: /images/install-PicoScenes-MATLAB-Toolbox.png
-        :align: center
+.. figure:: /images/install-PicoScenes-MATLAB-Toolbox.png
+    :figwidth: 800px
+    :target: /images/install-PicoScenes-MATLAB-Toolbox.png
+    :align: center
 
-        Screenshot: Installing PMT-Core in MATLAB
+    Screenshot: Installing PMT-Core in MATLAB
 
 
 Verifying installation
@@ -378,17 +378,17 @@ Checking for upgrade
 
 PicoScenes has a built-in feature to check for upgrades, which is triggered during every launch if an internet connection is available. To manually check for upgrades, follow these steps:
 
-    - Ensure that you have an internet connection and that no special steps, such as web-based authentication, are required to open a website in your browser.
-    - Open a terminal and run `PicoScenes` without any program options.
-    - Wait for a while, and if an upgrade is available, PicoScenes will display an upgrade hint message. See the screenshot below.
-    - We recommend checking the change log to see which parts of PicoScenes are affected by the upgrade.
+  - Ensure that you have an internet connection and that no special steps, such as web-based authentication, are required to open a website in your browser.
+  - Open a terminal and run `PicoScenes` without any program options.
+  - Wait for a while, and if an upgrade is available, PicoScenes will display an upgrade hint message. See the screenshot below.
+  - We recommend checking the change log to see which parts of PicoScenes are affected by the upgrade.
 
-        .. figure:: /images/PicoScenes_check_upgrade.png
-            :figwidth: 800px
-            :target: /images/PicoScenes_check_upgrade.jpg
-            :align: center
+.. figure:: /images/PicoScenes_check_upgrade.png
+    :figwidth: 800px
+    :target: /images/PicoScenes_check_upgrade.jpg
+    :align: center
 
-            Screenshot: PicoScenes hints for the upgrade
+    Screenshot: PicoScenes hints for the upgrade
 
 
 
@@ -401,12 +401,12 @@ For Ubuntu GUI Users:
 - Open the "Software Updater" or a similar application.
 - - Select these packages and click "Install Now" to initiate the upgrade process. See the screenshot below.
 
-    .. figure:: /images/Updater.png
-        :figwidth: 500px
-        :target: /images/Updater.png
-        :align: center
+.. figure:: /images/Updater.png
+    :figwidth: 500px
+    :target: /images/Updater.png
+    :align: center
 
-        Screenshot: Upgrade PicoScenes software via Software Updater
+    Screenshot: Upgrade PicoScenes software via Software Updater
 
 For Ubuntu CLI users：
 - Open a terminal and run the following command to update the package repository and upgrade all available packages:

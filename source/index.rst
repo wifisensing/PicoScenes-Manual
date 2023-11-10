@@ -1,4 +1,4 @@
-PicoScenes: Supercharging Your Next Wi-Fi Sensing Research!
+PicoScenes: Supercharging Your Next Wi-Fi ISAC Research!
 =============================================================
 
 PicoScenes is a powerful middleware for CSI-based Wi-Fi integrated sensing and communication (Wi-Fi ISAC) research that addresses two key barriers in the field: hardware limitations and software functionality.

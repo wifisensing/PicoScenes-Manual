@@ -378,10 +378,10 @@ Checking for upgrade
 
 PicoScenes has a built-in feature to check for upgrades, which is triggered during every launch if an internet connection is available. To manually check for upgrades, follow these steps:
 
-  - Ensure that you have an internet connection and that no special steps, such as web-based authentication, are required to open a website in your browser.
-  - Open a terminal and run `PicoScenes` without any program options.
-  - Wait for a while, and if an upgrade is available, PicoScenes will display an upgrade hint message. See the screenshot below.
-  - We recommend checking the change log to see which parts of PicoScenes are affected by the upgrade.
+- Ensure that you have an internet connection and that no special steps, such as web-based authentication, are required to open a website in your browser.
+- Open a terminal and run `PicoScenes` without any program options.
+- Wait for a while, and if an upgrade is available, PicoScenes will display an upgrade hint message. See the screenshot below.
+- We recommend checking the change log to see which parts of PicoScenes are affected by the upgrade.
 
 .. figure:: /images/PicoScenes_check_upgrade.png
     :figwidth: 800px

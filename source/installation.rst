@@ -337,10 +337,10 @@ Installing the PicoScenes MATLAB Toolbox Core
 
 Open MATLAB, navigate `Current Folder` to the ``PicoScenes-MATLAB-Toolbox-Core`` directory and run the following command in `Command Window`:
 
-    .. code-block:: matlab
+.. code-block:: matlab
 
-        install_PicoScenes_MATLAB_Toolbox
-        compileRXSParser
+    install_PicoScenes_MATLAB_Toolbox
+    compileRXSParser
 
 Wait for a few seconds. If you see similar messages as shown in the picture below, it means that you have successfully installed the PMT-Core.
 
@@ -411,9 +411,9 @@ For Ubuntu GUI Users:
 For Ubuntu CLI users：
 - Open a terminal and run the following command to update the package repository and upgrade all available packages:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        sudo apt update && sudo apt upgrade
+    sudo apt update && sudo apt upgrade
 
 
 Checking and Upgrading the PMT-Core

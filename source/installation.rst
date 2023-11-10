@@ -230,7 +230,7 @@ Please ensure that your system meets all the requirements mentioned earlier befo
     After a few minutes of package downloading, the PicoScenes End User License Agreement (EULA) message will appear in the terminal. Read the EULA and decide if you agree to the listed terms. You can use the up/down arrow keys to view the full content and press TAB to move the cursor to the "<Ok>" option. Press "<Ok>" to confirm that you have read and agree to the EULA.
 
 .. figure:: /images/PicoScenes-platform-EULA.png
-    :figwidth: 1000px
+    :figwidth: 800px
     :target: /images/PicoScenes-platform-EULA.png
     :align: center
 
@@ -239,7 +239,7 @@ Please ensure that your system meets all the requirements mentioned earlier befo
     After confirming the EULA, you will be prompted with a Yes or No question regarding accepting the EULA terms. Choose "<No>" to terminate the installation immediately or "<Yes>" to continue with the installation.
 
 .. figure:: /images/Configuring-picoscenes-platform.png
-    :figwidth: 1000px
+    :figwidth: 800px
     :target: /images/Configuring-picoscenes-platform.png
     :align: center
 

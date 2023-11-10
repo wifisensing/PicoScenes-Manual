@@ -287,10 +287,10 @@ Preparation steps for Ubuntu
 
     The installation of matlab-support requires 3 or 4 steps of user interaction:
 
-        1. On the first screen, carefully read the examples and specify your MATLAB directory.
-        2. The MATLAB activation window *may* appear; if it does, activate your MATLAB.
-        3. For "Authorized user for MATLAB" leave the field blank.
-        4. For "Rename MATLAB's GCC libraries?" choose YES.
+    1. On the first screen, carefully read the examples and specify your MATLAB directory.
+    2. The MATLAB activation window *may* appear; if it does, activate your MATLAB.
+    3. For "Authorized user for MATLAB" leave the field blank.
+    4. For "Rename MATLAB's GCC libraries?" choose YES.
 
 Preparation steps for macOS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

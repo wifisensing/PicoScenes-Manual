@@ -57,12 +57,15 @@ Installation of (Multiple) USRP Devices
 
 The installation, usage, and optimization of USRP are much more complex than that of a COTS NIC. Therefore, please follow the steps below to configure and verify the USRP hardware.
 
-Install The PicoScenes Software 
+Installing PicoScenes Software 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes software utilizes the USRP Hardware Driver (UHD) provided by the operating system to drive the USRP hardware. Therefore, before setting up the USRP hardware, you should follow :ref:`install_software` section to install the PicoScenes software. Please note that PicoScenes depends on specific version of UHD, so if you have previously installed your own compiled version of UHD, please uninstall it first.
+Before setting up the USRP hardware, you should install the PicoScenes software first. Please follow the instructions in the :ref:`install_software` section to install PicoScenes. Please note that PicoScenes depends on specific version of UHD. If you have previously installed your own compiled version of UHD, please uninstall it before proceeding.
 
-Configure USRP Hardware
+.. hint::
+    The driver installation or build process listed on the USRP Official site can be complicated and prone to errors. To simplify this process, we have built and packaged the PicoScenes software using the USRP driver shipped with the Ubuntu system. Therefore, by installing PicoScenes software, you will also be installing the USRP driver.
+
+Configuring USRP Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You should set up your hardware according to the USRP official `Devices & Usage Manual <https://files.ettus.com/manual/page_devices.html>`_. Read and follow the Get Started sections according to your USRP models.
@@ -77,25 +80,25 @@ You should set up your hardware according to the USRP official `Devices & Usage 
 .. hint:: The PicoScenes software installer installs the UHD software. So, you skip the UHD installation or source code building steps.
 
 
-Suggestions on USRP Hardware Setup
+Suggestions for USRP Hardware Setup
 **************************************
 
-Based on our experience, we have the following suggestions for USRP hardware setup:
+Based on our experience, we have the following suggestions for setting up USRP hardware:
 
-    - For the X3x0 series, it is not recommended to use a PCI-E cable-based connection due to inefficiency in both hardware and cost. This method has two major drawbacks. Firstly, the PCI-E-based connection is hardware-inefficient, as it requires one cable or extension card for each X3x0 device. This can be very expensive and may not be feasible for a desktop PC with limited spare PCI-E slots. Secondly, the UHD software does not support a hybrid combination of the PCI-E-based link and the GbE/10GbE-based link, further limiting its application.
-    - For both the N2x0 and X3x0 series, **we recommend using the Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for connecting multiple N2x0 and X3x0 devices. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to drive up to four X3x0s or eight independent full-duplex channels.
-    - As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRP devices of the same model, and currently, only the N2x0 and X3x0 series are combination-ready.
-    - For both the N2x0 and X3x0 series, it is advisable to consider using the UBX-40/UBX-160 daughterboard. Although these daughterboards are expensive, they are the only ones that support daughterboard-level phase synchronization, which is necessary for PicoScenes to achieve phased-array functionality.
-    - Pay special attention to the allocation of IP addresses. For network-based connections, the Ethernet NIC port and the connected USRP must be in the same subnet. If they are not in the same subnet, the UHD device discovery program 'uhd_find_devices' may still find the devices, but PicoScenes will not be able to initialize them correctly.
-    - For the N2x0 series, MIMO cable is an easy way to achieve MIMO and phased array, although it has a narrow bandwidth.
-    - For clock synchronization, the OctoClock-G from EttusResearch is a cost-effective choice that distributes GPS-disciplined clocks to up to eight USRP devices.
+    - X3x0 Series: It is **not recommended to use a PCI-E cable-based connection** due to inefficiency in both hardware and cost. This method has two major drawbacks. Firstly, the PCI-E-based connection is hardware-inefficient as it requires one cable or extension card for each X3x0 device. This can be very expensive and may not be feasible for a desktop PC with limited spare PCI-E slots. Secondly, the UHD software does not support a hybrid combination of the PCI-E-based link and the GbE/10GbE-based link, further limiting its application.
+    - N2x0 and X3x0 Series: We highly **recommend using the Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for connecting multiple N2x0 and X3x0 devices. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to connect up to four X3x0s or eight independent full-duplex channels.
+    - N2x0 Series: Consider using MIMO cables to achieve MIMO and phased array capabilities. However, note that MIMO cables have a narrow bandwidth.
+    - Multiple USRP Devices: As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRP devices of the same model. Currently, the N2x0 and X3x0 series are the only combination-ready models.
+    - Daughterboard Selection: For both the N2x0 and X3x0 series, it is advisable to consider using the UBX-40/UBX-160 daughterboard. Although these daughterboards are expensive, they are the only ones that support daughterboard-level phase synchronization, which is necessary for PicoScenes to achieve phased-array functionality.
+    - IP Address Allocation: Pay special attention to the allocation of IP addresses. For network-based connections, the Ethernet NIC port and the connected USRP must be in the same subnet. If they are not in the same subnet, the UHD device discovery program 'uhd_find_devices' may still find the devices, but PicoScenes will not be able to initialize them correctly.
+    - Clock Synchronization: For clock synchronization, the OctoClock-G from EttusResearch is a cost-effective choice. It can distribute GPS-disciplined clocks to up to eight USRP devices.
 
-Verifying the Hardware Installation
+Verifying Hardware Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To ensure that your USRP is ready for PicoScenes, follow the four-stage verification process outlined below.
 
-Verify Hardware Connection
+Verifying Hardware Connection
 *********************************
 
 Open a terminal and execute the following command:
@@ -104,10 +107,10 @@ Open a terminal and execute the following command:
 
         uhd_find_devices
 
-The `uhd_find_devices` command is provided by UHD as a device discovery program. It will list all the connected USRP devices. If your device is not displayed, refer to the USRP manual to check the hardware connection.
+The `uhd_find_devices` command is provided by UHD as a device discovery program. It will list all the connected USRP devices. If your device is not displayed, please refer to the USRP manual for troubleshooting steps to check the hardware connection.
 
 
-Verify Firmware Version
+Verifying Firmware Version
 *********************************
 
 Open a terminal and execute the following command:
@@ -116,25 +119,26 @@ Open a terminal and execute the following command:
 
         uhd_usrp_probe
 
-The `uhd_usrp_probe` command prints the hardware details of all connected devices and checks whether the devices' firmware versions are consistent with the UHD software installed on the host computer. If any inconsistencies are detected, you can use the `uhd_image_loader` command to flash the latest firmware to the USRP:
+The `uhd_usrp_probe` command prints the hardware details of all connected devices and checks whether the devices' firmware versions are consistent with the UHD software installed on the host computer. If any inconsistencies are detected, you can use the `uhd_image_loader` command to flash the latest firmware to the USRP.
 
-For USRP N2x0 devices, run:
+To update the firmware for USRP N2x0 devices, run the following command:
+
 
 .. code-block:: bash
 
     uhd_image_loader --args=type=usrp2
 
-For USRP X3x0 devices, run:
+For USRP X3x0 devices, use the following command to update the firmware:
 
 .. code-block:: bash
 
     uhd_image_loader --args=type=x300
 
 
-Verify The Signal Reception (RX)
-*********************************
+Verifying Signal Reception (RX)
+************************************
 
-Use UHD's `uhd_fft` command to check if your USRP can receive the signal. Execute the following command:
+To check if your USRP can receive the signal, you can use UHD's `uhd_fft` command. Execute the following command:
 
 .. code-block:: bash
 
@@ -142,77 +146,88 @@ Use UHD's `uhd_fft` command to check if your USRP can receive the signal. Execut
 
 Replace `ADDRESS_STRING` with the USRP identification string. For more details, refer to the `USPR Common Device Identifiers <https://files.ettus.com/manual/page_identification.html#id_identifying_common>`_.
 
-Perform Tx/Rx Self-Calibration (for USRP N2x0, X3x0, and N3x0 users)
-***********************************************************************
+Tx/Rx Self-Calibration (for USRP N2x0, X3x0, and N3x0 users)
+**********************************************************************
 
-Uncalibrated daughterboards can introduce *serious* signal distortion. Users should follow the `Device Calibration <https://files.ettus.com/manual/page_calibration.html>`_ section to perform self-calibrations for EACH daughterboard. To achieve the best signal quality, calibrate the frequency range that covers your intended measurements.
+Uncalibrated daughterboards can introduce `serious` signal distortion. It is recommended to perform calibrations for EACH daughterboard following the instructions in the `Device Calibration <https://files.ettus.com/manual/page_calibration.html>`_ section. Calibrating the frequency range that covers your intended measurements will help achieve the best signal quality.
 
-Installation of HackRF One
+Installation of (Multiple) HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-The HackRF One is a USB2.0 interfaced SDR device, so you just plug the devices. Run ``SoapySDRUtil --find="driver=hackrf"`` to check the connection. If the connection, you will see the device information.
+The installation and verification process for HackRF One is relatively simpler compared to USRP. Please follow the steps below to complete the installation and verification.
+
+Installing The PicoScenes Software 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Before setting up the HackRF One hardware, you should install the PicoScenes software first. you should follow :ref:`install_software` section to install the PicoScenes software.
+
+Verifying Hardware Connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The HackRF One is a USB 2.0 interfaced SDR device, so you can simply plug in the device. To check the connection, run the following command:
+
+.. code-block:: bash
+
+    SoapySDRUtil --find="driver=hackrf"
+
+If the connection is successful, you will see the device information displayed.
 
 .. _install_software:
 
 PicoScenes Software Installation
 ==================================
 
+Before installing the PicoScenes software, please make sure you meet the following prerequisites:
+
 Prerequisites
 ++++++++++++++++++++
 
 - You **agree to be bound by** :doc:`/eula`.
-- CPU MUST support the SSE4.2 instruction set, and AVX2 is recommended.
-- At least 4 GB memory, to prevent out-of-memory crash.
-- Secure Boot MUST be disabled. You can find the switch in BIOS settings.
-- Operating System: PicoScenes **only** supports Ubuntu 20.04 LTS and its variants (Linux Mint, Kubuntu, Xubuntu, etc.).
-- OS must be **installed in real hardware**. No virtualization is supported.
-- Internet connection: internet connection is required during the installation process and is also required for regular build expiration checking in daily use.
-- Permission to install the latest kernel version: PicoScenes depends on and is always built against the latest kernel versions. During the first-time installation and subsequent upgrades, your system **will be forced to update to the latest kernel version**.
-- (Optional) The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox (PMT), the CSI measurement data decoding routine in MATLAB, **only** supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
-- (Optional) Latest Python environment on Linux and macOS: PicoScenes Python Toolbox (PPT), the CSI measurement data decoding routine in python requires Python 3.8+ environment.
+- Your CPU must support the SSE4.2 instruction set, and AVX2 is recommended.
+- You should have at least 4 GB of memory to prevent out-of-memory crashes.
+- Secure Boot must be disabled. You can find the switch in the BIOS settings.
+- The operating system must be **Ubuntu 20.04 LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).
+- The operating system must be installed on real hardware. Virtualization is not supported.
+- An internet connection is required during the installation process and for regular build expiration checking.
+- You need permission to install the latest kernel version. PicoScenes depends on the latest kernel versions. During the installation and subsequent upgrades, your system will be forced to update to the latest kernel version.
+- (Optional) The latest version of MATLAB on Linux/macOS/Windows: PicoScenes MATLAB Toolbox (PMT) supports the R2020b or above versions of MATLAB on Linux/macOS/Windows platforms.
 
 Install PicoScenes via *apt* command 
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Only if your system meets *all* above requirements, can you start the installation now.
+Please ensure that your system meets all the requirements mentioned earlier before proceeding with the installation.
 
-#. Download and install PicoScenes Source Updater
+#. Download and install the PicoScenes Source Updater:
     - Click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
     
     - Click *Install Package*
 
-    .. note:: PicoScenes Source Updater doesn't install the PicoScenes software but registers the PicoScenes software repository to your system, so that PicoScenes can be installed and auto-upgraded via the *apt* command.
+    .. note:: The PicoScenes Source Updater registers the PicoScenes software repository to your system, enabling you to install and automatically upgrade PicoScenes using the apt command.
 
-#. Install the latest ca-certificates package
-    Open a terminal and run the following command:
-
-    .. code-block:: bash
-
-        sudo apt install --reinstall -y ca-certificates
-
-#. Update the cache of apt repositories
+#. Update the cache of apt repositories:
     Run the following command:
     
     .. code-block:: bash
 
         sudo apt update
 
-    When this command finishes, you can verify the result. Run ``apt list picoscenes-<Press TAB Key>`` in the terminal. You shall see at least the following packages:
+    After this command completes, you can verify the result by running ``apt list picoscenes-<Press TAB Key>`` in the terminal. You should see at least the following packages listed:
 
     .. code-block:: bash
 
         picoscenes-all   picoscenes-platform   picoscenes-source-updater  picoscenes-driver-modules-XXXX
 
-    Seeing these `picoscenes-xxx` packages means PicoScenes repository is successfully registered to your system.
+    The presence of these `picoscenes-xxx` packages indicates that the PicoScenes repository has been successfully registered on your system.
 
-#. Install PicoScenes software
+#. Install the PicoScenes software
     Run the following command:
         
     .. code-block:: bash
 
         sudo apt install picoscenes-all
 
-    After a few minutes of package downloading, the PicoScenes EULA message, similar to the following screenshot, will appear in the terminal. You should read the EULA and decide if you agree to the listed terms. You can press up/down arrow keys to view the full content and press TAB to move the cursor to the <Ok>. You finish the reading of EULA by pressing the <Ok>.
+    After a few minutes of package downloading, the PicoScenes End User License Agreement (EULA) message will appear in the terminal. Read the EULA and decide if you agree to the listed terms. You can use the up/down arrow keys to view the full content and press TAB to move the cursor to the "<Ok>" option. Press "<Ok>" to confirm that you have read and agree to the EULA.
 
     .. figure:: /images/PicoScenes-platform-EULA.png
         :figwidth: 1000px
@@ -221,7 +236,7 @@ Only if your system meets *all* above requirements, can you start the installati
 
         Screenshot: PicoScenes software EULA
 
-        After your pressing the <Ok>, a Yes or No prompt box appears as shown below, and you will choose whether to accept the EULA terms. Choosing <No> will terminate the installation immediately. Choosing <Yes> will continue the installation.
+        After confirming the EULA, you will be prompted with a Yes or No question regarding accepting the EULA terms. Choose "<No>" to terminate the installation immediately or "<Yes>" to continue with the installation.
 
     .. figure:: /images/Configuring-picoscenes-platform.png
         :figwidth: 1000px
@@ -230,7 +245,7 @@ Only if your system meets *all* above requirements, can you start the installati
 
         Screenshot: Users decide whether to accept the EULA terms
 
-    .. hint:: If you wrongfully press the <No>, the installer will show you the solution to reinitialize the installation.
+    .. hint:: If you accidentally choose "<No>", the installer will provide instructions on how to restart the installation process.
         
 - Reboot your system
     Reboot your system to validate the installation.

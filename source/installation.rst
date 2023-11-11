@@ -184,7 +184,7 @@ Prerequisites
 ++++++++++++++++++++
 
 - You **agree to be bound by** :doc:`/eula`.
-- Your CPU must support the SSE4.2 instruction set, and AVX2 is recommended.
+- Your CPU must support at least the SSE4.2 instruction set, and AVX2 is recommended.
 - You should have at least 4 GB of memory to prevent out-of-memory crashes.
 - Secure Boot must be disabled. You can find the switch in the BIOS settings.
 - The operating system must be **Ubuntu 20.04 LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).

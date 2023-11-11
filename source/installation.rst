@@ -126,13 +126,13 @@ To update the firmware for USRP N2x0 devices, run the following command:
 
 .. code-block:: bash
 
-    uhd_image_loader --args=type=usrp2
+    uhd_image_loader --args="type=usrp2"
 
 For USRP X3x0 devices, use the following command to update the firmware:
 
 .. code-block:: bash
 
-    uhd_image_loader --args=type=x300
+    uhd_image_loader --args="type=x300"
 
 
 Verifying Signal Reception (RX)
@@ -419,7 +419,7 @@ For Ubuntu CLI users：
 Checking and Upgrading the PMT-Core
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PMT-Core is released via git, therefore the upgrade of PMT-Core is to run *git pull & git submodule update* within the PMT directory.
+PMT-Core is released via git, therefore the upgrade of PMT-Core is to run ``git pull & git submodule update`` within the PMT directory.
 
 Uninstallation of The PicoScenes Ecosystem
 ============================================

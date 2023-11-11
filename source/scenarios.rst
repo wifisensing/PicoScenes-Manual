@@ -1,9 +1,6 @@
 CSI Measurement using PicoScenes
 =================================================
 
-.. hint::
-    This page is being updated for AX200 scenarios. Stay tuned!
-
 On this page, we list some of the most frequently used Wi-Fi sensing scenarios and how they are supported by PicoScenes. In each scenario, we provide a takeaway bash script that users can perform the experiment right away.
 
 

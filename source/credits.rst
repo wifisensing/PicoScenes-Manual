@@ -37,11 +37,12 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 - Prof. Rui Li, 李瑞 (Professor with the School of Computer Science and Technology)
 - Prof. Tom H. Luan, 栾浩 (Professor with the School of Cyber Engineering)
 
-- Chen He, 何琛 (Graduated student with the School of Computer Science and Technology)
-- Xincheng Ren, 任新承 (Graduated student with the School of Computer Science and Technology)
-- Dongtao Lv, 吕东涛 (Graduated student with the School of Computer Science and Technology)
-- Xuetao Li, 李薜滔 (Graduated student with the School of Computer Science and Technology)
-- Tian Teng, 滕天 (Graduated student with the School of Computer Science and Technology)
+- Graduated students
+  - Chen He, 何琛 (Graduated student with the School of Computer Science and Technology)
+  - Xincheng Ren, 任新承 (Graduated student with the School of Computer Science and Technology)
+  - Dongtao Lv, 吕东涛 (Graduated student with the School of Computer Science and Technology)
+  - Xuetao Li, 李薜滔 (Graduated student with the School of Computer Science and Technology)
+  - Tian Teng, 滕天 (Graduated UG student with the School of Computer Science and Technology)
 
 **Xi'an Jiaotong University**
 
@@ -52,8 +53,7 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 
 **Zhejiang University**
 
-- Prof. Jinsong Han, 韩劲松 (Professor with the Institute of Cyberspace Research, College of Computer Science and Technology)
-
+- `Prof. Jinsong Han <https://person.zju.edu.cn/en/hanjinsong>`_, 韩劲松 (Professor with the Institute of Cyberspace Research, College of Computer Science and Technology)
 
 Open-source software
 -------------------------

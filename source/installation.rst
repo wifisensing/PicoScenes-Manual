@@ -253,7 +253,7 @@ Please ensure that your system meets all the requirements mentioned earlier befo
 #. The first run
     Open a terminal and run the command  ``PicoScenes`` (**case sensitive!**). After launching PicoScenes, it will crash with an error message saying, "This is a scheduled exception...". Yes, **it IS a planned crash**. Run ``PicoScenes`` again, and the error should no longer appear.
 
-Since PicoScenes is designed to be a `service` program, it will not quit automatically. You can press `Ctrl+C` in the terminal to exit the program.
+    Since PicoScenes is designed to be a `service` program, it will not quit automatically. You can press `Ctrl+C` in the terminal to exit the program.
 
 .. _install_matlab:
 

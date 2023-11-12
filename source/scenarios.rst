@@ -108,8 +108,18 @@ To enable this test, prepare two computers each equipped with an AX200/210 NIC, 
 
 #. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` on the first computer and ``4`` on the second.
 #. Put both NICs into monitor mode by executing the same command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI, so we run ``array_prepare_for_picoscenes 3 5640 160 5250`` and ``array_prepare_for_picoscenes 4 5640 160 5250`` on two computers, respectively. Here, the ``5640 160 5250`` means the 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz.
-#. On the first computer, run the command ``PicoScenes -d debug -i 3 --mode logger --plot`` in a terminal.
+#. On the first computer, run the command in a terminal.
+
+    .. code-block:: bash
+    
+    PicoScenes "-d debug -i 3 --mode logger --plot"
+
 #. We assume the researchers want to measure 160MHz bandwidth 802.11ax format CSI, so, on the second computer, run the command ``PicoScenes -d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3`` in a terminal.
+
+    .. code-block:: bash
+    
+    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+
 #. Once you have collected sufficient CSI data *on the first computer*, exit PicoScenes by pressing Ctrl+C.
 
 The program options for the first computer, *"-d debug -i 3 --mode logger --plot"*, behavior the same as before.

@@ -87,6 +87,7 @@ Single AX200/210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
 The AX200/210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
 
 To enable fully-passive CSI measurement, follow these three steps:
+
 #. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3``.
 #. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on.
 #. Run the command ``PicoScenes -d debug -i 3 --mode logger --plot`` in a terminal.
@@ -104,6 +105,7 @@ Two AX200/210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Forma
 PicoScenes Driver enables AX200/210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. Combining this capability with the CSI measurement ability shown in :ref:`ax200-monitor`, PicoScenes provide fine-grained low-level control for CSI measurement.
 
 To enable this test, prepare two computers each equipped with an AX200/210 NIC, and follow these three steps:
+
 #. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` on the first computer and ``4`` on the second.
 #. Put both NICs into monitor mode by executing the same command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI, so we run ``array_prepare_for_picoscenes 3 5640 160 5250`` and ``array_prepare_for_picoscenes 4 5640 160 5250`` on two computers, respectively. Here, the ``5640 160 5250`` means the 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz.
 #. On the first computer, run the command ``PicoScenes -d debug -i 3 --mode logger --plot`` in a terminal.

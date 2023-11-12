@@ -63,45 +63,43 @@ CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
 
 .. _ax200-wifi-ap:
 
-AX200/210 + Wi-Fi AP (Difficulty Level: Beginner)
+AX200/210 + Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the associated Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 
+The AX200/210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
 
+Assuming that you have already connected the AX200 NIC to a Wi-Fi AP, there are three simple steps to measure CSI using the AX200:
 
-Assuming you have already connected the AX200 NIC to a Wi-Fi AP, then there are only three steps to measure CSI from AX200:
+#. Determine the NIC's PhyPath ID by using the ``array_status`` command. For device naming conventions for commercial NICs, please refer to the :ref:`naming_for_nics` section.
 
-#. Lookup the NIC's PhyPath ID by ``array_status``. Please refer to :ref:`naming_for_nics` for device naming for commercial NICs.
-#. Assume the NIC's PhyPath is ``3``, then run command ``PicoScenes "-d debug -i 3 --mode logger --plot"`` in a terminal.
-#. Exit CSI logging by pressing Ctrl+C.
+#. Assuming the PhyPath ID is ``3``, execute the command ``PicoScenes "-d debug -i 3 --mode logger --plot"`` in a terminal.
+#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
 
-The above command has four program options *"-d debug -i 3 --mode logger --plot"*. They can be interpreted as *"PicoScenes changes the display level of the logging service to debug (-d debug); makes the device <3> switch to the CSI logger mode (-i 3 --mode logger) and live-plot the measured CSI (--plot)"*. See :doc:`parameters` for more detailed explanations.
+The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <3> to CSI logger mode (-i 3 --mode logger); and live-plots the measured CSI (--plot)"*. For more detailed explanations, please see the :doc:`parameters` section.
 
-The logged CSI data is stored in a ``rx_<PHYPath>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
+The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
 
-.. _ax200- monitor:
+.. _ax200-monitor:
 
-Single AX200/210 in monitor mode (Difficulty Level: Beginner)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Single AX200/210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 
+The AX200/210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
 
+To enable fully-passive CSI measurement, follow these three steps:
+#. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3``.
+#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on.
+#. Run the command ``PicoScenes -d debug -i 3 --mode logger --plot`` in a terminal.
+#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C.
 
-Assuming you have already connected the AX200 NIC to a Wi-Fi AP, then there are only three steps to measure CSI from AX200:
+The above command has four program options *"-d debug -i 3 --mode logger --plot"*. Their behavior are identical as in :ref:`ax200-wifi-ap`.
 
-#. Lookup the AX200 NIC's PhyPath ID by ``array_status``. 
-#. Put the NIC into monitor mode by ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. This *<CHANNEL_CONFIG>* is as exactly as the *freq* setting of linux *iw set freq* command, *i.e.*, "2412 HT20", "5200 HT40-", "5745 80 5775", etc.
-#. Assume the PhyPath is ``3``, then run command ``PicoScenes -d debug -i 3 --mode logger`` in a terminal.
-#. When you collect enough CSI, exit PicoScenes by pressing Ctrl+C.
-
-The above command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level of the logging service to debug (-d debug); makes the device <3> switch to the CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
-
-The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 
 .. _iwl5300-wifi-ap:
 
-IWL5300 + Wi-Fi AP (Difficulty Level: Beginner)
+IWL5300 + Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connected Wi-Fi AP.

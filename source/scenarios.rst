@@ -102,7 +102,7 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 .. _ax200-monitor-injection:
 
 Two AX200/AX210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. Combining this capability with the CSI measurement ability shown in :ref:`ax200-monitor`, PicoScenes provide fine-grained low-level control for CSI measurement.
 
@@ -143,10 +143,49 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
             
         PicoScenes --list-presets
 
+Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. We just change the commands of the :ref:`ax200-monitor-injection`.
+
+On the first computer, if we want to only use the 1-st antenna for Rx, we change the command to 
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
+
+    The additional ``--rxcm 1`` means *setting the Rx chainmask to 1*. The ``--rxcm`` is a common option available for all supported frontend models (COTS NICs and SDR models). *rxcm* is specified in bit-wise: 1 for using the 1-st antenna for Rx, 2 for using the 2-nd antenna for Rx, 3 for using the first 2 antennas for Rx, 4 for using the 3-rd antenna for Rx, 5 for using the 1-st and 3-rd antennas for Rx...
+
+On the second computer, if we want to only use the 2-nd antenna for Tx and specify the MCS to 5, we change the command to 
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
+
+    The additional ``--txcm 2`` means *setting the Tx chainmask to 2*. The ``--txcm`` option has the identical meaning as of ``--rxcm`` except for transmission. ``--mcs 5`` sets the Tx MCS to 5.
+
+Now, if you want to measure the largest CSI measurement with 160 MHz bandwidth and 2x2 MIMO. Commands need some more changes. On the first computer, in order to receive 2x2 MIMO frames, you have to restore to using 2 antennas for Rx. You can explicitly set ``--rxcm 3`` like below or just remove the ``--rxcm`` option which restores to the default of using ``--rxcm 3``.
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
+
+On the second computer, in order to transmit 2x2 MIMO frames, you also have to restore to using 2 antennas for Tx. You can explicitly set ``--txcm 3`` like below or just remove the ``--txcm`` option which restores to the default of using ``--txcm 3``.
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
+
+    The additional ``--sts 2`` means *setting the Space-Time Stream (STS) to 2*.
+
 CSI Measurement using NI USRP or HackRF One SDR
 --------------------------------------------------
 
-PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
+PicoScenes can drive a SDR to transmit 802.11a/g/n/ac/ax/be format frames, receive frames and measure CSI data in real-time. The usage is very similar to that of COTS NICs. 
+
+embeds a high-performance software implementation of the 802.11a/g/n/ac/ax/be Tx/Rx baseband signal processing flow. 
+
+between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
 
 Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

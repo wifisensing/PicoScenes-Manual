@@ -112,13 +112,13 @@ To enable this test, prepare two computers each equipped with an AX200/210 NIC, 
 
     .. code-block:: bash
     
-    PicoScenes "-d debug -i 3 --mode logger --plot"
+        PicoScenes "-d debug -i 3 --mode logger --plot"
 
 #. We assume the researchers want to measure 160MHz bandwidth 802.11ax format CSI, so, on the second computer, run the following command in a terminal.
 
     .. code-block:: bash
     
-    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
 
 #. Once you have collected sufficient CSI data *on the first computer*, exit PicoScenes by pressing Ctrl+C.
 

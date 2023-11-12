@@ -4,12 +4,14 @@ CSI Measurement using PicoScenes
 On this page, we provide a list of commonly used Wi-Fi sensing scenarios and how they can be achieved using PicoScenes.
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
-.. _specify_nic:
+.. _device_naming:
 
 Before Getting Started: Device Naming
 -----------------------------------------------------------------------------
 
 In PicoScenes, a reliable and user-friendly device naming protocol is necessary to support the concurrent operation of multiple Wi-Fi NICs and SDR devices. In the following sections, we will introduce the naming protocols for commercial Wi-Fi NICs, SDR devices, and Virtual SDR devices.
+
+.. _naming_for_nics:
 
 Naming for Commercial Wi-Fi NICs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,6 +32,8 @@ In the array_status output, there are four IDs provided for each NIC: *PhyPath*,
 - **MonId**: This is the *Monitor interface ID* for a Wi-Fi NIC, primarily used for traffic monitoring and packet injection. *Users can change this ID at any time*.
 - **PhyPath (Recommended)**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. **We highly recommend using PhyPath in all scenarios**.
 
+.. _naming_for_usrp:
+
 Naming for USRP Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -45,7 +49,7 @@ We devise a simple and scalable naming protocol for USRP devices. It has four fo
 Naming for HackRF One devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the rest device numbers are the same order as the ``SoapySDRUtil --find="driver=hackrf"`` output.
+All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the device number with is the same order as the command ``SoapySDRUtil --find="driver=hackrf"`` lists.
 
 Naming for Virtual SDR Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,20 +66,18 @@ CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
 AX200/210 + Wi-Fi AP (Difficulty Level: Beginner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the connected Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 
+The AX200/210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames sent from the associated Wi-Fi AP. By creating enough Wi-Fi traffic, for example by the *ping* command, we obtain the CSI measurement. 
 
 
 Assuming you have already connected the AX200 NIC to a Wi-Fi AP, then there are only three steps to measure CSI from AX200:
 
-#. Lookup the AX200 NIC's PhyPath ID by ``array_status``. 
-#. Assume the PhyPath is ``3``, then run command ``PicoScenes -d debug -i 3 --mode logger`` in a terminal.
+#. Lookup the NIC's PhyPath ID by ``array_status``. Please refer to :ref:`naming_for_nics` for device naming for commercial NICs.
+#. Assume the NIC's PhyPath is ``3``, then run command ``PicoScenes "-d debug -i 3 --mode logger --plot"`` in a terminal.
 #. Exit CSI logging by pressing Ctrl+C.
 
-The above command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level of the logging service to debug (-d debug); makes the device <3> switch to the CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
+The above command has four program options *"-d debug -i 3 --mode logger --plot"*. They can be interpreted as *"PicoScenes changes the display level of the logging service to debug (-d debug); makes the device <3> switch to the CSI logger mode (-i 3 --mode logger) and live-plot the measured CSI (--plot)"*. See :doc:`parameters` for more detailed explanations.
 
-The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
-
-
+The logged CSI data is stored in a ``rx_<PHYPath>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
 
 .. _ax200- monitor:
 

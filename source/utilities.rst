@@ -36,7 +36,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
             Reloading iwlwifi module ...
 
 #. array_status: list all PCI-E connected Wi-Fi NICs
-    As discussed in specify_nic, PicoScenes uses an ID system to refer to the specific Wi-Fi NICs. array_status shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is all, which lists all NICs. The following is a sample output:
+    As discussed in :ref:`device_naming`, PicoScenes uses an ID system to refer to the specific Wi-Fi NICs. array_status shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is all, which lists all NICs. The following is a sample output:
     .. code-block:: console
 
         csi@csi-System:~$ array_status

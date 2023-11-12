@@ -26,11 +26,9 @@ Open a terminal and run the command ``array_status``. A list of all the PCI-E ba
 In the array_status output, there are four IDs provided for each NIC: *PhyPath*, *PhyId*, *DevId*, and *MonId*. Let's first explain the latter three IDs, followed by *PhyPath*.
 
 - **PhyId**: This is the *Physical ID* assigned by the Linux mac80211 module at the system level, primarily used for low-level hardware control. *It may change upon each reboot*.
-
 - **DevId**: This is the *Device ID* assigned by the Linux mac80211 module at the system level, mainly used for normal Wi-Fi connections. *It may change upon each reboot*.
 - **MonId**: This is the *Monitor interface ID* for a Wi-Fi NIC, primarily used for traffic monitoring and packet injection. *Users can change this ID at any time*.
-
-- **PhyPath**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. We highly recommend using *PhyPath* in all scenarios.
+- **PhyPath (Recommended)**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. **We highly recommend using PhyPath in all scenarios**.
 
 For USRP Devices
 ~~~~~~~~~~~~~~~~~~~~

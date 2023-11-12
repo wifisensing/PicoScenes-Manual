@@ -122,11 +122,13 @@ To enable this test, prepare two computers each equipped with an AX200/210 NIC, 
     
         PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
     
-    The program options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, need some explanations. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <4> to packet injector mode (-i 3 --mode injector); transmit (or packet inject) 10000 packets (--repeat 1e5), the inter-packet delay is 5000us (--delay 5e3), and packet format is specified using a preset named TX_CBW_160_HESU (--preset TX_CBW_160_HESU). TX_CBW_160_HESU means "Tx, 160 MHz bandwidth, and HESU (802.11ax single-user) format"*. For more detailed explanations, please see the :doc:`parameters` section.
+    The program options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, need some explanations. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <4> to packet injector mode (-i 3 --mode injector); transmit (or packet inject) 10000 packets (--repeat 1e5), the inter-packet delay is 5000us (--delay 5e3), and packet format is specified using a preset named TX_CBW_160_HESU (--preset TX_CBW_160_HESU). TX_CBW_160_HESU means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)"*. For more detailed explanations, please see the :doc:`parameters` section.
 
 #. Once you have collected sufficient CSI data *on the first computer*, exit PicoScenes by pressing Ctrl+C.
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+
+.. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of them are: for 20 MHz bandwidth, TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; for 40 MHz bandwidth, TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; for 80 MHz bandwidth, TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; for 160 MHz bandwidth, TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU.
 
 
 .. _iwl5300-wifi-ap:

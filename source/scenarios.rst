@@ -11,8 +11,8 @@ Before Getting Started: Device Naming
 
 In PicoScenes, a reliable and user-friendly device naming protocol is necessary to support the concurrent operation of multiple Wi-Fi NICs and SDR devices. In the following sections, we will introduce the naming protocols for commercial Wi-Fi NICs, SDR devices, and Virtual SDR devices.
 
-For Commercial Wi-Fi NICs
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Naming for Commercial Wi-Fi NICs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open a terminal and run the command ``array_status``. A list of all the PCI-E based Wi-Fi NICs will be displayed in the terminal. The sample device list below shows an example of the output:
 
@@ -30,10 +30,15 @@ In the array_status output, there are four IDs provided for each NIC: *PhyPath*,
 - **MonId**: This is the *Monitor interface ID* for a Wi-Fi NIC, primarily used for traffic monitoring and packet injection. *Users can change this ID at any time*.
 - **PhyPath (Recommended)**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. **We highly recommend using PhyPath in all scenarios**.
 
-For USRP Devices
-~~~~~~~~~~~~~~~~~~~~
+Naming for USRP Devices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We devise a simple and intuitive naming protocol for USRP devices: ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>``. For example, for a USRP X310 device with ip-addr=192.168.40.2, serial=DID1234, name=myX310 or resourceId=RID4567, it can be represented by **four** IDs: ``usrp192.168.40.2``, ``usrpDID1234``, ``usrpmyX310`` or ``usrpRID4567``. This naming protocol also supports the combined form of multiple USRP devices. For example, the combination of two USRP X310 devices (with IP addresses of 192.168.40.2 and 192.168.41.2) can be represented by ``usrp192.168.40.2,192.168.41.2``.
+We devise a simple, intuitive and scalable naming protocol for USRP devices. It has three forms:
+
+- ``usrp``: Used in case of only one USRP device connected to computer.
+- ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>``: Used in case of selecting one of multiple connected USRP devices. For example, for a USRP X310 device with ip-addr=192.168.40.2, serial=DID1234, name=myX310 or resourceId=RID4567, it can be represented by any one of the four possible IDs: ``usrp192.168.40.2``, ``usrpDID1234``, ``usrpmyX310`` or ``usrpRID4567``.
+-  ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>,[multiple <IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>]``: Used in case of combining multiple USRPs devices. For example, the combination of two USRP X310 devices (with IP addresses of 192.168.40.2 and 192.168.41.2) can be represented by ``usrp192.168.40.2,192.168.41.2``.
+-  ``usrp<IPADDRESS0_IPADDRESS1>,[multiple <IPADDRESS0_IPADDRESS1>]``: Used in case of combining the two channels of one or multiple USRP X310 devices. Assume you have two USRP X310 devices connected to the computer. The first USRP X310 device has two 10GbE connections with IP addresses of 192.168.30.2 and 192.168.40.2, and the second USRP X310 device has two 10GbE connections with IP addresses of 192.168.70.2 and 192.168.80.2. The combination of the two channels of the first X310 can be represented by ``usrp192.168.30.2_192.168.40.2``. The combination of the all four channels can be represented by ``usrp192.168.30.2_192.168.40.2,192.168.70.2_192.168.80.2``. The combination of the first two and the last one can be represented by ``usrp192.168.30.2_192.168.40.2,192.168.80.2``.
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 

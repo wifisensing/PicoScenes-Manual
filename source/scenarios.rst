@@ -130,7 +130,7 @@ To enable this test, prepare two computers each equipped with an AX200/AX210 NIC
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-.. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of the Tx presets available for COTS NICs are: 
+.. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of the Tx presets available for AX200/AX210 are: 
 
     - 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
     - 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
@@ -146,15 +146,15 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. We just change the commands of the :ref:`ax200-monitor-injection`.
+PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. To demonstrate it, we change the commands of the :ref:`ax200-monitor-injection`.
 
-On the first computer, if we want to only use the 1-st antenna for Rx, we change the command to 
+Now, on the first computer, if we want to only use the 1-st antenna for Rx, we change the command to 
 
     .. code-block:: bash
     
         PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
 
-    The additional ``--rxcm 1`` means *setting the Rx chainmask to 1*. The ``--rxcm`` is a common option available for all supported frontend models (COTS NICs and SDR models). *rxcm* is specified in bit-wise: 1 for using the 1-st antenna for Rx, 2 for using the 2-nd antenna for Rx, 3 for using the first 2 antennas for Rx, 4 for using the 3-rd antenna for Rx, 5 for using the 1-st and 3-rd antennas for Rx...
+    The additional ``--rxcm 1`` means *setting the Rx chainmask to 1*. The ``--rxcm`` is a common option available for all supported frontend models (COTS NICs and SDR models). *rxcm* is specified in bit-wise style: 1 for using the 1-st antenna for Rx, 2 for using the 2-nd antenna for Rx, 3 for using the first 2 antennas for Rx, 4 for using the 3-rd antenna for Rx, 5 for using the 1-st and 3-rd antennas for Rx...
 
 On the second computer, if we want to only use the 2-nd antenna for Tx and specify the MCS to 5, we change the command to 
 

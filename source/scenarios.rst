@@ -50,7 +50,7 @@ All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0
 Naming for Virtual SDR Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``. Since a Virtual SDR device can have up to 8 TX/RX channels, we don't support multi-device combination for Virtual SDR devices.
+The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``.
 
 
 CSI Measurement by PicoScenes on Commercial Wi-Fi NICs

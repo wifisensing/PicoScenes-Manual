@@ -135,7 +135,7 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
     - 80 MHz bandwidth: TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; 
     - 160 MHz bandwidth: TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU. 
 
-    Some presets explicitly ended with `LDPC` means using LDPC coding. You can query the full preset list by the command:
+    NONHT, HT, VHT and HESU mean the 802.11a/g, 11n, 11ac and 11ax format. Some presets explicitly ended with `LDPC` means using LDPC coding. You can query the full preset list by the command:
 
     .. code-block:: bash
             

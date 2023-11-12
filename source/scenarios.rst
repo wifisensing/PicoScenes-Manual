@@ -96,6 +96,25 @@ The above command has four program options *"-d debug -i 3 --mode logger --plot"
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
+.. _ax200-monitor-injection:
+
+Two AX200/210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes Driver enables AX200/210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. Combining this capability with the CSI measurement ability shown in :ref:`ax200-monitor`, PicoScenes provide fine-grained low-level control for CSI measurement.
+
+To enable this test, prepare two computers each equipped with an AX200/210 NIC, and follow these three steps:
+#. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` on the first computer and ``4`` on the second.
+#. Put both NICs into monitor mode by executing the same command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI, so we run ``array_prepare_for_picoscenes 3 5640 160 5250`` and ``array_prepare_for_picoscenes 4 5640 160 5250`` on two computers, respectively. Here, the ``5640 160 5250`` means the 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz.
+#. On the first computer, run the command ``PicoScenes -d debug -i 3 --mode logger --plot`` in a terminal.
+#. We assume the researchers want to measure 160MHz bandwidth 802.11ax format CSI, so, on the second computer, run the command ``PicoScenes -d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3`` in a terminal.
+#. Once you have collected sufficient CSI data *on the first computer*, exit PicoScenes by pressing Ctrl+C.
+
+The program options for the first computer, *"-d debug -i 3 --mode logger --plot"*, behavior the same as before.
+The program options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, need some explanations. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <4> to packet injector mode (-i 3 --mode injector); transmit (or packet inject) 10000 packets (--repeat 1e5), the inter-packet delay is 5000us (--delay 5e3), and packet format is specified using a preset named TX_CBW_160_HESU (--preset TX_CBW_160_HESU). TX_CBW_160_HESU means "Tx, 160 MHz bandwidth, and HESU (802.11ax single-user) format"*. For more detailed explanations, please see the :doc:`parameters` section.
+
+The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+
 
 .. _iwl5300-wifi-ap:
 

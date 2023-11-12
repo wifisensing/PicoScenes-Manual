@@ -128,14 +128,14 @@ To enable this test, prepare two computers each equipped with an AX200/210 NIC, 
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-.. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of them are: 
-    
-    - for 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
-    - for 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
-    - for 80 MHz bandwidth: TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; 
-    - for 160 MHz bandwidth: TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU. 
+.. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of the Tx presets available for COTS NICs are: 
 
-    Some presets ended with `LDPC` means using LDPC coding. You can query the full preset list by the command:
+    - 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
+    - 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
+    - 80 MHz bandwidth: TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; 
+    - 160 MHz bandwidth: TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU. 
+
+    Some presets explicitly ended with `LDPC` means using LDPC coding. You can query the full preset list by the command:
 
     .. code-block:: bash
             

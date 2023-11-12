@@ -1,25 +1,20 @@
 CSI Measurement using PicoScenes
 =================================================
 
-.. hint::
-    This page is being updated for AX200 scenarios. Stay tuned!
-
-On this page, we list some of the most frequently used Wi-Fi sensing scenarios and how they are supported by PicoScenes. In each scenario, we provide a takeaway bash script that users can perform the experiment right away.
-
-
-Before continuing, we assume that you have installed the PicoScenes software and the supported hardware. Not sure for that? See :doc:`installation` ahead.
+On this page, we provide a list of commonly used Wi-Fi sensing scenarios and how they can be achieved using PicoScenes.
+Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
 .. _specify_nic:
 
 Before Getting Started: Device Naming
 -----------------------------------------------------------------------------
 
-In PicoScenes, a reliable and easy-to-use device naming protocol (for both the commercial Wi-Fi NIC and SDR devices) is required to support the multi-NIC concurrent operation. In the following, we introduce the naming protocols for the commercial Wi-Fi NICs, SDR and the Virtual SDR devices.
+In PicoScenes, a reliable and user-friendly device naming protocol is necessary to support the concurrent operation of multiple Wi-Fi NICs and SDR devices. In the following sections, we will introduce the naming protocols for commercial Wi-Fi NICs, SDR devices, and Virtual SDR devices.
 
 For Commercial Wi-Fi NICs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open a terminal and run ``array_status``. After a second or two, a list of all the PCI-E based Wi-Fi NICs will be shown in the terminal. The following screenshot shows a sample device list.
+Open a terminal and run the command ``array_status``. A list of all the PCI-E based Wi-Fi NICs will be displayed in the terminal. The sample device list below shows an example of the output:
 
 .. figure:: /images/array_status.png
    :figwidth: 600px
@@ -28,13 +23,14 @@ Open a terminal and run ``array_status``. After a second or two, a list of all t
 
    Each Wi-Fi NIC has `four` IDs.
 
-Looking at the first four columns of the output, ``array_status`` provides four IDs for each NIC, namely, PhyPath, PhyId, DeviceId and MonId. We first explain the latter three IDs and then PhyPath.
+In the array_status output, there are four IDs provided for each NIC: *PhyPath*, *PhyId*, *DevId*, and *MonId*. Let's first explain the latter three IDs, followed by *PhyPath*.
 
-- **PhyId**: this is the system level *Physical ID* assigned by the Linux `mac80211` module. This ID is mainly used for low-level hardware control. This ID is subjected to change on every reboot.
-- **DevId**: this is the system level *Device ID* assigned by the Linux `mac80211` module. This ID is mainly used for normal Wi-Fi connections. This ID is subjected to change on every reboot.
-- **MonId**: this is the *Monitor interface ID* for a Wi-Fi NIC. The monitor interface and its ID can be created and assigned by the user. This ID is mainly used for traffic monitoring and packet injection. User can change this ID at any time.
+- **PhyId**: This is the *Physical ID* assigned by the Linux mac80211 module at the system level, primarily used for low-level hardware control. *It may change upon each reboot*.
 
-You may have noticed the problem that the system-assigned IDs are not consistent across reboots, which inconveniences the selection from multiple NICs. To overcome this problem, we devise a new ID, named PhyPath, which is as listed in the first column of the screenshot. The biggest advantage is that **PhyPath is bound to the PCI-E connection hierarchy, consistent across reboots and even system reinstallations**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates that it is the third device in the PCI-E hierarchy, and a Wi-Fi NIC with PhyPath ``53`` indicates that the position of this NIC in the PCI-E hierarchy is the 3rd leaf node of the 5th branch node. PhyPath is supported throughout the PicoScenes system, including the PicoScenes program, plugins and bash scripts. We recommend users use PhyPath in all scenarios.
+- **DevId**: This is the *Device ID* assigned by the Linux mac80211 module at the system level, mainly used for normal Wi-Fi connections. *It may change upon each reboot*.
+- **MonId**: This is the *Monitor interface ID* for a Wi-Fi NIC, primarily used for traffic monitoring and packet injection. *Users can change this ID at any time*.
+
+- **PhyPath**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. We highly recommend using *PhyPath* in all scenarios.
 
 For USRP Devices
 ~~~~~~~~~~~~~~~~~~~~

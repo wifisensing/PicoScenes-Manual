@@ -114,16 +114,17 @@ To enable this test, prepare two computers each equipped with an AX200/210 NIC, 
     
         PicoScenes "-d debug -i 3 --mode logger --plot"
 
+    The program options for the first computer, *"-d debug -i 3 --mode logger --plot"*, behavior the same as before.
+
 #. We assume the researchers want to measure 160MHz bandwidth 802.11ax format CSI, so, on the second computer, run the following command in a terminal.
 
     .. code-block:: bash
     
         PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+    
+    The program options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, need some explanations. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <4> to packet injector mode (-i 3 --mode injector); transmit (or packet inject) 10000 packets (--repeat 1e5), the inter-packet delay is 5000us (--delay 5e3), and packet format is specified using a preset named TX_CBW_160_HESU (--preset TX_CBW_160_HESU). TX_CBW_160_HESU means "Tx, 160 MHz bandwidth, and HESU (802.11ax single-user) format"*. For more detailed explanations, please see the :doc:`parameters` section.
 
 #. Once you have collected sufficient CSI data *on the first computer*, exit PicoScenes by pressing Ctrl+C.
-
-The program options for the first computer, *"-d debug -i 3 --mode logger --plot"*, behavior the same as before.
-The program options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, need some explanations. These options can be interpreted as follows: *"PicoScenes modifies the display level of the logging service to debug (-d debug); switches the device <4> to packet injector mode (-i 3 --mode injector); transmit (or packet inject) 10000 packets (--repeat 1e5), the inter-packet delay is 5000us (--delay 5e3), and packet format is specified using a preset named TX_CBW_160_HESU (--preset TX_CBW_160_HESU). TX_CBW_160_HESU means "Tx, 160 MHz bandwidth, and HESU (802.11ax single-user) format"*. For more detailed explanations, please see the :doc:`parameters` section.
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 

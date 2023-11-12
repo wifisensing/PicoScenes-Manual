@@ -57,16 +57,18 @@ Naming for Virtual SDR Devices
 The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``.
 
 
-CSI Measurement by PicoScenes on Commercial Wi-Fi NICs
+.. _ax200-measurements:
+
+CSI Measurement by PicoScenes on AX200/AX210 NICs
 -----------------------------------------------------------
 
 
 .. _ax200-wifi-ap:
 
-AX200/210 + Wi-Fi AP
+AX200/AX210 + Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
+The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
 
 Assuming that you have already connected the AX200 NIC to a Wi-Fi AP, there are three simple steps to measure CSI using the AX200:
 
@@ -81,10 +83,10 @@ The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, locat
 
 .. _ax200-monitor:
 
-Single AX200/210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
+Single AX200/AX210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
+The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
 
 To enable fully-passive CSI measurement, follow these three steps:
 
@@ -99,12 +101,12 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 
 .. _ax200-monitor-injection:
 
-Two AX200/210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
+Two AX200/AX210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes Driver enables AX200/210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. Combining this capability with the CSI measurement ability shown in :ref:`ax200-monitor`, PicoScenes provide fine-grained low-level control for CSI measurement.
+PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. Combining this capability with the CSI measurement ability shown in :ref:`ax200-monitor`, PicoScenes provide fine-grained low-level control for CSI measurement.
 
-To enable this test, prepare two computers each equipped with an AX200/210 NIC, and follow these three steps:
+To enable this test, prepare two computers each equipped with an AX200/AX210 NIC, and follow these three steps:
 
 #. Determine the PhyPath ID of the NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` on the first computer and ``4`` on the second.
 #. Put both NICs into monitor mode by executing the same command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI, so we run ``array_prepare_for_picoscenes 3 5640 160 5250`` and ``array_prepare_for_picoscenes 4 5640 160 5250`` on two computers, respectively. Here, the ``5640 160 5250`` means the 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz.
@@ -141,6 +143,90 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
             
         PicoScenes --list-presets
 
+SDR-based measurement scenarios
+---------------------------------------------
+
+PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
+
+Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the most frequently used CSI measurement scenario for SDR-based frontend. To fully demonstrate the capability of PicoScenes, we assume you use the powerful USRP X310 with UBX-160 daughterboard as the RF frontend, which supports up to 200 MHz baseband sampling rate and 10 to 6000 MHz carrier frequency range, the following bash script opens a 2x2 MIMO Rx channels, listens and measures CSI for all the overheard Wi-Fi packets in 5815 MHz channel with 40 MHz bandwidth, regardless of the protocols.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.40.2 --mode logger --freq 5815e6 --rate 40e6 --rx-cbw 40 --rx-channel 0,1 --rx-ant TX/RX --rx-gain 15 
+                "
+
+The above command introduces four SDR-exclusive and Rx-related options: ``--rx-cbw``, ``--rx-channel``, ``--rx-ant`` and ``--rx-gain``. ``--rx-cbw 40`` specifies the Rx baseband to decode any incoming Wi-Fi signals as 40 MHz CBW format. ``--rx-channel 0,1`` specifies to receives the signals from 0-th and 1st channels of X310, which enables the 2x2 receiver side MIMO. ``--rx-ant TX/TX`` specifies to use the TX/RX antenna as the Rx antenna for both the 0-th and 1st channels (Most USRP daughterboards has two antennas TX/RX and RX2. As the name implies TX/RX can be used for both transmission and reception). Last, ``--rx-gain 15`` amplifies the received signals by 15 dB to improve the Rx SNR, and this value should be adjusted according to the Tx end transmission power (--txpower option in PicoScenes) and the measurement scenario.  Users may refer to :doc:`parameters` for more detailed explanations.
+
+You may download and run the complete takeaway bash script for this scenario at 
+:download:`2_3_1 <_static/2_3_1.sh>` 
+
+USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following example bash script injects 802.11ac packets in 5815 MHz channel with 40 MHz bandwidth, two spatial streams (:math:`N_{STS}=2`) and MCS 4.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 50e6 --cbw 80 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
+                "
+
+The above command introduces two SDR-exclusive and Tx-related options: ``--format`` and ``--tx-channel``. ``--format vht`` specifies the PicoScenes baseband to transmit the signal in 802.11ac (Very High Throughput, VHT) format. ``--tx-channel 0,1`` assigns the 0-th and 1st channels for transmission to support the following ``--sts 2 --mcs 4`` MIMO transmission.
+
+You may download and run the complete takeaway bash script for this scenario at 
+:download:`2_3_2 <_static/2_3_2.sh>` 
+
+Two USRPs measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+USRP N210 and X310 cannot tune the baseband sampling rate to any specified bandwidth. For example, USRP X310, with 200 MHz master clock rate, can only tune to :math:`\frac{200}{n}, n\in\mathcal{N}^+` MHz rates, like 200/100/66.67/50/40/33.3 ... MHz. In order to support other sampling rates, like 80/160 MHz bandwidth in 802.11ac/ax protocols, PicoScenes introduces resampling ratio for both the Tx and Rx. The following bash script demonstrates the packet injection and CSI measurement 160 MHz bandwidth.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.41.2 --mode logger --freq 5815e6 --rate 200e6 --rx-resample-ratio 0.8 --cbw 160 --code ldpc --rx-channel 0,1 --rx-gain 15; 
+                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
+                -q
+                "
+
+The above command tunes both the baseband sampling rate of the Tx and Rx end to a 200 MHz, which is a hardware-supported sampling rate by X310. To transmit and receive 160 MHz bandwidth signal, both ends use ``--tx-resample-ratio 1.25`` and ``--rx-resample-ratio 0.8`` to resamples the signals. More specifically, Tx end interpolates the baseband generated signal by 1.25x so that the transmission of 1.25x interpolated signals in 200 MHz is equivalent to 160 MHz bandwidth signal. Rx end decimates the raw received signals by 0.8x so that the 200 MHz sampled signals can be down-clocked to 160 MHz.
+
+You may download and run the complete takeaway bash script for this scenario at 
+:download:`2_3_3 <_static/2_3_3.sh>` 
+
+Multi-USRP-based MIMO transmission and reception (Difficulty Level: Easy)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes can combine at most four USRP X310 devices to form a 8x8 MIMO array (each X310 with two independent TX/RX channels). The following bash script uses two USRP X310-based 4x4 MIMO arrays (four X310 devices and eight channels totally) to perform the simple packet injection and CSI measurement.
+
+.. code-block:: bash
+
+    #!/bin/sh -e 
+
+    PicoScenes "-d debug;
+                -i usrp192.168.42.2,192.168.43.2 --mode logger --freq 5815e6 --rate 20e6 --cbw 20 --rx-channel 0,1,2,3 --rx-gain 15; 
+                -i usrp192.168.40.2,192.168.41.2 --mode injector --freq 5815e6 --rate 20e6 --cbw 20 --format vht --tx-channel 0,1,2,3 --sts 4 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
+                -q
+                "
+
+The above command uses 4 USRP X310s to form the a 4x4 MIMO transmitter and a 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/reception channels, respectively.
+
+You may download and run the complete takeaway bash script for this scenario at 
+:download:`2_3_4 <_static/2_3_4.sh>` 
+
+
+CSI Measurement by PicoScenes on IWL5300/QCA9300 NICs
+-----------------------------------------------------------
 
 .. _iwl5300-wifi-ap:
 
@@ -349,84 +435,3 @@ EchoProbe plugin also introduces several options to control the transmission of 
 
 You may download and run the complete takeaway bash script for this scenario at 
 :download:`2_2_7 <_static/2_2_7.sh>` 
-
-SDR-based measurement scenarios
----------------------------------------------
-
-PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
-
-Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax protocol frames (Difficulty Level: Beginner)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This is the most frequently used CSI measurement scenario for SDR-based frontend. To fully demonstrate the capability of PicoScenes, we assume you use the powerful USRP X310 with UBX-160 daughterboard as the RF frontend, which supports up to 200 MHz baseband sampling rate and 10 to 6000 MHz carrier frequency range, the following bash script opens a 2x2 MIMO Rx channels, listens and measures CSI for all the overheard Wi-Fi packets in 5815 MHz channel with 40 MHz bandwidth, regardless of the protocols.
-
-.. code-block:: bash
-
-    #!/bin/sh -e 
-
-    PicoScenes "-d debug;
-                -i usrp192.168.40.2 --mode logger --freq 5815e6 --rate 40e6 --rx-cbw 40 --rx-channel 0,1 --rx-ant TX/RX --rx-gain 15 
-                "
-
-The above command introduces four SDR-exclusive and Rx-related options: ``--rx-cbw``, ``--rx-channel``, ``--rx-ant`` and ``--rx-gain``. ``--rx-cbw 40`` specifies the Rx baseband to decode any incoming Wi-Fi signals as 40 MHz CBW format. ``--rx-channel 0,1`` specifies to receives the signals from 0-th and 1st channels of X310, which enables the 2x2 receiver side MIMO. ``--rx-ant TX/TX`` specifies to use the TX/RX antenna as the Rx antenna for both the 0-th and 1st channels (Most USRP daughterboards has two antennas TX/RX and RX2. As the name implies TX/RX can be used for both transmission and reception). Last, ``--rx-gain 15`` amplifies the received signals by 15 dB to improve the Rx SNR, and this value should be adjusted according to the Tx end transmission power (--txpower option in PicoScenes) and the measurement scenario.  Users may refer to :doc:`parameters` for more detailed explanations.
-
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_3_1 <_static/2_3_1.sh>` 
-
-USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following example bash script injects 802.11ac packets in 5815 MHz channel with 40 MHz bandwidth, two spatial streams (:math:`N_{STS}=2`) and MCS 4.
-
-.. code-block:: bash
-
-    #!/bin/sh -e 
-
-    PicoScenes "-d debug;
-                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 50e6 --cbw 80 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
-                "
-
-The above command introduces two SDR-exclusive and Tx-related options: ``--format`` and ``--tx-channel``. ``--format vht`` specifies the PicoScenes baseband to transmit the signal in 802.11ac (Very High Throughput, VHT) format. ``--tx-channel 0,1`` assigns the 0-th and 1st channels for transmission to support the following ``--sts 2 --mcs 4`` MIMO transmission.
-
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_3_2 <_static/2_3_2.sh>` 
-
-Two USRPs measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-USRP N210 and X310 cannot tune the baseband sampling rate to any specified bandwidth. For example, USRP X310, with 200 MHz master clock rate, can only tune to :math:`\frac{200}{n}, n\in\mathcal{N}^+` MHz rates, like 200/100/66.67/50/40/33.3 ... MHz. In order to support other sampling rates, like 80/160 MHz bandwidth in 802.11ac/ax protocols, PicoScenes introduces resampling ratio for both the Tx and Rx. The following bash script demonstrates the packet injection and CSI measurement 160 MHz bandwidth.
-
-.. code-block:: bash
-
-    #!/bin/sh -e 
-
-    PicoScenes "-d debug;
-                -i usrp192.168.41.2 --mode logger --freq 5815e6 --rate 200e6 --rx-resample-ratio 0.8 --cbw 160 --code ldpc --rx-channel 0,1 --rx-gain 15; 
-                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
-                -q
-                "
-
-The above command tunes both the baseband sampling rate of the Tx and Rx end to a 200 MHz, which is a hardware-supported sampling rate by X310. To transmit and receive 160 MHz bandwidth signal, both ends use ``--tx-resample-ratio 1.25`` and ``--rx-resample-ratio 0.8`` to resamples the signals. More specifically, Tx end interpolates the baseband generated signal by 1.25x so that the transmission of 1.25x interpolated signals in 200 MHz is equivalent to 160 MHz bandwidth signal. Rx end decimates the raw received signals by 0.8x so that the 200 MHz sampled signals can be down-clocked to 160 MHz.
-
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_3_3 <_static/2_3_3.sh>` 
-
-Multi-USRP-based MIMO transmission and reception (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PicoScenes can combine at most four USRP X310 devices to form a 8x8 MIMO array (each X310 with two independent TX/RX channels). The following bash script uses two USRP X310-based 4x4 MIMO arrays (four X310 devices and eight channels totally) to perform the simple packet injection and CSI measurement.
-
-.. code-block:: bash
-
-    #!/bin/sh -e 
-
-    PicoScenes "-d debug;
-                -i usrp192.168.42.2,192.168.43.2 --mode logger --freq 5815e6 --rate 20e6 --cbw 20 --rx-channel 0,1,2,3 --rx-gain 15; 
-                -i usrp192.168.40.2,192.168.41.2 --mode injector --freq 5815e6 --rate 20e6 --cbw 20 --format vht --tx-channel 0,1,2,3 --sts 4 --mcs 1 --txpower 15 --repeat 1000 --delay 5e3;
-                -q
-                "
-
-The above command uses 4 USRP X310s to form the a 4x4 MIMO transmitter and a 4x4 MIMO receiver. Both sides use ``--tx-channel 0,1,2,3`` and ``--rx-channel 0,1,2,3``, to specify 4 transmission/reception channels, respectively.
-
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_3_4 <_static/2_3_4.sh>` 

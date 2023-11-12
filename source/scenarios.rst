@@ -59,7 +59,7 @@ The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``
 
 .. _ax200-measurements:
 
-CSI Measurement by PicoScenes on AX200/AX210 NICs
+CSI Measurement using AX200/AX210 NICs
 -----------------------------------------------------------
 
 
@@ -143,8 +143,8 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
             
         PicoScenes --list-presets
 
-SDR-based measurement scenarios
----------------------------------------------
+CSI Measurement using NI USRP or HackRF One SDR
+--------------------------------------------------
 
 PicoScenes embeds the high-performance software implementation of 802.11a/g/n/ac/ax between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
 
@@ -225,7 +225,7 @@ You may download and run the complete takeaway bash script for this scenario at
 :download:`2_3_4 <_static/2_3_4.sh>` 
 
 
-CSI Measurement by PicoScenes on IWL5300/QCA9300 NICs
+CSI Measurement using IWL5300/QCA9300 NICs
 -----------------------------------------------------------
 
 .. _iwl5300-wifi-ap:

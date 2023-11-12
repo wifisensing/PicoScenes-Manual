@@ -130,8 +130,8 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 
 .. hint:: There are dozens of presets available. All of them follow the same naming protocol. Some of the Tx presets available for COTS NICs are: 
 
-    - 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
-    - 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
+    - 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
+    - 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
     - 80 MHz bandwidth: TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; 
     - 160 MHz bandwidth: TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU. 
 

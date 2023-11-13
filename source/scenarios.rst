@@ -259,7 +259,8 @@ Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
 
-Please note that you need to replace `SDR_ID` with the actual ID of your SDR device.
+.. important:: Not all SDR supports 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist, NI USRP X310 has a maximum of 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
+
 
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++

@@ -208,17 +208,16 @@ The additional ``--sts 2`` option sets the Space-Time Stream (STS) to 2, indicat
 CSI Measurement using NI USRP or HackRF One SDR
 --------------------------------------------------
 
-PicoScenes can drive SDR device to transmit 802.11a/g/n/ac/ax/be format frames, receive frames and measure the CSI data in real-time. Moreover, the usage is similar to that of COTS NICs, significantly simplify the efforts to adopt SDR devices in Wi-Fi ISAC research.
+PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time. The usage is similar to that of COTS NICs, simplifying the adoption of SDR devices in Wi-Fi ISAC research.
 
-between the SDR driver and high-level `Frontend` abstraction. In this way, for the higher level plugins, SDR are just the same as commercial Wi-Fi NICs. From the perspective of the PicoScenes command line interface, All you need to do to switch from commercial Wi-Fi NICs-based measurement to the SDR devices-based measurement is to replace the NIC ID to USRP ID, e.g., ``-i 3`` to ``-i usrp192.168.10.2``. `This rules applies to all the above measurement scenarios`. In the following, we only list several measurement scenarios exclusive to SDR-based frontends.
 
-Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax/be protocol frames 
+Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax/be protocol frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Listening to a 20 MHz bandwidth channel
 +++++++++++++++++++++++++++++++++++++++++++
 
-In the easiest form, we assume users want to listen to the Wi-Fi traffic of a 20 MHz bandwidth channel centered at 2412 MHz, and assume the SDR ID is ``SDR_ID``. The command can be simple as:
+In the simplest form, if you want to listen to the Wi-Fi traffic of a 20 MHz bandwidth channel centered at 2412 MHz using an SDR device with the ID ``SDR_ID``, you can use the following command:
 
 .. code-block:: bash
 
@@ -234,60 +233,68 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
 Listening to 40/80/160 MHz bandwidth channel
 +++++++++++++++++++++++++++++++++++++++++++++++
 
-In the case, we assume users want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-"), and assume the SDR ID is ``SDR_ID``. The command can be simple as:
+In this case, if you want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-") using an SDR device with the ID `SDR_ID`, you can use the following command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5190 --preset RX_CBW_40 --plot"
 
-The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, have the following interpretations:
+The command options, *"-d debug -i SDR_ID --mode logger --freq 5190 --preset RX_CBW_40 --plot"*, have the following interpretations:
 
   - ``-d debug``: Modifies the display level of the logging service to debug;
   - ``-i SDR_ID --mode logger``: Switches the device ``SDR_ID`` to CSI logger mode;
   - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
-  - ``--preset RX_CBW_40``: Use the Rx preset named *RX_CBW_40*, which boosts the Rx sampling rate to 40 MHz and tell the baseband to treat the received signals as being sampled with 40 MHz rate.
+  - ``--preset RX_CBW_40``: Uses the Rx preset named `RX_CBW_40`, which boosts the Rx sampling rate to 40 MHz and tells the baseband to treat the received signals as being sampled with a 40 MHz rate.
   - ``--plot``: Live-plots the CSI measurements.
 
-Similarly, If users want to listen to the 80 MHz bandwidth channel centered at 5210 MHz, The command can be simple as:
+Similarly, if you want to listen to an 80 MHz bandwidth channel centered at 5210 MHz using an SDR device with the ID `SDR_ID`, you can use the following command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5210 --preset RX_CBW_80 --plot"
 
-Similarly, If users want to listen to the 160 MHz bandwidth channel centered at 5250 MHz, The command can be simple as:
+Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250 MHz using an SDR device with the ID `SDR_ID`, you can use the following command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
 
+Please note that you need to replace `SDR_ID` with the actual ID of your SDR device.
+
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++
 
-Proper Rx gain, or Rx signal amplification level, is critical for Rx decoding performance as well as CSI measurement quality. In case of Tx end being too far or signal being too weak, users should consider increase Rx gain. While if Tx end is too close or signals is too strong, users should consider decrease the Rx gain to prevent Rx ADC saturation. PicoScenes provides two styles to specify Rx gain, the **absolute gain value**, and **normalized gain value**. 
+Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding performance and CSI measurement quality. Depending on the distance and strength of the transmitted signal, you may need to adjust the Rx gain. PicoScenes provides two ways to specify the Rx gain: using the **absolute gain value** or the **normalized gain value**.
 
-#. Specifying the absolute Rx gain can be like:
+
+#. Specifying the absolute Rx gain: To set the Rx gain to a specific value, you can use the ``--rx-gain`` option followed by the desired gain value in dBm. For example:
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i SDR_ID --mode logger --freq 2412 --plot --rx-gain 20"
 
-    The ``--rx-gain 20`` specify 20 dBm Rx gain.
+    In this command, ``--rx-gain 20`` specifies an Rx gain of 20 dBm.
 
-#. Specifying the normalized Rx gain can be like:
+#. Specifying the normalized Rx gain can be like: To set the Rx gain using a normalized value, you can use the ``--rx-gain`` option followed by the desired normalized gain value. For example:
+
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i SDR_ID --mode logger --freq 2412 --plot --rx-gain 0.7"
 
-    The ``--rx-gain 0.7`` specify a normalized Rx gain value of 0.7, *equivalent to the 0.7 of the hardware-supported maximum Rx gain*.
+    The ``--rx-gain 0.7`` specify a normalized Rx gain value of 0.7, *equivalent to the 0.7 of the hardware-supported maximum Rx gain*. 
+
+    If value specified to ``--rx-gain`` is greater than 1, the value is considered to be the absolute gain; otherwise the normalized gain values.
     
     .. hint:: PicoScenes sets the Rx gain to 0.65 by default.
 
-#. Some SDR features automatic gain control (AGC), such as NI USRP B210. Users can enable the AGC by ``--agc`` option, like:
+#. Some SDR devices support automatic gain control (AGC), such as the NI USRP B210. To enable AGC, you can use the ``--agc`` option. For example:
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i A_B210_SDR --mode logger --freq 2412 --plot --agc"
+    
+    This command enables AGC for the SDR device with the ID A_B210_SDR.
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

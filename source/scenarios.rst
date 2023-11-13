@@ -259,7 +259,7 @@ Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
 
-.. important:: Not all SDR supports 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist, NI USRP X310 has a maximum of 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
+.. important:: Not all SDR devices support the 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist, NI USRP X310 has a maximum of 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
 
 
 Rx Gain Control: Manual GC and AGC
@@ -296,6 +296,27 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
         PicoScenes "-d debug -i A_B210_SDR --mode logger --freq 2412 --plot --agc"
     
     This command enables AGC for the SDR device with the ID A_B210_SDR.
+
+Multiple Rx-Channel Rx by NI USRP
+++++++++++++++++++++++++++++++++++++++
+
+PicoScenes supports *multi-channel RX* and even *multi-USRP combined multi-channel RX*. For example, NI USRP B210 and X310 models have two independent RF channels. PicoScenes supports receiving dual-channel signals and decoding 2x2 MIMO frames.
+
+#. Single USRP Device - Dual Channel. If you want to use X310 (or other multi-channel USRP devices) to listen to Wi-Fi traffic at the 40 MHz channel centered at 5190 MHz (the *5180 HT40+* or *5200 HT40-* channel), you can use the following command:
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i X310_ID --mode logger --freq 5190 --preset RX_CBW_40 --rxcm 3 --plot"
+    
+    The additional ``--rxcm 3`` specify the *Rx chainmask* value to 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
+
+#. Single USRP Device - Dual Channel w/ Dual 10GbE connections. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz sampling requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you will need to use the dual 10GBE connection to satisfy this large bandwidth. Assume the dual 10GbE connection is correctly set up, with IP address of 192.168.30.2 and 192.168.40.2.
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i usrp192.168.30.2_192.168.40.2 --mode logger --freq 5250 --preset RX_CBW_160 --rxcm 3 --plot"
+    
+
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

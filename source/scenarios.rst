@@ -177,31 +177,31 @@ PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for
 
 On the first computer, if you want to use only the 1st antenna for Rx, modify the command as follows:
 
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
 
 The additional ``--rxcm 1`` option sets the Rx chainmask to 1, indicating the use of the 1st antenna for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
 
 On the second computer, if you want to use only the 2nd antenna for Tx and specify the MCS value as 5, modify the command as follows:
 
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
 
 The additional ``--txcm 2`` option sets the Tx chainmask to 2, indicating the use of the 2nd antenna for Tx. The ``--txcm`` option has the same value style as `--rxcm`, but for transmission. The `--mcs 5` option sets the Tx MCS to 5.
 
 If you want to measure the largest CSI with 160 MHz bandwidth and 2x2 MIMO, further modifications are required. On the first computer, to receive 2x2 MIMO frames, you need to use 2 antennas for Rx. You can explicitly set ``--rxcm 3`` as shown below or just remove the `--rxcm` option, which defaults to using ``--rxcm 3``:
 
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
 
 On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 antennas for Tx. You can explicitly set ``--txcm 3``` as shown below or just remove the ``--txcm`` option, which defaults to using ``--txcm 3``:
 
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
 
 The additional ``--sts 2`` option sets the Space-Time Stream (STS) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
 

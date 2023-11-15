@@ -80,13 +80,13 @@ You should set up your hardware according to the USRP official `Devices & Usage 
 .. hint:: The PicoScenes software installer installs the UHD software. So, you skip the UHD installation or source code building steps.
 
 
-Suggestions for USRP Hardware Setup
+Suggestions for NI USRP Hardware Setup
 **************************************
 
 Based on our experience, we have the following suggestions for setting up USRP hardware:
 
     - X3x0 Series: It is **not recommended to use a PCI-E cable-based connection** due to inefficiency in both hardware and cost. This method has two major drawbacks. Firstly, the PCI-E-based connection is hardware-inefficient as it requires one cable or extension card for each X3x0 device. This can be very expensive and may not be feasible for a desktop PC with limited spare PCI-E slots. Secondly, the UHD software does not support a hybrid combination of the PCI-E-based link and the GbE/10GbE-based link, further limiting its application.
-    - N2x0 and X3x0 Series: We highly **recommend using the Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for connecting multiple N2x0 and X3x0 devices. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to connect up to four X3x0s or eight independent full-duplex channels.
+    - X3x0 and N3x0 Series: We highly **recommend using the Intel X710 Quad Port 10 Gb Ethernet Adapter**. This is a reasonable and cost-effective solution for connecting multiple X3x0 and N3x0 devices. It occupies only one full-size PCI-E slot but provides four 10GbE ports, allowing you to connect up to four X3x0 or N3x0 devices.
     - N2x0 Series: Consider using MIMO cables to achieve MIMO and phased array capabilities. However, note that MIMO cables have a narrow bandwidth.
     - Multiple USRP Devices: As clearly stated in `Multiple USRP configuration <https://files.ettus.com/manual/page_multiple.html>`_, UHD only supports combining multiple USRP devices of the same model. Currently, the N2x0 and X3x0 series are the only combination-ready models.
     - Daughterboard Selection: For both the N2x0 and X3x0 series, it is advisable to consider using the UBX-40/UBX-160 daughterboard. Although these daughterboards are expensive, they are the only ones that support daughterboard-level phase synchronization, which is necessary for PicoScenes to achieve phased-array functionality.

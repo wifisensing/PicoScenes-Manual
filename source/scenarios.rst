@@ -260,7 +260,16 @@ Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
 
 .. important:: Not all SDR devices support the 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist the NI USRP X3x0 Series or other advanced models has a maximum of over 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
+Antenna Selection (Only for NI USRP Device)
++++++++++++++++++++++++++++++++++++++++++++++++++
 
+NI USRP features two antenna ports for each RF channel, **TX/RX** and **RX2**. PicoScenes provides a pair of options for Tx/Rx antenna selection: ``--tx-ant`` and ``--rx-ant``. For example, If you want to use RX2 antenna port for signal receiving, you can add ``--rx-ant`` to the above command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --rx-ant RX2 --plot"
+
+.. important:: **PicoScenes uses the TX/RX port of each RF channel by default**.
 
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++

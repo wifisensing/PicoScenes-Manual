@@ -311,7 +311,7 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
     
     In this command, ``--rxcm 3 ``specifies the *Rx chainmask* value of 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bitwise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on.
 
-    if you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 80 MHz channel centered at 5210 MHz with two Rx channels, you can use the following command:
+    If you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 80 MHz channel centered at 5210 MHz with two Rx channels, you can use the following command:
 
         .. code-block:: bash
 

@@ -300,22 +300,38 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
 Multiple Rx-Channel Rx by NI USRP
 ++++++++++++++++++++++++++++++++++++++
 
-PicoScenes supports *multi-channel RX* and even *multi-USRP combined multi-channel RX*. For example, NI USRP B210 and X310 models have two independent RF channels. PicoScenes supports receiving dual-channel signals and decoding 2x2 MIMO frames.
+PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-channel Rx*. For example, the NI USRP B210, X310 and other advanced models have two or more independent RF channels. PicoScenes supports receiving dual/multi-channel signals and decoding MIMO frames.
 
-#. Single USRP Device - Dual Channel. If you want to use X310 (or other multi-channel USRP devices) to listen to Wi-Fi traffic at the 40 MHz channel centered at 5190 MHz (the *5180 HT40+* or *5200 HT40-* channel), you can use the following command:
+#. Single USRP Device - Dual/Multi-Channel Rx. For example, if you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 40 MHz channel centered at 5190 MHz (the 5180 HT40+ or 5200 HT40- channel)  with two Rx channels, you can use the following command:
+
 
     .. code-block:: bash
 
-        PicoScenes "-d debug -i X310_ID --mode logger --freq 5190 --preset RX_CBW_40 --rxcm 3 --plot"
+        PicoScenes "-d debug -i usrp --mode logger --freq 5190 --preset RX_CBW_40 --rxcm 3 --plot"
     
-    The additional ``--rxcm 3`` specify the *Rx chainmask* value to 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
+    In this command, ``--rxcm 3 ``specifies the *Rx chainmask* value of 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bitwise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on.
 
-#. Single USRP Device - Dual Channel w/ Dual 10GbE connections. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz sampling requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you will need to use the dual 10GBE connection to satisfy this large bandwidth. Assume the dual 10GbE connection is correctly set up, with IP address of 192.168.30.2 and 192.168.40.2.
+if you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 80 MHz channel centered at 5210 MHz with two Rx channels, you can use the following command:
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i usrp --mode logger --freq 5210 --preset RX_CBW_80 --rxcm 3 --plot"
+
+#. Single USRP Device - Dual/Multi-Channel Rx with Dual 10GbE connections. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz-rate signal receiving requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you have to use the dual 10GbE connection to satisfy this bandwidth. Assuming the dual-10GbE connection is correctly set up with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform dual-channel receiving for a 160 MHz bandwidth channel centered at 5250 MHz:
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i usrp192.168.30.2_192.168.40.2 --mode logger --freq 5250 --preset RX_CBW_160 --rxcm 3 --plot"
-    
+
+.. hint:: You can follow the guides below to setup dual 10GbE connections for the X3x0 and N3x0 series.
+    - X3x0 Series: `Using Dual 10 Gigabit Ethernet on the USRP X300/X310 <https://kb.ettus.com/Using_Dual_10_Gigabit_Ethernet_on_the_USRP_X300/X310>`_
+    - N3x0 Series: `USRP N300/N310/N320/N321 Getting Started Guide - Dual 10Gb Streaming <https://kb.ettus.com/USRP_N300/N310/N320/N321_Getting_Started_Guide#Dual_10Gb_Streaming_SFP_Ports_0.2F1>`_
+
+#. Multi USRP Devices - Multi-Channel Rx. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz-rate signal receiving requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you have to use the dual 10GbE connection to satisfy this bandwidth. Assuming the dual-10GbE connection is correctly set up with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform dual-channel receiving for a 160 MHz bandwidth channel centered at 5250 MHz:
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i usrp192.168.30.2_192.168.40.2 --mode logger --freq 5250 --preset RX_CBW_160 --rxcm 3 --plot"
 
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)

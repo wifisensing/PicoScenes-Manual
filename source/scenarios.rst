@@ -146,21 +146,21 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i 3 --mode logger --plot"
+PicoScenes "-d debug -i 3 --mode logger --plot"
 
 #. On the second computer, assuming the researchers want to measure 160 MHz bandwidth 802.11ax format CSI, run the following command in a terminal:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
-    
-    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
+        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+        
+        The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
 
-      - ``-d debug``: Modifies the display level of the logging service to debug;
-      - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
-      - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)".
-      - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
-      - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
+        - ``-d debug``: Modifies the display level of the logging service to debug;
+        - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
+        - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)".
+        - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
+        - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
 
 #. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
 
@@ -241,7 +241,7 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
 
 .. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*.
 
-Listening to 40/80/160 MHz bandwidth channel
+Listening to 40/80/160 MHz Bandwidth Channels
 +++++++++++++++++++++++++++++++++++++++++++++++
 
 In this case, if you want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-") using an SDR device with the ID `SDR_ID`, you can use the following command:
@@ -376,9 +376,9 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --clock-source external --plot"
 
-In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving.
+In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving. Then option ``--clock-source external`` tell USRP to use external clock signals for the frequency generations for the LO and ADC/DAC pair.
 
 Combining Multiple USRP devices plus Dual-Connection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,9 +387,46 @@ Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daught
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2 --mode logger --freq 5250 --preset RX_CBW_160 --rx-channel 0,1,2,3 --plot"
+    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2 --mode logger --freq 5250 --preset RX_CBW_160 --rx-channel 0,1,2,3 --clock-source external --plot"
 
 Please pay special attention to the comma(**,**) and underline (**_**) in the option ``-i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2``. It means to to use the dual 10GbE connection plus combining multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
+
+Transmit 802.11a/g/n/ac/ax/be protocol frames using SDR Devices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Single-Device Tx with Rich Low-Level Controls
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In the following examples, we demonstrate how to use PicoScenes to drive SDR device to transmit Wi-Fi packets with gradually enriched low-level controls. We assume your SDR ID is ``SDR_ID`` and your SDR supports sufficiently high sampling rate, like 200 MSPS or higher.
+
+Transmit 20 MHz bandwidth 802.11n Format Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you just want to transmit some 802.11n rate, 20 MHz bandwidth frames at 5900 MHz channel for CSI measurement, you can use the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --repeat 1e5 --delay 5e3"
+
+The new options ``--mode injector --repeat 1e5 --delay 5e3`` can be interpreted as:
+
+- ``--mode injector``: Ask the SDR to operate at packet injector mode;
+- ``--repeat 1e5``: Injector 10000 packets;
+- ``--delay 5e3``: The inter-frame delay is 5000 microseconds.
+
+.. hint:: PicoScenes uses 802.11n format for packet injection by default.
+
+Transmit 20/40/80/160 MHz bandwidth 802.11a/g/n/ac/ax Format Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use the powerful ``--preset`` options to specify bandwidth and format, like:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+
+Most frequently used presets, like listed in :ref:`ax200-monitor-injection`, are commonly used for both COTS NICs and SDR devices.
+
 
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)

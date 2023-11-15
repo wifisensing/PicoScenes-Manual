@@ -260,6 +260,7 @@ Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
 
 .. important:: Not all SDR devices support the 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist the NI USRP X3x0 Series or other advanced models has a maximum of over 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
+
 Antenna Selection (Only for NI USRP Device)
 +++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -110,7 +110,7 @@ To enable fully-passive CSI measurement, follow these three steps:
 
 #. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C.
 
-The above command has four program options *"-d debug -i 3 --mode logger --plot"*. These options have the same behavior as described in the :ref:`axax200-wifi-ap` Section.
+The above command has four program options *"-d debug -i 3 --mode logger --plot"*. These options have the same behavior as described in the :ref:`ax200-wifi-ap` Section.
 
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 

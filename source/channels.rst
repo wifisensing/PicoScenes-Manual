@@ -1,7 +1,7 @@
 Wi-Fi Channelization
 ==========================
 
-Many PicoScenes users are confused by how to correctly set channel for *array_prepare_for_picoscenes* or *PicoScenes* commands. In this pages, we give some typical examples and a full Wi-Fi channel table for reference.
+Many PicoScenes users are confused by how to correctly set channel for *array_prepare_for_picoscenes* and *PicoScenes* commands. In this pages, we give some typical examples and a full Wi-Fi channel table for reference.
 
 
 Examples on How to Specify Wi-Fi Channels for COTS NICs and SDR Devices 
@@ -78,8 +78,8 @@ The following *Wi-Fi Channelization* table has 8 columns. Their meanings are:
 - Center Freq. of 160 MHz Channel: The center frequency of a 160 MHz bandwidth Wi-Fi channel. Like 40 MHz bandwidth channel, 160 MHz are realized by combining two adjacent 80 MHz channels, thus, the center frequencies of 160 MHz channels are the middles of two 80 MHz channels. One thing worth noting is that the 80 MHz channels are allocated to be non-overlapping, therefore, each 20 MHz channel only belongs to one 160 MHz channel.
 - Channel String of 20 MHz Channel: The channel string used to denote this 20 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands.
 - Channel String of 40 MHz Channel: The channel string used to denote this 40 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands. The "HT40+" means that the extension channel is towards the higher frequency, while "HT40-" means that the extension channel is towards the lower frequency.
-- Channel String of 80 MHz Channel: The channel string used to denote this 80 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands. The three numbers are primary channel freq., center channel freq. and bandwidth.
-- Channel String of 160 MHz Channel: The channel string used to denote this 160 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands. The three numbers are primary channel freq., center channel freq. and bandwidth.
+- Channel String of 80 MHz Channel: The channel string used to denote this 80 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands. The three numbers are primary channel freq., channel bandwidth, and center channel freq.
+- Channel String of 160 MHz Channel: The channel string used to denote this 160 MHz channel, used for Linux *iw* and PicoScenes *array_prepare_for_picoscenes* commands. The three numbers are primary channel freq., channel bandwidth, and center channel freq.
 
 
 .. csv-table:: Wi-Fi Channelization

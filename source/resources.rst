@@ -12,6 +12,12 @@ This paper introduces PicoScenes and also reports very extensive performance eva
 
 .. important:: If PicoScenes software (including the main program, bash scripts, PicoScenes MATLAB Toolbox and any PicoScenes plugins regardless of the ownership) is used by any form in your academic research, **you should cite the above work**. This citation requirement is also included in the PicoScenes Software EULA.
 
+Wi-Fi Channelization Table
+----------------------------
+
+Many PicoScenes users are confused by how to correctly set channel for *array_prepare_for_picoscenes* and *PicoScenes* commands. In :doc:`/channels`, we give some typical examples and a full Wi-Fi channel table for reference.
+
+
 Opensource repositories
 ----------------------------
 

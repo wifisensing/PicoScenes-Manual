@@ -297,12 +297,14 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
     
     This command enables AGC for the SDR device with the ID A_B210_SDR.
 
-Multiple Rx-Channel Rx by NI USRP
-++++++++++++++++++++++++++++++++++++++
+Multiple Rx-Channel Rx by Single NI USRP Device
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-channel Rx*. For example, the NI USRP B210, X310 and other advanced models have two or more independent RF channels. PicoScenes supports receiving dual/multi-channel signals and decoding MIMO frames.
 
-#. Single USRP Device - Dual/Multi-Channel Rx. For example, if you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 40 MHz channel centered at 5190 MHz (the 5180 HT40+ or 5200 HT40- channel)  with two Rx channels, you can use the following command:
+#. Single USRP Device - Dual/Multi-Channel Rx. 
+
+    For example, if you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 40 MHz channel centered at 5190 MHz (the *5180 HT40+* or *5200 HT40-* channel)  with two Rx channels, you can use the following command:
 
 
     .. code-block:: bash
@@ -313,11 +315,13 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
 
     If you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 80 MHz channel centered at 5210 MHz with two Rx channels, you can use the following command:
 
-        .. code-block:: bash
+    .. code-block:: bash
 
-            PicoScenes "-d debug -i usrp --mode logger --freq 5210 --preset RX_CBW_80 --rxcm 3 --plot"
+        PicoScenes "-d debug -i usrp --mode logger --freq 5210 --preset RX_CBW_80 --rxcm 3 --plot"
 
-#. Single USRP Device - Dual/Multi-Channel Rx with Dual 10GbE connections. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz-rate signal receiving requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you have to use the dual 10GbE connection to satisfy this bandwidth. Assuming the dual-10GbE connection is correctly set up with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform dual-channel receiving for a 160 MHz bandwidth channel centered at 5250 MHz:
+#. Single USRP Device - Dual/Multi-Channel Rx with Dual 10GbE connections. 
+
+    The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz-rate signal receiving requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you have to use the dual 10GbE connection to satisfy this bandwidth. Assuming the dual-10GbE connection is correctly set up with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform dual-channel receiving for a 160 MHz bandwidth channel centered at 5250 MHz:
 
     .. code-block:: bash
 
@@ -328,11 +332,45 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
         - X3x0 Series: `Using Dual 10 Gigabit Ethernet on the USRP X300/X310 <https://kb.ettus.com/Using_Dual_10_Gigabit_Ethernet_on_the_USRP_X300/X310>`_
         - N3x0 Series: `USRP N300/N310/N320/N321 Getting Started Guide - Dual 10Gb Streaming <https://kb.ettus.com/USRP_N300/N310/N320/N321_Getting_Started_Guide#Dual_10Gb_Streaming_SFP_Ports_0.2F1>`_
 
-#. Multi USRP Devices - Multi-Channel Rx. The previous option cannot support the dual-channel signal receiving and decoding for a 160 MHz channel, because the dual-channel 160 MHz-rate signal receiving requires up to 12.8Gbps Ethernet bandwidth which exceeds the limit of a single 10GbE connection. Therefore, you have to use the dual 10GbE connection to satisfy this bandwidth. Assuming the dual-10GbE connection is correctly set up with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform dual-channel receiving for a 160 MHz bandwidth channel centered at 5250 MHz:
+Multiple Rx-Channel Rx by Multiple NI USRP Devices
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    .. code-block:: bash
+PicoScenes supports to combine multiple NI USRP devices of the same model into a single, virtual devices, providing higher level of MIMO and larger cross-antenna phase coherency. Taking the NI USRP X310 as an example, if you have two X310 devices and each is equipped with dual UBX-160 daughterboard, **we can achieve four-channel phase coherent Rx if they are properly combined and synchronized**.
+    
+.. _phase_sync_multiple_device:
 
-        PicoScenes "-d debug -i usrp192.168.30.2_192.168.40.2 --mode logger --freq 5250 --preset RX_CBW_160 --rxcm 3 --plot"
+Phase Synchronization across Multiple USRP Devices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We recommend two options to achieve phase synchronization across multiple USRP devices:
+
+#. For all device, by a central clock distribution module (**Recommended**)
+
+    We recommend to the 8-port `OctoClock-G <https://www.ettus.com/all-products/OctoClock-G/>`_ or `OctoClock <https://www.ettus.com/all-products/octoclock/>`_ to distribute clock signals for all NI USRP devices.
+
+#. For NI USRP X3x0 model, By Ref clock export 
+
+    X3x0 model has *PPS OUT* and *TRIG OUT* ports that can be directly feed into another X3x0 devices, or feed into a clock distribution module.
+
+Combining Multiple USRP devices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and with IP Addresses of 192.168.30.2 and 192.168.70.2, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx by the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
+
+Please pay special attention to the comma(**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
+
+
+Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and with IP Addresses of 192.168.30.2 and 192.168.70.2, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx by the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
+
+Please pay special attention to the comma(**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
 
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)

@@ -339,10 +339,10 @@ PicoScenes supports to combine multiple NI USRP devices of the same model into a
     
 .. _phase_sync_multiple_device:
 
-Phase Synchronization across Multiple USRP Devices
+Clock Synchronization across Multiple USRP Devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We recommend two options to achieve phase synchronization across multiple USRP devices:
+We recommend two options to achieve clock synchronization across multiple USRP devices:
 
 #. For all device, by a central clock distribution module (**Recommended**)
 
@@ -360,11 +360,10 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
+In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving.
 
-Please pay special attention to the comma(**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
 
 
-Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and with IP Addresses of 192.168.30.2 and 192.168.70.2, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx by the following command:
 
 .. code-block:: bash
 

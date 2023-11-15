@@ -4,17 +4,20 @@ CSI Measurement using PicoScenes
 On this page, we provide a list of commonly used Wi-Fi sensing scenarios and how they can be achieved using PicoScenes.
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
+Before Getting Started: Some Fundamentals
+--------------------------------------------
+
 .. _device_naming:
 
-Before Getting Started: Device Naming
------------------------------------------------------------------------------
+Device Naming
+~~~~~~~~~~~~~~~~~
 
 In PicoScenes, a reliable and user-friendly device naming protocol is necessary to support the concurrent operation of multiple Wi-Fi NICs and SDR devices. In the following sections, we will introduce the naming protocols for commercial Wi-Fi NICs, SDR devices, and Virtual SDR devices.
 
 .. _naming_for_nics:
 
-Naming for Commercial Wi-Fi NICs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Device Naming for Commercial Wi-Fi NICs
++++++++++++++++++++++++++++++++++++++++++
 
 Open a terminal and run the command ``array_status``. A list of all the PCI-E based Wi-Fi NICs will be displayed in the terminal. The sample device list below shows an example of the output:
 
@@ -34,8 +37,8 @@ In the array_status output, there are four IDs provided for each NIC: *PhyPath*,
 
 .. _naming_for_usrp:
 
-Naming for USRP Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Device Naming for NI USRP
++++++++++++++++++++++++++++++++++
 
 We devise a simple and scalable naming protocol for USRP devices. It has four forms:
 
@@ -46,15 +49,33 @@ We devise a simple and scalable naming protocol for USRP devices. It has four fo
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
-Naming for HackRF One devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Device Naming for HackRF One
++++++++++++++++++++++++++++++++++++++++
 
 All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the device number with is the same order as the command ``SoapySDRUtil --find="driver=hackrf"`` lists.
 
-Naming for Virtual SDR Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Device Naming for Virtual SDR
+++++++++++++++++++++++++++++++++++++++++
 
 The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``.
+
+Basic Facts of Wi-Fi Channelization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can refer to `List of WLAN Channels <https://en.wikipedia.org/wiki/List_of_WLAN_channels>`_ for the complete guide for Wi-Fi channelization. In the following, we list some key factor for quick reference.
+
+#. The *official* Wi-Fi channelization has three RF bands:
+
+    - 2.4 GHz band: 2402-2482 MHz continual, 80 MHz in total;
+    - 5 GHz band: 5180 to 5825 MHz non-continual, about 470 MHz in total;
+    - 6 GHz band: 5945 to 7125 MHz continual, 1.18 GHz in total;
+
+    The *non-official* Wi-Fi signal transmission 
+
+#. Overlapping v.s non-overlapping channelization: 
+
+    - The In the 2.4 GHz band, the 20 MHz channels are overlapping with 5 MHz step, while in the 5 GHz and 6 GHz bands, all 20 MHz are non-overlapping.
+
 
 
 .. _ax200-measurements:

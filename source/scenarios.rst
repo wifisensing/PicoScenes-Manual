@@ -297,7 +297,7 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
     
     This command enables AGC for the SDR device with the ID A_B210_SDR.
 
-Multiple Rx-Channel Rx by Single NI USRP Device
+Multi-Channel Rx by Single NI USRP Device
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-channel Rx*. For example, the NI USRP B210, X310 and other advanced models have two or more independent RF channels. PicoScenes supports receiving dual/multi-channel signals and decoding MIMO frames.
@@ -332,7 +332,7 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
         - X3x0 Series: `Using Dual 10 Gigabit Ethernet on the USRP X300/X310 <https://kb.ettus.com/Using_Dual_10_Gigabit_Ethernet_on_the_USRP_X300/X310>`_
         - N3x0 Series: `USRP N300/N310/N320/N321 Getting Started Guide - Dual 10Gb Streaming <https://kb.ettus.com/USRP_N300/N310/N320/N321_Getting_Started_Guide#Dual_10Gb_Streaming_SFP_Ports_0.2F1>`_
 
-Multiple Rx-Channel Rx by Multiple NI USRP Devices
+Multi-Channel Rx by Multiple NI USRP Devices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes supports to combine multiple NI USRP devices of the same model into a single, virtual devices, providing higher level of MIMO and larger cross-antenna phase coherency. Taking the NI USRP X310 as an example, if you have two X310 devices and each is equipped with dual UBX-160 daughterboard, **we can achieve four-channel phase coherent Rx if they are properly combined and synchronized**.

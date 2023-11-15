@@ -1,9 +1,21 @@
 Wi-Fi Channelization
 ==========================
 
+The following table has 8 columns. Their meanings are:
+
+- Primary 20 MHz Channel: The center frequency of a 20 MHz bandwidth Wi-Fi channel;
+- Center Freq. of 40 MHz Channel: The center frequency of a 40 MHz bandwidth Wi-Fi channel. Wi-Fi 40 MHz bandwidth channel are realized by combining two adjacent 20 MHz channels, thus, the center frequencies of 40 MHz channels are the middles of two 20 MHz channels. One thing worth noting is that the 40 MHz channels are allocated to be non-overlapping, therefore, each 20 MHz channel only belongs to one 40 MHz channel.
+- Center Freq. of 80 MHz Channel: The center frequency of a 80 MHz bandwidth Wi-Fi channel. Like 40 MHz bandwidth channel, 80 MHz are realized by combining two adjacent 40 MHz channels, thus, the center frequencies of 80 MHz channels are the middles of two 40 MHz channels. One thing worth noting is that the 80 MHz channels are allocated to be non-overlapping, therefore, each 20 MHz channel only belongs to one 80 MHz channel.
+- Center Freq. of 160 MHz Channel: The center frequency of a 160 MHz bandwidth Wi-Fi channel. Like 40 MHz bandwidth channel, 160 MHz are realized by combining two adjacent 80 MHz channels, thus, the center frequencies of 160 MHz channels are the middles of two 80 MHz channels. One thing worth noting is that the 80 MHz channels are allocated to be non-overlapping, therefore, each 20 MHz channel only belongs to one 160 MHz channel.
+- Channel String of 20 MHz Channel: The channel string used to denote this 20 MHz channel, used for *iw* and *array_prepare_for_picoscenes* command.
+- Channel String of 40 MHz Channel: The channel string used to denote this 40 MHz channel, used for *iw* and *array_prepare_for_picoscenes* command. The "HT40+" means that the extension channel is towards the higher frequency, while "HT40-" means that the extension channel is towards the lower frequency.
+- Channel String of 80 MHz Channel: The channel string used to denote this 80 MHz channel, used for *iw* and *array_prepare_for_picoscenes* command. The three numbers are primary channel freq., center channel freq. and bandwidth.
+- Channel String of 160 MHz Channel: The channel string used to denote this 160 MHz channel, used for *iw* and *array_prepare_for_picoscenes* command. The three numbers are primary channel freq., center channel freq. and bandwidth.
+
+
 .. csv-table:: Wi-Fi Channelization
-    :header: "Primary 20 MHz Channel (MHz)", "Center for 40 MHz Channel (MHz)", "Center for 80 MHz Channel (MHz)", "Center for 160 MHz Channel (MHz)", "channel string for 20 MHz channel", "channel string for 40 MHz channel", "channel string for 48 MHz channel", "channel string for 160 MHz channel"
-    :widths: 30, 30, 30, 30, 40, 40, 60, 60
+    :header: "Primary 20 MHz Channel (MHz)", "Center Freq. of 40 MHz Channel (MHz)", "Center Freq. of 80 MHz Channel (MHz)", "Center Freq. of 160 MHz Channel (MHz)", "Channel String of 20 MHz Channel", "Channel String of 40 MHz Channel", "Channel String of 80 MHz Channel", "Channel String of 160 MHz Channel"
+    :widths: 30, 30, 30, 30, 40, 40, 50, 50
 
 
     2412,N/A,N/A,N/A,"2412 HT20",N/A,N/A,N/A

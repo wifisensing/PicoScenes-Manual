@@ -7,6 +7,8 @@ Before we proceed, it is assumed that you have already installed the PicoScenes 
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
+Here we introduce two fundamentals: Device Naming and Wi-Fi channelization.
+
 .. _device_naming:
 
 Device Naming
@@ -62,21 +64,7 @@ The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``
 Basic Facts of Wi-Fi Channelization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can refer to `List of WLAN Channels <https://en.wikipedia.org/wiki/List_of_WLAN_channels>`_ for the complete guide for Wi-Fi channelization. In the following, we list some key factor for quick reference.
-
-#. The *official* Wi-Fi channelization has three RF bands:
-
-    - 2.4 GHz band: 2402-2482 MHz continual, 80 MHz in total;
-    - 5 GHz band: 5180 to 5825 MHz non-continual, about 470 MHz in total;
-    - 6 GHz band: 5945 to 7125 MHz continual, 1.18 GHz in total;
-
-    The *non-official* Wi-Fi signal transmission 
-
-#. Overlapping v.s non-overlapping channelization: 
-
-    - The In the 2.4 GHz band, the 20 MHz channels are overlapping with 5 MHz step, while in the 5 GHz and 6 GHz bands, all 20 MHz are non-overlapping.
-
-
+Many PicoScenes users are confused about how to correctly specify Wi-Fi channels for COTS NICs and SDR devices. We create a big table :doc:`/channels` for reference.
 
 .. _ax200-measurements:
 
@@ -250,6 +238,8 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
    - ``-i SDR_ID --mode logger``: Switches the device ``SDR_ID`` to CSI logger mode;
    - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
    - ``--plot``: Live-plots the CSI measurements.
+
+.. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*.
 
 Listening to 40/80/160 MHz bandwidth channel
 +++++++++++++++++++++++++++++++++++++++++++++++

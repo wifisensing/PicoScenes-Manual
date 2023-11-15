@@ -362,14 +362,16 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
     PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
 In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving.
 
+Combining Single-Device-Dual/Multi-Channel and Multiple-Devices for Multi-Channel High-bandwidth Rx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and assume each X3x0 device is dual-10GbE connected with IP Addresses of 192.168.30.2 and 192.168.31.2 for the first and 192.168.70.2 and 192.168.71.2 for the second, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx for a 160 MHz Wi-Fi channel by the following command:
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --plot"
+    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2 --mode logger --freq 5250 --preset RX_CBW_160 --rx-channel 0,1,2,3 --plot"
 
-Please pay special attention to the comma(**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
+Please pay special attention to the comma(**,**) and underline (**_**) in the option ``-i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2``. It means to to use the dual 10GbE connection plus combining multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
 
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)

@@ -344,13 +344,9 @@ Clock Synchronization across Multiple USRP Devices
 
 We recommend two options to achieve clock synchronization across multiple USRP devices:
 
-#. For all device, by a central clock distribution module (**Recommended**)
+#. For all device, by a central clock distribution module (**Recommended**). We recommend to the 8-port `OctoClock-G <https://www.ettus.com/all-products/OctoClock-G/>`_ or `OctoClock <https://www.ettus.com/all-products/octoclock/>`_ to distribute clock signals for all NI USRP devices.
 
-    We recommend to the 8-port `OctoClock-G <https://www.ettus.com/all-products/OctoClock-G/>`_ or `OctoClock <https://www.ettus.com/all-products/octoclock/>`_ to distribute clock signals for all NI USRP devices.
-
-#. For NI USRP X3x0 model, By Ref clock export 
-
-    X3x0 model has *PPS OUT* and *TRIG OUT* ports that can be directly feed into another X3x0 devices, or feed into a clock distribution module.
+#. For NI USRP X3x0 model, By Ref clock export. X3x0 model has *PPS OUT* and *TRIG OUT* ports that can be directly feed into another X3x0 devices, or feed into a clock distribution module.
 
 Combining Multiple USRP devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -364,7 +360,6 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
 In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving.
 
 Combining Multiple USRP devices plus Dual-Connection
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and assume each X3x0 device is dual-10GbE connected with IP Addresses of 192.168.30.2 and 192.168.31.2 for the first and 192.168.70.2 and 192.168.71.2 for the second, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx for a 160 MHz Wi-Fi channel by the following command:

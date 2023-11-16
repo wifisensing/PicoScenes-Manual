@@ -7,7 +7,12 @@ Before we proceed, it is assumed that you have already installed the PicoScenes 
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
-Here we introduce two fundamentals: Device Naming and Wi-Fi channelization.
+Here we introduce two fundamentals:  Wi-Fi channelization and device naming protocol.
+
+Basic Facts of Wi-Fi Channelization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many PicoScenes users are confused about how to correctly specify Wi-Fi channels for COTS NICs and SDR devices. We create a big table :doc:`/channels` for reference.
 
 .. _device_naming:
 
@@ -60,11 +65,6 @@ Device Naming for Virtual SDR
 ++++++++++++++++++++++++++++++++++++++++
 
 The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``.
-
-Basic Facts of Wi-Fi Channelization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Many PicoScenes users are confused about how to correctly specify Wi-Fi channels for COTS NICs and SDR devices. We create a big table :doc:`/channels` for reference.
 
 .. _ax200-measurements:
 

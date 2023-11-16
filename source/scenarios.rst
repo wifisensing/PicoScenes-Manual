@@ -168,18 +168,7 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
     The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-.. hint:: There are dozens of presets available. Some of the available Tx presets for AX200/AX210 are:
-
-    - 20 MHz bandwidth: TX_CBW_20_NONHT, TX_CBW_20_HT, TX_CBW_20_HT_LDPC, TX_CBW_20_VHT, TX_CBW_20_VHT_LDPC, TX_CBW_20_HESU, TX_CBW_20_HESU_LDPC; 
-    - 40 MHz bandwidth: TX_CBW_40_HT, TX_CBW_40_HT_LDPC, TX_CBW_40_VHT, TX_CBW_40_VHT_LDPC, TX_CBW_40_HESU; 
-    - 80 MHz bandwidth: TX_CBW_80_VHT, TX_CBW_80_VHT_LDPC, TX_CBW_80_HESU; 
-    - 160 MHz bandwidth: TX_CBW_160_VHT, TX_CBW_160_VHT_LDPC, TX_CBW_160_HESU. 
-
-    NONHT, HT, VHT and HESU mean the 802.11a/g, 11n, 11ac and 11ax format. Some presets explicitly ended with `LDPC` means using LDPC coding. You can query the full preset list by the command:
-
-    .. code-block:: bash
-            
-        PicoScenes --list-presets
+.. hint:: You can refer to :doc:`/presets` for full list of presets.
 
 Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -243,7 +232,7 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
    - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
    - ``--plot``: Live-plots the CSI measurements.
 
-.. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*.
+.. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*. 
 
 Listening to 40/80/160 MHz Bandwidth Channels
 +++++++++++++++++++++++++++++++++++++++++++++++
@@ -273,6 +262,8 @@ Similarly, if you want to listen to a 160 MHz bandwidth channel centered at 5250
 .. code-block:: bash
 
     PicoScenes "-d debug -i SDR_ID --mode logger --freq 5250 --preset RX_CBW_160 --plot"
+
+.. hint:: You can refer to :doc:`/presets` for full list of presets.
 
 .. important:: Not all SDR devices support the 40/80/160 MHz sampling rate. For example, HackRF One with a maximum of 20 MHz sampling rate, does not support 40 MHz or wider sampling rate. Whist the NI USRP X3x0 Series or other advanced models has a maximum of over 200 MHz sampling rate, supporting the 40/80/160 MHz bandwidth channels.
 
@@ -435,9 +426,11 @@ You can use the powerful ``--preset`` options to specify bandwidth and format, l
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_EHTSU --repeat 1e5 --delay 5e3"
 
-Most frequently used presets, like listed in :ref:`ax200-monitor-injection`, are commonly used for both COTS NICs and SDR devices.
+This commands transmit Wi-Fi 7 (EHT-SU) format 160 channel bandwidth frames.
+
+.. hint:: You can refer to :doc:`/presets` for full list of presets.
 
 Tx Gain Control
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -472,7 +465,7 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_HESU --tx-channel 0,1,2,3"
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_EHTSU --tx-channel 0,1,2,3"
 
 In this command the ``--tx-channel`` option, equivalent to the `--txcm` option, specifies the Tx channel or chain mask. ``--tx-channel 0,1,2,3`` is equivalent to ``--txcm 15`` indicating all four RF channels are used for Tx. It is important to understand that **multi-channel Tx is not necessarily MIMO transmission**.
 
@@ -485,7 +478,7 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 
 .. code-block:: bash
 
-    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_HESU --tx-channel 0,1,2,3 --sts 4"
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_EHTSU --tx-channel 0,1,2,3 --sts 4"
 
 In this command the ``--sts 4`` specifies to use 4 STSs (or 4x4 MIMO transmission) to transmit the frames.
 
@@ -524,7 +517,7 @@ The following commands are equivalent to ``--preset TX_CBW_160_HESU`` and ``--pr
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --rx-resample-ratio 0.8 --rx-cbw 160 --mode logger --plot" #<- Run on the first computer (Rx end)
-    PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format HESU --coding LDPC --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
+    PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format EHTSU --coding LDPC --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
 
 These options can be interpreted as:
 
@@ -532,7 +525,7 @@ These options can be interpreted as:
 - ``--rx-cbw 160``: Tell PicoScenes baseband decoder to treat the incoming signals as 160 MHz channel bandwidth (CBW) format, 20 MHz CBW by default;
 - ``--tx-resample-ratio 1.25``: Up-sampling the 160 MHz CBW format signals by 1.25x to 200 MHz rate, 1.0 by default;
 - ``--cbw 160``: Tx baseband encoder to generate 160 MHz CBW format, 20 MHz CBW by default;
-- ``--format HESU``: Tx frame format is 11ax (HE) Single-User (HESU) format, HT (11n) format by default;
+- ``--format EHTSU``: Tx frame format is 11be (EHT) Single-User (EHTSU) format, HT (11n) format by default;
 - ``--coding LDPC``: Tx frame coding scheme uses the LDPC coding, BCC coding by default;
 
 You can alter the parameters of the above commands to achieve non-standard Tx/Rx and CSI measurement. For example, you can super-sample 20 MHz channel with 40 MHz rate by ``--rate 40e6 --rx-resample-ratio 0.5`` at Rx end, or ``--rate 40e6 --tx-resample-ratio 2`` at Tx end.

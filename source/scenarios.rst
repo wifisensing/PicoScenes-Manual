@@ -144,9 +144,9 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
 #. On the first computer, run the following command in a terminal:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-PicoScenes "-d debug -i 3 --mode logger --plot"
+        PicoScenes "-d debug -i 3 --mode logger --plot"
 
 #. On the second computer, assuming the researchers want to measure 160 MHz bandwidth 802.11ax format CSI, run the following command in a terminal:
 

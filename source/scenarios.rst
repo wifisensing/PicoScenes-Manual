@@ -283,6 +283,8 @@ NI USRP features two antenna ports for each RF channel, **TX/RX** and **RX2**. P
 
 .. important:: **PicoScenes uses the TX/RX port of each RF channel by default**.
 
+.. _rx_gain_control:
+
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -426,6 +428,25 @@ You can use the powerful ``--preset`` options to specify bandwidth and format, l
     PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
 
 Most frequently used presets, like listed in :ref:`ax200-monitor-injection`, are commonly used for both COTS NICs and SDR devices.
+
+Tx Gain Control
+^^^^^^^^^^^^^^^^^^^^^^
+
+PicoScenes uses ``--txpower`` option for Tx power specification. Same as ``--rx-gain`` exemplified in :ref:`rx_gain_control`, ``--txpower`` also has two modes: **absolute Tx gain value** and **normalized Tx gain value**.
+
+The following command specifies 15 dBm Tx gain for packet injection:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --txpower 15"
+
+The following command specifies 0.8 of the maximum Tx gain for packet injection:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --txpower 0.8"
+
+.. hint:: PicoScenes specifies ``--txpower 0.7`` by default.
 
 
 

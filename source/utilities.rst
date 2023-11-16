@@ -1,6 +1,8 @@
 Utility Programs and Bash Scripts
 =====================================
 
+**Revised at Nov. 16, 2023**
+
 Besides the `PicoScenes` main program, we also provide several handy bash scripts.
 
 #. switch5300Firmware: switch between the normal and CSI-measurement firmware for IWL5300 NIC

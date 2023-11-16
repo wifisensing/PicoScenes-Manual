@@ -517,7 +517,7 @@ Two reasons complicates the arbitrary bandwidth changing for the N2x0/X3x0/N3x0 
 
 PicoScenes workarounds this problem by *in-baseband digital resampling*, *i.e.*, up/down-sampling the baseband signals to match the actual hardware sampling rate. For example, neither X3x0 or N3x0 supports the native 160 MHz sampling, what actually happens behind ``--preset TX_CBW_160_HESU`` and ``--preset RX_CBW_160`` is 200 MHz actual sampling rate plus 1.25x Tx up-sampling and 0.8x Rx down-sampling.
 
-The following commands are equivalent to ``--preset TX_CBW_160_HESU`` ``--preset RX_CBW_160``:
+The following commands are equivalent to ``--preset TX_CBW_160_HESU`` and ``--preset RX_CBW_160``:
 
 .. code-block:: bash
 

@@ -1,6 +1,8 @@
 Useful Resources
 ==================
 
+**Revised at Nov. 16, 2023**
+
 .. _picoscenes_paper:
 
 The academic paper of PicoScenes

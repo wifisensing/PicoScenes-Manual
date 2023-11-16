@@ -220,6 +220,8 @@ CSI Measurement using NI USRP or HackRF One SDR
 PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time. The usage is similar to that of COTS NICs, simplifying the adoption of SDR devices in Wi-Fi ISAC research.
 
 
+.. _sdr_rx:
+
 Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax/be protocol frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -397,6 +399,8 @@ Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daught
 
 Please pay special attention to the comma(**,**) and underline (**_**) in the option ``-i usrp192.168.30.2_192.168.31.2,192.168.70.2_192.168.71.2``. It means to to use the dual 10GbE connection plus combining multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices.
 
+.. _sdr_tx:
+
 Transmit 802.11a/g/n/ac/ax/be protocol frames using SDR Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -472,7 +476,6 @@ In this command the ``--tx-channel`` option, equivalent to the `--txcm` option, 
 
 .. hint:: Due to the cyclic shift delay (CSD) requirement by 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel is different, more specifically, cyclic delayed among antennas.
 
-
 Multi-Channel (RF Chain) Tx for MIMO frame with NI USRP Device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -484,7 +487,30 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 
 In this command the ``--sts 4`` specifies to use 4 STSs (or 4x4 MIMO transmission) to transmit the frames.
 
-.. hint:: Due to the cyclic shift delay (CSD) requirement by 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel is different, more specifically, cyclic delayed among antennas.
+Transmission, Reception and CSI Measurement with Non-Standard PHY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters are compatible with the official Wi-Fi *numerology*, which guarantees the interoperability between SDR device and COTS NICs. To maintain this interoperability, we use ``--preset`` conventions to specify various low-level parameters for SDR. In this section, we demonstrate several commonly used non-standard cases and explain some key parameters.
+
+Change Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NI USRP B2x0 features a fractional baseband clocking architecture, *i.e.*, the baseband sampling rate can be any values between its clocking range. Assuming you want to up-clock the standard 20 MHz channel to 30 MHz (50% more bandwidth or sampling rate) at 5955 MHz channel, you can use the following commands:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5955 --rate 30e6 --mode logger --plot" #<- Run on the first computer (Rx end)
+    PicoScenes "-d debug -i usrp --freq 5955 --rate 30e6 --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
+
+The ``--rate 30e6`` option specifies to clock the baseband at 30 MHz rate.
+
+.. hint:: PicoScenes sets ``--rate`` to 20 MHz by default. If the ``--preset`` option appears, it will override the defaults. And If both ``--preset`` and ``--rate`` appear explicitly, the ``--rate`` overrides ``--preset``.
+
+
+Change Baseband Bandwidth (Sampling Rate) with NI USRP N2x0/X3x0/N3x0 Series
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

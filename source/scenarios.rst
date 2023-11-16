@@ -320,6 +320,8 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
     
     This command enables AGC for the SDR device with the ID A_B210_SDR.
 
+.. _multi-channel-rx-single:
+
 Multi-Channel Rx by Single NI USRP Device
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -354,6 +356,8 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
 
         - X3x0 Series: `Using Dual 10 Gigabit Ethernet on the USRP X300/X310 <https://kb.ettus.com/Using_Dual_10_Gigabit_Ethernet_on_the_USRP_X300/X310>`_
         - N3x0 Series: `USRP N300/N310/N320/N321 Getting Started Guide - Dual 10Gb Streaming <https://kb.ettus.com/USRP_N300/N310/N320/N321_Getting_Started_Guide#Dual_10Gb_Streaming_SFP_Ports_0.2F1>`_
+
+.. _multi-channel-rx-multi:
 
 Multi-Channel Rx by Multiple NI USRP Devices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -448,7 +452,39 @@ The following command specifies 0.8 of the maximum Tx gain for packet injection:
 
 .. hint:: PicoScenes specifies ``--txpower 0.7`` by default.
 
+Multi-Channel (RF Chain) and MIMO Tx with NI USRP Devices
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+PicoScenes supports multi-channel transmission using NI USRP devices either by a single device or by combining multiple devices. 
+
+The device naming and synchronization are identical to that of multi-channel signal receiving aforementioned in :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi` and :ref:`naming_for_usrp`.
+
+Multi-Channel (RF Chain) Tx for 1-STS frame with NI USRP Device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2``, you can use the following command to transmit a 1-STS frame by multiple antennas:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_HESU --tx-channel 0,1,2,3"
+
+In this command the ``--tx-channel`` option, equivalent to the `--txcm` option, specifies the Tx channel or chain mask. ``--tx-channel 0,1,2,3`` is equivalent to ``--txcm 15`` indicating all four RF channels are used for Tx. It is important to understand that **multi-channel Tx is not necessarily MIMO transmission**.
+
+.. hint:: Due to the cyclic shift delay (CSD) requirement by 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel is different, more specifically, cyclic delayed among antennas.
+
+
+Multi-Channel (RF Chain) Tx for MIMO frame with NI USRP Device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2``, you can use the following command to transmit a MIMO frame by multiple antennas:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_HESU --tx-channel 0,1,2,3 --sts 4"
+
+In this command the ``--sts 4`` specifies to use 4 STSs (or 4x4 MIMO transmission) to transmit the frames.
+
+.. hint:: Due to the cyclic shift delay (CSD) requirement by 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel is different, more specifically, cyclic delayed among antennas.
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

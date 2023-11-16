@@ -154,13 +154,13 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
         PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
         
-        The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
+    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
 
-        - ``-d debug``: Modifies the display level of the logging service to debug;
-        - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
-        - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)".
-        - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
-        - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
+    - ``-d debug``: Modifies the display level of the logging service to debug;
+    - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
+    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)".
+    - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
+    - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
 
 #. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
 

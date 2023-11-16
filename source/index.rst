@@ -4,8 +4,8 @@ PicoScenes: Enabling CSI-based Wi-Fi ISAC Research!
 News!
 -----------------
 
-Nov. 16, 2023 Page revised :doc:`/hardware`, :doc:`/installation`, ::doc:`/scenarios`, and ::doc:`/utilities`.
-Nov. 1, 2023 PicoScenes adds Wi-Fi 7 (EHT-SU) support for SDR frontends, supporting up to 320 MHz bandwidth.
+- Nov. 16, 2023 Page revised :doc:`/hardware`, :doc:`/installation`, ::doc:`/scenarios`, and ::doc:`/utilities`.
+- Nov. 1, 2023 PicoScenes adds Wi-Fi 7 (EHT-SU) support for SDR frontends, supporting up to 320 MHz bandwidth.
 
 What is PicoScenes?
 ----------------------------------

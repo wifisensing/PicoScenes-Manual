@@ -4,6 +4,7 @@ Utility Programs and Bash Scripts
 Besides the `PicoScenes` main program, we also provide several handy bash scripts.
 
 #. switch5300Firmware: switch between the normal and CSI-measurement firmware for IWL5300 NIC
+
     CSI measurement on IWL5300 is powered by a special CSI measurement firmware, which cannot connect to the encryption-protected Wi-Fi network. To restore the regular connection, you have to switch to the ordinary firmware. This script does the firmware switch. It has three modes:
 
     - Running ``switch5300Firmware`` without argument will perform the auto-switching between the ordinary firmware and the CSI firmware.
@@ -21,6 +22,7 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
             Reloading iwlwifi module ...
 
     - Run ``switch5300Firmware csi`` to force switch to the CSI firmware
+
         .. code-block:: bash
 
             csi@csi-System:~$ switch5300Firmware csi
@@ -36,8 +38,9 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
             Reloading iwlwifi module ...
 
 #. array_status: list all PCI-E connected Wi-Fi NICs
+
     As discussed in :ref:`device_naming`, PicoScenes uses an ID system to refer to the specific Wi-Fi NICs. array_status shows the PhyPath, DevId, PhyId, [MonId], Device MAC address(changeable), Hardware MAC address(unchangeable), Carrier Frequency, Bandwidth and Model description for each NIC. The default parameter is all, which lists all NICs. The following is a sample output:
-    
+
     .. code-block:: console
 
         csi@csi-System:~$ array_status
@@ -48,7 +51,8 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
         7 wlp7s0 phy6 00:16:ea:12:34:56 Wi-Fi 6 AX200 
     
 
-#. array_prepare_for_picoscenes: put the NIC into monitor mode, get them unmanaged by Network-Manager, and more ...
+#. array_prepare_for_picoscenes. Put the NIC into monitor mode, get them unmanaged by Network-Manager, and more ...
+
     The most convenient CSI measurement mode for QCA9300 and IWL5300 is the packet injection-monitor mode. Some preparation needs to be done to put NICs in the CSI measurement mode, and ``array_prepare_for_picoscenes`` is the shortcut for the preparation. The following sample command prepares the NICs with PhyPath ``3`` and ``4`` for CSI measurement.
 
     .. code-block:: console
@@ -82,5 +86,5 @@ Besides the `PicoScenes` main program, we also provide several handy bash script
 
 
 #. RestoreNetwork: Restore ordinary Wi-Fi connection
-    
+
     Run ``RestoreNetwork`` to remove all monitor interfaces, and restore the managed state of NICs from the system Network-Manager.

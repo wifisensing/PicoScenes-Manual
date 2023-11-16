@@ -164,7 +164,7 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
 #. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
 
-The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 .. hint:: There are dozens of presets available. Some of the available Tx presets for AX200/AX210 are:
 

@@ -511,10 +511,11 @@ Non-Standard Tx/Rx with NI USRP N2x0/X3x0/N3x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Two reasons complicates the arbitrary bandwidth changing for the N2x0/X3x0/N3x0 Series devices: 
+
     - Fixed master clock rate: contrary to NI USRP B210, which has a flexible master clock rate, the master clock rate is fixed 100 MHz for N2x0, 184.32 MHz **or** 200 MHz for X3x0, and 200 **or** 245.76 **or** 250 MHz for N3x0.
     - *Integer-N* clocking: The actual baseband sampling rate (both DAC and ADC) can only be :math:`F_{master}/N, N\in \mathbb{Z}^+`, *e.g.* N2x0 can clocks its baseband rate to 50/33.3/25/20/10... MHz.
 
-PicoScenes workarounds this problem by *in-baseband digital resampling*, *i.e.*, up/down-sampling the baseband signals to match the actual hardware sampling rate. For example, neither X3x0 or N3x0 supports the native 160 MHz sampling, what actually happens behind ``--preset TX_CBW_160_HESU`` ``--preset RX_CBW_160`` is 200 MHz actual sampling rate plus 1.25x Tx up-sampling and 0.8x Rx down-sampling.
+PicoScenes workarounds this problem by *in-baseband digital resampling*, *i.e.*, up/down-sampling the baseband signals to match the actual hardware sampling rate. For example, neither X3x0 or N3x0 supports the native 160 MHz sampling, what actually happens behind ``--preset TX_CBW_160_HESU`` and ``--preset RX_CBW_160`` is 200 MHz actual sampling rate plus 1.25x Tx up-sampling and 0.8x Rx down-sampling.
 
 The following commands are equivalent to ``--preset TX_CBW_160_HESU`` ``--preset RX_CBW_160``:
 
@@ -524,6 +525,7 @@ The following commands are equivalent to ``--preset TX_CBW_160_HESU`` ``--preset
     PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format HESU --coding LDPC --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
 
 These options can be interpreted as:
+
 - ``--rx-resample-ratio 0.8``: Down-sampling the 200 MHz rate received signals by 0.8 to 160 MHz rate, 1.0 by default;
 - ``--rx-cbw 160``: Tell PicoScenes baseband decoder to treat the incoming signals as 160 MHz channel bandwidth (CBW) format, 20 MHz CBW by default;
 - ``--tx-resample-ratio 1.25``: Up-sampling the 160 MHz CBW format signals by 1.25x to 200 MHz rate, 1.0 by default;

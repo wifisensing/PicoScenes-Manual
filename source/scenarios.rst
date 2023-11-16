@@ -1,6 +1,8 @@
 CSI Measurement using PicoScenes
 =================================================
 
+**Revised at Nov. 16, 2023**
+
 On this page, we provide a list of commonly used Wi-Fi sensing scenarios and how they can be achieved using PicoScenes.
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
@@ -536,6 +538,8 @@ These options can be interpreted as:
 You can alter the parameters of the above commands to achieve non-standard Tx/Rx and CSI measurement. For example, you can super-sample 20 MHz channel with 40 MHz rate by ``--rate 40e6 --rx-resample-ratio 0.5`` at Rx end, or ``--rate 40e6 --tx-resample-ratio 2`` at Tx end.
 
 .. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
+
+.. hint:: The following sections are not revised, the old version.
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

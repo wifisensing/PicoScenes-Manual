@@ -381,7 +381,7 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
 
 In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving. Then option ``--clock-source external`` tell USRP to use external clock signals for the frequency generations for the LO and ADC/DAC pair.
 
-Combining Multiple USRP devices plus Dual-Connection
+Combining Multiple USRP Devices plus Dual-Connection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and assume each X3x0 device is dual-10GbE connected with IP Addresses of 192.168.30.2 and 192.168.31.2 for the first and 192.168.70.2 and 192.168.71.2 for the second, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx for a 160 MHz Wi-Fi channel by the following command:
@@ -492,7 +492,7 @@ In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters a
 Change Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-NI USRP B2x0 features a fractional baseband clocking architecture, *i.e.*, the baseband sampling rate can be any values between its clocking range. Assuming you want to up-clock the standard 20 MHz channel to 30 MHz (50% more bandwidth or sampling rate) at 5955 MHz channel, you can use the following commands:
+NI USRP B2x0 features a fractional baseband clocking architecture, *i.e.*, the baseband sampling rate can be any values within its clocking range. Assuming you want to up-clock the standard 20 MHz channel to 30 MHz (50% more bandwidth or sampling rate) at 5955 MHz channel, you can use the following commands:
 
 .. code-block:: bash
 

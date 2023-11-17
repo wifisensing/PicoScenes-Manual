@@ -428,7 +428,7 @@ You can use the powerful ``--preset`` options to specify bandwidth and format, l
 
     PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_EHTSU --repeat 1e5 --delay 5e3"
 
-This commands transmit Wi-Fi 7 (EHT-SU) format 160 channel bandwidth frames.
+This commands transmit Wi-Fi 7 (EHT-SU) format 160 MHz channel bandwidth frames.
 
 .. hint:: You can refer to :doc:`/presets` for full list of presets.
 

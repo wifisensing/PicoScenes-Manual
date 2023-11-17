@@ -39,14 +39,14 @@ With some hardware and software tricks, we modified an old laptop model, the Thi
 
 The PCI-E bridge adapter can split one PCI-E connection into multiple connections, similar to a PCI-E hub. Therefore, you can connect multiple NICs to only one of the motherboard's PCI-E slots via the bridge adapter.
 
-Moreover, you can build a multi-layer hierarchy of bridge adapters and install NICs to all the leaf nodes. In this way, you can theoretically install over 100 Wi-Fi NICs in your system. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi sensing array using a 3-layer hierarchy of 1-to-3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
+Moreover, you can build a multi-layer hierarchy of bridge adapters and install NICs to all the leaf nodes. In this way, you can theoretically install over 100 Wi-Fi NICs in your system. To validate the feasibility of this approach, we built a 27-NIC Wi-Fi ISAC array using a 3-layer hierarchy of 1-to-3 PCI-E bridge adapters. The figure below shows the picture and layout of the 27-NIC array. The entire array is encapsulated in an IKEA box.    
 
 .. figure:: /images/NICArrayLayout-horizontal.jpg
     :figwidth: 750px
     :target: /images/NICArrayLayout-horizontal.jpg
     :align: center
 
-    27-NIC Wi-Fi sensing array built using 1-to-3 bridge adapters
+    27-NIC Wi-Fi ISAC array built using 1-to-3 bridge adapters
 
 .. hint::
     Do you want to access research-ready hardware out of the box? Do you want to skip the unfamiliar hardware selection, installation, and tricky setup? 

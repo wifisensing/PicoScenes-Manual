@@ -3,7 +3,7 @@ CSI Measurement using PicoScenes
 
 **Revised on Nov. 16, 2023**
 
-On this page, we provide a list of commonly used Wi-Fi sensing scenarios and how they can be achieved using PicoScenes.
+On this page, we provide a list of commonly used Wi-Fi ISAC research scenarios and how they can be achieved using PicoScenes.
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
 Before Getting Started: Some Fundamentals

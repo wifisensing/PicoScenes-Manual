@@ -1,7 +1,7 @@
 Supported Hardware
 ==========================================
 
-**Revised at Nov. 16, 2023**
+**Revised on Nov. 16, 2023**
 
 In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware. 
 The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <https://item.taobao.com/item.htm?id=648560374131>`_ ^_^.

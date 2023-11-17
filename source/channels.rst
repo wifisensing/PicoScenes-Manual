@@ -1,7 +1,7 @@
 Wi-Fi Channelization
 ==========================
 
-**Revised at Nov. 16, 2023**
+**Revised on Nov. 16, 2023**
 
 Many PicoScenes users are confused by how to correctly set channel for *array_prepare_for_picoscenes* and *PicoScenes* commands. In this page, we give some typical examples and a full Wi-Fi channel table for reference.
 

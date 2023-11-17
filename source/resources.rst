@@ -1,7 +1,7 @@
 Useful Resources
 ==================
 
-**Revised at Nov. 16, 2023**
+**Revised on Nov. 16, 2023**
 
 .. _picoscenes_paper:
 

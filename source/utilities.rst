@@ -1,7 +1,7 @@
 Utility Programs and Bash Scripts
 =====================================
 
-**Revised at Nov. 16, 2023**
+**Revised on Nov. 16, 2023**
 
 Besides the `PicoScenes` main program, we also provide several handy bash scripts.
 

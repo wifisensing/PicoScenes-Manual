@@ -2,7 +2,7 @@
 PicoScenes Installation & Upgrade
 ====================================
 
-**Revised at Nov. 16, 2023**
+**Revised on Nov. 16, 2023**
 
 Hardware Installation
 =======================

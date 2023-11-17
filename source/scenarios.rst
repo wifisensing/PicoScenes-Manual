@@ -482,7 +482,7 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 
 In this command the ``--sts 4`` specifies to use 4 STSs (or 4x4 MIMO transmission) to transmit the frames.
 
-Transmission, Reception and CSI Measurement with Non-Standard PHY
+Transmission, Reception and CSI Measurement with Non-Standard Channel and Bandwidth
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters are compatible with the official Wi-Fi *numerology*, which guarantees the interoperability between SDR device and COTS NICs, which **allows users to transmit frames with SDR and measure CSI with COTS NICs, or the reverse**. To maintain this interoperability, we use ``--preset`` conventions to specify various low-level parameters for SDR. In this section, we demonstrate several commonly used non-standard cases and explain some key parameters.

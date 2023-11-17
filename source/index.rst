@@ -5,7 +5,7 @@ News!
 -----------------
 
 - Nov. 16, 2023 Page revised :doc:`/hardware`, :doc:`/installation`, ::doc:`/scenarios`, and ::doc:`/utilities`.
-- Nov. 1, 2023 PicoScenes adds Wi-Fi 7 (EHT-SU) support for SDR frontends. PicoScenes is currently the only platform support Wi-Fi 7 based ISAC research.
+- Nov. 1, 2023 PicoScenes adds Wi-Fi 7 (EHT-SU) support for SDR frontends. PicoScenes is currently the only platform support Wi-Fi 7 based ISAC research. See our Wi-Fi 7 examples :ref:`sdr_tx`.
 
 What is PicoScenes?
 ----------------------------------

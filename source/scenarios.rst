@@ -203,7 +203,7 @@ On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 ante
 
     PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
 
-The additional ``--sts 2`` option sets the Space-Time Stream (STS) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
+The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N_{STS}=2`) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
 
 CSI Measurement using NI USRP or HackRF One SDR
 --------------------------------------------------
@@ -480,7 +480,7 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 
     PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_EHTSU --tx-channel 0,1,2,3 --sts 4"
 
-In this command the ``--sts 4`` specifies to use 4 STSs (or 4x4 MIMO transmission) to transmit the frames.
+In this command the ``--sts 4`` specifies to :math:`N_{STS}=4` (or 4x4 MIMO transmission) to transmit the frames.
 
 Transmission, Reception and CSI Measurement with Non-Standard PHY
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

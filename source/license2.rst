@@ -25,8 +25,7 @@ Currently, PSLP v1.0 offers two license options:
     - *All Pros of PSLP-FL* 
     - *Accessing all advanced features*
     - *Timely technical support on IM*
-    - Transferable to other computers
-    - Global availability", "
+    - Transferable to other computers", "
     - Online validation (less frequent)"
     "PSLP-DBL (Paid)", "
     - *All Pros of PSLP-FL*

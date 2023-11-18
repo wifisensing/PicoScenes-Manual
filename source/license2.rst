@@ -1,7 +1,7 @@
 PicoScenes License Plan (PSLP) 
 =======================================
 
-The PicoScenes License Plan (PSLP) plays a vital role in ensuring the long-term development of the PicoScenes system.
+The PicoScenes License Plan (PSLP) plays a vital role in supporting the long-term development of the PicoScenes system.
 
 Currently, PSLP v1.0 offers two license options: 
 
@@ -19,26 +19,24 @@ Currently, PSLP v1.0 offers two license options:
     - Regular upgrades via Debian *apt* facility
     - Supporting to run self-made PicoScenes plugin
     - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
-    - No/limited access to advanced features. See :ref:`PSLP-License-Details` for details.
+    - No advanced features. See :ref:`PSLP-License-Details` for details.
     - Online validation (frequent)"
     "PSLP-TL (Paid)", "
-    - **All Pros of PSLP-FL** 
-    - **Accessing all advanced features**
-    - **Timely technical support on IM**
+    - *All Pros of PSLP-FL* 
+    - *Accessing all advanced features*
+    - *Timely technical support on IM*
     - Transferable to other computers
     - Global availability", "
-    - A bit more expensive than *PSLP-DBL*
     - Online validation (less frequent)"
     "PSLP-DBL (Paid)", "
-    - **All Pros of PSLP-FL** 
+    - *All Pros of PSLP-FL*
     - **Discounted bundle pricing**
-    - **Accessing all advanced features**
-    - **Timely technical support on IM**
+    - *Accessing all advanced features*
+    - *Timely technical support on IM*
     - Quicker starting and long-term offline operating", "
     - Device bound, not transferable
-    - Only for NI (Emerson) USRP SDR devices
+    - Only for NI USRP SDR devices
     - *Available only in China mainland*"
-
 
 .. _PSLP-License-Details:
 

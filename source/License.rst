@@ -185,3 +185,5 @@ The subscription fee of PLSP v0.8.1 PUL is **8688 RMB or 1360 USD/computer/year*
 中国区用户点此淘宝链接 `PicoScenes软件订阅 <https://item.taobao.com/item.htm?id=660337543983>`_ 下单，可开具正规电子发票
 
 The overseas payment channel is still under construction.
+
+::doc:`/license2` 

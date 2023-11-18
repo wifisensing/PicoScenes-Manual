@@ -76,11 +76,11 @@ SDR (NI USRP Hardware and HackRF One)
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
     :widths: 30,50,20,12
 
-    "Support NI USRP models","Tests passed on B210/N210/X310/N310; E3x0/X4x0 not tested","**✓**","**✓**"
-    "Support HackRF One", "HackRF One r4 tested","**✓**","**✓**"
+    "Support NI USRP models","See :ref:`csi_by_sdr`. Tests passed on B210/N210/X310/N310; E3x0/X4x0 not tested.","**✓**","**✓**"
+    "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
-    "Operating at non-standard channel (carrier frequency)","Frequency must be supported by hardware","✓(Limited, [2.3-2.6] GHz only)","**✓**"
-    "Operating with non-standard bandwidth (sampling rate)","Sampling rate must be supported by hardware","✓(Limited, 10 MHz and 30 MHz only)","**✓**"
+    "Operating at non-standard channel (carrier frequency)","See :ref:`non-standard-tx-rx`. Frequency must be supported by hardware","✓(Limited, [2.3-2.6] GHz only)","**✓**"
+    "Operating with non-standard bandwidth (sampling rate)","See :ref:`non-standard-tx-rx`. Sampling rate must be supported by hardware","✓(Limited, 10 MHz and 30 MHz only)","**✓**"
     "Manual Rx gain control","PicoScenes on SDR does not implement AGC, therefore manual RX gain control","**✓**","**✓**"
     "Tx chain specification","Specify which Tx chains are used for Tx","✓(Limited, up to 2 channels)","**✓**"
     "Tx chain specification","Specify which Rx chains are used for Rx","✓(Limited, up to 2 channels)","**✓**"

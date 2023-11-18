@@ -280,7 +280,7 @@ NI USRP features two antenna ports for each RF channel, **TX/RX** and **RX2**. P
 
 .. important:: **PicoScenes uses the TX/RX port of each RF channel by default**.
 
-.. _rx_gain_control:
+.. _rx-gain-control:
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -433,10 +433,11 @@ This commands transmit Wi-Fi 7 (EHT-SU) format 160 MHz channel bandwidth (CBW) f
 
 .. hint:: You can refer to :doc:`/presets` for full list of presets.
 
+.. _tx-gain-control:
 Tx Gain Control
 ^^^^^^^^^^^^^^^^^^^^^^
 
-PicoScenes uses ``--txpower`` option for Tx power specification. Same as ``--rx-gain`` exemplified in :ref:`rx_gain_control`, ``--txpower`` also has two modes: **absolute Tx gain value** and **normalized Tx gain value**.
+PicoScenes uses ``--txpower`` option for Tx power specification. Same as ``--rx-gain`` exemplified in :ref:`rx-gain-control`, ``--txpower`` also has two modes: **absolute Tx gain value** and **normalized Tx gain value**.
 
 The following command specifies 15 dBm Tx gain for packet injection:
 

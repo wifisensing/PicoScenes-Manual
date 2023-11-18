@@ -552,7 +552,8 @@ Assume you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth 
 Several key options are explained as below:
 
 - ``--freq 5520 5680``: ``--freq`` supports multi-channel setting. To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz.
-- ``--rate 200e6 --rx-resample-ratio 0.8``: To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Tx and Rx signals are resampled to 160 MHz.
+- ``--rate 200e6  --rx-resample-ratio 0.8``: To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Tx and Rx signals are resampled to 160 MHz.
+- ``--rate 200e6 --tx-resample-ratio 1.25``: To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Tx and Rx signals are resampled to 160 MHz.
 - ``--merge``: Rx end merges dual-channel signals into a 2x higher sampling rate stream;
 - ``--split``: Tx end splits the 400 MHz rate I/Q streams into two 200 MHz rate streams;
 - ``--rx-cbw 320`` and ``--cbw 320``: Specify baseband decoder/encoder to operate at 320 MHz CBW mode;

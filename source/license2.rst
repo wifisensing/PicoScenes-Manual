@@ -12,22 +12,32 @@ Currently, PSLP v1.0 offers two license options:
     - **Device-Bound License (PUL-DBL)**: The PUL-DBL directly binds the license to a specific COTS NICs or NI USRP devices. Users gain immediate and full access to the licensed features without the need for activation, once the licensed device is detected by the PicoScenes platform software. This model is suitable for dedicated access on specific devices, offering enhanced security and control.
 
 .. csv-table:: Comparisons of PSLP Options
-    :header: "Option", "Pros", "Cons"
+    :header: "PSLP Option", "Pros", "Cons"
 
-    "PSLP-FL", "Most of commonly used features are free.", "No/limited access to advanced features. 
-
-    See :ref:`PSLP-License-Details` for details."
-    "PSLP-TL", "
-    - Accessing all features on a single computer.
-    - Timely technical support.
-    - Transferable to other computers.
-    - Global availability", "Require online validation sometimes"
-        "PSLP-DBL", "
-    - Accessing all features on a single computer.
-    - Timely technical support.
-    - Require online validation only once
-    - Available only in China mainland", "asdfasdfasdfasdf"
-
+    "PSLP-FL (Free)", "
+    - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
+    - Regular upgrades via Debian *apt* facility
+    - Supporting to run self-made PicoScenes plugin
+    - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
+    - No/limited access to advanced features. See :ref:`PSLP-License-Details` for details.
+    - Online validation (frequent)"
+    "PSLP-TL (Paid)", "
+    - **All Pros of PSLP-FL** 
+    - **Accessing all advanced features**
+    - **Timely technical support on IM**
+    - Transferable to other computers
+    - Global availability", "
+    - A bit more expensive than *PSLP-DBL*
+    - Online validation (less frequent)"
+    "PSLP-DBL (Paid)", "
+    - **All Pros of PSLP-FL** 
+    - **Discounted bundle pricing**
+    - **Accessing all advanced features**
+    - **Timely technical support on IM**
+    - Quicker starting and long-term offline operating", "
+    - Device bound, not transferable
+    - Only for NI (Emerson) USRP SDR devices
+    - *Available only in China mainland*"
 
 
 .. _PSLP-License-Details:

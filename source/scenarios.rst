@@ -363,7 +363,6 @@ Multi-Channel Rx by Multiple NI USRP Devices
 PicoScenes supports to combine multiple NI USRP devices of the same model into a single, virtual devices, providing higher level of MIMO and larger cross-antenna phase coherency. Taking the NI USRP X310 as an example, if you have two X310 devices and each is equipped with dual UBX-160 daughterboard, **we can achieve four-channel phase coherent Rx if they are properly combined and synchronized**.
     
 .. _phase_sync_multiple_device:
-
 Clock Synchronization across Multiple USRP Devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -510,6 +509,7 @@ The ``--rate 30e6`` option specifies to clock the baseband at 30 MHz rate.
 .. hint:: PicoScenes sets ``--rate`` to 20 MHz by default. If the ``--preset`` option appears, it will override the defaults. And If both ``--preset`` and ``--rate`` appear explicitly, the ``--rate`` overrides ``--preset``.
 
 
+.. _non-standard-tx-rx:
 Non-Standard Tx/Rx with NI USRP N2x0/X3x0/N3x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

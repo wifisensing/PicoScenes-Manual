@@ -280,7 +280,6 @@ NI USRP features two antenna ports for each RF channel, **TX/RX** and **RX2**. P
 .. important:: **PicoScenes uses the TX/RX port of each RF channel by default**.
 
 .. _rx_gain_control:
-
 Rx Gain Control: Manual GC and AGC
 +++++++++++++++++++++++++++++++++++++++++++++++
 

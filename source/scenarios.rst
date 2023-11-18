@@ -404,6 +404,7 @@ Single-Device Tx with Rich Low-Level Controls
 
 In the following examples, we demonstrate how to use PicoScenes to drive SDR device to transmit Wi-Fi packets with gradually enriched low-level controls. We assume your SDR ID is ``SDR_ID`` and your SDR supports sufficiently high sampling rate, like 200 MSPS or higher.
 
+.. _sdr-tx-20-cbw:
 Transmit 20 MHz bandwidth 802.11n Format Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -421,8 +422,9 @@ The new options ``--mode injector --repeat 1e5 --delay 5e3`` can be interpreted 
 
 .. hint:: PicoScenes uses 802.11n format for packet injection by default.
 
-Transmit 20/40/80/160 MHz bandwidth 802.11a/g/n/ac/ax Format Frames
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _sdr-tx-40-or-higher-cbw:
+Transmit 40/80/160/320 MHz bandwidth 802.11a/g/n/ac/ax/be Format Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can use the powerful ``--preset`` options to specify bandwidth and format, like:
 
@@ -551,6 +553,11 @@ Signal Recording and Replay (Both Tx and Rx ends)
 .. todo:: add things Here
 
 
+.. _channel-impairment-simulation:
+Channel Impairment Simulation
+++++++++++++++++++++++++++++++++++
+
+.. todo:: add things here
 
 .. _dual-split-merge:
 Dual-Channel Spectrum Splitting and Stitching (Experimental)

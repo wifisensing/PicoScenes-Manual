@@ -217,6 +217,7 @@ PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames,
 Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax/be protocol frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. _sdr-rx-20-cbw:
 Listening to a 20 MHz bandwidth channel
 +++++++++++++++++++++++++++++++++++++++++++
 
@@ -235,8 +236,9 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
 
 .. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*. 
 
-Listening to 40/80/160 MHz Bandwidth Channels
-+++++++++++++++++++++++++++++++++++++++++++++++
+.. _sdr-rx-40-or-higher-cbw:
+Listening to 40/80/160/320 MHz Bandwidth Channels
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this case, if you want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-") using an SDR device with the ID `SDR_ID`, you can use the following command:
 

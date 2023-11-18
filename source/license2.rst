@@ -97,10 +97,11 @@ SDR (NI USRP Hardware and HackRF One)
     "RX SFO","Resample the Rx baseband signal and exert extra Sampling Frequency Offset (SFO)","","**✓**"
     "Tx I/Q Imbalance","Add Tx I/Q imbalance factor (mag and phase)","","**✓**"
     "Rx I/Q Imbalance","Add Rx I/Q imbalance factor (mag and phase)","","**✓**"
-    "CSI measurement for frames with 20 MHz bandwidth","Note: packet loss is inevitable for software-based SDR baseband. MIMO/ large bandwidth/LDPC/MU-MIMO/OFDMA will cause more packet loss.","✓(Limited, up to 2x2 MIMO)","**✓**"
+    "CSI measurement for frames with 20 MHz bandwidth","See :ref:`sdr-rx-20-cbw`","✓(Limited, up to 2x2 MIMO)","**✓**"
+    "CSI measurement for frames with 40/80/160/320 MHz bandwidth","See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
     "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for USRP (Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Inject packets that can trigger CSI measurement on QCA9300","Setting HT-rate flag not_sounding=Off by default","**✓**","**✓**"
-    "CSI measurement for frames with 40/80/160 MHz bandwidth","Note: packet loss is inevitable for software-based SDR baseband. MIMO/ large bandwidth/LDPC/MU-MIMO/OFDMA will cause more packet loss.","","**✓**"
+
     "Packet Injection in 11a/g/n/ac/ax format with 20 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","✓(Limited, up to 2x2 MIMO)","**✓**"
     "Inject ESS-enabled 11n frames","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","","**✓**"
     "Packet Injection in 11a/g/n/ac/ax format with 40/80/160 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","","**✓**"

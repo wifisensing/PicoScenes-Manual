@@ -11,18 +11,23 @@ Currently, PSLP v1.0 offers two license options:
     - **Transferable License (PUL-TL)**: The PUL-TL allows users to activate and use the license on different computers. However, only one computer can access the license at a time. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
     - **Device-Bound License (PUL-DBL)**: The PUL-DBL directly binds the license to a specific COTS NICs or NI USRP devices. Users gain immediate and full access to the licensed features without the need for activation, once the licensed device is detected by the PicoScenes platform software. This model is suitable for dedicated access on specific devices, offering enhanced security and control.
 
-.. csv-table:: PSLP Options
-    :header: "Version", "Pros", "Cons"
-    :widths: auto
+.. csv-table:: Comparisons of PSLP Options
+    :header: "Option", "Pros", "Cons"
+    :width: '30%', '30%', '30%'
 
-    "PSLP-FL", "Most of commonly used features are free.", "No/limited access to advanced features. 
-    See :ref:`PSLP-License-Details` for details."
-    "PSLP-TL", "
-  - Accessing all features on a single computer.
-  - Timely technical support.
-  - Transferable to other computers.
-  - Global availability", "Require online validation (per-day)"
-    "PSLP-DBL", "asdfasdfasdfasdfa", "asdfasdfasdfasdf"
+        "PSLP-FL", "Most of commonly used features are free.", "No/limited access to advanced features. 
+
+        See :ref:`PSLP-License-Details` for details."
+        "PSLP-TL", "
+    - Accessing all features on a single computer.
+    - Timely technical support.
+    - Transferable to other computers.
+    - Global availability", "Require online validation sometimes"
+
+        "PSLP-DBL", "
+    - Accessing all features on a single computer.
+    - Timely technical support.
+    - Available only in China mainland", "asdfasdfasdfasdf"
 
 
 

@@ -3,7 +3,7 @@ Wi-Fi Channelization
 
 **Revised on Nov. 16, 2023**
 
-Many PicoScenes users are confused by how to correctly set channel for *array_prepare_for_picoscenes* and *PicoScenes* commands. In this page, we give some typical examples and a full Wi-Fi channel table for reference.
+Many PicoScenes users are confused by how to correctly set channel for ``array_prepare_for_picoscenes`` and ``PicoScenes`` commands. In this page, we first give some examples, then we present a full Wi-Fi channel table for reference.
 
 
 Examples on How to Specify Wi-Fi Channels for COTS NICs and SDR Devices 

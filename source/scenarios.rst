@@ -538,12 +538,20 @@ You can alter the parameters of the above commands to achieve non-standard Tx/Rx
 
 .. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
 
-.. _experimental_features:
-Experimental Features
+.. _experimental-features:
+Advanced Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _dual_split_merge:
-Dual-Channel Spectrum Splitting and Stitching
+.. _signal-recording-replay:
+Signal Recording and Replay (Both Tx and Rx ends)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. todo:: add things Here
+
+
+
+.. _dual-split-merge:
+Dual-Channel Spectrum Splitting and Stitching (Experimental)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes supports combining two channels operating at adjacent frequencies with the same bandwidth, achieving a similar effect to doubling the sampling rate of a single channel. This method allows surpassing the limitation of the maximum hardware sampling rate, such as achieving an equivalent 400 MHz sampling rate using the NI USRP X310 which has a maximum of 200 MHz sampling rate.
@@ -568,8 +576,8 @@ Several key options are explained as below:
 
 .. note:: The 320 MHz sampling together with intensive *In-baseband Digital Resampling* are extremely CPU-intensive. Very high packet loss should be expected.
 
-.. _parallel_decoding:
-Multi-Thread Rx Decoding
+.. _parallel-decoding:
+Multi-Thread Rx Decoding (Experimental)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes Rx baseband decoder features an experimental multi-threading capability, allowing pp to :math:`N_{CPU}` times increase in decoding performance. Enabling this feature is easy like used in the following example:

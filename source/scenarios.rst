@@ -534,9 +534,11 @@ You can alter the parameters of the above commands to achieve non-standard Tx/Rx
 
 .. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
 
+.. _experimental_features:
 Experimental Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. _dual_split_merge:
 Dual-Channel Spectrum Splitting and Stitching
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

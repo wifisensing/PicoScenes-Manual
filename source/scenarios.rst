@@ -534,20 +534,20 @@ You can alter the parameters of the above commands to achieve non-standard Tx/Rx
 
 .. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
 
-Advanced Features
-~~~~~~~~~~~~~~~~~~~~
+Experimental Features
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Dual-Channel Spectrum Splitting and Stitching (Experimental)
+Dual-Channel Spectrum Splitting and Stitching
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PicoScenes supports combining two channels operating at adjacent frequencies with the same bandwidth, achieving a similar effect to doubling the sampling rate of a single channel. This method allows surpassing the limitation of the maximum hardware sampling rate, such as achieving an equivalent 400 MHz sampling rate using the NI USRP X310 which has a maximum of 200 MHz sampling rate.
 
-Assume you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth (CBW) frames at 5600 MHz using NI USRP X310. You can use the following commands:
+Assume you have two NI USRP X310 (with two UBX-160 daughterboards) and each is equipped with dual connection (usrp192.168.30.2_192.168.31.2 for the Rx end, and usrp192.168.40.2_192.168.41.2 for the Tx end). If you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth (CBW) frames at 5600 MHz using NI USRP X310 devices. You can use the following commands:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2 --freq 5520 5680 --rate 200e6  --rx-resample-ratio 0.8 --merge --rx-cbw 320 --rxcm 3 --mode logger   --plot" #<- Run on the first computer (Rx end)
-    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2 --freq 5520 5680 --rate 200e6 --tx-resample-ratio 1.25 --split    --cbw 320 --txcm 3 --mode injector --format EHTSU --coding LDPC --repeat 1e9 --delay 5e5" #<- Run on the second computer (Tx end)
+    PicoScenes "-d debug -i usrp192.168.40.2_192.168.41.2 --freq 5520 5680 --rate 200e6 --tx-resample-ratio 1.25 --split    --cbw 320 --txcm 3 --mode injector --format EHTSU --coding LDPC --repeat 1e9 --delay 5e5" #<- Run on the second computer (Tx end)
 
 Several key options are explained as below:
 
@@ -558,9 +558,23 @@ Several key options are explained as below:
 - ``--split``: Tx end splits the 400 MHz rate I/Q streams into two 200 MHz rate streams (before splitting, up-sampled by 1.25x);
 - ``--rx-cbw 320`` and ``--cbw 320``: Specify baseband decoder/encoder to operate at 320 MHz CBW mode;
 
-.. hint:: The 320 MHz sampling together with intensive *In-baseband Digital Resampling* are extremely CPU-intensive. Very high packet loss should be expected.
+.. hint:: The two frequencies specified to ``--freq`` can be any two hardware-supported frequencies, enabling more research flexibility.
 
-.. hint:: The following sections are not revised, the old version.
+.. note:: The 320 MHz sampling together with intensive *In-baseband Digital Resampling* are extremely CPU-intensive. Very high packet loss should be expected.
+
+.. _parallel_decoding:
+Multi-Thread Rx Decoding
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PicoScenes Rx baseband decoder features an experimental multi-threading capability, allowing pp to :math:`N_{CPU}` times increase in decoding performance. Enabling this feature is easy like used in the following example:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --mode logger --plot --mt 5" #<- Run on the first computer (Rx end)
+
+The ``--mt 5`` option instructs the Rx decoder to use 5 threads in parallel decoding.
+
+.. note:: The following sections are not revised, the old version.
 
 USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

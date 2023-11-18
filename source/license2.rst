@@ -91,7 +91,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Record and Replay Tx Baseband Signals","See :ref:`signal-recording-replay`","","**✓**"
     "Record and Replay Rx baseband Signals","See :ref:`signal-recording-replay`","**✓**","**✓**"
     "Tx/Rx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 1.0 and 1.25)","**✓**"
-    "Support external clock source","See :ref:`phase_sync_multiple_device`","**✓**","**✓**"
+    "Support External Clock Source","See :ref:`phase_sync_multiple_device`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
     "Rx Multi-Thread Decoding", "See :ref:`parallel-decoding`", "**✓** (Up to 2)","**✓**"
     "Tx and Rx with Multi-Channel Splitting and Stitching", "See :ref:`dual-split-merge`", "","**✓**"

@@ -13,20 +13,19 @@ Currently, PSLP v1.0 offers two license options:
 
 .. csv-table:: Comparisons of PSLP Options
     :header: "Option", "Pros", "Cons"
-    :width: '30%', '30%', '30%'
 
-        "PSLP-FL", "Most of commonly used features are free.", "No/limited access to advanced features. 
+    "PSLP-FL", "Most of commonly used features are free.", "No/limited access to advanced features. 
 
-        See :ref:`PSLP-License-Details` for details."
-        "PSLP-TL", "
+    See :ref:`PSLP-License-Details` for details."
+    "PSLP-TL", "
     - Accessing all features on a single computer.
     - Timely technical support.
     - Transferable to other computers.
     - Global availability", "Require online validation sometimes"
-
         "PSLP-DBL", "
     - Accessing all features on a single computer.
     - Timely technical support.
+    - Require online validation only once
     - Available only in China mainland", "asdfasdfasdfasdf"
 
 

@@ -21,16 +21,16 @@ PSLP v1.0 offers two license options:
     - Regular upgrades via Debian *apt* facility
     - Supporting to run self-made PicoScenes plugin
     - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
-    - No advanced features. See :ref:`PSLP-License-Details` for details.
+    - Limited advanced features.
     - Online validation (frequent)"
     "PSLP-PRO-TL", "
-    - *All Pros of PSLP-FL* 
+    - *All Pro features listed in * :ref:`PSLP-License-Details`
     - *Accessing all advanced features*
     - *Timely technical support on IM*
     - Transferable to other computers", "
     - Online validation (less frequent)"
     "PSLP-PRO-DBL", "
-    - *All Pros of PSLP-FL*
+    - *All Pro features listed in * :ref:`PSLP-License-Details`
     - *Accessing all advanced features*
     - *Timely technical support on IM*
     - **Discounted bundle pricing**
@@ -41,7 +41,7 @@ PSLP v1.0 offers two license options:
     - Only for NI USRP SDR devices
     - *Available only in China mainland*"
 
-.. note:: The older PSLP-PUL in v0.8.1 is automatically to PSLP-PRO-TL in v1.0.
+.. note:: PSLP-PUL v0.8.1 is converted to PSLP-PRO-TL in v1.0 automatically.
 
 .. _PSLP-License-Details:
 
@@ -76,10 +76,11 @@ SDR (NI USRP Hardware and HackRF One)
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
     :widths: 30,50,20,12
 
-    "Support all USRP models","Tests pass on B210/N210/X310/N310; E3x0/X4x0 not tested","**✓**","**✓**"
-    "Multi-USRP combination","Multiple N2x0 or X3x0 USRPs can be merged into one MIMO USRP","","**✓**"
-    "Access non-standard carrier frequency range","Should be within the range of USRP daughterboard","✓(Limited, [2.3-2.6] GHz only)","**✓**"
-    "Access non-standard sampling rate range","Should be within the range of USRP motherboard","✓(Limited, 10/30 MHz only)","**✓**"
+    "Support NI USRP models","Tests passed on B210/N210/X310/N310; E3x0/X4x0 not tested","**✓**","**✓**"
+    "Support HackRF One", "HackRF One r4 tested","**✓**","**✓**"
+    "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
+    "Operating at non-standard channel (carrier frequency)","Frequency must be supported by hardware","✓(Limited, [2.3-2.6] GHz only)","**✓**"
+    "Operating with non-standard bandwidth (sampling rate)","Sampling rate must be supported by hardware","✓(Limited, 10/30 MHz only)","**✓**"
     "Manual Rx gain control","PicoScenes on SDR does not implement AGC, therefore manual RX gain control","**✓**","**✓**"
     "Tx chain specification","Specify which Tx chains are used for Tx","✓(Limited, up to 2 channels)","**✓**"
     "Tx chain specification","Specify which Rx chains are used for Rx","✓(Limited, up to 2 channels)","**✓**"

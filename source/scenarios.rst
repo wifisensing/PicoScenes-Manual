@@ -451,6 +451,7 @@ The following command specifies 0.8 of the maximum Tx gain for packet injection:
 
 .. hint:: PicoScenes specifies ``--txpower 0.7`` by default.
 
+.. _multi-channel-tx:
 Multi-Channel (RF Chain) and MIMO Tx with NI USRP Devices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -72,15 +72,17 @@ PSLP has different feature access for different hardware: :ref:`license_sdr`, :r
 .. _license_sdr:
 SDR (NI USRP Hardware and HackRF One)
 +++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: Features Supported By USRP
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30,50,20,12
+
+.. csv-table::
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :widths: auto
 
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
     "Operating at non-Standard Channel (Carrier Frequency)","*Frequency must be supported by hardware.* See :ref:`non-standard-tx-rx`.","✓(Limited, [2.3-2.6] GHz only)","**✓**"
     "Operating with Non-Standard Bandwidth (Sampling Rate)","*Sampling rate must be supported by hardware.* See :ref:`non-standard-tx-rx`.","✓(Limited, 10 MHz and 30 MHz only)","**✓**"
+    "Rx Multi-Thread Decoding", "See :ref:`parallel-decoding`", "✓(Up to 2)","**✓**"
     "Tx Gain Control","See :ref:`tx-gain-control`","**✓**","**✓**"
     "Rx Gain Control","See :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","See :ref:`multi-channel-tx`","✓(Limited, up to 2 channels)","**✓**"
@@ -120,8 +122,8 @@ AX210
 **AX210 inherits other features of AX200**
 
 .. csv-table:: Features Supported By Ax210
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :widths: auto
 
     "6-GHz Band Access","Accessing the full 6-GHz band [5955, 7115] MHz","✓(limited,accessible frequency band is [5955,6415] MHz)","**✓**"
 
@@ -129,9 +131,9 @@ AX210
 AX200
 +++++++++++++++++++++++
 
-.. csv-table:: Features Supported By Ax200
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12
+.. csv-table::
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :widths: auto
 
     "CSI measurement via AP connection","CSI measurement by connecting to Wi-Fi AP, supporting all protocol (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
     "CSI measurement by “Monitor mode + Packet Injection”","CSI measurement for the overheard frames in monitor mode, supporting all protocols (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
@@ -147,9 +149,9 @@ AX200
 .. _license_qca9300:
 QCA9300
 +++++++++++++++++++++++
-.. csv-table:: Features Supported By QCA9300
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12
+.. csv-table::
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :widths: auto
 
     "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
     "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800 ns Guard Interval (GI), BCC/LDPC coding and not_sounding flag. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
@@ -165,9 +167,9 @@ QCA9300
 .. _license_iwl5300:
 IWL5300
 +++++++++++++++++++++++
-.. csv-table:: Features Supported By IWL5300
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12
+.. csv-table::
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :widths: auto
 
     "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
     "CSI measurement by “Monitor mode + Packet Injection”","IWL5300 reports CSI only for the 11n frames sent to a magic MAC address","**✓**","**✓**"
@@ -182,8 +184,9 @@ IWL5300
 .. _license_platform_features:
 Platform Features
 +++++++++++++++++++++++
-.. csv-table:: Platform Features
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
+
+.. csv-table::
+    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: 30, 60, 15,12
 
     "Debian apt-based installation, upgrade and uninstallation","Fresh new installation can be as short as 10 minutes.","**✓**","**✓**"

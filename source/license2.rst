@@ -80,24 +80,24 @@ SDR (NI USRP Hardware and HackRF One)
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
-    "Operating in Non-Standard Channel (Carrier Frequency)","*Frequency must be supported by hardware.* See :ref:`non-standard-tx-rx`.","✓ ([2.3-2.6] GHz)","**✓**"
-    "Operating with Non-Standard Bandwidth (Sampling Rate)","*Sampling rate must be supported by hardware.* See :ref:`non-standard-tx-rx`.","✓ (Only 10 and 30 MHz)","**✓**"
-    "Rx Multi-Thread Decoding", "See :ref:`parallel-decoding`", "✓ (Up to 2)","**✓**"
+    "Operating in Non-Standard Channel (Carrier Frequency)","*Frequency must be supported by hardware.* See :ref:`non-standard-tx-rx`.","**✓** ([2.3-2.6] GHz)","**✓**"
+    "Operating with Non-Standard Bandwidth (Sampling Rate)","*Sampling rate must be supported by hardware.* See :ref:`non-standard-tx-rx`.","**✓** (Only 10 and 30 MHz)","**✓**"
+    "Rx Multi-Thread Decoding", "See :ref:`parallel-decoding`", "**✓** (Up to 2)","**✓**"
     "Tx Gain Control","See :ref:`tx-gain-control`","**✓**","**✓**"
     "Rx Gain Control","See :ref:`rx-gain-control`","**✓**","**✓**"
-    "Tx Chain Specification","See :ref:`multi-channel-tx`","✓ (Up to 2 channels)","**✓**"
-    "Rx Chain Specification","See :ref:`multi-channel-rx-single` and :ref:`multi-channel-rx-multi`","✓ (Up to 2 channels)","**✓**"
+    "Tx Chain Specification","See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"
+    "Rx Chain Specification","See :ref:`multi-channel-rx-single` and :ref:`multi-channel-rx-multi`","**✓** (Up to 2 channels)","**✓**"
     "Record Tx Baseband signal","See :ref:`signal-recording-replay`","","**✓**"
     "Replay Tx Baseband signal","See :ref:`signal-recording-replay`","","**✓**"
     "Record Rx baseband signal","See :ref:`signal-recording-replay`","**✓**","**✓**"
     "Replay Rx baseband signal","See :ref:`signal-recording-replay`","**✓**","**✓**"
-    "CSI measurement with 20 MHz bandwidth","See :ref:`sdr-rx-20-cbw`","✓ (Up to 2x2 MIMO)","**✓**"
+    "CSI measurement with 20 MHz bandwidth","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
     "CSI measurement with 40/80/160/320 MHz bandwidth","See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
-    "Tx 11a/g/n/ac/ax/be format frames with 20 MHz Channel bandwidth (CBW)","See :ref:`sdr-tx-20-cbw`","✓ (Up to 2x2 MIMO)","**✓**"
+    "Tx 11a/g/n/ac/ax/be format frames with 20 MHz Channel bandwidth (CBW)","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
     "Tx 11a/g/n/ac/ax/be format frames with 40/80/160/320 MHz Channel bandwidth (CBW)","See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
     "Tx and Rx with Multi-Channel Splitting and Stitching", "See :ref:`dual-split-merge`", "","**✓**"
-    "Tx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","✓ (Only 1.0 and 1.25)","**✓**"
-    "Rx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","✓ (Only 0.8 and 1.0)","**✓**"
+    "Tx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 1.0 and 1.25)","**✓**"
+    "Rx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 0.8 and 1.0)","**✓**"
     "Support external clock source","See :ref:`phase_sync_multiple_device`","**✓**","**✓**"
     "TX CFO","See :ref:`channel-impairment-simulation`","","**✓**"
     "TX SFO","See :ref:`channel-impairment-simulation`","","**✓**"
@@ -110,7 +110,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Inject ESS-enabled 11n frames","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","","**✓**"
     "Batch Frame generation + Batch Packet Injection","Pre-generate frame signals with precise inter-frame spacing","","**✓**"
     "Tx Signal Precoding for 11n/ac/ax","Tx signal precoding can be used to realize beamforming, phased array and arbitrary signal equalization","","**✓**"
-    "CSI measurement for any source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","✓ (Only for the first 6 received MAC addresses)","**✓**"
+    "CSI measurement for any source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (Only for the first 6 received MAC addresses)","**✓**"
     "Tx MIMO Beamforming","Specifying Tx steering matrix, used for beamforming and phased array","","**✓**"
     "Obtain the L-LTF CSI","Return the L-LTF based CSI estimation","","**✓**"
     "Obtain Pilot-subcarrier based CSI","Return the CSI composed of per-OFDM symbol pilot subcarriers","","**✓**"
@@ -126,7 +126,7 @@ AX210
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
-    "6-GHz Band Access","Accessing the full 6-GHz band [5955, 7115] MHz","✓ (limited,accessible frequency band is [5955,6415] MHz)","**✓**"
+    "6-GHz Band Access","Accessing the full 6-GHz band [5955, 7115] MHz","**✓** (limited,accessible frequency band is [5955,6415] MHz)","**✓**"
 
 .. _license_ax200:
 AX200
@@ -141,8 +141,8 @@ AX200
     "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
     "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
-    "Packet Injection in 11ac/ax format with 80/160 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","✓ (limited, packet injection rate < = 45pkts)","**✓**"
-    "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","✓ (limited，just for the first 6 received MAC addresses)","**✓**"
+    "Packet Injection in 11ac/ax format with 80/160 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate < = 45pkts)","**✓**"
+    "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (limited，just for the first 6 received MAC addresses)","**✓**"
     "Obtain Fine-Timing Measurement (FTM) clock count","The raw clock count from the 320 MHz baseband clock. About 4s a round. Useful for precise synchronization","","**✓**"
     "CSI measurement for the specified frame types","CSI measurement for the specified frame types, e.g., measuring CSI only for Beacon Frames","","**✓**"
     "Get more complete CSI information","Get reserved CSI header field","","**✓**"
@@ -161,8 +161,8 @@ QCA9300
     "Rx chain specification","Specify which Rx chains are used for Rx","**✓**","**✓**"
     "CSI measurement for 11n frames with ESS feature on","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","**✓**","**✓**"
     "Access non-standard carrier frequency range","QCA9300 NIC hardware can operate in [2.2-2.9] and [4.4-6.1] GHz carrier frequency range with fine granularity","✓Limited, [2.3-2.6] GHz only","**✓**"
-    "Access non-standard baseband sampling rate","QCA9300 NIC baseband can operate in [2.5-80] MHz baseband sampling rate with 2.5 MHz step","✓ (Limited, 10/30 MHz only)","**✓**"
-    "Manual Rx gain control","Turning off the hardware AGC and obtaining stable CSI measurement. Manual Rx control within [0, 66] dBm.","✓ (Limited, [0-22] dBm only)","**✓**"
+    "Access non-standard baseband sampling rate","QCA9300 NIC baseband can operate in [2.5-80] MHz baseband sampling rate with 2.5 MHz step","**✓** (Limited, 10/30 MHz only)","**✓**"
+    "Manual Rx gain control","Turning off the hardware AGC and obtaining stable CSI measurement. Manual Rx control within [0, 66] dBm.","**✓** (Limited, [0-22] dBm only)","**✓**"
     "Inject ESS-enabled 11n frames","Achieving dual-CSI measurement from 1-stream packet on IWL5300/QCA9300/USRP receiver. AX200/AX210 doesn’t support ESS measurement","","**✓**"
 
 .. _license_iwl5300:
@@ -194,7 +194,7 @@ Platform Features
     "PicoScenes MATLAB Toolbox","Parsing the .csi file in MATLAB; auto-upgradable","**✓**","**✓**"
     "Using and Developing PicoScenes Plugins","PicoScenes Plugin Development Kit is open sourced","**✓**","**✓**"
     "Concurrent Multi-process of PicoScenes","Multi-Process may be easier for certain complex control","","**✓**"
-    "Multiple COTS NICs or SDR Devices","Support Multi-NIC/USRP hybrid frontend array","✓ (limited, 2 device max)","**✓**"
+    "Multiple COTS NICs or SDR Devices","Support Multi-NIC/USRP hybrid frontend array","**✓** (limited, 2 device max)","**✓**"
 
 .. _pricing:
 

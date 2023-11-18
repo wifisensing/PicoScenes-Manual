@@ -511,7 +511,7 @@ The ``--rate 30e6`` option specifies to clock the baseband at 30 MHz rate.
 .. hint:: PicoScenes sets ``--rate`` to 20 MHz by default. If the ``--preset`` option appears, it will override the defaults. And If both ``--preset`` and ``--rate`` appear explicitly, the ``--rate`` overrides ``--preset``.
 
 
-.. _non-standard-tx-rx:
+.. _non-standard-tx-rx-fixed-master-clock:
 Non-Standard Tx/Rx with NI USRP N2x0/X3x0/N3x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

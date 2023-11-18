@@ -12,30 +12,60 @@ Currently, PSLP v1.0 offers two license options:
     - **Device-Bound License (PUL-DBL)**: The PUL-DBL directly binds the license to a specific COTS NICs or NI USRP devices. Users gain immediate and full access to the licensed features without the need for activation, once the licensed device is detected by the PicoScenes platform software. This model is suitable for dedicated access on specific devices, offering enhanced security and control.
 
 .. csv-table:: Comparisons of PSLP Options
-    :header: "PSLP Option", "Pros", "Cons"
+    :header: "PSLP Option", "Pros", "Cons", "Price"
 
-    "PSLP-FL (Free)", "
+    "PSLP-FL", "
     - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
     - Regular upgrades via Debian *apt* facility
     - Supporting to run self-made PicoScenes plugin
     - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
     - No advanced features. See :ref:`PSLP-License-Details` for details.
-    - Online validation (frequent)"
-    "PSLP-TL (Paid)", "
+    - Online validation (frequent)", "Free"
+    "PSLP-TL", "
     - *All Pros of PSLP-FL* 
     - *Accessing all advanced features*
     - *Timely technical support on IM*
     - Transferable to other computers", "
-    - Online validation (less frequent)"
-    "PSLP-DBL (Paid)", "
+    - Online validation (less frequent)", "4366 RMB or 600 USD"
+    "PSLP-DBL", "
     - *All Pros of PSLP-FL*
-    - **Discounted bundle pricing**
     - *Accessing all advanced features*
     - *Timely technical support on IM*
-    - Quicker starting and long-term offline operating", "
+    - Faster program start
+    - Long-term offline operating", "
+    - Device bound, not transferable
+    - Only for NI USRP SDR devices
+    - *Available only in China mainland*", "
+    - 3000 RMB or 400 USD or,
+    - Discounted bundle pricing with NI USRP hardware"
+
+.. csv-table:: Comparisons of PSLP Options
+    :header: "", "PSLP-FL (Free)", "PSLP-TL (Paid)", "PSLP-DBL (Paid)"
+
+    "**Pros**", "
+    - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
+    - Regular upgrades via Debian *apt* facility
+    - Supporting to run self-made PicoScenes plugin
+    - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
+    - *All Pros of PSLP-FL* 
+    - *Accessing all advanced features*
+    - *Timely technical support on IM*
+    - Transferable to other computers", "
+    - *All Pros of PSLP-FL*
+    - *Accessing all advanced features*
+    - *Timely technical support on IM*
+    - Faster program start
+    - Long-term offline operating"
+    "**Cons**", "
+    - No advanced features. See :ref:`PSLP-License-Details` for details.
+    - Online validation (frequent)", "
+    - Online validation (less frequent)", "
     - Device bound, not transferable
     - Only for NI USRP SDR devices
     - *Available only in China mainland*"
+        "**Pricing**", "Free", "4366 RMB or 600 USD", "
+    - 3000 RMB or 400 USD or,
+    - Discounted bundle pricing with NI USRP hardware"
 
 .. _PSLP-License-Details:
 

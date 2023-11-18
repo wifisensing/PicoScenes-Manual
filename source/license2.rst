@@ -76,7 +76,7 @@ SDR (NI USRP Hardware and HackRF One)
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
     :widths: 30,50,20,12
 
-    "Support NI USRP Models","See :ref:`csi_by_sdr`. Tests passed on B210/N210/X310/N310; E3x0/X4x0 not tested.","**✓**","**✓**"
+    "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
     "Operating at non-Standard Channel (Carrier Frequency)","Frequency must be supported by hardware. See :ref:`non-standard-tx-rx`.","✓(Limited, [2.3-2.6] GHz only)","**✓**"
@@ -86,15 +86,15 @@ SDR (NI USRP Hardware and HackRF One)
     "Tx Chain Specification","See :ref:`multi-channel-tx`","✓(Limited, up to 2 channels)","**✓**"
     "Rx Chain Specification","See :ref:`multi-channel-rx-single` and :ref:`multi-channel-rx-multi`","✓(Limited, up to 2 channels)","**✓**"
     "Record Tx Baseband signal","Record Tx baseband signal to file (.bbsignals format)","","**✓**"
-    "Replay Tx Baseband signal","Transmit the pre-generated or recorded Tx baseband signal","","**✓**"
-    "Record Rx baseband signal","Record Rx baseband signals to file, i.e., the raw I/Q signals","**✓**","**✓**"
-    "Replay Rx baseband signal","Override the Rx stream with the pre-generated or recorded Rx signals, suitable for off-line Rx signal decoding","**✓**","**✓**"
+    "Replay Tx Baseband signal","Read signals from a .bbsignals file and transmit them","","**✓**"
+    "Record Rx baseband signal","Record Rx baseband signals to file (.bbsignals format)","**✓**","**✓**"
+    "Replay Rx baseband signal","Reply the Rx signals from a .bbsignals file and decode them","**✓**","**✓**"
+    "Tx Resampling","Up-sampling the Tx baseband signal to W/A USRP integer factor problem","✓(Limited, only 1.0 and 1.25)","**✓**"
+    "Rx Resampling","Down-sampling the Rx baseband signal to W/A USRP integer factor problem","✓(Limited, only 0.8 and 1.0)","**✓**"
     "TX CFO","Resample the Tx baseband signal and exert extra Carrier Frequency Offset (CFO)","","**✓**"
     "TX SFO","Resample the Tx baseband signal and exert extra Sampling Frequency Offset (SFO)","","**✓**"
     "RX CFO","Resample the Rx baseband signal and exert extra Carrier Frequency Offset (CFO)","","**✓**"
     "RX SFO","Resample the Rx baseband signal and exert extra Sampling Frequency Offset (SFO)","","**✓**"
-    "Tx Resampling","Up-sampling the Tx baseband signal to W/A USRP integer factor problem","✓(Limited, only 1.0 and 1.25)","**✓**"
-    "Rx Resampling","Down-sampling the Rx baseband signal to W/A USRP integer factor problem","✓(Limited, only 0.8 and 1.0)","**✓**"
     "Tx I/Q Imbalance","Add Tx I/Q imbalance factor (mag and phase)","","**✓**"
     "Rx I/Q Imbalance","Add Rx I/Q imbalance factor (mag and phase)","","**✓**"
     "CSI measurement for frames with 20 MHz bandwidth","Note: packet loss is inevitable for software-based SDR baseband. MIMO/ large bandwidth/LDPC/MU-MIMO/OFDMA will cause more packet loss.","✓(Limited, up to 2x2 MIMO)","**✓**"
@@ -131,7 +131,7 @@ AX200
 
 .. csv-table:: Features Supported By Ax200
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12,9
+    :widths: 30, 50, 20,12
 
     "CSI measurement via AP connection","CSI measurement by connecting to Wi-Fi AP, supporting all protocol (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
     "CSI measurement by “Monitor mode + Packet Injection”","CSI measurement for the overheard frames in monitor mode, supporting all protocols (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
@@ -149,7 +149,7 @@ QCA9300
 +++++++++++++++++++++++
 .. csv-table:: Features Supported By QCA9300
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12,9
+    :widths: 30, 50, 20,12
 
     "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
     "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800 ns Guard Interval (GI), BCC/LDPC coding and not_sounding flag. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
@@ -167,7 +167,7 @@ IWL5300
 +++++++++++++++++++++++
 .. csv-table:: Features Supported By IWL5300
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
-    :widths: 30, 50, 20,12,9
+    :widths: 30, 50, 20,12
 
     "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
     "CSI measurement by “Monitor mode + Packet Injection”","IWL5300 reports CSI only for the 11n frames sent to a magic MAC address","**✓**","**✓**"

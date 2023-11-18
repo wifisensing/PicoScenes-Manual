@@ -160,7 +160,7 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
     - ``-d debug``: Modifies the display level of the logging service to debug;
     - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
-    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth=160 MHz, format=HESU (802.11ax single-user)".
+    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth (CBW) 160 MHz, format=HESU (802.11ax single-user)".
     - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
     - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
 
@@ -428,7 +428,7 @@ You can use the powerful ``--preset`` options to specify bandwidth and format, l
 
     PicoScenes "-d debug -i SDR_ID --freq 5900 --mode injector --preset TX_CBW_160_EHTSU --repeat 1e5 --delay 5e3"
 
-This commands transmit Wi-Fi 7 (EHT-SU) format 160 MHz channel bandwidth frames.
+This commands transmit Wi-Fi 7 (EHT-SU) format 160 MHz channel bandwidth (CBW) frames.
 
 .. hint:: You can refer to :doc:`/presets` for full list of presets.
 
@@ -533,6 +533,31 @@ These options can be interpreted as:
 You can alter the parameters of the above commands to achieve non-standard Tx/Rx and CSI measurement. For example, you can super-sample 20 MHz channel with 40 MHz rate by ``--rate 40e6 --rx-resample-ratio 0.5`` at Rx end, or ``--rate 40e6 --tx-resample-ratio 2`` at Tx end.
 
 .. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
+
+Advanced Features
+~~~~~~~~~~~~~~~~~~~~
+
+Dual-Channel Spectrum Splitting and Stitching (Experimental)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PicoScenes supports combining two channels operating at adjacent frequencies with the same bandwidth, achieving a similar effect to doubling the sampling rate of a single channel. This method allows surpassing the limitation of the maximum hardware sampling rate, such as achieving an equivalent 400 MHz sampling rate using the NI USRP X310 which has a maximum of 200 MHz sampling rate.
+
+Assume you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth (CBW) frames at 5600 MHz using NI USRP X310. You can use the following commands:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2 --freq 5520 5680 --rate 200e6  --rx-resample-ratio 0.8 --merge --rx-cbw 320 --rxcm 3 --mode logger   --plot" #<- Run on the first computer (Rx end)
+    PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2 --freq 5520 5680 --rate 200e6 --tx-resample-ratio 1.25 --split    --cbw 320 --txcm 3 --mode injector --format EHTSU --coding LDPC --repeat 1e9 --delay 5e5" #<- Run on the second computer (Tx end)
+
+Several key options are explained as below:
+
+- ``--freq 5520 5680``: ``--freq`` supports multi-channel setting. To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz.
+- ``--rate 200e6 --rx-resample-ratio 0.8``: To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Tx and Rx signals are resampled to 160 MHz.
+- ``--merge``: Rx end merges dual-channel signals into a 2x higher sampling rate stream;
+- ``--split``: Tx end splits the 400 MHz rate I/Q streams into two 200 MHz rate streams;
+- ``--rx-cbw 320`` and ``--cbw 320``: Specify baseband decoder/encoder to operate at 320 MHz CBW mode;
+
+.. hint:: The 320 MHz sampling together with intensive *In-baseband Digital Resampling* are extremely CPU-intensive. Very high packet loss should be expected.
 
 .. hint:: The following sections are not revised, the old version.
 

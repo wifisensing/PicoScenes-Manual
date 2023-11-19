@@ -600,15 +600,21 @@ In order to combating the high-doppler effect in moving scenarios, the High Dopp
 
     PicoScenes "-d debug -i usrp --freq 5240 --preset TX_CBW_20_HESU --high-doppler 10 --repeat 1e9 --delay 5e3"
 
-This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols.
+This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols. ``--high-doppler`` has two possible values, 10 or 20.
 
 .. note:: High Doppler-format is an optional feature of 802.11ax standard. AX200/AX210 doesn't support this mode.
 
 .. _tx-rx-ess:
-802.11n Extra Spatial Sounding Frames
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+802.11n Extra Spatial Sounding (ESS) Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: add things here
+ESS feature can insert <3 HT-LTFs immediate after the normal HT-LTFs :math:`N_{ess}`, allowing Rx end to measure more CSI than the number of spatial streams :math:`N_{sts}`. Users can enable this feature by ``--ess`` option like the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5240 --ess 2 --repeat 1e9 --delay 5e3"
+
+This command transmits 802.11n frames with 2 additional ESS HT-LTFs.
 
 .. _channel-impairment-simulation:
 Channel Impairment Simulation

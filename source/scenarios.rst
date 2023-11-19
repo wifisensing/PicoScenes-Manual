@@ -553,7 +553,7 @@ Signal Recording and Replaying (Both Tx and Rx ends)
 - Signal Recording: PicoScenes provides a pair of intuitive options, ``--tx-to-file`` and ``--rx-to-file``, which allow users to save the I/Q baseband signals to be transmitted or received into a ".bbsignals" file. 
 - Signal Replaying: PicoScenes offers another pair of options, ``--tx-from-file`` and ``--rx-from-file``, which enable users to transmit the signals stored in a ".bbsignals" file or use the signals stored in a ".bbsignals" file as the signals received in real-time.
 
-Proper combinations of these four options can greatly facilitate ISAC research.
+Proper combinations of these four options can greatly facilitate ISAC research. Here we show two most useful cases.
 
 Case 1: Overcoming Packet Loss by Live Recording + Offline Replaying
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -573,6 +573,16 @@ This command records the I/Q baseband signals into a file named *cbw160_record.b
 This "Live Recording + Offline Replaying" approach, overcoming the issue of packet loss, is suitable for timing insensitive ISAC research.
 
 .. hint:: PicoScenes MATLAB Toolbox Core (PMT-Core) also provides a decoder for .bbsignals file. You can open the .bbsignals files by just dragging the file into the MATLAB Command Window.
+
+
+Case 2: Fine-Grained Tx Control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can open the saved .bbsignals file in MATLAB, manipulate the signals in MATLAB, save the signals back into a .bbsignals file, and replay the modified signals by ``--tx-from-file`` command.
+
+This capability enables users to have full control over the Tx signals. Lots of applications are awaiting to be explored.
+
+.. note:: To save signals back into .bbsignals file, you can use ``writeBBSignals`` commands provided by PMT-Core.
 
 .. _multi-csi-measurement:
 Multiple CSI Measurements per Frame

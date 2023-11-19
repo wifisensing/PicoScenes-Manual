@@ -9,45 +9,47 @@ Before we proceed, it is assumed that you have already installed the PicoScenes 
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
-Here we introduce two fundamentals:  Wi-Fi channelization and device naming protocol.
-
-Basic Facts of Wi-Fi Channelization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Many PicoScenes users are confused about how to correctly specify Wi-Fi channels for COTS NICs and SDR devices. We create a big table :doc:`/channels` for reference.
+Here we introduce two fundamentals:  device naming and Wi-Fi channelization.
 
 .. _device_naming:
 
 Device Naming
 ~~~~~~~~~~~~~~~~~
 
-In PicoScenes, a reliable and user-friendly device naming protocol is necessary to support the concurrent operation of multiple Wi-Fi NICs and SDR devices. In the following sections, we will introduce the naming protocols for commercial Wi-Fi NICs, SDR devices, and Virtual SDR devices.
+In order to mult-frontend operation, we devise an simply device naming protocol, which is elaborated in the follow section.
 
 .. _naming_for_nics:
 
 Device Naming for Commercial Wi-Fi NICs
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
 
-Open a terminal and run the command ``array_status``. A list of all the PCI-E based Wi-Fi NICs will be displayed in the terminal. The sample device list below shows an example of the output:
+PicoScenes provides a script named ``array_status``, which lists all the **PCI-E based Wi-Fi NICs**. A sample output is as below:
 
 .. figure:: /images/array_status.png
-   :figwidth: 600px
+   :figwidth: 700px
    :target: /images/array_status.png
    :align: center
 
-   Each Wi-Fi NIC has `four` IDs.
+   8 Wi-Fi NICs detected, and each has `four` IDs.
 
-In the array_status output, there are four IDs provided for each NIC: *PhyPath*, *PhyId*, *DevId*, and *MonId*. Let's first explain the latter three IDs, followed by *PhyPath*.
+In the array_status output, there are four IDs for each NIC: *PhyPath*, *PhyId*, *DevId*, and *MonId*. Their explanations are shown below. Among them, we strongly **recommend using PhyPath ID** in all scenarios.
 
-- **PhyId**: This is the *Physical ID* assigned by the Linux mac80211 module at the system level, primarily used for low-level hardware control. *It may change upon each reboot*.
-- **DevId**: This is the *Device ID* assigned by the Linux mac80211 module at the system level, mainly used for normal Wi-Fi connections. *It may change upon each reboot*.
-- **MonId**: This is the *Monitor interface ID* for a Wi-Fi NIC, primarily used for traffic monitoring and packet injection. *Users can change this ID at any time*.
-- **PhyPath (Recommended)**: To address the issue of inconsistent system-assigned IDs across reboots, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations as it is bound to the PCI-E connection hierarchy**. For example, a Wi-Fi NIC with PhyPath ``3`` indicates it is the third device in the PCI-E hierarchy, while a Wi-Fi NIC with PhyPath ``53`` indicates it is the 3rd leaf node of the 5th branch node in the PCI-E hierarchy. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts. **We highly recommend using PhyPath in all scenarios**.
+.. csv-table:: ID System for COTS NICs
+    :header: "ID Type", "Description"
+    :widths: auto
+
+    "**PhyId**", "The *Physical ID* is assigned by the Linux mac80211 module at the system level, primarily used for low-level hardware control. The main drawback is that *Physical ID* may change upon each reboot*."
+    "**DevId**", "The *Device ID* is also assigned by the Linux mac80211 module at the system level, mainly used for link-level Wi-Fi configuration. The main drawback is that *Device ID* may change upon each reboot*."
+    "**MonId**", "The *Monitor interface ID* is created by user for the attached monitor interface. The main drawback is that the monitor interface does not exist by default."
+    "**PhyPath (Recommended)**", "To address the issue of ID inconsistency, we introduce a new ID called *PhyPath*, listed in the first column of the ``array_status`` output. The main advantage of PhyPath is that **it remains consistent across reboots and even system reinstallations, because it is bound to the PCI-E connection hierarchy**. *PhyPath* is supported throughout the PicoScenes system, including the PicoScenes program, plugins, and bash scripts."
+
+.. _naming-for-sdr:
+Device Naming for SDR
++++++++++++++++++++++++++++++++++
 
 .. _naming_for_usrp:
-
 Device Naming for NI USRP
-+++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We devise a simple and scalable naming protocol for USRP devices. It has four forms:
 
@@ -59,165 +61,19 @@ We devise a simple and scalable naming protocol for USRP devices. It has four fo
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
 Device Naming for HackRF One
-+++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the device number with is the same order as the command ``SoapySDRUtil --find="driver=hackrf"`` lists.
 
 Device Naming for Virtual SDR
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Virtual SDR device adopts the naming pattern of ``virtualsdr<ANY_GIVEN_ID>``, *e.g.*, ``virtualsdr0``, ``virtualsdr_astringId`` or the simplest ``virtualsdr``.
 
-.. _ax200-measurements:
+Basic Facts of Wi-Fi Channelization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CSI Measurement using AX200/AX210 NICs
------------------------------------------------------------
-
-
-.. _ax200-wifi-ap:
-
-AX200/AX210 + Wi-Fi AP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
-
-To measure CSI from the AX200/AX210, follow these three steps:
-
-#. Determine the NIC's PhyPath ID by running the ``array_status`` command in a terminal. For device naming conventions for commercial NICs, please refer to the :ref:`naming_for_nics` section.
-#. Assuming the PhyPath ID is ``3``, execute the following command:
-
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 3 --mode logger --plot"
-
-    The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
-
-      - ``-d debug``: Modifies the display level of the logging service to debug;
-      - ``-i 3 --mode logger``: Switches the device <3> to CSI logger mode;
-      - ``--plot``: Live-plots the CSI measurements.
-
-    For more detailed explanations, please see the :doc:`parameters` section.
-
-#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
-
-The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
-
-.. _ax200-monitor:
-
-Single AX200/AX210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
-
-To enable fully-passive CSI measurement, follow these three steps:
-
-#. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. Let's assume the PhyPath ID is ``3``.
-#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on. See :doc:`/channels` for details.
-#. Run the command:
-
-    .. code-block:: bash
-    
-        PicoScenes "-d debug -i 3 --mode logger --plot"
-
-#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C.
-
-The above command has four program options *"-d debug -i 3 --mode logger --plot"*. These options have the same behavior as described in the :ref:`ax200-wifi-ap` Section.
-
-The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
-
-.. _ax200-monitor-injection:
-
-Two AX200/AX210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. By combining this capability with the CSI measurement ability shown in the :ref:`ax200-monitor` section, PicoScenes provides fine-grained low-level control for CSI measurement.
-
-To enable this test, you need two computers, each equipped with an AX200/AX210 NIC. Follow these three steps:
-
-#. Determine the PhyPath ID of each NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` for the first computer and ``4`` for the second.
-#. Put both NICs into monitor mode by executing the command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI. Run the following commands on the respective computers:
-
-    .. code-block:: bash
-        
-        array_prepare_for_picoscenes 3 "5640 160 5250" #<-- Run on the first computer 
-        array_prepare_for_picoscenes 4 "5640 160 5250" #<-- Run on the second computer
-    
-    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz. See :doc:`/channels` for details.
-
-#. On the first computer, run the following command in a terminal:
-
-    .. code-block:: bash
-
-        PicoScenes "-d debug -i 3 --mode logger --plot"
-
-#. On the second computer, assuming the researchers want to measure 160 MHz bandwidth 802.11ax format CSI, run the following command in a terminal:
-
-    .. code-block:: bash
-
-        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
-        
-    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
-
-    - ``-d debug``: Modifies the display level of the logging service to debug;
-    - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
-    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth (CBW) 160 MHz, format=HESU (802.11ax single-user)".
-    - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
-    - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
-
-#. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
-
-    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
-
-.. hint:: You can refer to :doc:`/presets` for full list of presets.
-
-.. _ax200-monitor-injection-mcs-antenna:
-
-Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
-
-On the first computer, if you want to use only the 1st antenna for Rx, modify the command as follows:
-
-.. code-block:: bash
-
-    PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
-
-The additional ``--rxcm 1`` option sets the Rx chainmask to 1, indicating the use of the 1st antenna for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
-
-On the second computer, if you want to use only the 2nd antenna for Tx and specify the MCS value as 5, modify the command as follows:
-
-.. code-block:: bash
-
-    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
-
-The additional ``--txcm 2`` option sets the Tx chainmask to 2, indicating the use of the 2nd antenna for Tx. The ``--txcm`` option has the same value style as `--rxcm`, but for transmission. The `--mcs 5` option sets the Tx MCS to 5.
-
-If you want to measure the largest CSI with 160 MHz bandwidth and 2x2 MIMO, further modifications are required. On the first computer, to receive 2x2 MIMO frames, you need to use 2 antennas for Rx. You can explicitly set ``--rxcm 3`` as shown below or just remove the `--rxcm` option, which defaults to using ``--rxcm 3``:
-
-.. code-block:: bash
-
-    PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
-
-On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 antennas for Tx. You can explicitly set ``--txcm 3``` as shown below or just remove the ``--txcm`` option, which defaults to using ``--txcm 3``:
-
-.. code-block:: bash
-
-    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
-
-The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N_{STS}=2`) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
-
-.. _live-channel-bw-changing:
-Live Channel/Bandwidth Changing 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PicoScenes provides ``--channel`` option to change channel settings in real-time, without re-execution of ``array_prepare_for_picoscenes`` script. For example, assuming you AX210/AX200 NIC, let's say ID <3>, is working at a 80 MHz CBW channel "5180 80 5210" (See :doc:`/channels` for details). Now if you want your NIC to listen to a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
-
-.. code-block:: bash
-
-    PicoScenes "-d debug -i 3 --channel '5955 160 6025' --preset TX_CBW_160_HESU --mode logger --plot"
-
-the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
+Many PicoScenes users are confused about how to correctly specify Wi-Fi channels for COTS NICs and SDR devices. We create a big table :doc:`/channels` for reference.
 
 
 .. _csi_by_sdr:
@@ -676,6 +532,157 @@ PicoScenes Rx baseband decoder features an experimental multi-threading capabili
     PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --mode logger --plot --mt 5" #<- Run on the first computer (Rx end)
 
 The ``--mt 5`` option instructs the Rx decoder to use 5 threads in parallel decoding.
+
+
+.. _ax200-measurements:
+
+CSI Measurement using AX200/AX210 NICs
+-----------------------------------------------------------
+
+.. _ax200-wifi-ap:
+
+AX200/AX210 + Wi-Fi AP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
+
+To measure CSI from the AX200/AX210, follow these three steps:
+
+#. Determine the NIC's PhyPath ID by running the ``array_status`` command in a terminal. For device naming conventions for commercial NICs, please refer to the :ref:`naming_for_nics` section.
+#. Assuming the PhyPath ID is ``3``, execute the following command:
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 3 --mode logger --plot"
+
+    The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
+
+      - ``-d debug``: Modifies the display level of the logging service to debug;
+      - ``-i 3 --mode logger``: Switches the device <3> to CSI logger mode;
+      - ``--plot``: Live-plots the CSI measurements.
+
+    For more detailed explanations, please see the :doc:`parameters` section.
+
+#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
+
+The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
+
+.. _ax200-monitor:
+
+Single AX200/AX210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
+
+To enable fully-passive CSI measurement, follow these three steps:
+
+#. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. Let's assume the PhyPath ID is ``3``.
+#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on. See :doc:`/channels` for details.
+#. Run the command:
+
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 3 --mode logger --plot"
+
+#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C.
+
+The above command has four program options *"-d debug -i 3 --mode logger --plot"*. These options have the same behavior as described in the :ref:`ax200-wifi-ap` Section.
+
+The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+
+.. _ax200-monitor-injection:
+
+Two AX200/AX210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. By combining this capability with the CSI measurement ability shown in the :ref:`ax200-monitor` section, PicoScenes provides fine-grained low-level control for CSI measurement.
+
+To enable this test, you need two computers, each equipped with an AX200/AX210 NIC. Follow these three steps:
+
+#. Determine the PhyPath ID of each NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` for the first computer and ``4`` for the second.
+#. Put both NICs into monitor mode by executing the command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI. Run the following commands on the respective computers:
+
+    .. code-block:: bash
+        
+        array_prepare_for_picoscenes 3 "5640 160 5250" #<-- Run on the first computer 
+        array_prepare_for_picoscenes 4 "5640 160 5250" #<-- Run on the second computer
+    
+    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz. See :doc:`/channels` for details.
+
+#. On the first computer, run the following command in a terminal:
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i 3 --mode logger --plot"
+
+#. On the second computer, assuming the researchers want to measure 160 MHz bandwidth 802.11ax format CSI, run the following command in a terminal:
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
+        
+    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
+
+    - ``-d debug``: Modifies the display level of the logging service to debug;
+    - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
+    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth (CBW) 160 MHz, format=HESU (802.11ax single-user)".
+    - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
+    - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
+
+#. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
+
+    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+
+.. hint:: You can refer to :doc:`/presets` for full list of presets.
+
+.. _ax200-monitor-injection-mcs-antenna:
+
+Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
+
+On the first computer, if you want to use only the 1st antenna for Rx, modify the command as follows:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
+
+The additional ``--rxcm 1`` option sets the Rx chainmask to 1, indicating the use of the 1st antenna for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
+
+On the second computer, if you want to use only the 2nd antenna for Tx and specify the MCS value as 5, modify the command as follows:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
+
+The additional ``--txcm 2`` option sets the Tx chainmask to 2, indicating the use of the 2nd antenna for Tx. The ``--txcm`` option has the same value style as `--rxcm`, but for transmission. The `--mcs 5` option sets the Tx MCS to 5.
+
+If you want to measure the largest CSI with 160 MHz bandwidth and 2x2 MIMO, further modifications are required. On the first computer, to receive 2x2 MIMO frames, you need to use 2 antennas for Rx. You can explicitly set ``--rxcm 3`` as shown below or just remove the `--rxcm` option, which defaults to using ``--rxcm 3``:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
+
+On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 antennas for Tx. You can explicitly set ``--txcm 3``` as shown below or just remove the ``--txcm`` option, which defaults to using ``--txcm 3``:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
+
+The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N_{STS}=2`) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
+
+.. _live-channel-bw-changing:
+Live Channel/Bandwidth Changing 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PicoScenes provides ``--channel`` option to change channel settings in real-time, without re-execution of ``array_prepare_for_picoscenes`` script. For example, assuming you AX210/AX200 NIC, let's say ID <3>, is working at a 80 MHz CBW channel "5180 80 5210" (See :doc:`/channels` for details). Now if you want your NIC to listen to a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --channel '5955 160 6025' --preset TX_CBW_160_HESU --mode logger --plot"
+
+the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
 
 .. note:: The following sections are not revised, the old version.
 

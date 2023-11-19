@@ -93,10 +93,8 @@ SDR (NI USRP Hardware and HackRF One)
     "Multi-USRP Combination","Combining multiple USRP devices into a virtual and larger USRP with more synchronized channels. See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
     "Multi-Channel Splitting and Stitching", "Want to sampling a 400 MHz channel by a dual-channel 200 MHz max USRP X3x0/N3x0? See :ref:`dual-split-merge`", "","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
-    "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","See :ref:`channel-impairment-simulation`","","**✓**"
-    "Interoperability: Tx frames that triggers CSI measurement on IWL5300","Dedicated “—5300” option for USRP (Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
-    "Interoperability: Tx frames that triggers CSI measurement on QCA9300","Setting HT-rate flag not_sounding=Off by default","**✓**","**✓**"
-
+    "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
+    "Interoperability with old QCA9300 and IWL5300","Capability to trigger CSI measurement for QCA9300 by default; providing “—5300” option to trigger CSI measurement for IWL5300","**✓**","**✓**"
     "Batch-Tx Frames with Precise Timing","Pre-generate frame signals with precise inter-frame spacing","","**✓**"
     "Tx Signal Precoding for 11n/ac/ax/be","Tx signal precoding can be used to realize beamforming, phased array and arbitrary signal equalization","","**✓**"
     "Rx and CSI Measurement for All MAC address","Rx and CSI Measurement for all the overheard frames which are with different source MAC address","**✓** (Only for the first 6 received MAC addresses)","**✓**"

@@ -8,10 +8,10 @@ Introducing PSLP
 
 PSLP v1.0 offers two license options: 
 
-- **Free License (PSLP-FL)**: PSLP-FL is free of charge but comes with limited access to advanced features.
-- **Pro License (PSLP-PRO)**: PSLP-PRO users pay a minimal license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
+- **Free (PSLP-FL)**: PSLP-FL is free of charge but comes with limited access to advanced features.
+- **Pro (PSLP-PRO)**: PSLP-PRO users pay a minimal license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
     - **Transferable License (PSLP-PRO-TL)**: It allows users to activate and use the license on a single computer. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
-    - **Device-Bound License (PSLP-PRO-DBL)**: *This option is only available in mainland China*. **This option binds a Pro License to a newly-bought NI USRP device from our partner store.** Compared to PSLP-PRO-TL, users of PSLP-PRO-DBL gain immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. *We offer discounted bundle pricing for this option*.
+    - **Device-Bound License (PSLP-PRO-DBL)**: *This option is only available in mainland China*. **This option binds a Pro to a newly-bought NI USRP device from our partner store.** Compared to PSLP-PRO-TL, users of PSLP-PRO-DBL gain immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. *We offer discounted bundle pricing for this option*.
 
 .. csv-table:: Comparisons of PSLP Options
     :header: "PSLP Option", "Pros", "Cons"
@@ -53,7 +53,7 @@ Technical Support
 ++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description","FL","PRO"
+    :header: "Feature", "Feature Description","Free","Pro"
     :widths: 30, 60,15,12
 
     "Good documentation","https://ps.zpj.io","**✓**","**✓**"
@@ -72,7 +72,7 @@ SDR (NI USRP Hardware and HackRF One)
 +++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
+    :header: "Feature", "Feature Description / Reference","Free","Pro"
     :widths: auto
 
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
@@ -110,7 +110,7 @@ AX210/AX200
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
+    :header: "Feature", "Feature Description / Reference","Free","Pro"
     :widths: auto
 
     "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
@@ -130,7 +130,7 @@ AX210/AX200
 QCA9300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
+    :header: "Feature", "Feature Description / Reference","Free","Pro"
     :widths: auto
 
     "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
@@ -148,7 +148,7 @@ QCA9300
 IWL5300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
+    :header: "Feature", "Feature Description / Reference","Free","Pro"
     :widths: auto
 
     "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
@@ -166,7 +166,7 @@ Platform Features
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
+    :header: "Feature", "Feature Description / Reference","Free","Pro"
     :widths: 30, 60, 15,12
 
     "Debian apt-based installation, upgrade and uninstallation","Fresh new installation can be as short as 10 minutes.","**✓**","**✓**"

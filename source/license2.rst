@@ -77,9 +77,9 @@ SDR (NI USRP Hardware and HackRF One)
 
     "SDR Hardware Support","NI USRP and HackRF One. See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","Support up to Wi-Fi 7 and 320 MHz CBW. See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
     "Receiving and Measuring CSI for 20 MHz CBW Frames","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
+    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","Support up to Wi-Fi 7 and 320 MHz CBW. See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
     "Rx Multi-Thread Decoding", "Improve Rx decoding performance significantly. See :ref:`parallel-decoding`", "**✓** (Up to 2)","**✓**"
     "Tx/Rx Gain Control","Manual Tx/Rx gain control, and Rx AGC. See :ref:`tx-gain-control` and :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","Multi-(RF) Channel and MIMO Transmission. See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"

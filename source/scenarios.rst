@@ -272,7 +272,7 @@ Please pay special attention to the comma(**,**) and underline (**_**) in the op
 
 .. _sdr_tx:
 
-Transmit 802.11a/g/n/ac/ax/be protocol frames using SDR Devices
+Transmitting 802.11a/g/n/ac/ax/be protocol frames using SDR Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Single-Device Tx with Rich Low-Level Controls
@@ -281,7 +281,7 @@ Single-Device Tx with Rich Low-Level Controls
 In the following examples, we demonstrate how to use PicoScenes to drive SDR device to transmit Wi-Fi packets with gradually enriched low-level controls. We assume your SDR ID is ``SDR_ID`` and your SDR supports sufficiently high sampling rate, like 200 MSPS or higher.
 
 .. _sdr-tx-20-cbw:
-Transmit 20 MHz bandwidth 802.11n Format Frames
+Transmitting 20 MHz bandwidth 802.11n Format Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you just want to transmit some 802.11n rate, 20 MHz bandwidth frames at 5900 MHz channel for CSI measurement, you can use the following command:
@@ -299,7 +299,7 @@ The new options ``--mode injector --repeat 1e5 --delay 5e3`` can be interpreted 
 .. hint:: PicoScenes uses 802.11n format for packet injection by default.
 
 .. _sdr-tx-40-or-higher-cbw:
-Transmit 40/80/160/320 MHz bandwidth 802.11a/g/n/ac/ax/be Format Frames
+Transmitting 40/80/160/320 MHz bandwidth 802.11a/g/n/ac/ax/be Format Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can use the powerful ``--preset`` options to specify bandwidth and format, like:

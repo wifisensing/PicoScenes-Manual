@@ -92,7 +92,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Tx/Rx Resampling","See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 1.0 and 1.25)","**✓**"
     "Support External Clock Source","See :ref:`phase_sync_multiple_device`","**✓**","**✓**"
     "Multi-USRP Combination","See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
-    "Multiple CSI Measurement per Frame","802.11ax High Doppler format (with multiple Midambles) and 802.11n Extra Spatial Sounding (ESS). See :ref:`multi-csi-measurement`.","","**✓**"
+    "Multiple CSI Measurement per Frame","Up to full-size 39 CSI measurements per frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Tx and Rx with Multi-Channel Splitting and Stitching", "See :ref:`dual-split-merge`", "","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","See :ref:`channel-impairment-simulation`","","**✓**"
     "Interoperability: Tx frames that triggers CSI measurement on IWL5300","Dedicated “—5300” option for USRP (Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"

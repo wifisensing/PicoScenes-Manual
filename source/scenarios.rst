@@ -600,7 +600,7 @@ In order to combating the high-doppler effect in moving scenarios, the High Dopp
 
     PicoScenes "-d debug -i usrp --freq 5240 --preset TX_CBW_20_HESU --high-doppler 10 --repeat 1e9 --delay 5e3"
 
-This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols. ``--high-doppler`` has two possible values, 10 or 20.
+This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols. ``--high-doppler`` option has two possible values, 10 or 20.
 
 .. note:: High Doppler-format is an optional feature of 802.11ax standard. AX200/AX210 doesn't support this mode.
 
@@ -614,7 +614,9 @@ ESS feature can insert <3 HT-LTFs immediate after the normal HT-LTFs :math:`N_{e
 
     PicoScenes "-d debug -i usrp --freq 5240 --ess 2 --repeat 1e9 --delay 5e3"
 
-This command transmits 802.11n frames with 2 additional ESS HT-LTFs.
+This command transmits 802.11n frames with 2 additional ESS HT-LTFs (via option ``--ess 2``).
+
+.. note:: ESS is an optional feature of 802.11n standard. QCA9300 and IWL5300 support this feature, while AX200/AX210 not.
 
 .. _channel-impairment-simulation:
 Channel Impairment Simulation

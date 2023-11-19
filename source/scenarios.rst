@@ -112,7 +112,7 @@ The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames
 To enable fully-passive CSI measurement, follow these three steps:
 
 #. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. Let's assume the PhyPath ID is ``3``.
-#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on.
+#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on. See :doc:`/channels` for details.
 #. Run the command:
 
     .. code-block:: bash
@@ -142,7 +142,7 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
         array_prepare_for_picoscenes 3 "5640 160 5250" #<-- Run on the first computer 
         array_prepare_for_picoscenes 4 "5640 160 5250" #<-- Run on the second computer
     
-    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz.
+    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz. See :doc:`/channels` for details.
 
 #. On the first computer, run the following command in a terminal:
 
@@ -211,7 +211,14 @@ The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N
 Live Channel/Bandwidth Changing 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. todo:: live change
+PicoScenes provides ``--channel`` option to change channel settings in real-time, without re-execution of ``array_prepare_for_picoscenes`` script. For example, assuming you AX210/AX200 NIC, let's say ID <3>, is working at a 80 MHz CBW channel "5180 80 5210" (See :doc:`/channels` for details). Now if you want your NIC to listen to a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i 3 --channel '5955 160 6025' --preset TX_CBW_160_HESU --mode logger --plot"
+
+the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
+
 
 .. _csi_by_sdr:
 CSI Measurement using NI USRP or HackRF One SDR

@@ -938,46 +938,47 @@ You may download and run the complete takeaway bash script for this scenario at
 Interoperability among SDR and COTS NICs
 --------------------------------------------
 
+The following table shows the interoperability among PicoScenes-supported devices. Each grid lists the transmission formats that can trigger frame reception and CSI measurement.
 
 .. csv-table:: 
     :widths: 10,30,30,30,30
 
     "", "SDR (RX)", "AX210/AX200 (RX)", "QCA9300 (RX)", "IWL5300 (RX)"
     "SDR (TX)", "Perfect", "
-    802.11a/g/n/ac/ax format
+    11a/g/n/ac/ax
 
-    20/40/80/160 MHz CBW
+    20/40/80/160 CBW
 
     Up to 2x2 MIMO
 
     No support for High-Doppler and ESS", "
-    802.11n only
+    11n only
 
-    20/40 MHz CBW
+    20/40 CBW
 
     Up to 3x3 MIMO
 
     Support non-standard channel/bandwidth
 
     Support ESS", "
-    802.11n only
+    11n only
 
-    20/40 MHz CBW
+    20/40 CBW
 
     Up to 3x3 MIMO
     
     Support ESS"
     "AX210/AX200 (TX)", "
-    802.11a/g/n/ac/ax format
+    11a/g/n/ac/ax
     
-    20/40/80/160 MHz CBW
+    20/40/80/160 CBW
     
     Up to 2x2 MIMO
     ", "
     
-    802.11a/g/n/ac/ax format
+    11a/g/n/ac/ax
     
-    20/40/80/160 MHz CBW
+    20/40/80/160 CBW
     
     Up to 2x2 MIMO
     ", "
@@ -985,16 +986,16 @@ Interoperability among SDR and COTS NICs
     Unavailable
     ", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 2x2 MIMO"
     "QCA9300 (TX)", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 3x3 MIMO
     
@@ -1002,15 +1003,15 @@ Interoperability among SDR and COTS NICs
     
     Support ESS", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 2x2 MIMO", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 3x3 MIMO
     
@@ -1018,32 +1019,32 @@ Interoperability among SDR and COTS NICs
     
     Support ESS", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 3x3 MIMO
     
     Support ESS"
     "IWL5300 (TX)", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 3x3 MIMO", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 2x2 MIMO", "
     
     Unavailable", "
     
-    802.11n only
+    11n only
     
-    20/40 MHz CBW
+    20/40 CBW
     
     Up to 3x3 MIMO
     "

@@ -85,6 +85,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Tx/Rx Gain Control","See :ref:`tx-gain-control` and :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"
     "Rx Chain Specification","See :ref:`multi-channel-rx-single` and :ref:`multi-channel-rx-multi`","**✓** (Up to 2 channels)","**✓**"
+    "Antenna Selection", ,"See :ref:`antenna_selection`","**✓**","**✓**"
     "Operating in Non-Standard Channel (Carrier Frequency)","*Frequency must be supported by hardware.* See :ref:`non-standard-tx-rx`.","**✓** ([2.3-2.6] GHz)","**✓**"
     "Operating with Non-Standard Bandwidth (Sampling Rate)","*Sampling rate must be supported by hardware.* See :ref:`non-standard-tx-rx`.","**✓** (Only 10 and 30 MHz)","**✓**"
     "Record and Replay Tx Baseband Signals","See :ref:`signal-recording-replay`","","**✓**"

@@ -45,7 +45,7 @@ PSLP v1.0 offers two license options:
 
 .. _PSLP-License-Details:
 
-PSLP Details (v1.0)
+Details of PSLP v1.0
 -----------------------------
 
 We divide the PSLP into three aspects: :ref:`license_technical_support`, :ref:`license_hardware_features`, and :ref:`license_platform_features`.
@@ -79,10 +79,10 @@ SDR (NI USRP Hardware and HackRF One)
 
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
-    "Tx 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Tx 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
-    "Rx Frames and CSI Measurement with 20 MHz CBW","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Rx Frames and CSI Measurement with 40/80/160/320 MHz CBW","See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
+    "Receiving and Measuring CSI for 20 MHz CBW Frames","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
+    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
     "Rx Multi-Thread Decoding", "See :ref:`parallel-decoding`", "**✓** (Up to 2)","**✓**"
     "Tx/Rx Gain Control","See :ref:`tx-gain-control` and :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"
@@ -117,7 +117,7 @@ AX210
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
-    "6-GHz Band Access","Accessing the full 6-GHz band [5955, 7115] MHz","**✓** (limited,accessible frequency band is [5955,6415] MHz)","**✓**"
+    "6 GHz Band Access","Accessing the 6 GHz band channels (5945 to 7125 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only)","**✓**"
 
 .. _license_ax200:
 AX200
@@ -133,7 +133,7 @@ AX200
     "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
     "Packet Injection in 11ac/ax format with 80/160 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate < = 45pkts)","**✓**"
-    "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (limited，just for the first 6 received MAC addresses)","**✓**"
+    "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (limited, just for the first 6 received MAC addresses)","**✓**"
     "Obtain Fine-Timing Measurement (FTM) clock count","The raw clock count from the 320 MHz baseband clock. About 4s a round. Useful for precise synchronization","","**✓**"
     "CSI measurement for the specified frame types","CSI measurement for the specified frame types, e.g., measuring CSI only for Beacon Frames","","**✓**"
     "Get more complete CSI information","Get reserved CSI header field","","**✓**"

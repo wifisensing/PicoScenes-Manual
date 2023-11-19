@@ -54,7 +54,7 @@ We divide the PSLP into three aspects: :ref:`license_technical_support`, :ref:`l
 Technical Support
 ++++++++++++++++++
 
-.. csv-table:: PSLP Technical Support
+.. csv-table::
     :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
     :widths: 30, 60,15,12
 

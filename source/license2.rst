@@ -46,7 +46,7 @@ PSLP v1.0 offers two license options:
 Details of PSLP v1.0
 -----------------------------
 
-We divide the PSLP into three aspects: :ref:`license_technical_support`, :ref:`license_hardware_features`, and :ref:`license_platform_features`.
+We divide the PSLP into four aspects: :ref:`license_technical_support`, :ref:`license_hardware_features`, :ref:`license_api`, and :ref:`license_platform_features`.
 
 .. _license_technical_support:
 Technical Support
@@ -69,7 +69,7 @@ PSLP has different feature access for different hardware: :ref:`license_sdr`, :r
 
 .. _license_sdr:
 SDR (NI USRP Hardware and HackRF One)
-+++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -95,8 +95,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
     "Interoperability with Old QCA9300 and IWL5300","See :ref:`interoperability`","**✓**","**✓**"
-    "Obtain the L-LTF based CSI (Legacy-CSI)","Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
-    "Obtain complete Rx baseband signal","Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
+
 
 .. _license_ax200:
 AX210/AX200
@@ -112,12 +111,7 @@ AX210/AX200
     "CSI Measurement in Monitor Mode with Packet Injection","See :ref:`ax200-monitor-injection`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
     "Packet Injection in 11ac/ax-Format Frames with 80/160 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate <= 45pkts)","**✓**"
-    "Interoperability: Transmit Frames trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
-    "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (limited, just for the first 6 received MAC addresses)","**✓**"
-    "Obtain Fine-Timing Measurement (FTM) clock count","The raw clock count from the 320 MHz baseband clock. About 4s a round. Useful for precise synchronization","","**✓**"
-    "CSI measurement for the specified frame types","CSI measurement for the specified frame types, e.g., measuring CSI only for Beacon Frames","","**✓**"
-    "Get more complete CSI information","Get reserved CSI header field","","**✓**"
 
 .. _license_qca9300:
 QCA9300
@@ -153,6 +147,18 @@ IWL5300
     "Rx chain specification","Specify which Rx chains are used for Rx","**✓**","**✓**"
     "CSI measurement for 11n frames with ESS","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","**✓**","**✓**"
 
+
+.. _license_api:
+API And Data Access (Mainly for SDR)
+++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+    :header: "Feature", "Description","Free","Pro"
+    :widths: auto
+
+    "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
+    "Complete baseband signal","**SDR Only**. Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
+    "Nanosecond level Tx and Rx clock","**AX210/AX200 and SDR Only**. The raw clock count from the 320 MHz baseband clock.","","**✓**"
 
 .. _license_platform_features:
 Platform Features

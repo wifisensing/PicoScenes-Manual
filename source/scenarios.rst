@@ -622,7 +622,7 @@ This command transmits 802.11n frames with 2 additional ESS HT-LTFs (via option 
 Channel Impairment Simulation
 ++++++++++++++++++++++++++++++++++
 
-.. todo:: add things here
+.. todo:: need to be verified.
 
 .. _dual-split-merge:
 Dual-Channel Spectrum Splitting and Stitching (Experimental)

@@ -24,12 +24,12 @@ PSLP v1.0 offers two license options:
     - Limited/No advanced features
     - Online validation (frequent)"
     "PSLP-PRO-TL", "
-    - *Pro features listed in * :ref:`PSLP-License-Details`
+    - *All Pro features* in :ref:`PSLP-License-Details`
     - *Timely technical support on IM*
     - Transferable to other computers", "
     - Online validation (less frequent)"
     "PSLP-PRO-DBL", "
-    - *Pro features listed in * :ref:`PSLP-License-Details`
+    - *All Pro features* in :ref:`PSLP-License-Details`
     - *Timely technical support on IM*
     - **Discounted bundle pricing**
     - Out-of-box experience
@@ -75,8 +75,7 @@ SDR (NI USRP Hardware and HackRF One)
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
-    "Support HackRF One", "See :ref:`csi_by_sdr`","**✓**","**✓**"
+    "SDR Hardware Support","NI USRP and HackRF One. See :ref:`csi_by_sdr`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
     "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
     "Receiving and Measuring CSI for 20 MHz CBW Frames","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"

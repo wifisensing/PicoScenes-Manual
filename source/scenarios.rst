@@ -983,7 +983,7 @@ The following table shows the interoperability among PicoScenes-supported device
     Up to 2x2 MIMO
     ", "
     
-    Unavailable
+    **Unavailable**
     ", "
     
     11n only
@@ -1040,7 +1040,7 @@ The following table shows the interoperability among PicoScenes-supported device
     
     Up to 2x2 MIMO", "
     
-    Unavailable", "
+    **Unavailable**", "
     
     11n only
     

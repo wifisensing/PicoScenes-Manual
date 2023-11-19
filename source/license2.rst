@@ -115,7 +115,7 @@ AX210
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
-    "6 GHz Band Access","Accessing the 6 GHz band channels (5945 to 7125 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only)","**✓**"
+    "6 GHz Band Access","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only)","**✓**"
 
 .. note:: AX210 inherits other features of AX200.
 
@@ -127,8 +127,9 @@ AX200
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
-    "CSI measurement via AP connection","CSI measurement by connecting to Wi-Fi AP, supporting all protocol (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
-    "CSI measurement by “Monitor mode + Packet Injection”","CSI measurement for the overheard frames in monitor mode, supporting all protocols (11a/g/n/ac/ax), all bandwidths (20/40/80/160 MHz) and all bands (2.4/5 GHz)","**✓**","**✓**"
+    "Receiving and Measuring CSI for Frames Sent by Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
+    "Receiving and Measuring CSI for Frames Overheard in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
+    "CSI measurement by “Monitor mode + Packet Injection”","See :ref:`ax200-monitor`","**✓**","**✓**"
     "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
     "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"

@@ -552,6 +552,21 @@ Signal Recording and Replay (Both Tx and Rx ends)
 
 .. todo:: add things Here
 
+.. _multi-csi-measurement:
+Multiple CSI Measurements per Frame
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. _tx-rx-midamble:
+802.11ax High Doppler-Format Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. todo:: add things here
+
+.. _tx-rx-ess:
+802.11n Extra Spatial Sounding Frames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. todo:: add things here
 
 .. _channel-impairment-simulation:
 Channel Impairment Simulation

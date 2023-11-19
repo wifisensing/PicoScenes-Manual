@@ -115,7 +115,7 @@ AX210
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
-    "6 GHz Band Access","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only)","**✓**"
+    "6 GHz Band Access","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
 
 .. note:: AX210 inherits other features of AX200.
 

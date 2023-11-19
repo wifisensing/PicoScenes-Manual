@@ -575,12 +575,12 @@ This "Live Recording + Offline Replaying" approach, overcoming the issue of pack
 .. hint:: PicoScenes MATLAB Toolbox Core (PMT-Core) also provides a decoder for .bbsignals file. You can open the .bbsignals files by just dragging the file into the MATLAB Command Window.
 
 
-Case 2: Fine-Grained Tx Control
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Case 2: Signal-Level Tx and Rx Control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can open the saved .bbsignals file in MATLAB, manipulate the signals in MATLAB, save the signals back into a .bbsignals file, and replay the modified signals by ``--tx-from-file`` command.
+You can open the saved .bbsignals file in MATLAB, manipulate the signals in MATLAB, save the signals back into a .bbsignals file, and replay the modified signals by ``--tx-from-file`` or ``--rx-from-file`` command.
 
-This capability enables users to have full control over the Tx signals. Lots of applications are awaiting to be explored.
+This capability enables users to have full control over the Tx or Rx signals. Lots of applications are awaiting to be explored.
 
 .. note:: To save signals back into .bbsignals file, you can use ``writeBBSignals`` commands provided by PMT-Core.
 

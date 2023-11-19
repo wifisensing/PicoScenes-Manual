@@ -68,6 +68,7 @@ For SDR Devices
 
         PicoScenes "-d debug -i SDR_ID --freq 5250 -preset RX_CBW_160 --mode logger"
 
+.. hint:: See :ref:`naming_for_usrp` for <SDR_ID>.
 
 .. _big_table:
 

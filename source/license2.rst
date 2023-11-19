@@ -66,7 +66,7 @@ Technical Support
 Hardware Features
 +++++++++++++++++++++++
 
-PSLP has different feature access for different hardware: :ref:`license_sdr`, :ref:`license_ax210`, :ref:`license_ax200`, :ref:`license_qca9300` and :ref:`license_iwl5300`.
+PSLP has different feature access for different hardware: :ref:`license_sdr`, :ref:`license_ax200`, :ref:`license_qca9300` and :ref:`license_iwl5300`.
 
 
 .. _license_sdr:
@@ -107,26 +107,15 @@ SDR (NI USRP Hardware and HackRF One)
     "Obtain Pilot-subcarrier based CSI","Return the CSI composed of per-OFDM symbol pilot subcarriers","","**✓**"
     "Obtain complete Rx baseband signal","Return the complete multi-channel baseband signals, starting from L-STF part","**✓**","**✓**"
 
-.. _license_ax210:
-AX210
-+++++++++++++++++++++++
-
-.. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
-    :widths: auto
-
-    "6 GHz Band Access","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
-
-.. note:: AX210 inherits other features of AX200.
-
 .. _license_ax200:
-AX200
+AX210/AX200
 +++++++++++++++++++++++
 
 .. csv-table::
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 
+    "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
     "Receiving and Measuring CSI for Frames Sent by Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "Receiving and Measuring CSI for Frames Overheard in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "CSI measurement by “Monitor mode + Packet Injection”","See :ref:`ax200-monitor`","**✓**","**✓**"

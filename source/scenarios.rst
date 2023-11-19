@@ -588,11 +588,21 @@ This capability enables users to have full control over the Tx or Rx signals. Lo
 Multiple CSI Measurements per Frame
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+PicoScenes implements two standard-compatible Multi-LTF-in-Single-Frame (MLSF) approaches, 802.11ax High Doppler-format frame, and 802.11n frame with Extra Spatial Sounding (ESS).
+
 .. _tx-rx-midamble:
 802.11ax High Doppler-Format Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: add things here
+In order to combating the high-doppler effect in moving scenarios, the High Doppler-format inserts *additional midamble HE-LTFs* into the data part of a HE-SU format frame every 10 or 20 data OFDM symbols. PicoScenes implements the encoding and decoding of this feature. Once the frame is long enough (via A-MPDU), up to 39 CSI measurements can be measured by a single frame. Users can enable this feature by ``--high-doppler`` option like the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5240 --preset TX_CBW_20_HESU --high-doppler 10 --repeat 1e9 --delay 5e3"
+
+This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols.
+
+.. note:: High Doppler-format is an optional feature of 802.11ax standard. AX200/AX210 doesn't support this mode.
 
 .. _tx-rx-ess:
 802.11n Extra Spatial Sounding Frames

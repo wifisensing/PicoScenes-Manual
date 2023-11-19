@@ -109,9 +109,9 @@ AX210/AX200
     "CSI Measurement with Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-monitor`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode with Packet Injection","See :ref:`ax200-monitor-injection`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
-    "Packet Injection in 11ac/ax-Format Frames with 80/160 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate <= 45pkts)","**✓**"
-    "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
+    "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:
 QCA9300

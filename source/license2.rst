@@ -98,9 +98,8 @@ SDR (NI USRP Hardware and HackRF One)
     "Batch-Tx Frames with Precise Timing","Pre-generate frame signals with precise inter-frame spacing","","**✓**"
     "Tx Signal Precoding for 11n/ac/ax/be","Tx signal precoding can be used to realize beamforming, phased array and arbitrary signal equalization","","**✓**"
     "Tx MIMO Beamforming","Specifying Tx steering matrix, used for beamforming and phased array","","**✓**"
-    "Obtain the L-LTF based CSI (Legacy-CSI)","Return the L-LTF based CSI estimation","","**✓**"
-    "Obtain Pilot-subcarrier based CSI","Return the CSI composed of per-OFDM symbol pilot subcarriers","","**✓**"
-    "Obtain complete Rx baseband signal","Return the complete multi-channel baseband signals, starting from L-STF part","**✓**","**✓**"
+    "Obtain the L-LTF based CSI (Legacy-CSI)","Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
+    "Obtain complete Rx baseband signal","Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
 
 .. _license_ax200:
 AX210/AX200

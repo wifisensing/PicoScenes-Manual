@@ -47,6 +47,8 @@ In the array_status output, there are four IDs for each NIC: *PhyPath*, *PhyId*,
 Device Naming for SDR
 +++++++++++++++++++++++++++++++++
 
+Device naming for SDR devices has three subtypes: :ref:`naming_for_usrp`, :ref:`device-naming-for-hackrf-one`, and :ref:`device-naming-for-virtual-sdr`.
+
 .. _naming_for_usrp:
 Device Naming for NI USRP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,11 +62,13 @@ We devise a simple and scalable naming protocol for USRP devices. It has four fo
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
+.. _device-naming-for-hackrf-one:
 Device Naming for HackRF One
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All HackRF One devices are named as ``hackrf<Device_Number>``, *e.g.*, ``hackrf0`` or ``hackrf1``. The starting device number is ``0``, and the device number with is the same order as the command ``SoapySDRUtil --find="driver=hackrf"`` lists.
 
+.. _device-naming-for-virtual-sdr:
 Device Naming for Virtual SDR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

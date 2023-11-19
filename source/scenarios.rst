@@ -85,10 +85,10 @@ ISAC Research using NI USRP or HackRF One SDR
 
 PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time. In the following sections, we explore four major topics:
 
-- Receiving frames and measuring CSI by :ref:`sdr_rx`
-- Transmitting Frames by :ref:`sdr_tx`
-- Non-Standard Tx and Rx: :ref:`non-standard-tx-rx`
-- Advanced features: :ref:`experimental-features`
+#. Receiving frames and measuring CSI by :ref:`sdr_rx`
+#. Transmitting Frames by :ref:`sdr_tx`
+#. Non-Standard Tx and Rx: :ref:`non-standard-tx-rx`
+#. Advanced features: :ref:`experimental-features`
 
 .. _sdr_rx:
 Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Frame

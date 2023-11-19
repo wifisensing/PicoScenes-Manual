@@ -9,7 +9,7 @@ Before we proceed, it is assumed that you have already installed the PicoScenes 
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
-Here we introduce two fundamentals before Getting Started, :ref:`device_naming` and :ref:`fact-wifi-channels`.
+Here we introduce two fundamentals :ref:`device_naming` and :ref:`fact-wifi-channels`.
 
 .. _device_naming:
 Device Naming
@@ -87,12 +87,11 @@ PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames,
 
 
 .. _sdr_rx:
-
-Listening to Wi-Fi Traffic and measuring CSI for 802.11a/g/n/ac/ax/be protocol frames
+Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Frame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sdr-rx-20-cbw:
-Listening to a 20 MHz bandwidth channel
+Listening to 20 MHz Bandwidth Channels
 +++++++++++++++++++++++++++++++++++++++++++
 
 In the simplest form, if you want to listen to the Wi-Fi traffic of a 20 MHz bandwidth channel centered at 2412 MHz using an SDR device with the ID ``SDR_ID``, you can use the following command:
@@ -208,7 +207,7 @@ PicoScenes supports *multi-channel Rx* and even *multi-USRP combined multi-chann
 
         PicoScenes "-d debug -i usrp --mode logger --freq 5190 --preset RX_CBW_40 --rxcm 3 --plot"
     
-    In this command, ``--rxcm 3 ``specifies the *Rx chainmask* value of 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bitwise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on.
+    In this command, ``--rxcm 3`` specifies the *Rx chainmask* value of 3, indicating the use of the 1st and 2nd Rx antennas for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bitwise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on.
 
     If you want to use an X310 or other multi-channel USRP devices to listen to Wi-Fi traffic on the 80 MHz channel centered at 5210 MHz with two Rx channels, you can use the following command:
 

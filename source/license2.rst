@@ -18,23 +18,21 @@ PSLP v1.0 offers two license options:
 
     "PSLP-FL", "
     - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
-    - Regular upgrades via Debian *apt* facility
-    - Supporting to run self-made PicoScenes plugin
+    - Installation and upgrade via Debian *apt* facility
+    - Support running self-made PicoScenes plugin
     - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
-    - Limited advanced features.
+    - Limited/No advanced features
     - Online validation (frequent)"
     "PSLP-PRO-TL", "
-    - *All Pro features listed in * :ref:`PSLP-License-Details`
-    - *Accessing all advanced features*
+    - *Pro features listed in * :ref:`PSLP-License-Details`
     - *Timely technical support on IM*
     - Transferable to other computers", "
     - Online validation (less frequent)"
     "PSLP-PRO-DBL", "
-    - *All Pro features listed in * :ref:`PSLP-License-Details`
-    - *Accessing all advanced features*
+    - *Pro features listed in * :ref:`PSLP-License-Details`
     - *Timely technical support on IM*
     - **Discounted bundle pricing**
-    - Out-of-box access to full feature 
+    - Out-of-box experience
     - Faster program start
     - Long-term offline operating", "
     - Device bound, not transferable
@@ -55,7 +53,7 @@ Technical Support
 ++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description","FL","PRO (Both TL and DBL)"
+    :header: "Feature", "Feature Description","FL","PRO"
     :widths: 30, 60,15,12
 
     "Good documentation","https://ps.zpj.io","**✓**","**✓**"
@@ -74,7 +72,7 @@ SDR (NI USRP Hardware and HackRF One)
 +++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
     :widths: auto
 
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
@@ -112,17 +110,17 @@ AX210/AX200
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
     :widths: auto
 
     "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
-    "Receiving and Measuring CSI for Frames Sent by Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
-    "Receiving and Measuring CSI for Frames Overheard in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
-    "CSI measurement by “Monitor mode + Packet Injection”","See :ref:`ax200-monitor`","**✓**","**✓**"
-    "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
-    "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
+    "CSI Measurement with Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
+    "CSI Measurement in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-monitor`","**✓**","**✓**"
+    "CSI Measurement in Monitor Mode with Packet Injection","See :ref:`ax200-monitor-injection`","**✓**","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
+    "Packet Injection in 11ac/ax-Format Frames with 80/160 MHz CBW","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate <= 45pkts)","**✓**"
+    "Interoperability: Transmit Frames trigger CSI measurement on IWL5300","Dedicated “—5300” option for AX200(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
-    "Packet Injection in 11ac/ax format with 80/160 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 80/160 MHz CBW, MCS, MIMO, 400/800/1600/3200 ns Guard Interval (GI), BCC/LDPC coding. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓** (limited, packet injection rate <= 45pkts)","**✓**"
     "CSI measurement for all source MAC address","CSI measurement for all the overheard frames which are with different source MAC address","**✓** (limited, just for the first 6 received MAC addresses)","**✓**"
     "Obtain Fine-Timing Measurement (FTM) clock count","The raw clock count from the 320 MHz baseband clock. About 4s a round. Useful for precise synchronization","","**✓**"
     "CSI measurement for the specified frame types","CSI measurement for the specified frame types, e.g., measuring CSI only for Beacon Frames","","**✓**"
@@ -132,7 +130,7 @@ AX210/AX200
 QCA9300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
     :widths: auto
 
     "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
@@ -150,7 +148,7 @@ QCA9300
 IWL5300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
     :widths: auto
 
     "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
@@ -168,7 +166,7 @@ Platform Features
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
+    :header: "Feature", "Feature Description / Reference","Free License","Pro License"
     :widths: 30, 60, 15,12
 
     "Debian apt-based installation, upgrade and uninstallation","Fresh new installation can be as short as 10 minutes.","**✓**","**✓**"

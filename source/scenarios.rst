@@ -80,7 +80,7 @@ Many PicoScenes users are confused about how to correctly specify Wi-Fi channels
 CSI Measurement using NI USRP or HackRF One SDR
 --------------------------------------------------
 
-PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time. The usage is similar to that of COTS NICs, simplifying the adoption of SDR devices in Wi-Fi ISAC research.
+PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time.
 
 
 .. _sdr_rx:

@@ -95,9 +95,6 @@ SDR (NI USRP Hardware and HackRF One)
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
     "Interoperability with Old QCA9300 and IWL5300","See :ref:`interoperability`","**✓**","**✓**"
-    "Batch-Tx Frames with Precise Timing","Pre-generate frame signals with precise inter-frame spacing","","**✓**"
-    "Tx Signal Precoding for 11n/ac/ax/be","Tx signal precoding can be used to realize beamforming, phased array and arbitrary signal equalization","","**✓**"
-    "Tx MIMO Beamforming","Specifying Tx steering matrix, used for beamforming and phased array","","**✓**"
     "Obtain the L-LTF based CSI (Legacy-CSI)","Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
     "Obtain complete Rx baseband signal","Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
 

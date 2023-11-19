@@ -547,10 +547,32 @@ Advanced Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _signal-recording-replay:
-Signal Recording and Replay (Both Tx and Rx ends)
+Signal Recording and Replaying (Both Tx and Rx ends)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. todo:: add things Here
+- Signal Recording: PicoScenes provides a pair of intuitive options, ``--tx-to-file`` and ``--rx-to-file``, which allow users to save the I/Q baseband signals to be transmitted or received into a ".bbsignals" file. 
+- Signal Replaying: PicoScenes offers another pair of options, ``--tx-from-file`` and ``--rx-from-file``, which enable users to transmit the signals stored in a ".bbsignals" file or use the signals stored in a ".bbsignals" file as the signals received in real-time.
+
+Proper combinations of these four options can greatly facilitate ISAC research.
+
+Case 1: Overcoming Packet Loss by Live Recording + Offline Replaying
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PicoScenes' software baseband implement, while highly performant, still experiences significant packet loss in high-bandwidth and multi-channel scenarios. However, this issue can be circumvented by employing a signal recording and offline analysis approach. For example, users can record 160 MHz CBW signals by the command. Press Ctrl+C to stop.
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --rx-to-file cbw160_record"
+
+This command records the I/Q baseband signals into a file named *cbw160_record.bbsignals*. Then you can replay this signals using the following command:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --rx-from-file cbw160_record --plot"
+
+This "Live Recording + Offline Replaying" approach, overcoming the issue of packet loss, is suitable for timing insensitive ISAC research.
+
+.. hint:: PicoScenes MATLAB Toolbox Core (PMT-Core) also provides a decoder for .bbsignals file. You can open the .bbsignals files by just dragging the file into the MATLAB Command Window.
 
 .. _multi-csi-measurement:
 Multiple CSI Measurements per Frame

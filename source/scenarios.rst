@@ -940,7 +940,7 @@ Interoperability among SDR and COTS NICs
 
 
 .. csv-table:: 
-    :widths: auto
+    :widths: 10,30,30,30,30
 
     "", "SDR (RX)", "AX210/AX200 (RX)", "QCA9300 (RX)", "IWL5300 (RX)"
     "SDR (TX)", "Perfect", "

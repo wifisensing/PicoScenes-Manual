@@ -111,7 +111,7 @@ SDR (NI USRP Hardware and HackRF One)
 AX210
 +++++++++++++++++++++++
 
-.. csv-table:: Features Supported By Ax210
+.. csv-table::
     :header: "Feature", "Feature Description / Reference","Free License (FL)","PRO License (Both TL and DBL)"
     :widths: auto
 

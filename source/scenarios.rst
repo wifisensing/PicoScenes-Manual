@@ -944,7 +944,7 @@ The following table shows the interoperability among PicoScenes-supported device
     :widths: 10,30,30,30,30
 
     "", "SDR (RX)", "AX210/AX200 (RX)", "QCA9300 (RX)", "IWL5300 (RX)"
-    "SDR (TX)", "Perfect", "
+    "SDR (TX)", "**Perfect**", "
     11a/g/n/ac/ax
 
     20/40/80/160 CBW

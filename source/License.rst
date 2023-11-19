@@ -1,6 +1,8 @@
 PicoScenes License Plan (PSLP) 
 =======================================
 
+.. important:: This license page is under huge revision.
+
 License mechanism is a promising way to ensure more sustainable development of the PicoScenes system. For PicoScenes, we call it PicoScenes License Plan (PSLP). 
 
 The current PSLP version is v0.8.1

@@ -38,6 +38,8 @@ Some example commands for *array_prepare_for_picoscenes* are:
 
         array_prepare_for_picoscenes NIC_ID "5180 160 5250" #<- Don't miss the quotation mark (")
 
+.. hint:: See :ref:`naming_for_nics` for <NIC_ID>.
+
 For SDR Devices
 ++++++++++++++++++++++
 

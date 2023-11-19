@@ -177,7 +177,7 @@ Platform Features
 
 .. _pricing:
 
-Pricing
+Pricing & Payment
 -----------------
 
 

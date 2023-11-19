@@ -80,11 +80,15 @@ Many PicoScenes users are confused about how to correctly specify Wi-Fi channels
 
 
 .. _csi_by_sdr:
-CSI Measurement using NI USRP or HackRF One SDR
+ISAC Research using NI USRP or HackRF One SDR
 --------------------------------------------------
 
-PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time.
+PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames, receive frames, and measure the CSI data in real-time. In the following sections, we explore four major topics:
 
+- Receiving frames and measuring CSI by :ref:`sdr_rx`
+- Transmitting Frames by :ref:`sdr_tx`
+- Non-Standard Tx and Rx: :ref:`non-standard-tx-rx`
+- Advanced features: :ref:`experimental-features`
 
 .. _sdr_rx:
 Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Frame
@@ -168,7 +172,7 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
 
         PicoScenes "-d debug -i SDR_ID --mode logger --freq 2412 --plot --rx-gain 20"
 
-    In this command, ``--rx-gain 20`` specifies an Rx gain of 20 dBm.
+    In this command, ``--rx-gain 20`` specifies a absolute Rx gain of 20 dBm.
 
 #. Specifying the normalized Rx gain can be like: To set the Rx gain using a normalized value, you can use the ``--rx-gain`` option followed by the desired normalized gain value. For example:
 
@@ -177,11 +181,11 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
 
         PicoScenes "-d debug -i SDR_ID --mode logger --freq 2412 --plot --rx-gain 0.7"
 
-    The ``--rx-gain 0.7`` specify a normalized Rx gain value of 0.7, *equivalent to the 0.7 of the hardware-supported maximum Rx gain*. 
+    The ``--rx-gain 0.7`` specify a normalized Rx gain of 0.7, **equivalent to the 0.7 of the hardware-supported maximum Rx gain**. 
 
     If value specified to ``--rx-gain`` is greater than 1, the value is considered to be the absolute gain; otherwise the normalized gain values.
     
-    .. hint:: PicoScenes sets the Rx gain to 0.65 by default.
+    .. hint:: PicoScenes sets ``--rx-gain`` to 0.65 by default.
 
 #. Some SDR devices support automatic gain control (AGC), such as the NI USRP B210. To enable AGC, you can use the ``--agc`` option. For example:
 
@@ -192,7 +196,6 @@ Proper Rx gain, or Rx signal amplification level, is crucial for Rx decoding per
     This command enables AGC for the SDR device with the ID A_B210_SDR.
 
 .. _multi-channel-rx-single:
-
 Multi-Channel Rx by Single NI USRP Device
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -936,7 +936,8 @@ You may download and run the complete takeaway bash script for this scenario at
 
 
 Interoperability among SDR and COTS NICs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
+
 
 .. csv-table:: 
     :widths: auto

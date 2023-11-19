@@ -94,7 +94,7 @@ SDR (NI USRP Hardware and HackRF One)
     "Multi-Channel Splitting and Stitching", "Want to sampling a 400 MHz channel by a dual-channel 200 MHz max USRP X3x0/N3x0? See :ref:`dual-split-merge`", "","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
-    "Interoperability with Old QCA9300 and IWL5300","Capability to trigger CSI measurement for QCA9300 by default; providing “—5300” option to trigger CSI measurement for IWL5300","**✓**","**✓**"
+    "Interoperability with Old QCA9300 and IWL5300","See :ref:`interoperability","**✓**","**✓**"
     "Batch-Tx Frames with Precise Timing","Pre-generate frame signals with precise inter-frame spacing","","**✓**"
     "Tx Signal Precoding for 11n/ac/ax/be","Tx signal precoding can be used to realize beamforming, phased array and arbitrary signal equalization","","**✓**"
     "Tx MIMO Beamforming","Specifying Tx steering matrix, used for beamforming and phased array","","**✓**"

@@ -547,7 +547,7 @@ Advanced Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _signal-recording-replay:
-Signal Recording and Replaying (Both Tx and Rx ends)
+Signal Recording and Replaying (Both Tx and Rx Ends)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 - Signal Recording: PicoScenes provides a pair of intuitive options, ``--tx-to-file`` and ``--rx-to-file``, which allow users to save the I/Q baseband signals to be transmitted or received into a ".bbsignals" file. 

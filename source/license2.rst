@@ -64,7 +64,7 @@ Technical Support
 Hardware Features
 +++++++++++++++++++++++
 
-PSLP has different feature access for different hardware: :ref:`license_sdr`, :ref:`license_ax200`, :ref:`license_qca9300` and :ref:`license_iwl5300`.
+Different hardware has different PSLP feature lists : :ref:`license_sdr`, :ref:`license_ax200`, :ref:`license_qca9300` and :ref:`license_iwl5300`.
 
 
 .. _license_sdr:

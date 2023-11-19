@@ -9,7 +9,7 @@ Before we proceed, it is assumed that you have already installed the PicoScenes 
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
-Here we introduce two fundamentals: :ref:`device_naming` and :ref:`fact-wifi-channels`.
+Here we introduce two fundamentals before Getting Started, :ref:`device_naming` and :ref:`fact-wifi-channels`.
 
 .. _device_naming:
 Device Naming

@@ -54,7 +54,7 @@ Technical Support
 
 .. csv-table::
     :header: "Feature", "Feature Description","Free","Pro"
-    :widths: 30, 60,15,12
+    :widths: auto
 
     "Good documentation","https://ps.zpj.io","**✓**","**✓**"
     "Issue tracker-based technical support","https://gitlab.com/wifisensing/picoscenes-issue-tracker","**✓**","**✓**"

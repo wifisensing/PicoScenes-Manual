@@ -53,7 +53,7 @@ Technical Support
 ++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description","Free","Pro"
+    :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
     "Good documentation","https://ps.zpj.io","**✓**","**✓**"
@@ -72,7 +72,7 @@ SDR (NI USRP Hardware and HackRF One)
 +++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free","Pro"
+    :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
     "Support NI USRP Models","See :ref:`csi_by_sdr`","**✓**","**✓**"
@@ -110,7 +110,7 @@ AX210/AX200
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free","Pro"
+    :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
     "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements`.","**✓** ([5955-6415] MHz Only) and ::doc:`/channels` ","**✓**"
@@ -130,7 +130,7 @@ AX210/AX200
 QCA9300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free","Pro"
+    :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
     "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
@@ -148,7 +148,7 @@ QCA9300
 IWL5300
 +++++++++++++++++++++++
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free","Pro"
+    :header: "Feature Name", "Description","Free","Pro"
     :widths: auto
 
     "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
@@ -166,7 +166,7 @@ Platform Features
 +++++++++++++++++++++++
 
 .. csv-table::
-    :header: "Feature", "Feature Description / Reference","Free","Pro"
+    :header: "Feature", "Description","Free","Pro"
     :widths: 30, 60, 15,12
 
     "Debian apt-based installation, upgrade and uninstallation","Fresh new installation can be as short as 10 minutes.","**✓**","**✓**"

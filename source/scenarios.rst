@@ -771,6 +771,7 @@ IWL5300 and QCA9300 are classic Wi-Fi NICs released decade ago. Before AX210/AX2
 #. :ref:`iwl5300-wifi-ap`
 #. :ref:`dual_nic_separate_machine`
 #. :ref:`dual_nics_on_one_machine`
+#. :ref:`qca9300_non-standard`
 
 .. _iwl5300-wifi-ap:
 CSI Measurement from Associated AP by IWL5300 
@@ -812,10 +813,10 @@ The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connec
 Packet Injection based CSI Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes provides the identical CLI format for packet injection using QCA9300 or IWL5300 as does for AX210/AX200. Users can follow this guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement on QCA9300 and IWL5300. Two things worth mention is that:
+PicoScenes supports packet injection functionality using QCA9300 or IWL5300 as for AX210/AX200. Users can follow this guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement using QCA9300 and IWL5300. There are two things worth noting:
 
 - Both QCA9300 and IWL5300 are 802.11n compatible NICs, supports up to 40 MHz CBW and MCS 7. Thus, users should ``array_prepare_for_picoscenes`` both models with 40 MHz CBW channels. See ::doc:`/channels` for details.
-- There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices. See :ref:`interoperability` for details.
+- There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices, See :ref:`interoperability` for details.
 
 .. _dual_nics_on_one_machine:
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
@@ -841,6 +842,13 @@ The first convenient feature is that ``array_prepare_for_picoscenes`` provides m
 For the PicoScenes command, this enhanced version wraps the Tx and Rx commands as one long string input. A semicolon separates the commands for each NIC. You can also add comments as exemplified in the command.
 
 PicoScenes parses this long string by first localizing the semicolons and then splitting the long command into multiple per-NIC command strings. It then parses and executes the per-NIC command strings in order. 
+
+
+.. _qca9300_non-standard:
+QCA9300 Operating with Non-Standard Channel and bandwidth 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. todo:: QCA9300 non standard
 
 .. _interoperability:
 Interoperability among SDR and COTS NICs

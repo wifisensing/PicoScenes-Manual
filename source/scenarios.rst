@@ -809,38 +809,13 @@ The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connec
 
 
 .. _dual_nic_separate_machine:
-Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
+Packet Injection based CSI Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Monitor mode + packet injection is the most used CSI measurement setup in the previous research. PicoScenes significantly improves the measurement experience in three aspects:
+PicoScenes provides the identical CLI format for packet injection using QCA9300 or IWL5300 as does for AX210/AX200. Users can follow this guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement on QCA9300 and IWL5300. Two things worth mention is that:
 
-- enables QCA9300 (Tx) -> IWL5300 (Rx) CSI measurement [not possible with Atheros CSI Tool]
-- enables monitor mode + packet injection style measurement for QCA9300 [not possible with Atheros CSI Tool]
-- adds an intuitive bash script ``array_prepare_for_picoscenes`` to put Wi-Fi NICs into monitor mode, to detach the NIC from the system Network Manager, etc. See also :doc:`utilities`. 
-
-Based on these improvements, CSI measurement in monitor + injection mode is simplified to only five steps:
-
-#. On both side, Lookup the Wi-Fi NIC's PhyPath ID by ``array_status``;
-#. On both side, run ``array_prepare_for_picoscenes <NIC_PHYPath> <freq> <mode>`` to put the Wi-Fi NICs into monitor mode with the given channel frequency and HT mode. You may specify the frequency and mode values to any supported Wi-Fi channels, such as "2412 HT20', "2432 HT40-",  "5815 HT40+", etc. You can even omit <freq> and <mode>; in this case, "5200 HT20" will be the default.
-#. Assuming a QCA9300 NIC is the Rx side (CSI measurement side), run ``PicoScenes -d debug -i <NIC_PHYPath> --mode logger`` and wait for packet injection;
-#. Assuming another QCA9300 NIC is the Tx side (packet injector side), run ``PicoScenes -d debug -i <NIC_PHYPath> --mode injector --repeat 1000 --delay 5000 -q``
-#. Rx end exists CSI logging by pressing Ctrl+C
-
-The explanations to the commands are as follows.
-    
-- The Rx end has the identical program options as the last scenarios. See also :ref:`iwl5300-wifi-ap`.
-- The Tx end options ``PicoScenes -d debug -i <NIC_PHYPath> --mode injector --repeat 1000 --delay 5000 -q`` can be interpreted as *"PicoScenes changes the display level of log message to debug (-d debug); make device <AnyId=NIC_PHYPath> switch to CSI injector mode (-i <NIC_PHYPath> --mode injector); injector will inject 1000 packets (--repeat 1000) with 200 Hz injection rate or with 5000us interval (--delay 5000); when injector finishes the job, PicoScenes quits (-q)"*. See :doc:`parameters` for more detailed explanations.
-
-The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the Tx/Rx combination changes, users may need to change the command. The details are listed below.
-
-.. csv-table:: Cross-Model CSI Measurement Detail
-    :header: "Tx End Model", "Rx End Model", "Note"
-    :widths: 20, 20, 60
-
-    "QCA9300", "QCA9300", use the Tx and Rx above commands
-    "QCA9300", "IWL5300", append ``--5300`` to the Tx end command
-    "IWL5300", "QCA9300", PicoScenes DO NOT SUPPORTED
-    "IWL5300", "IWL5300", use the above Tx and Rx commands
+- Both QCA9300 and IWL5300 are 802.11n compatible NICs, supports up to 40 MHz CBW and MCS 7. Thus, users should ``array_prepare_for_picoscenes`` both models with 40 MHz CBW channels. See ::doc:`/channels` for details.
+- There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices. See :ref:`interoperability` for details.
 
 .. _dual_nics_on_one_machine:
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)

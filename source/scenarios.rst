@@ -3,9 +3,18 @@ CSI Measurement using PicoScenes
 
 **Revised on Nov. 16, 2023**
 
-On this page, we provide a list of commonly used Wi-Fi ISAC research scenarios and how they can be achieved using PicoScenes.
-Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. Not sure if you have done that? Please refer to the installation guide :doc:`installation` for more information.
 
+On this page, we will demonstrate the methods of CSI measurement and various low-level controls on different hardware frontends. You can jump to the interested topics via following links:
+
+#. :ref:`fundamentals`
+#. :ref:`csi_by_sdr`
+#. :ref:`ax200-measurements`
+#. :ref:`csi-by-5300-and-9300`
+#. :ref:`interoperability`
+
+Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. See :doc:`installation` for hardware and software installation guides.
+
+.. _fundamentals:
 Before Getting Started: Some Fundamentals
 --------------------------------------------
 
@@ -58,8 +67,6 @@ We devise a simple and scalable naming protocol for USRP devices. It has four fo
 -  ``usrp<IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>,[multiple <IPADDRESS_or_RESOURCEID_or_SERIALID_or_DEVICENAME>]``: Used in case of combining multiple USRPs devices. For example, the combination of two USRP X310 devices (with IP addresses of 192.168.40.2 and 192.168.41.2) can be represented by ``usrp192.168.40.2,192.168.41.2``.
 -  ``usrp<IPADDRESS0_IPADDRESS1>,[multiple <IPADDRESS0_IPADDRESS1>]``: Used in case of combining the two 10GbE connections of one or multiple USRP X310 devices. Assume you have two USRP X310 devices connected. The first USRP X310 device has two 10GbE connections with IP addresses of 192.168.30.2 and 192.168.40.2, and the second USRP X310 device has two 10GbE connections with IP addresses of 192.168.70.2 and 192.168.80.2. The combination of the two channels of the first X310 can be represented by ``usrp192.168.30.2_192.168.40.2``. The combination of the all four channels can be represented by ``usrp192.168.30.2_192.168.40.2,192.168.70.2_192.168.80.2``. The combination of the first two and the last one can be represented by ``usrp192.168.30.2_192.168.40.2,192.168.80.2``.
 
-.. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
-
 .. _device-naming-for-hackrf-one:
 Device Naming for HackRF One
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +95,7 @@ PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames,
 #. Receiving frames and measuring CSI by :ref:`sdr_rx`
 #. Transmitting Frames by :ref:`sdr_tx`
 #. Non-Standard Tx and Rx: :ref:`non-standard-tx-rx`
-#. Advanced features: :ref:`experimental-features`
+#. Some advanced features: :ref:`experimental-features`
 
 .. _sdr_rx:
 Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Frame
@@ -258,6 +265,8 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
     PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --mode logger --freq 5190 --preset RX_CBW_40 --rx-channel 0,1,2,3 --clock-source external --plot"
 
 In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving. Then option ``--clock-source external`` tell USRP to use external clock signals for the frequency generations for the LO and ADC/DAC pair.
+
+.. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
 
 Combining Multiple USRP Devices plus Dual-Connection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -540,7 +549,6 @@ The ``--mt 5`` option instructs the Rx decoder to use 5 threads in parallel deco
 
 
 .. _ax200-measurements:
-
 CSI Measurement using AX200/AX210 NICs
 -----------------------------------------------------------
 
@@ -750,11 +758,11 @@ You may download and run the complete takeaway bash script for this scenario at
 :download:`2_3_4 <_static/2_3_4.sh>` 
 
 
+.. _csi-by-5300-and-9300:
 CSI Measurement using IWL5300/QCA9300 NICs
 -----------------------------------------------------------
 
 .. _iwl5300-wifi-ap:
-
 IWL5300 + Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

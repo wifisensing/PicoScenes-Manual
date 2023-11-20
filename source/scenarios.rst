@@ -944,3 +944,5 @@ The following table shows the interoperability among PicoScenes-supported device
     
     Up to 3x3 MIMO
     "
+
+.. todo:: more details

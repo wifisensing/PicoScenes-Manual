@@ -769,8 +769,8 @@ CSI Measurement using IWL5300 and QCA9300 NICs
 IWL5300 and QCA9300 are classic Wi-Fi NICs released decade ago. Before AX210/AX200, we have invested lots of time on integrating them into PicoScenes platform. In this section, we cover the following major topics:
 
 #. :ref:`iwl5300-wifi-ap`
-#. :ref:`dual_nic_separate_machine`
-#. :ref:`dual_nics_on_one_machine`
+#. :ref:`packet-injection-qcq9300-iwl5300`
+#. :ref:`multi-nic-qca9300-iwl5300`
 #. :ref:`qca9300_non-standard`
 
 .. _iwl5300-wifi-ap:
@@ -809,7 +809,7 @@ The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connec
     - **QCA9300 does not support CSI measurement from the unmodified Wi-Fi AP associated**, because QCA9300 measures CSI for only the 802.11n frames hacked with *HT_Sounding* flag, which is not common case for Wi-Fi AP. A possible workaround is `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, which uses the QCA9300-based AP and hacked the AP end.
 
 
-.. _dual_nic_separate_machine:
+.. _packet-injection-qcq9300-iwl5300:
 Packet Injection based CSI Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -818,37 +818,17 @@ PicoScenes supports packet injection functionality using QCA9300 or IWL5300 as f
 - Both QCA9300 and IWL5300 are 802.11n compatible NICs, supports up to 40 MHz CBW and MCS 7. Thus, users should ``array_prepare_for_picoscenes`` both models with 40 MHz CBW channels. See ::doc:`/channels` for details.
 - There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices, See :ref:`interoperability` for details.
 
-.. _dual_nics_on_one_machine:
+.. _multi-nic-qca9300-iwl5300:
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The measurement in this scenario leverages the multi-NIC concurrent operation functionality. PicoScenes adopts an intuitive CLI interface, allowing users to specify concurrent operations for multiple NICs. Since the commands used in this scenario remain the same as the last scenario, users should refer to ::ref:`dual_nic_separate_machine` to understand the meaning of commands first.
-
-Let assume Wi-Fi NICs with PhyPath ``3`` and ``4`` are the *injector* and *logger*, respectively,  the following bash script performs the monitor + injection on two NICs installed in one single host PC:
-
-.. code-block:: bash
-    
-    #!/bin/sh -e 
-
-    array_prepare_for_picoscenes "3 4" "2412 HT20"
-
-    PicoScenes "-d debug;
-                -i 4 --mode logger; // this command line format support comments. Comments start with //
-                -i 3 --mode injector --repeat 1000 --delay 5000; // NIC <3> in injector mode, injects 1000 packets with 5000us interval
-                -q // -q is a shortcut for --quit"
-
-The first convenient feature is that ``array_prepare_for_picoscenes`` provides multi-NIC specification capability, which, in the above command, specify both ``3`` and ``4`` to work at 2412 MHz with HT20 channel mode.
-
-For the PicoScenes command, this enhanced version wraps the Tx and Rx commands as one long string input. A semicolon separates the commands for each NIC. You can also add comments as exemplified in the command.
-
-PicoScenes parses this long string by first localizing the semicolons and then splitting the long command into multiple per-NIC command strings. It then parses and executes the per-NIC command strings in order. 
-
+Similar to :ref:`Multi-NIC-on-Single-Computer`, PicoScenes also supports multi-NIC operation for both the QCA9300 and IWL5300. Users can follow the AX210/AX200 guide to perform multi-NIC CSI measurement.
 
 .. _qca9300_non-standard:
 QCA9300 Operating with Non-Standard Channel and bandwidth 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. todo:: QCA9300 non standard
+
 
 .. _interoperability:
 Interoperability among SDR and COTS NICs

@@ -4,6 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
+- Nov. 20, 2023 Page :doc:`/scenarios` is completely rewritten. Readability is significantly improved.
 - Nov. 18, 2023 Add docs for two experimental features: :ref:`dual-split-merge` and :ref:`parallel-decoding`.
 - Nov. 17, 2023 Add two quick reference pages: :doc:`channels` and :doc:`presets`.
 - Nov. 16, 2023 Page revised :doc:`/hardware`, :doc:`/installation`, ::doc:`/scenarios`, and ::doc:`/utilities`.

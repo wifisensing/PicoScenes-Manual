@@ -561,7 +561,7 @@ CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are t
 #. :ref:`live-channel-bw-changing`
 
 .. _ax200-wifi-ap:
-AX200/AX210 + Wi-Fi AP
+CSI Measurement from Associated Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
@@ -589,7 +589,7 @@ The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, locat
 
 .. _ax200-monitor:
 
-Single AX200/AX210 in Monitor Mode (Fully-Passive CSI Measurement Mode)
+Fully-Passive CSI Measurement in Monitor Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
@@ -612,7 +612,7 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 
 .. _ax200-monitor-injection:
 
-Two AX200/AX210 NICs with Monitor Mode + Packet Injection (802.11a/g/n/ac/ax Format + 20/40/80/160 MHz Bandwidth)
+Packet Injection based CSI Measurement (Tx with 802.11a/g/n/ac/ax Format and 20/40/80/160 MHz CBW)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. By combining this capability with the CSI measurement ability shown in the :ref:`ax200-monitor` section, PicoScenes provides fine-grained low-level control for CSI measurement.
@@ -657,8 +657,8 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
 .. _ax200-monitor-injection-mcs-antenna:
 
-Two AX200/AX210 NICs with Monitor Mode + Packet Injection with MCS and Antenna Selection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Packet Injection with MCS Setting and Antenna Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
 
@@ -693,8 +693,8 @@ On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 ante
 The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N_{STS}=2`) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
 
 .. _live-channel-bw-changing:
-Live Channel/Bandwidth Changing 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changing Channel and bandwidth in Realtime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes provides ``--channel`` option to change channel settings in real-time, without re-execution of ``array_prepare_for_picoscenes`` script. For example, assuming you AX210/AX200 NIC, let's say ID <3>, is working at a 80 MHz CBW channel "5180 80 5210" (See :doc:`/channels` for details). Now if you want your NIC to listen to a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
 

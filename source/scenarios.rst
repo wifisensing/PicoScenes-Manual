@@ -374,38 +374,38 @@ In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2`
 In this command the ``--sts 4`` specifies to :math:`N_{STS}=4` (or 4x4 MIMO transmission) to transmit the frames.
 
 .. _non-standard-tx-rx:
-Transmission, Reception and CSI Measurement with Non-Standard Channel and Bandwidth
+Transmission, Reception, and CSI Measurement with Non-Standard Channel and Bandwidth
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: You MUST respect the RF spectrum regulations of your country/location. PicoScenes platform is a research-purpose software. It is your responsibility to make sure that you are in compliance with all suitable laws.
+.. warning:: It is essential to comply with the RF spectrum regulations of your country/location. PicoScenes platform is a research-purpose software. You are responsible for ensuring compliance with all applicable laws.
 
-In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters are compatible with the official Wi-Fi *numerology*, which guarantees the interoperability between SDR device and COTS NICs, which **allows users to transmit frames with SDR and measure CSI with COTS NICs, or the reverse**. To maintain this interoperability, we use ``--preset`` conventions to specify various low-level parameters for SDR. In this section, we demonstrate several commonly used non-standard cases and explain some key parameters.
+In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters were compatible with the official Wi-Fi *numerology*, ensuring interoperability between SDR devices and commercial off-the-shelf (COTS) NICs. This allows users to transmit frames with SDR and measure CSI with COTS NICs, or vice versa. To maintain this interoperability, we use the ``--preset`` option to specify various low-level parameters for SDR. In this section, we will demonstrate several commonly used non-standard cases and explain some key parameters.
 
-Change Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
+Changing Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-NI USRP B2x0 features a fractional baseband clocking architecture, *i.e.*, the baseband sampling rate can be any values within its clocking range. Assuming you want to up-clock the standard 20 MHz channel to 30 MHz (50% more bandwidth or sampling rate) at 5955 MHz channel, you can use the following commands:
+The NI USRP B2x0 Series features a fractional baseband clocking architecture, which means the baseband sampling rate can take any value within its clocking range. Suppose you want to increase the standard 20 MHz channel to 30 MHz (50% more bandwidth or sampling rate) at a 5955 MHz channel. In that case, you can use the following commands:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5955 --rate 30e6 --mode logger --plot" #<- Run on the first computer (Rx end)
     PicoScenes "-d debug -i usrp --freq 5955 --rate 30e6 --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
 
-The ``--rate 30e6`` option specifies to clock the baseband at 30 MHz rate.
+The ``--rate 30e6`` option specifies that the baseband should be clocked at a 30 MHz rate.
 
-.. hint:: PicoScenes sets ``--rate`` to 20 MHz by default. If the ``--preset`` option appears, it will override the defaults. And If both ``--preset`` and ``--rate`` appear explicitly, the ``--rate`` overrides ``--preset``.
+.. hint:: By default, PicoScenes sets ``--rate`` to 20 MHz. If the ``--preset`` option is used, it will override the defaults. If both ``--preset`` and ``--rate`` are explicitly provided, the ``--rate`` option will take precedence over ``--preset``.
 
 
 .. _non-standard-tx-rx-fixed-master-clock:
 Non-Standard Tx/Rx with NI USRP N2x0/X3x0/N3x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Two reasons complicates the arbitrary bandwidth changing for the N2x0/X3x0/N3x0 Series devices: 
+There are two reasons that complicate arbitrary bandwidth changing for the N2x0/X3x0/N3x0 Series devices:
 
-    - Fixed master clock rate: contrary to NI USRP B210, which has a flexible master clock rate, the master clock rate is fixed 100 MHz for N2x0, 184.32 MHz **or** 200 MHz for X3x0, and 200 **or** 245.76 **or** 250 MHz for N3x0.
-    - *Integer-N* clocking: The actual baseband sampling rate (both DAC and ADC) can only be :math:`F_{master}/N, N\in \mathbb{Z}^+`, *e.g.* N2x0 can clocks its baseband rate to 50/33.3/25/20/10... MHz.
+    - Fixed master clock rate: Unlike the NI USRP B210, which has a flexible master clock rate, the master clock rate is fixed at 100 MHz for N2x0, 184.32 MHz or 200 MHz for X3x0, and 200 or 245.76 or 250 MHz for N3x0.
+    - Integer-N clocking: The actual baseband sampling rate (both DAC and ADC) can only be :math:F_{master}/N, N\in \mathbb{Z}^+, for example, N2x0 can clock its baseband rate to 50/33.3/25/20/10... MHz.
 
-PicoScenes workarounds this problem by *in-baseband digital resampling*, *i.e.*, up/down-sampling the baseband signals to match the actual hardware sampling rate. For example, neither X3x0 or N3x0 supports the native 160 MHz sampling, what actually happens behind ``--preset TX_CBW_160_EHTSU`` and ``--preset RX_CBW_160`` is 200 MHz actual sampling rate plus 1.25x Tx up-sampling and 0.8x Rx down-sampling.
+To work around this problem, PicoScenes utilizes *in-baseband digital resampling* technique, which involves up/down-sampling the baseband signals to match the actual hardware sampling rate. For instance, neither X3x0 nor N3x0 supports native 160 MHz sampling. Therefore, when using the ``--preset TX_CBW_160_EHTSU`` and ``--preset RX_CBW_160`` options, PicoScenes performs 1.25x Tx up-sampling and 0.8x Rx down-sampling on top of a 200 MHz actual sampling rate.
 
 The following commands are equivalent to ``--preset TX_CBW_160_EHTSU`` and ``--preset RX_CBW_160``:
 
@@ -414,33 +414,32 @@ The following commands are equivalent to ``--preset TX_CBW_160_EHTSU`` and ``--p
     PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --rx-resample-ratio 0.8 --rx-cbw 160 --mode logger --plot" #<- Run on the first computer (Rx end)
     PicoScenes "-d debug -i usrp --freq 5250 --rate 200e6 --tx-resample-ratio 1.25 --cbw 160 --format EHTSU --coding LDPC --mode injector --repeat 1e9 --delay 5e3" #<- Run on the second computer (Tx end)
 
-These options can be interpreted as:
+These options can be interpreted as follows:
 
-- ``--rx-resample-ratio 0.8``: Down-sampling the 200 MHz rate received signals by 0.8 to 160 MHz rate, 1.0 by default;
-- ``--rx-cbw 160``: Tell PicoScenes baseband decoder to treat the incoming signals as 160 MHz channel bandwidth (CBW) format, 20 MHz CBW by default;
-- ``--tx-resample-ratio 1.25``: Up-sampling the 160 MHz CBW format signals by 1.25x to 200 MHz rate, 1.0 by default;
-- ``--cbw 160``: Tx baseband encoder to generate 160 MHz CBW format, 20 MHz CBW by default;
-- ``--format EHTSU``: Tx frame format is 11be (EHT) Single-User (EHTSU) format, HT (11n) format by default;
-- ``--coding LDPC``: Tx frame coding scheme uses the LDPC coding, BCC coding by default;
+- ``--rx-resample-ratio 0.8``: Down-sample the received signals with a 200 MHz rate by a factor of 0.8 to achieve a 160 MHz rate (default is 1.0).
+- ``--rx-cbw 160``: Instruct PicoScenes' baseband decoder to treat the incoming signals as having a 160 MHz channel bandwidth (CBW) format (default is 20 MHz CBW).
+- ``--tx-resample-ratio 1.25``: Up-sample the 160 MHz CBW format signals by a factor of 1.25 to achieve a 200 MHz rate (default is 1.0).
+- ``--cbw 160``: Configure the Tx baseband encoder to generate signals with a 160 MHz CBW format (default is 20 MHz CBW).
+- ``--format EHTSU``: Specify that the Tx frame format is 11be (EHT) Single-User (EHTSU) format (default is HT (11n) format).
+- ``--coding LDPC``: Use LDPC coding for the Tx frame coding scheme (default is BCC coding).
 
-You can alter the parameters of the above commands to achieve non-standard Tx/Rx and CSI measurement. For example, you can super-sample 20 MHz channel with 40 MHz rate by ``--rate 40e6 --rx-resample-ratio 0.5`` at Rx end, or ``--rate 40e6 --tx-resample-ratio 2`` at Tx end.
+You can modify the parameters in the above commands to achieve non-standard Tx/Rx and CSI measurement. For example, you can super-sample a 20 MHz channel with a 40 MHz rate by using ``--rate 40e6 --rx-resample-ratio 0.5`` at the Rx end or ``--rate 40e6 --tx-resample-ratio 2``at the Tx end.
 
-.. hint:: *In-baseband Digital Resampling* is a computation intensive task. It lows performance and general throughput.
-
+.. hint:: *In-baseband Digital Resampling* is a computationally intensive task. It may lower performance and overall throughput.
 
 .. _multi-SDR-operation:
 Concurrent Multi-SDR Operation on a Single Computer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You have two ways to let PicoScenes to control multiple SDR devices on a single computer:
+There are two ways to enable PicoScenes to control multiple SDR devices on a single computer:
 
-#. Multi-instancing of PicoScenes main program
+#. Multi-instancing of the PicoScenes main program
 
-    Multi-instancing is the simplest yet brutal approach. As these is no communication between two PicoScenes instances, you cannot perform convenient controls, like simultaneous start/stop, or in-process cross-frontend data exchange.
+    Multi-instancing is the simplest approach, but it lacks communication between the instances of PicoScenes. This means that convenient controls, such as simultaneous start/stop or in-process cross-frontend data exchange, are not possible.
     
 #. Multi-Frontend control by a single PicoScenes instance
 
-    PicoScenes supports concurrent multi-SDR operation. Assume you have two or more NI USRP devices installed on your computer and you want to use one SDR for Tx and the rest for Rx and CSI measurement. For example, if you want to use usrp192.168.30.2 for Tx, and the other SDR, like usrp192.168.40.2 and usrp192.168.50.2 for Rx, you can use the following command:
+    PicoScenes supports concurrent multi-SDR operation. If you have two or more NI USRP devices installed on your computer and you want to use one SDR for transmission (Tx) and the rest for reception (Rx) and CSI measurement, you can use the following command:
 
     .. code-block:: bash
 
@@ -451,13 +450,13 @@ You have two ways to let PicoScenes to control multiple SDR devices on a single 
                     -q
                     "
 
-    The above command is a multi-line input, each line for a SDR device. The line separation is the semicolon (**;**). 
+    The above command is a multi-line input, with each line representing an SDR device. The lines are separated by semicolons (**;**).
 
-      - The 2nd and 3rd lines put SDR usrp192.168.40.2 and usrp192.168.50.2 to logger mode and activate the corresponding live-plot. Please note *the logger mode is non-blocking*. It is the non-blocking design that actually enables the multi-SDR concurrent operation.
-      - The 4th line specifies SDR usrp192.168.30.2 to transmit 40 MHz CBW 802.11be Single-User (EHT-SU) format frames for 10000 times.
+      - The 2nd and 3rd lines put SDR usrp192.168.40.2 and usrp192.168.50.2 in logger mode and activate the corresponding live plot. It's important to note that *the logger mode is non-blocking*. The non-blocking design enables the concurrent operation of multiple SDRs.
+      - The 4th line specifies that SDR usrp192.168.30.2 should transmit frames in 40 MHz CBW 802.11be Single-User (EHT-SU) format for 10000 times.
       - The last line ``-q`` or ``--quit`` means *exit the program when no jobs*.
 
-    .. hint:: There is a more comprehensive explanation for this multi-line format, see :ref:`cli-format-explanation`.
+    .. hint:: For a more comprehensive explanation of this multi-line format, refer to the :ref:`cli-format-explanation` section.
 
 .. _experimental-features:
 Advanced Features
@@ -467,39 +466,39 @@ Advanced Features
 Signal Recording and Replaying (Both Tx and Rx Ends)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- Signal Recording: PicoScenes provides a pair of intuitive options, ``--tx-to-file`` and ``--rx-to-file``, which allow users to save the I/Q baseband signals to be transmitted or received into a ".bbsignals" file. 
-- Signal Replaying: PicoScenes offers another pair of options, ``--tx-from-file`` and ``--rx-from-file``, which enable users to transmit the signals stored in a ".bbsignals" file or use the signals stored in a ".bbsignals" file as the signals received in real-time.
+- Signal Recording: PicoScenes provides intuitive options, ``--tx-to-file`` and ``--rx-to-file``, allowing users to save the I/Q baseband signals to be transmitted or received into a "*.bbsignals*" file.
+- Signal Replaying: PicoScenes offers another set of options, ``--tx-from-file`` and ``--rx-from-file``, enabling users to transmit the signals stored in a "*.bbsignals*" file or use the signals stored in a "*.bbsignals*" file as the signals received in real-time.
 
-Proper combinations of these four options can greatly facilitate ISAC research. Here we show two most useful cases.
+Proper combinations of these four options can greatly facilitate ISAC research. Here, we present two of the most useful cases.
 
 Case 1: Overcoming Packet Loss by Live Recording + Offline Replaying
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PicoScenes' software baseband implement, while highly performant, still experiences significant packet loss in high-bandwidth and multi-channel scenarios. However, this issue can be circumvented by employing a signal recording and offline analysis approach. For example, users can record 160 MHz CBW signals by the command. Press Ctrl+C to stop.
+PicoScenes' software baseband implementation, while highly performant, may still encounter significant packet loss in high-bandwidth and multi-channel scenarios. However, this issue can be overcome by utilizing a signal recording and offline analysis approach. For instance, users can record 160 MHz CBW signals using the following command. Press Ctrl+C to stop.
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --rx-to-file cbw160_record"
 
-This command records the I/Q baseband signals into a file named *cbw160_record.bbsignals*. Then you can replay this signals using the following command:
+This command saves the I/Q baseband signals into a file named *cbw160_record.bbsignals*. Subsequently, you can replay these signals using the following command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --rx-from-file cbw160_record --plot"
 
-This "Live Recording + Offline Replaying" approach, overcoming the issue of packet loss, is suitable for timing insensitive ISAC research.
+The "Live Recording + Offline Replaying" approach effectively addresses the packet loss issue and is particularly suitable for timing-insensitive ISAC research.
 
-.. hint:: PicoScenes MATLAB Toolbox Core (PMT-Core) also provides a decoder for .bbsignals file. You can open the .bbsignals files by just dragging the file into the MATLAB Command Window.
+.. hint:: PicoScenes MATLAB Toolbox Core (PMT-Core) also provides a decoder for .bbsignals files. You can simply drag and drop the .bbsignals file into the MATLAB Command Window to open it.
 
 
 Case 2: Signal-Level Tx and Rx Control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can open the saved .bbsignals file in MATLAB, manipulate the signals in MATLAB, save the signals back into a .bbsignals file, and replay the modified signals by ``--tx-from-file`` or ``--rx-from-file`` command.
+You can utilize MATLAB to open the saved .bbsignals file, manipulate the signals as desired, and then save the modified signals back into a .bbsignals file. The modified signals can then be replayed using the ``--tx-from-file`` or ``--rx-from-file`` command.
 
-This capability enables users to have full control over the Tx or Rx signals. Lots of applications are awaiting to be explored.
+This capability grants users complete control over the Tx or Rx signals, opening up a wide range of potential applications that can be explored.
 
-.. note:: To save signals back into .bbsignals file, you can use ``writeBBSignals`` commands provided by PMT-Core.
+.. note:: To save signals back into a .bbsignals file, you can utilize the ``writeBBSignals`` commands provided by PMT-Core.
 
 .. _multi-csi-measurement:
 Multiple CSI Measurements per Frame

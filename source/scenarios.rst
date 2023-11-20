@@ -763,10 +763,10 @@ These two commands needs some explanations:
 .. hint:: There is a more comprehensive explanation for this multi-line format, see :ref:`cli-format-explanation`.
 
 .. _csi-by-5300-and-9300:
-CSI Measurement using IWL5300 and QCA9300 NICs
+CSI Measurement using QCA9300 and IWL5300  NICs
 -----------------------------------------------------------
 
-IWL5300 and QCA9300 are classic Wi-Fi NICs released decade ago. Before AX210/AX200, we have invested lots of time on integrating them into PicoScenes platform. In this section, we cover the following major topics:
+The IWL5300 and QCA9300 are Wi-Fi NICs that were released a decade ago. Prior to the introduction of AX210/AX200, significant effort was invested in integrating these NICs into the PicoScenes platform. In this section, we will cover the following key topics:
 
 #. :ref:`iwl5300-wifi-ap`
 #. :ref:`packet-injection-qcq9300-iwl5300`
@@ -777,9 +777,9 @@ IWL5300 and QCA9300 are classic Wi-Fi NICs released decade ago. Before AX210/AX2
 CSI Measurement from Associated AP by IWL5300 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are three steps to measure CSI from IWL5300:
+The IWL5300 NIC also has the capability to measure CSI for the 802.11n frames transmitted by the connected Wi-Fi AP. If you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, you can follow these three steps to measure CSI using IWL5300:
 
-#. Switching to CSI-extractable firmware. IWL5300 CSI extraction functionality relies on a customized firmware. PicoScenes provides ``switch5300Firmware`` command to switch between the *ordinary* and *CSI-extractable* firmware, see  :doc:`utilities` for more details. The following command switches to CSI-extractable firmware:
+1. Switch to CSI-extractable firmware: The IWL5300 CSI extraction functionality requires a customized firmware. PicoScenes provides the ``switch5300Firmware`` command to switch between the *ordinary* and *CSI-extractable* firmware. Refer to the :doc:`utilities` documentation for more detailed instructions. The following command switches to the CSI-extractable firmware:
 
     .. code-block:: bash
 
@@ -791,55 +791,55 @@ The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connec
     
         PicoScenes "-d debug -i 3 --mode logger --plot"
 
-    The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
+    The above command includes four program options: *"-d debug -i 3 --mode logger --plot"*. Here's what each option does:
 
-      - ``-d debug``: Modifies the display level of the logging service to debug;
-      - ``-i 3 --mode logger``: Switches the device <3> to CSI logger mode;
+      - ``-d debug``: Sets the logging service display level to debug mode.
+      - ``-i 3 --mode logger``: Switches the device with ID 3 to CSI logger mode.
       - ``--plot``: Live-plots the CSI measurements.
 
-    For more detailed explanations, please see the :doc:`parameters` section.
+    For more detailed explanations, please refer to the :doc:`parameters` section.
 
 #. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
 
-    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed, and the CSI data will be stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 .. hint:: 
 
-    - The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can only connect to the password-free open APs.
-    - **QCA9300 does not support CSI measurement from the unmodified Wi-Fi AP associated**, because QCA9300 measures CSI for only the 802.11n frames hacked with *HT_Sounding* flag, which is not common case for Wi-Fi AP. A possible workaround is `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, which uses the QCA9300-based AP and hacked the AP end.
+    - The CSI measurement firmware of IWL5300 removes encryption-related functionalities, therefore it can only connect to password-free open APs.
+    - **QCA9300 does not support CSI measurement from an unmodified associated Wi-Fi AP**, as QCA9300 only measures CSI for the 802.11n frames whose *HT_Sounding* flag is set to, which is not commonly used by Wi-Fi APs. A possible workaround is to use the `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, which utilizes a QCA9300-based AP that has been modified at the AP end.
 
 
 .. _packet-injection-qcq9300-iwl5300:
 Packet Injection based CSI Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes supports packet injection functionality using QCA9300 or IWL5300 as for AX210/AX200. Users can follow this guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement using QCA9300 and IWL5300. There are two things worth noting:
+PicoScenes supports packet injection functionality using either QCA9300 or IWL5300, similar to AX210/AX200, for CSI measurement purposes. Users can refer to the guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement using QCA9300 and IWL5300. There are two important points to consider:
 
-- Both QCA9300 and IWL5300 are 802.11n compatible NICs, supports up to 40 MHz CBW and MCS 7. Thus, users should ``array_prepare_for_picoscenes`` both models with 40 MHz CBW channels. See ::doc:`/channels` for details.
-- There are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200 and SDR devices, see :ref:`interoperability` for details.
+- Both QCA9300 and IWL5300 are 802.11n compatible NICs, supporting at most 40 MHz CBW and MCS 7. Therefore, users should configure both models with 20 or 40 MHz CBW channels using the ``array_prepare_for_picoscenes`` command. For more details, refer to the documentation on ::doc:`/channels`.
+- It's worth noting that there are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200, and SDR devices. Refer to the :ref:`interoperability` section for more information on this topic.
 
 .. _multi-nic-qca9300-iwl5300:
 Concurrent Multi-NIC Operation for QCA9300 and IWL5300
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Similar to AX210/AX200, PicoScenes also supports multi-NIC operation for both the QCA9300 and IWL5300 models. Users can follow this guide:ref:`Multi-NIC-on-Single-Computer` to perform multi-NIC CSI measurement on QCA9300 and IWL5300, and do notice interoperability issue in :ref:`packet-injection-qcq9300-iwl5300`.
+Similar to AX210/AX200, PicoScenes also supports concurrent multi-NIC operation for both the QCA9300 and IWL5300 models. Users can follow the guide :ref:`Multi-NIC-on-Single-Computer` to perform multi-NIC CSI measurement using QCA9300 and IWL5300. Please note the interoperability issue mentioned in the :ref:`packet-injection-qcq9300-iwl5300` section.
 
 .. _qca9300_non-standard:
-QCA9300 Operating with Non-Standard Channel, bandwidth, and Manual Rx Gain
+QCA9300 Operating with Non-Standard Channel, Bandwidth, and Manual Rx Gain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes provide low-level controls for QCA9300 in terms of carrier frequency, sampling rate, and manual Rx-gain.
+PicoScenes provides low-level controls for the QCA9300, allowing users to adjust the carrier frequency, sampling rate, and manual Rx-gain.
 
-- Carrier Frequency: QCA9300 hardware can actually operate in [2.2 - 2.9] GHz and [4.4 - 6.1] GHz range. Users can use ``--freq`` option to specify it, *e.g.*, ``--freq 2300e6``.
-- Bandwidth: PicoScenes supports altering an ordinary 20 MHz CBW channel (HT20) to 2.5/5/7.5/10../30 MHz actual sampling rate, and 5/10/15/20..60 MHz actual sampling rate for an ordinary 40 MHz CBW channel (HT40+/-). Users can use  ``--rate`` option to specify it, *e.g.*, ``--rate 5e6``.
-- Rx-Gain: PicoScenes supports overriding the automatic gain control (AGC) on QCA9300 with manual GC within a range of [0 - 66] dBm. Users can use ``--rx-gain`` to specify it, *e.g.*, ``--rx-gain 40``.
-- AGC: Users can re-activate AGC for QCA9300 by option ``--agc``.
+- Carrier Frequency: The QCA9300 hardware can operate within the range of [2.2 - 2.9] GHz and [4.4 - 6.1] GHz. Users can specify the carrier frequency using the ``--freq`` option. For example, ``--freq 2300e6`` sets the carrier frequency to 2.3 GHz.
+- Bandwidth: PicoScenes allows modifying the standard 20 MHz channel (HT20) to actual sampling rates of 2.5/5/7.5/10../30 MHz and the standard 40 MHz channel (HT40+/-) to actual sampling rates of 5/10/15/20..60 MHz. Users can specify the sampling rate using the ``--rate`` option. For instance, ``--rate 5e6`` sets the sampling rate to 5 MHz.
+- Rx-Gain: PicoScenes supports overriding the automatic gain control (AGC) on the QCA9300 with manual gain control within the range of [0 - 66] dBm. Users can specify the manual using the ``--rx-gain`` option. For example, ``--rx-gain 40`` sets the manual Rx-gain to 40 dBm.
+- AGC: Users can re-activate the AGC for the QCA9300 by using the ``--agc`` option.
 
 .. _interoperability:
 Interoperability among SDR and COTS NICs
 --------------------------------------------
 
-The following table shows the interoperability among PicoScenes-supported devices. Each grid lists the transmission formats that can trigger frame reception and CSI measurement.
+The table below illustrates the interoperability between the devices supported by PicoScenes. Each grid represents the transmission formats that can trigger frame reception and CSI measurement.
 
 .. csv-table:: 
     :widths: 10,30,30,30,30
@@ -859,16 +859,16 @@ The following table shows the interoperability among PicoScenes-supported device
 
     Up to 3x3 MIMO
 
-    Support non-standard channel/bandwidth
+    Support for non-standard channel/bandwidth
 
-    Support ESS", "
+    Support for ESS", "
     11n only
 
     20/40 CBW
 
     Up to 3x3 MIMO
     
-    Support ESS"
+    Support for ESS"
     "AX210/AX200 (TX)", "
     11a/g/n/ac/ax
     
@@ -900,9 +900,9 @@ The following table shows the interoperability among PicoScenes-supported device
     
     Up to 3x3 MIMO
     
-    Support non-standard channel/bandwidth
+    Support for non-standard channel/bandwidth
     
-    Support ESS", "
+    Support for ESS", "
     
     11n only
     
@@ -916,9 +916,9 @@ The following table shows the interoperability among PicoScenes-supported device
     
     Up to 3x3 MIMO
     
-    Support non-standard channel/bandwidth
+    Support for non-standard channel/bandwidth
     
-    Support ESS", "
+    Support for ESS", "
     
     11n only
     
@@ -950,4 +950,4 @@ The following table shows the interoperability among PicoScenes-supported device
     Up to 3x3 MIMO
     "
 
-.. [#] QCA9300 measures CSI only for the 802.11n format frames with *HT-Sound* flag *ON*; while IWL5300 does not measures CSI for *HT-Sound=ON* frames. This contradiction means QCA9300 and IWL5300 cannot measure CSI for same frames. PicoScenes by default sets *HT-Sound=ON* for 802.11n frames. For IWL5300 Rx end, users should append ``--5300`` to Tx end commands.
+.. [#] QCA9300 only measures CSI for 802.11n format frames when the *HT-Sound* flag is set to *ON*, whereas IWL5300 does not measure CSI for frames with *HT-Sound=ON*. This contradiction implies that QCA9300 and IWL5300 cannot measure CSI for the same frames. By default, PicoScenes sets *HT-Sound=ON* for 802.11n frames. For the IWL5300 Rx end, users should append ·· to the Tx end commands.

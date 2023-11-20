@@ -1,6 +1,7 @@
 Command Line Interface and Program Option Reference
 =================================================================
 
+.. _cli-format-explanation:
 PicoScenes Command Line Interface 
 ------------------------------------
 

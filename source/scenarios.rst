@@ -559,6 +559,7 @@ CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are t
 #. :ref:`ax200-monitor-injection`
 #. :ref:`ax200-monitor-injection-mcs-antenna`
 #. :ref:`live-channel-bw-changing`
+#. :ref:`Multi-NIC-on-Single-Computer`
 
 .. _ax200-wifi-ap:
 CSI Measurement from Associated Wi-Fi AP
@@ -611,7 +612,6 @@ The above command has four program options *"-d debug -i 3 --mode logger --plot"
 The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 .. _ax200-monitor-injection:
-
 Packet Injection based CSI Measurement (Tx with 802.11a/g/n/ac/ax Format and 20/40/80/160 MHz CBW)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -656,7 +656,6 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 .. hint:: You can refer to :doc:`/presets` for full list of presets.
 
 .. _ax200-monitor-injection-mcs-antenna:
-
 Packet Injection with MCS Setting and Antenna Selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -704,25 +703,34 @@ PicoScenes provides ``--channel`` option to change channel settings in real-time
 
 the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
 
-.. note:: The following sections are not revised, the old version.
+.. _Multi-NIC-on-Single-Computer:
+Multi-NIC-on-Single-Computer Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-USRP injects Packets while QCA9300/IWL5300 NICs measure CSI (Difficulty Level: Easy)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PicoScenes can also inject 802.11a/g/n/ac/ax compatible packets. The following example bash script injects 802.11ac packets in 5815 MHz channel with 40 MHz bandwidth, two spatial streams (:math:`N_{STS}=2`) and MCS 4.
+PicoScenes supports to install Wi-Fi NICs on a single computer, see :ref:`multi-nic-installation`. Assume you have two or more AX210 or AX200 NICs installed on your computer and you want to use one NIC for Tx and the rest for Rx and CSI measurement. For example, if you want to use NIC <3> for Tx, and the other NICs, like <4> and <5>, for Rx, you can use the following two commands:
 
 .. code-block:: bash
 
-    #!/bin/sh -e 
+    array_prepare_for_picoscenes "3 4 5" "5955 160 6025"
 
-    PicoScenes "-d debug;
-                -i usrp192.168.40.2 --mode injector --freq 5815e6 --rate 50e6 --cbw 80 --code ldpc --format vht --tx-channel 0,1 --sts 2 --mcs 4 --txpower 15 
-                "
+    PicoScenes "-d debug; // PicoScenes CLI input supports per-line comments
+                -i 5 --mode logger   --plot; // Put <5> to logger mode, this line is non-blocking;
+                -i 4 --mode logger   --plot; // Put <4> to logger mode, this line is non-blocking;
+                -i 3 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3; // Let <3> do Tx, this line is blocking
+                -q // program quit when Tx finished."
 
-The above command introduces two SDR-exclusive and Tx-related options: ``--format`` and ``--tx-channel``. ``--format vht`` specifies the PicoScenes baseband to transmit the signal in 802.11ac (Very High Throughput, VHT) format. ``--tx-channel 0,1`` assigns the 0-th and 1st channels for transmission to support the following ``--sts 2 --mcs 4`` MIMO transmission.
+These two commands needs some explanations:
 
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_3_2 <_static/2_3_2.sh>` 
+- The ``array_prepare_for_picoscenes`` adds monitor interfaces for the 3/4/5 NICs and change their working channels to '5955 160 6025'. See :doc:`/channels` for more examples. 
+- The CLI input is a multi-line input, each line for a NIC. The line separation is the semicolon (**;**). 
+
+  - The 2nd and 3rd lines put NIC <4> and <5> to logger mode and activate the corresponding live-plot. Please note *the logger mode is non-blocking*. It is the non-blocking design that actually enables the multi-NIC concurrent Rx and CSI measurement.
+  - The 4th line specifies NIC <3> to transmit 160 MHz CBW HESU format frames for 10000 times.
+  - The last line ``-q`` or ``--quit`` means *exit the program when no jobs*.
+
+.. hint:: There is a more comprehensive explanation for this multi-line format, see :ref:`cli-format-explanation`.
+
+.. note:: The following sections are not revised, the old version.
 
 Two USRPs measure CSI under arbitrary bandwidth (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

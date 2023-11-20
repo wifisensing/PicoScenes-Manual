@@ -345,22 +345,22 @@ The following command specifies 0.8 of the maximum Tx gain for packet injection:
 Multi-Channel (RF Chain) and MIMO Tx with NI USRP Devices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PicoScenes supports multi-channel transmission using NI USRP devices either by a single device or by combining multiple devices. 
+PicoScenes supports multi-channel transmission using NI USRP devices, either by a single device or by combining multiple devices.
 
 The device naming and synchronization are identical to that of multi-channel signal receiving aforementioned in :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi` and :ref:`naming_for_usrp`.
 
-Multi-Channel (RF Chain) Tx for 1-STS frame with NI USRP Device
+Multi-Channel (RF Chain) Tx for 1-STS Frame with NI USRP Device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this scenario, assume your USRP device ID id ``usrp192.168.30.2,192.168.70.2``, you can use the following command to transmit a 1-STS frame by multiple antennas:
+In this scenario, assuming your USRP device IDs are ``usrp192.168.30.2`` and ``usrp192.168.70.2``, you can use the following command to transmit a 1-STS frame using multiple antennas:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp192.168.30.2,192.168.70.2 --freq 5900 --mode injector --repeat 1e5 --delay 5e3 --clock-source external --preset TX_CBW_40_EHTSU --tx-channel 0,1,2,3"
 
-In this command the ``--tx-channel`` option, equivalent to the `--txcm` option, specifies the Tx channel or chain mask. ``--tx-channel 0,1,2,3`` is equivalent to ``--txcm 15`` indicating all four RF channels are used for Tx. It is important to understand that **multi-channel Tx is not necessarily MIMO transmission**.
+In this command, the ``--tx-channel`` option, which is equivalent to the ``--txcm`` option, specifies the Tx channel or chain mask. ``--tx-channel 0,1,2,3`` is equivalent to ``--txcm 15``, indicating that all four RF channels are used for Tx. It is important to note that **multi-channel Tx does not necessarily imply MIMO transmission**.
 
-.. hint:: Due to the cyclic shift delay (CSD) requirement by 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel is different, more specifically, cyclic delayed among antennas.
+.. hint:: Due to the cyclic shift delay (CSD) requirement of the 802.11 standard, even for a 1-STS frame, the signals transmitted on each Tx channel are different and cyclically delayed among the antennas.
 
 Multi-Channel (RF Chain) Tx for MIMO frame with NI USRP Device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

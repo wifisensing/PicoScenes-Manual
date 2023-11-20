@@ -592,7 +592,6 @@ CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are t
 #. :ref:`ax200-monitor-injection-mcs-antenna`
 #. :ref:`live-channel-bw-changing`
 #. :ref:`Multi-NIC-on-Single-Computer`
-#. :ref:`qca9300_non-standard`
 
 .. _ax200-wifi-ap:
 CSI Measurement from Associated Wi-Fi AP
@@ -832,8 +831,9 @@ QCA9300 Operating with Non-Standard Channel, bandwidth, and Manual Rx Gain
 PicoScenes provide low-level controls for QCA9300 in terms of carrier frequency, sampling rate, and manual Rx-gain.
 
 - Carrier Frequency: QCA9300 hardware can actually operate in [2.2 - 2.9] GHz and [4.4 - 6.1] GHz range. Users can use ``--freq`` option to specify it, *e.g.*, ``--freq 2300e6``.
-- Bandwidth: PicoScenes supports altering an ordinary 20 MHz CBW channel (HT20) to 2.5/5/7.5/10 ... /30 MHz actual sampling rate, and 5/10/15/20 ... 60 MHz actual sampling rate for an ordinary 40 MHz CBW channel (HT40+/-). Users can use  ``--rate`` option to specify it, *e.g.*, ``--rate 5e6``.
+- Bandwidth: PicoScenes supports altering an ordinary 20 MHz CBW channel (HT20) to 2.5/5/7.5/10../30 MHz actual sampling rate, and 5/10/15/20..60 MHz actual sampling rate for an ordinary 40 MHz CBW channel (HT40+/-). Users can use  ``--rate`` option to specify it, *e.g.*, ``--rate 5e6``.
 - Rx-Gain: PicoScenes supports overriding the automatic gain control (AGC) on QCA9300 with manual GC within a range of [0 - 66] dBm. Users can use ``--rx-gain`` to specify it, *e.g.*, ``--rx-gain 40``.
+- AGC: Users can re-activate AGC for QCA9300 by option ``--agc``.
 
 .. _interoperability:
 Interoperability among SDR and COTS NICs

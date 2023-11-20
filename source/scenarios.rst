@@ -505,13 +505,13 @@ This capability enables users to have full control over the Tx or Rx signals. Lo
 Multiple CSI Measurements per Frame
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PicoScenes implements two standard-compatible Multi-LTF-in-Single-Frame (MLSF) approaches, 802.11ax High Doppler-format frame, and 802.11n frame with Extra Spatial Sounding (ESS).
+PicoScenes supports two standard-compatible approaches for multiple CSI measurements per frame: the 802.11ax High Doppler-format frame and the 802.11n frame with Extra Spatial Sounding (ESS) fields.
 
 .. _tx-rx-midamble:
 802.11ax High Doppler-Format Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to combating the high-doppler effect in moving scenarios, the High Doppler-format inserts *additional midamble HE-LTFs* into the data part of a HE-SU format frame every 10 or 20 data OFDM symbols. PicoScenes implements the encoding and decoding of this feature. Once the frame is long enough (via A-MPDU), up to 39 CSI measurements can be measured by a single frame. Users can enable this feature by ``--high-doppler`` option like the following command:
+In order to combating the high-doppler effect in moving scenarios, the High Doppler-format inserts additional *midamble HE-LTFs* into the data part of a HE-SU format frame every 10 or 20 data OFDM symbols. PicoScenes implements the encoding and decoding of this feature. Once the frame is long enough (via A-MPDU), up to 39 CSI measurements can be measured by a single frame. Users can enable this feature by ``--high-doppler`` option like the following command:
 
 .. code-block:: bash
 
@@ -525,15 +525,15 @@ This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE
 802.11n Extra Spatial Sounding (ESS) Frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ESS feature can insert <3 HT-LTFs immediate after the normal HT-LTFs :math:`N_{ess}`, allowing Rx end to measure more CSI than the number of spatial streams :math:`N_{sts}`. Users can enable this feature by ``--ess`` option like the following command:
+The ESS feature can insert <3 HT-LTFs immediately after the normal HT-LTFs, allowing the receiving end (Rx) to measure more CSI than the number of spatial streams :math:N_{sts}. You can enable this feature using the ``--ess`` option like shown in the following command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5240 --ess 2 --repeat 1e9 --delay 5e3"
 
-This command transmits 802.11n frames with 2 additional ESS HT-LTFs (via option ``--ess 2``).
+This command transmits 802.11n frames with 2 additional ESS HT-LTFs (specified using the ``--ess 2`` option).
 
-.. note:: ESS is an optional feature of 802.11n standard. QCA9300 and IWL5300 support this feature, while AX200/AX210 not.
+.. note:: ESS is an optional feature of the 802.11n standard. It is supported by QCA9300 and IWL5300, but not by AX200/AX210.
 
 .. _channel-impairment-simulation:
 Channel Impairment Simulation
@@ -545,46 +545,46 @@ Channel Impairment Simulation
 Dual-Channel Spectrum Splitting and Stitching (Experimental)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PicoScenes supports combining two channels operating at adjacent frequencies with the same bandwidth, achieving a similar effect to doubling the sampling rate of a single channel. This method allows surpassing the limitation of the maximum hardware sampling rate, such as achieving an equivalent 400 MHz sampling rate using the NI USRP X310 which has a maximum of 200 MHz sampling rate.
+PicoScenes supports the combination of two channels operating at different frequencies with the same bandwidth, which achieves a similar effect to doubling the sampling rate of a single channel. This method allows overcoming the limitation of the maximum hardware sampling rate, such as achieving an equivalent 400 MHz sampling rate using the NI USRP X310, which has a maximum sampling rate of 200 MHz.
 
-Assume you have two NI USRP X310 (with two UBX-160 daughterboards) and each is equipped with dual connection (usrp192.168.30.2_192.168.31.2 for the Rx end, and usrp192.168.40.2_192.168.41.2 for the Tx end). If you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth (CBW) frames at 5600 MHz using NI USRP X310 devices. You can use the following commands:
+Assuming you have two NI USRP X310 devices, each equipped with a dual connection (usrp192.168.30.2_192.168.31.2 for the Rx end and usrp192.168.40.2_192.168.41.2 for the Tx end). If you want to transmit and receive 802.11 EHT-SU 320 MHz channel bandwidth (CBW) frames at 5600 MHz using the NI USRP X310 devices, you can use the following commands:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp192.168.30.2_192.168.31.2 --freq 5520 5680 --rate 200e6  --rx-resample-ratio 0.8 --merge --rx-cbw 320 --rxcm 3 --mode logger   --plot" #<- Run on the first computer (Rx end)
     PicoScenes "-d debug -i usrp192.168.40.2_192.168.41.2 --freq 5520 5680 --rate 200e6 --tx-resample-ratio 1.25 --split    --cbw 320 --txcm 3 --mode injector --format EHTSU --coding LDPC --repeat 1e9 --delay 5e5" #<- Run on the second computer (Tx end)
 
-Several key options are explained as below:
+Several key options are explained below:
 
-- ``--freq 5520 5680``: ``--freq`` supports multi-channel setting. To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz.
-- ``--rate 200e6  --rx-resample-ratio 0.8``: To receive 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Rx signals are resampled to 160 MHz.
-- ``--rate 200e6 --tx-resample-ratio 1.25``: To transmit 320 MHz CBW frame at 5600 MHz, two X310 channels should center at 5520 MHz and 5680 MHz and operate at 160 MHz. However, NI USRP X310 doesn't support 160 MHz, therefore, Tx signals are resampled to 160 MHz.
-- ``--merge``: Rx end merges dual-channel signals into a 400 MHz higher sampling rate stream (then down-sampled by 0.8x);
-- ``--split``: Tx end splits the 400 MHz rate I/Q streams into two 200 MHz rate streams (before splitting, up-sampled by 1.25x);
-- ``--rx-cbw 320`` and ``--cbw 320``: Specify baseband decoder/encoder to operate at 320 MHz CBW mode;
+- ``--freq 5520 5680``: The ``--freq`` option supports multi-channel setting. To transmit a 320 MHz CBW frame at 5600 MHz, the two X310 channels should be centered at 5520 MHz and 5680 MHz.
+- ``--rate 200e6  --rx-resample-ratio 0.8``: To receive a 320 MHz CBW frame at 5600 MHz, the two X310 channels should be centered at 5520 MHz and 5680 MHz and operate at 160 MHz. However, the NI USRP X310 doesn't support 160 MHz, so the Rx signals are resampled to 160 MHz.
+- ``--rate 200e6 --tx-resample-ratio 1.25``: To transmit a 320 MHz CBW frame at 5600 MHz, the two X310 channels should be centered at 5520 MHz and 5680 MHz and operate at 160 MHz. However, the NI USRP X310 doesn't support 160 MHz, so the Tx signals are resampled to 160 MHz.
+- ``--merge``: On the Rx end, the dual-channel signals are merged into a 400 MHz higher sampling rate stream (which is then down-sampled by 0.8x).
+- ``--split``: On the Tx end, the 400 MHz rate I/Q streams are split into two 200 MHz rate streams (before splitting, they are up-sampled by 1.25x).
+- ``--rx-cbw 320`` and ``--cbw 320``: Specify the baseband decoder/encoder to operate in 320 MHz CBW mode.
 
-.. hint:: The two frequencies specified to ``--freq`` can be any two hardware-supported frequencies, enabling more research flexibility.
+.. hint:: The two frequencies specified in ``--freq`` can be any two frequencies supported by the hardware, providing more research flexibility.
 
-.. note:: The 320 MHz sampling together with intensive *In-baseband Digital Resampling* are extremely CPU-intensive. Very high packet loss should be expected.
+.. note:: The 320 MHz sampling rate, along with intensive *In-baseband Digital Resampling*, is extremely CPU-intensive. Expect a very high packet loss rate.
 
 .. _parallel-decoding:
 Multi-Thread Rx Decoding (Experimental)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-PicoScenes Rx baseband decoder features an experimental multi-threading capability, allowing pp to :math:`N_{CPU}` times increase in decoding performance. Enabling this feature is easy like used in the following example:
+The PicoScenes Rx baseband decoder includes an experimental multi-threading capability, which can potentially increase the decoding performance by up to :math:N_{CPU} times. Enabling this feature is straightforward, as demonstrated in the following example:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i usrp --freq 5250 --preset RX_CBW_160 --mode logger --plot --mt 5" #<- Run on the first computer (Rx end)
 
-The ``--mt 5`` option instructs the Rx decoder to use 5 threads in parallel decoding.
+The ``--mt 5`` option specifies that the Rx decoder should utilize 5 threads for parallel decoding.
 
 
 .. _ax200-measurements:
 CSI Measurement using AX200/AX210 NICs
 -----------------------------------------------------------
 
-CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are the exclusive features of PicoScenes platform. In this section, we showcase the most frequently used ISAC research scenarios:
+CSI extraction on Intel AX210/AX200, including the 6 GHz band access, is one of the exclusive features of the PicoScenes platform. In this section, we will explore several commonly used research scenarios for ISAC:
 
 #. :ref:`ax200-wifi-ap`
 #. :ref:`ax200-monitor`
@@ -601,37 +601,36 @@ The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted
 
 To measure CSI from the AX200/AX210, follow these three steps:
 
-#. Determine the NIC's PhyPath ID by running the ``array_status`` command in a terminal. For device naming conventions for commercial NICs, please refer to the :ref:`naming_for_nics` section.
+#. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. For device naming conventions of commercial NICs, please refer to the :ref:`naming_for_nics` section.
 #. Assuming the PhyPath ID is ``3``, execute the following command:
 
     .. code-block:: bash
     
         PicoScenes "-d debug -i 3 --mode logger --plot"
 
-    The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
+    The command mentioned above consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
 
-      - ``-d debug``: Modifies the display level of the logging service to debug;
-      - ``-i 3 --mode logger``: Switches the device <3> to CSI logger mode;
+      - ``-d debug``: Modifies the display level of the logging service to debug.
+      - ``-i 3 --mode logger``: Switches the device with ID 3 to CSI logger mode.
       - ``--plot``: Live-plots the CSI measurements.
 
-    For more detailed explanations, please see the :doc:`parameters` section.
-
+    For more detailed explanations, please refer to the :doc:`parameters` section.
 #. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
 
-The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
+The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB, drag the .csi file into the *Command Window*, and the file will be parsed and stored as a MATLAB variable named *rx_<PHYPath>_<Time>*.
 
 .. _ax200-monitor:
 
 Fully-Passive CSI Measurement in Monitor Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/AX210 NIC is capable of measuring CSI for the 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
+The AX200/AX210 NIC is capable of measuring CSI for 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
 
 To enable fully-passive CSI measurement, follow these three steps:
 
 #. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. Let's assume the PhyPath ID is ``3``.
-#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, which should be specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on. See :doc:`/channels` for details.
-#. Run the command:
+#. Put the NIC into monitor mode by executing the command ``array_prepare_for_picoscenes 3 <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration, specified in the same format as the *freq* setting of the Linux *iw set freq* command. For example, it could be "2412 HT20", "5200 HT40-", "5745 80 5775", and so on. Refer to :doc:`/channels` for more details.
+#. Run the following command:
 
     .. code-block:: bash
     
@@ -639,27 +638,27 @@ To enable fully-passive CSI measurement, follow these three steps:
 
 #. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C.
 
-The above command has four program options *"-d debug -i 3 --mode logger --plot"*. These options have the same behavior as described in the :ref:`ax200-wifi-ap` Section.
+The command options *"-d debug -i 3 --mode logger --plot"* have the same behavior as described in the :ref:`ax200-wifi-ap` section.
 
-The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory*. To analyze the data, open MATLAB, drag the .csi file into the *Command Window*, and the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
 .. _ax200-monitor-injection:
-Packet Injection based CSI Measurement (Tx with 802.11a/g/n/ac/ax Format and 20/40/80/160 MHz CBW)
+Packet Injection-Based CSI Measurement (Tx with 802.11a/g/n/ac/ax Format and 20/40/80/160 MHz CBW)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The PicoScenes Driver enables AX200/AX210 to *packet-inject* 802.11a/g/n/ac/ax format frames with 20/40/80/160 MHz bandwidth and up to 2x2 MIMO. By combining this capability with the CSI measurement ability shown in the :ref:`ax200-monitor` section, PicoScenes provides fine-grained low-level control for CSI measurement.
+The PicoScenes Driver enables AX200/AX210 to *packet-inject* frames in 802.11a/g/n/ac/ax format with bandwidths of 20/40/80/160 MHz and up to 2x2 MIMO. By combining this capability with the CSI measurement functionality discussed in the :ref:`ax200-monitor` section, PicoScenes provides precise, fine-grained control for CSI measurement.
 
-To enable this test, you need two computers, each equipped with an AX200/AX210 NIC. Follow these three steps:
+To perform this example, you will need two computers, each equipped with an AX200/AX210 NIC. Please follow these three steps:
 
 #. Determine the PhyPath ID of each NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` for the first computer and ``4`` for the second.
-#. Put both NICs into monitor mode by executing the command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure 160 MHz channel CSI. Run the following commands on the respective computers:
+#. Put both NICs into monitor mode by executing the command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure the CSI of a 160 MHz channel. Run the following commands on the respective computers:
 
     .. code-block:: bash
         
         array_prepare_for_picoscenes 3 "5640 160 5250" #<-- Run on the first computer 
         array_prepare_for_picoscenes 4 "5640 160 5250" #<-- Run on the second computer
     
-    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz. See :doc:`/channels` for details.
+    Here, ``5640 160 5250`` represents a 160 MHz bandwidth channel centered at 5250 MHz with the primary channel at 5640 MHz. For more details, refer to :doc:`/channels`.
 
 #. On the first computer, run the following command in a terminal:
 
@@ -667,31 +666,31 @@ To enable this test, you need two computers, each equipped with an AX200/AX210 N
 
         PicoScenes "-d debug -i 3 --mode logger --plot"
 
-#. On the second computer, assuming the researchers want to measure 160 MHz bandwidth 802.11ax format CSI, run the following command in a terminal:
+#. On the second computer, assuming the researchers want to measure the CSI of 802.11ax format with 160 MHz bandwidth, run the following command in a terminal:
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"
         
-    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, have the following interpretations:
+    The command options for the second computer, *"-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3"*, can be interpreted as follows:
 
-    - ``-d debug``: Modifies the display level of the logging service to debug;
-    - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode;
-    - ``--preset TX_CBW_160_HESU``: Specifies the Tx packet format using a preset named ``TX_CBW_160_HESU``, which means "Tx, channel bandwidth (CBW) 160 MHz, format=HESU (802.11ax single-user)".
-    - ``--repeat 1e5``: Transmits (or packet injects) 100,000 packets.
+    - ``-d debug``: Modifies the display level of the logging service to debug.
+    - ``-i 4 --mode injector``: Switches the device <4> to packet injector mode.
+    -  ``--preset TX_CBW_160_HESU``: Specifies the transmission (Tx) packet format using the preset named ``TX_CBW_160_HESU``, which corresponds to "Tx, channel bandwidth (CBW) 160 MHz, format=HESU (802.11ax single-user)".
+    - ``--repeat 1e5``: Transmits (or injects) 100,000 packets.
     - ``--delay 5e3``: Sets the inter-packet delay to 5,000 microseconds.
 
 #. Once you have collected sufficient CSI data on the first computer, exit PicoScenes by pressing Ctrl+C.
 
-    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB, drag the .csi file into the *Command Window*, and the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
 
-.. hint:: You can refer to :doc:`/presets` for full list of presets.
+.. hint:: You can refer to :doc:`/presets` for a full list of presets.
 
 .. _ax200-monitor-injection-mcs-antenna:
 Packet Injection with MCS Setting and Antenna Selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes allows users to specify the MCS value and Tx/Rx antenna selection for AX200/AX210. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
+PicoScenes allows users to specify the MCS (Modulation and Coding Scheme) value and Tx/Rx antenna selection for AX200/AX210 NICs. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
 
 On the first computer, if you want to use only the 1st antenna for Rx, modify the command as follows:
 
@@ -699,7 +698,7 @@ On the first computer, if you want to use only the 1st antenna for Rx, modify th
 
     PicoScenes "-d debug -i 3 --mode logger --rxcm 1 --plot"
 
-The additional ``--rxcm 1`` option sets the Rx chainmask to 1, indicating the use of the 1st antenna for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bit-wise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on. 
+The additional ``--rxcm 1`` option sets the Rx chainmask to 1, indicating the use of the 1st antenna for Rx. The ``--rxcm`` option allows you to specify the antenna selection using a bitwise style: 1 for the 1st antenna, 2 for the 2nd antenna, 3 for the first 2 antennas, 4 for the 3rd antenna, 5 for the 1st and 3rd antennas, and so on.
 
 On the second computer, if you want to use only the 2nd antenna for Tx and specify the MCS value as 5, modify the command as follows:
 
@@ -707,39 +706,39 @@ On the second computer, if you want to use only the 2nd antenna for Tx and speci
 
     PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --txcm 2 --mcs 5"
 
-The additional ``--txcm 2`` option sets the Tx chainmask to 2, indicating the use of the 2nd antenna for Tx. The ``--txcm`` option has the same value style as `--rxcm`, but for transmission. The `--mcs 5` option sets the Tx MCS to 5.
+The additional ``--txcm 2`` option sets the Tx chainmask to 2, indicating the use of the 2nd antenna for Tx. The ``--txcm`` option follows the same value style as ``--rxcm``, but for transmission. The ``--mcs 5`` option sets the Tx MCS to 5.
 
-If you want to measure the largest CSI with 160 MHz bandwidth and 2x2 MIMO, further modifications are required. On the first computer, to receive 2x2 MIMO frames, you need to use 2 antennas for Rx. You can explicitly set ``--rxcm 3`` as shown below or just remove the `--rxcm` option, which defaults to using ``--rxcm 3``:
+If you want to measure the largest CSI with a 160 MHz bandwidth and 2x2 MIMO, further modifications are required. On the first computer, to receive 2x2 MIMO frames, you need to use 2 antennas for Rx. You can explicitly set ``--rxcm 3`` as shown below or simply remove the ``--rxcm`` option, which defaults to using ``--rxcm 3``:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i 3 --mode logger --rxcm 3 --plot"
 
-On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 antennas for Tx. You can explicitly set ``--txcm 3``` as shown below or just remove the ``--txcm`` option, which defaults to using ``--txcm 3``:
+On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 antennas for Tx. You can explicitly set ``--txcm 3`` as shown below or simply remove the ``--txcm`` option, which defaults to using ``--txcm 3``:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i 4 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3 --mcs 5 --sts 2"
 
-The additional ``--sts 2`` option sets the number of Space-Time Stream (:math:`N_{STS}=2`) to 2, indicating to use two antennas to transmit 2x2 MIMO frames.
+The additional ``--sts 2`` option sets the number of Space-Time Streams (:math:`N_{STS}=2`) to 2, indicating the use of two antennas to transmit 2x2 MIMO frames.
 
 .. _live-channel-bw-changing:
-Changing Channel and bandwidth in Realtime
+Changing Channel and Bandwidth in Real-time
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes provides ``--channel`` option to change channel settings in real-time, without re-execution of ``array_prepare_for_picoscenes`` script. For example, assuming you AX210/AX200 NIC, let's say ID <3>, is working at a 80 MHz CBW channel "5180 80 5210" (See :doc:`/channels` for details). Now if you want your NIC to listen to a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
+PicoScenes provides the ``--channel`` option to change channel settings in real-time, without re-execution of the ``array_prepare_for_picoscenes`` command. For example, assuming you have an AX210/AX200 NIC with ID <3> working at an 80 MHz CBW channel "5180 80 5210" (refer to :doc:`/channels` for details), and you want to change the NIC to listen on a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
 
 .. code-block:: bash
 
     PicoScenes "-d debug -i 3 --channel '5955 160 6025' --preset TX_CBW_160_HESU --mode logger --plot"
 
-the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
+The ``--channel '5955 160 6025'`` option directly changes the channels without requiring the ``array_prepare_for_picoscenes`` script to be executed again.
 
 .. _Multi-NIC-on-Single-Computer:
 Concurrent Multi-NIC Operation on a Single Computer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes supports to install and control Wi-Fi NICs on a single computer. For multi-NIC installation, see :ref:`multi-nic-installation`. Assume you have two or more AX210 or AX200 NICs installed on your computer and you want to use one NIC for Tx and the rest for Rx and CSI measurement. For example, if you want to use NIC <3> for Tx, and the other NICs, like <4> and <5>, for Rx, you can use the following two commands:
+PicoScenes supports the installation and control of multiple Wi-Fi NICs on a single computer. To set up a multi-NIC configuration, please refer to the :ref:`multi-nic-installation` section. Assuming you have installed two or more AX210 or AX200 NICs on your computer and you want to use one NIC for transmission (Tx) and the rest for reception (Rx) and CSI measurement, you can use the following commands:
 
 .. code-block:: bash
 
@@ -751,16 +750,16 @@ PicoScenes supports to install and control Wi-Fi NICs on a single computer. For 
                 -i 3 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3; // Let <3> do Tx, this line is blocking
                 -q // program quit when Tx finished."
 
-These two commands needs some explanations:
+Let's explain these two commands:
 
-- The ``array_prepare_for_picoscenes`` adds monitor interfaces for the 3/4/5 NICs and change their working channels to '5955 160 6025'. See :doc:`/channels` for more examples. 
-- The CLI input is a multi-line input, each line for a NIC. The line separation is the semicolon (**;**). 
+- The ``array_prepare_for_picoscenes`` command adds monitor interfaces for NICs 3, 4, and 5, and sets their working channels to '5955 160 6025'. Refer to the :doc:`/channels` section for more examples.
+- The CLI input is a multi-line input, where each line corresponds to a NIC. Lines are separated by semicolons (**;**).
 
-  - The 2nd and 3rd lines put NIC <4> and <5> to logger mode and activate the corresponding live-plot. Please note *the logger mode is non-blocking*. It is the non-blocking design that actually enables the multi-NIC concurrent Rx and CSI measurement.
-  - The 4th line specifies NIC <3> to transmit 160 MHz CBW HESU format frames for 10000 times.
-  - The last line ``-q`` or ``--quit`` means *exit the program when no jobs*.
+  - The second and third lines put NIC 4 and 5 into logger mode and activate the corresponding live plot. Please note that *logger mode is non-blocking*. This non-blocking design enables concurrent Rx and CSI measurement for multiple NICs.
+  - The fourth line specifies that NIC 3 should transmit frames with a 160 MHz CBW in HESU format for 10000 times.
+  - The last line ``-q`` or ``--quit`` indicates that the program should exit when there are no more jobs to process.
 
-.. hint:: There is a more comprehensive explanation for this multi-line format, see :ref:`cli-format-explanation`.
+.. hint:: For a more comprehensive explanation of this multi-line format, please refer to the :ref:`cli-format-explanation` section.
 
 .. _csi-by-5300-and-9300:
 CSI Measurement using QCA9300 and IWL5300  NICs
@@ -950,4 +949,4 @@ The table below illustrates the interoperability between the devices supported b
     Up to 3x3 MIMO
     "
 
-.. [#] QCA9300 only measures CSI for 802.11n format frames when the *HT-Sound* flag is set to *ON*, whereas IWL5300 does not measure CSI for frames with *HT-Sound=ON*. This contradiction implies that QCA9300 and IWL5300 cannot measure CSI for the same frames. By default, PicoScenes sets *HT-Sound=ON* for 802.11n frames. For the IWL5300 Rx end, users should append ·· to the Tx end commands.
+.. [#] QCA9300 only measures CSI for 802.11n format frames when the *HT-Sound* flag is set to *ON*, whereas IWL5300 does not measure CSI for frames with *HT-Sound=ON*. This contradiction implies that QCA9300 and IWL5300 cannot measure CSI for the same frames. By default, PicoScenes sets *HT-Sound=ON* for 802.11n frames. For the IWL5300 Rx end, users should append ``--5300`` to the Tx end commands.

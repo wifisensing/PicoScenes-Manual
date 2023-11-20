@@ -552,8 +552,15 @@ The ``--mt 5`` option instructs the Rx decoder to use 5 threads in parallel deco
 CSI Measurement using AX200/AX210 NICs
 -----------------------------------------------------------
 
-.. _ax200-wifi-ap:
+CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are the exclusive features of PicoScenes platform. In this section, we showcase the most frequently used ISAC research scenarios:
 
+#. :ref:`ax200-wifi-ap`
+#. :ref:`ax200-monitor`
+#. :ref:`ax200-monitor-injection`
+#. :ref:`ax200-monitor-injection-mcs-antenna`
+#. :ref:`live-channel-bw-changing`
+
+.. _ax200-wifi-ap:
 AX200/AX210 + Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

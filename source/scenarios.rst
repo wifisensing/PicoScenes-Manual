@@ -763,29 +763,50 @@ These two commands needs some explanations:
 .. hint:: There is a more comprehensive explanation for this multi-line format, see :ref:`cli-format-explanation`.
 
 .. _csi-by-5300-and-9300:
-CSI Measurement using IWL5300/QCA9300 NICs
+CSI Measurement using IWL5300 and QCA9300 NICs
 -----------------------------------------------------------
+
+IWL5300 and QCA9300 are classic Wi-Fi NICs released decade ago. Before AX210/AX200, we have invested lots of time on integrating them into PicoScenes platform. In this section, we cover the following major topics:
+
+#. :ref:`iwl5300-wifi-ap`
+#. :ref:`dual_nic_separate_machine`
+#. :ref:`dual_nics_on_one_machine`
 
 .. _iwl5300-wifi-ap:
 CSI Measurement from Associated AP by IWL5300 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connected Wi-Fi AP.
-Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are four steps to measure CSI from IWL5300:
+The IWL5300 NIC can also measure CSI for the 802.11n frames sent from the connected Wi-Fi AP. Assuming you have already connected the IWL5300 NIC to an 802.11n compatible Wi-Fi AP, then there are three steps to measure CSI from IWL5300:
 
-#. Switching the default IWL 5300 firmware to the spatial CSI-extractable firmware. We provide an one-key solution by ``switch5300Firmware csi``.
-#. Lookup the IWL5300 NIC's PhyPath ID by ``array_status``. 
-#. Assume the PhyPath is ``3``, then run command ``PicoScenes -d debug -i 3 --mode logger`` in a terminal.
-#. Exit CSI logging by pressing Ctrl+C.
+#. Switching to CSI-extractable firmware. IWL5300 CSI extraction functionality relies on a customized firmware. PicoScenes provides ``switch5300Firmware`` command to switch between the *ordinary* and *CSI-extractable* firmware, see  :doc:`utilities` for more details. The following command switches to CSI-extractable firmware:
 
-The above command has three program options *"-d debug -i 3 --mode logger"*. They can be interpreted as *"PicoScenes changes the display level log message to debug (-d debug); makes the device with an Id of 3 switch to the CSI logger mode (-i 3 --mode logger)"*. See :doc:`parameters` for more detailed explanations.
+    .. code-block:: bash
 
-The logged CSI data is stored in a ``rx_<Id>_<Time>.csi`` file in the *present working directory*. Open MATLAB, drag the .csi file into the Command Window, the file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+        switch5300Firmware csi
 
-You may download and run the complete takeaway bash script for this scenario at 
-:download:`2_2_1 <_static/2_2_1.sh>` 
+#. Assuming the PhyPath ID is ``3``, execute the following command:
 
-.. hint:: The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can only connect to the password-free open APs. PicoScenes also provides a convenient ``switch5300Firmware`` script to switch between the normal and CSI measurement firmwares for IWL5300 NICs. For more information, you may refer to :doc:`utilities`.
+    .. code-block:: bash
+    
+        PicoScenes "-d debug -i 3 --mode logger --plot"
+
+    The aforementioned command consists of four program options: *"-d debug -i 3 --mode logger --plot"*. These options can be interpreted as follows:
+
+      - ``-d debug``: Modifies the display level of the logging service to debug;
+      - ``-i 3 --mode logger``: Switches the device <3> to CSI logger mode;
+      - ``--plot``: Live-plots the CSI measurements.
+
+    For more detailed explanations, please see the :doc:`parameters` section.
+
+#. Once you have collected sufficient CSI data, exit PicoScenes by pressing Ctrl+C. 
+
+    The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in the *present working directory* of the first computer. To analyze the data, open MATLAB and drag the .csi file into the *Command Window*. The file will be parsed and stored as a MATLAB variable named *rx_<Id>_<Time>*.
+
+.. hint:: 
+
+    - The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can only connect to the password-free open APs.
+    - **QCA9300 does not support CSI measurement from the unmodified Wi-Fi AP associated**, because QCA9300 measures CSI for only the 802.11n frames hacked with *HT_Sounding* flag, which is not common case for Wi-Fi AP. A possible workaround is `Atheros CSI Tool <https://wands.sg/research/wifi/AtherosCSI/>`_, which uses the QCA9300-based AP and hacked the AP end.
+
 
 .. _dual_nic_separate_machine:
 Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
@@ -820,10 +841,6 @@ The above commands assume that both the Tx and Rx ends are QCA9300 NICs. If the 
     "QCA9300", "IWL5300", append ``--5300`` to the Tx end command
     "IWL5300", "QCA9300", PicoScenes DO NOT SUPPORTED
     "IWL5300", "IWL5300", use the above Tx and Rx commands
-
-You may download and run the complete takeaway bash scripts for this scenario at 
-:download:`2_2_2-1 <_static/2_2_2-1.sh>` 
-:download:`2_2_2-2 <_static/2_2_2-2.sh>` 
 
 .. _dual_nics_on_one_machine:
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)

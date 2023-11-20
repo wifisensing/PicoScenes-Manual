@@ -736,10 +736,10 @@ PicoScenes provides ``--channel`` option to change channel settings in real-time
 the option ``--channel '5955 160 6025'`` directly changes the channels without ``array_prepare_for_picoscenes``.
 
 .. _Multi-NIC-on-Single-Computer:
-Multi-NIC-on-Single-Computer Control
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Concurrent Multi-NIC Operation on a Single Computer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes supports to install Wi-Fi NICs on a single computer, see :ref:`multi-nic-installation`. Assume you have two or more AX210 or AX200 NICs installed on your computer and you want to use one NIC for Tx and the rest for Rx and CSI measurement. For example, if you want to use NIC <3> for Tx, and the other NICs, like <4> and <5>, for Rx, you can use the following two commands:
+PicoScenes supports to install and control Wi-Fi NICs on a single computer. For multi-NIC installation, see :ref:`multi-nic-installation`. Assume you have two or more AX210 or AX200 NICs installed on your computer and you want to use one NIC for Tx and the rest for Rx and CSI measurement. For example, if you want to use NIC <3> for Tx, and the other NICs, like <4> and <5>, for Rx, you can use the following two commands:
 
 .. code-block:: bash
 
@@ -788,7 +788,6 @@ You may download and run the complete takeaway bash script for this scenario at
 .. hint:: The CSI measurement firmware of IWL5300 removes the encryption related functionalities, therefore it can only connect to the password-free open APs. PicoScenes also provides a convenient ``switch5300Firmware`` script to switch between the normal and CSI measurement firmwares for IWL5300 NICs. For more information, you may refer to :doc:`utilities`.
 
 .. _dual_nic_separate_machine:
-
 Two QCA9300/IWL5300 NICs installed on two PCs, in monitor + injection mode (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -827,7 +826,6 @@ You may download and run the complete takeaway bash scripts for this scenario at
 :download:`2_2_2-2 <_static/2_2_2-2.sh>` 
 
 .. _dual_nics_on_one_machine:
-
 Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

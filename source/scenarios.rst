@@ -592,6 +592,7 @@ CSI extraction on Intel AX210/AX200 and particularly the 6 GHz band access are t
 #. :ref:`ax200-monitor-injection-mcs-antenna`
 #. :ref:`live-channel-bw-changing`
 #. :ref:`Multi-NIC-on-Single-Computer`
+#. :ref:`qca9300_non-standard`
 
 .. _ax200-wifi-ap:
 CSI Measurement from Associated Wi-Fi AP
@@ -816,19 +817,23 @@ Packet Injection based CSI Measurement
 PicoScenes supports packet injection functionality using QCA9300 or IWL5300 as for AX210/AX200. Users can follow this guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement using QCA9300 and IWL5300. There are two things worth noting:
 
 - Both QCA9300 and IWL5300 are 802.11n compatible NICs, supports up to 40 MHz CBW and MCS 7. Thus, users should ``array_prepare_for_picoscenes`` both models with 40 MHz CBW channels. See ::doc:`/channels` for details.
-- There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices, See :ref:`interoperability` for details.
+- There are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200 and SDR devices, see :ref:`interoperability` for details.
 
 .. _multi-nic-qca9300-iwl5300:
 Concurrent Multi-NIC Operation for QCA9300 and IWL5300
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Similar to :ref:`Multi-NIC-on-Single-Computer`, PicoScenes also supports multi-NIC operation for both the QCA9300 and IWL5300. Users can follow the AX210/AX200 guide to perform multi-NIC CSI measurement.
+Similar to AX210/AX200, PicoScenes also supports multi-NIC operation for both the QCA9300 and IWL5300 models. Users can follow this guide:ref:`Multi-NIC-on-Single-Computer` to perform multi-NIC CSI measurement on QCA9300 and IWL5300, and do notice interoperability issue in :ref:`packet-injection-qcq9300-iwl5300`.
 
 .. _qca9300_non-standard:
-QCA9300 Operating with Non-Standard Channel and bandwidth 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+QCA9300 Operating with Non-Standard Channel, bandwidth, and Manual Rx Gain
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. todo:: asdfasdf
+PicoScenes provide low-level controls for QCA9300 in terms of carrier frequency, sampling rate, and manual Rx-gain.
+
+- Carrier Frequency: QCA9300 hardware can actually operate in [2.2 - 2.9] GHz and [4.4 - 6.1] GHz range. Users can use ``--freq`` option to specify it, *e.g.*, ``--freq 2300e6``.
+- Bandwidth: PicoScenes supports altering an ordinary 20 MHz CBW channel (HT20) to 2.5/5/7.5/10 ... /30 MHz actual sampling rate, and 5/10/15/20 ... 60 MHz actual sampling rate for an ordinary 40 MHz CBW channel (HT40+/-). Users can use  ``--rate`` option to specify it, *e.g.*, ``--rate 5e6``.
+- Rx-Gain: PicoScenes supports overriding the automatic gain control (AGC) on QCA9300 with manual GC within a range of [0 - 66] dBm. Users can use ``--rx-gain`` to specify it, *e.g.*, ``--rx-gain 40``.
 
 .. _interoperability:
 Interoperability among SDR and COTS NICs

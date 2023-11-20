@@ -819,7 +819,7 @@ PicoScenes supports packet injection functionality using QCA9300 or IWL5300 as f
 - There are interoperability issues among QCA9300, IWL5300, AX210/AX200 and SDR devices, See :ref:`interoperability` for details.
 
 .. _multi-nic-qca9300-iwl5300:
-Two QCA9300/IWL5300 NICs installed on one single PC, in monitor + injection mode (Difficulty Level: Easy)
+Concurrent Multi-NIC Operation for QCA9300 and IWL5300
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to :ref:`Multi-NIC-on-Single-Computer`, PicoScenes also supports multi-NIC operation for both the QCA9300 and IWL5300. Users can follow the AX210/AX200 guide to perform multi-NIC CSI measurement.

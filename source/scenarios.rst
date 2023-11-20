@@ -844,7 +844,7 @@ The following table shows the interoperability among PicoScenes-supported device
 .. csv-table:: 
     :widths: 10,30,30,30,30
 
-    "", "SDR (RX)", "AX210/AX200 (RX)", "QCA9300 (RX)", "IWL5300 (RX)"
+    "", "SDR (RX)", "AX210/AX200 (RX)", "QCA9300 (RX)[#]_", "IWL5300 (RX)[1]_"
     "SDR (TX)", "**Perfect**", "
     11a/g/n/ac/ax
 
@@ -950,4 +950,4 @@ The following table shows the interoperability among PicoScenes-supported device
     Up to 3x3 MIMO
     "
 
-.. todo:: more details
+.. [#] QCA9300 measures CSI only for 802.11n format frames with *HT-Sound* flag *ON*; while IWL5300 does not measures CSI for *HT-Sound=ON* frames. This contradiction means QCA9300 and IWL5300 cannot measure CSI for same frames. PicoScenes by default sets *HT-Sound=ON* for 802.11n frames. For IWL5300 Rx end, users should append ``--5300`` to Tx end commands.

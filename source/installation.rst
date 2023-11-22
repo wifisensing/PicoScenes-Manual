@@ -429,8 +429,8 @@ Uninstallation of The PicoScenes Ecosystem
 Uninstalling the PicoScenes Binaries
 ++++++++++++++++++++++++++++++++++++++
 
-- Run ``sudo apt remove picoscenes-driver-modules-<PRESS TAB KEY>`` to remove the modified NIC drivers. This will remove the modified NIC drivers, as well as the dependent packages such as picoscenes-platform and picoscenes-plugins-xxx.
-- Run ``sudo apt remove picoscenes-<PRESS TAB KEY>`` to remove other PicoScenes related packages
+- Run ``sudo apt remove picoscenes-driver-modules-<PRESS TAB KEY>`` to remove the PicoScenes Drivers.
+- Run ``sudo apt remove picoscenes-<PRESS TAB KEY>`` to remove PicoScenes platform and plugins.
 - Reboot your computer to complete the uninstallation process.
 
 Uninstalling the PMT-Core

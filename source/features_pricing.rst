@@ -16,7 +16,7 @@ In the sections below, we cover three main topics:
 Features of The PicoScenes Platform
 --------------------------------------
 
-We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license_platform_features`, :ref:`license_hardware_features`, and :ref:`license_api`. In these tables, we indicate the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
+We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license_platform_features`, :ref:`license_hardware_features`, and :ref:`license_api`. In these tables, we also list the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
 
 .. _license_platform_features:
 
@@ -27,7 +27,7 @@ Platform Features
     :header: "Feature", "Description","Free","Pro"
     :widths: 30, 60, 15,12
 
-    "Rich Hardware Support", "COTS NICs (AX210/AX200, QCA9300, and IWL5300) and SDR Devices (NI USRP Series and Hack RF One). See :doc:`/hardware`.","**✓**","**✓**"
+    "Rich Hardware Support", "PicoScenes supports COTS NICs (AX210/AX200, QCA9300, and IWL5300) and SDR Devices (NI USRP Series and Hack RF One). See :doc:`/hardware`.","**✓**","**✓**"
     "Hardware Interoperability","Frame transmission and CSI measurement among heterogeneous hardware. See :ref:`interoperability`. ","**✓**","**✓**"
     "Easy Installation","Out-of-box experience. Easy installation on Ubuntu 20.04 (*22.04 soon*) in less than 10 mins. No kernel or driver compilations. Debian *apt* based upgrading. See :doc:`/installation`.","**✓**","**✓**"
     "PicoScenes MATLAB Toolbox","Parsing the .csi files in MATLAB via Drag'n'Drop. See :doc:`/matlab`.","**✓**","**✓**"
@@ -53,10 +53,10 @@ SDR: NI USRP Hardware and HackRF One
     :widths: auto
 
     "SDR Hardware Support","Supporting *all models* of NI USRP SDR devices and the HackRF One. See :ref:`csi_by_sdr`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","Support up to Wi-Fi 7 and 320 MHz CBW. See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
-    "Receiving and Measuring CSI for 20 MHz CBW Frames","See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","Support up to Wi-Fi 7 and 320 MHz CBW. See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","SDR-based *Packet Injection* with up to Wi-Fi 7 format support. See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","SDR-based *Packet Injection* supporting up to 320 MHz CBW and Wi-Fi 7 format. See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
+    "Receiving and Measuring CSI for 20 MHz CBW Frames","*Fully Passive Sensing* in 20 MHz channels. See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
+    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","*Fully Passive Sensing* with Wi-Fi 7 format and up to 320 MHz CBW. See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
     "Rx Multi-Thread Decoding", "Improve Rx decoding performance significantly. See :ref:`parallel-decoding`", "**✓** (Up to 2)","**✓**"
     "Tx/Rx Gain Control","Manual Tx/Rx gain control, and Rx AGC. See :ref:`tx-gain-control` and :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","Multi-(RF) Channel and MIMO Transmission. See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"

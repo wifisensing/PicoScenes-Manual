@@ -1,9 +1,9 @@
 Features & Pricing 
 =======================================
 
-PicoScenes is a feature-rich, powerful, and user-friendly middleware for the Wi-Fi ISAC research. In this page, we list all the distinctive features of PicoScenes and provide links to their usage or explanations. 
+PicoScenes is a feature-rich, powerful, and user-friendly middleware for the Wi-Fi ISAC research. This papge outlines the notable features of PicoScenes and provides links to their usage and explanations. 
 
-To ensure the sustainable development of the PicoScenes platform, we setup a licensing mechanism for these features. **The majority of features are available for free**, while a license fee is charged for certain advanced features.
+To ensure the sustainable development of the PicoScenes platform, we add a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, primarily for SDR frontends.
 
 In the sections below, we cover three main topics:
 
@@ -41,7 +41,7 @@ Platform Features
 Hardware Features
 +++++++++++++++++++++++++++
 
-We divide the hardware features by the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`, and :ref:`license_qca9300`.
+We categories the technical features by the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`,  :ref:`license_qca9300`.
 
 .. _license_sdr:
 
@@ -129,8 +129,14 @@ Data & API Access
 
 .. _introducing_pslp:
 
-Introducing PSLP
----------------------
+Introducing PicoScenes Licensing Plan
+-----------------------------------------
+
+PicoScenes Licensing Plan (PSLP) has two tiers: Free Users and Pro Users. As shown in the tables of :ref:`feature-list`, Free Users can access most of the commonly used features, while Pro Users can access all.
+
+.. hint:: We sincerely appreciate the support from Pro Users over the past two years. It is your support that has enabled the continuous development and enhancement of the PicoScenes platform.
+
+The PicoScenes License Plan (PSLP) plays a vital role in supporting the long-term development of the PicoScenes system. The current (November 2023) PSLP version is v1.0.
 
 PSLP v1.0 offers two license options: 
 

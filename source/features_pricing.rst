@@ -139,19 +139,6 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
     - **Transferable License (PSLP-PRO-TL)**: It allows users to activate and use the license on a single computer. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
     - **Device-Bound License (PSLP-PRO-DBL)**: This option **ties a untransferable Pro license to a newly-bought NI USRP device.** Compared to PSLP-PRO-TL, PSLP-PRO-DBL users can enjoy immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. This option is exclusively available in mainland China, as discussed in :ref:`collaboration-with-ni`.
 
-
-.. _collaboration-with-ni:
-与NI关于PicoScenes许可证的合作 Collaboration with NI on PicoScenes License
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
-PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持——“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
-    
-为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用, NI公司(中国)与PicoScenes平台的商业合作伙伴西安煊研信息技术有限公司达成合作:**对每台售出的USRP系统软件无线电设备(B/N/E/X系列的独立机器或"母板+子板"套件),免费赠送一份PSLP-PRO-DBL许可证**。感谢NI公司对PicoScenes的认可支持！❤️❤️❤️。
-
-The PicoScenes platform is honored to receive recognition and support from National Instruments (NI)---"**The PicoScenes platform has filled the gaps in NI's offering in the Wi-Fi ISAC domain.**" 
-    
-NI (China) has collaborated with XuanYan Information Technology Co., Ltd., a business partner of the PicoScenes platform. As part of this collaboration, a PSLP-PRO-DBL license will be provided free of charge, as a subsidy, for each USRP series product (or kit) sold by XuanYan Information Technology Co., Ltd. This initiative aims to facilitate and encourage more users to conduct research and applications in the Wi-Fi/5G/6G ISAC field, leveraging the combined capabilities of the PicoScenes platform and NI USRP series products. Thank you for NI's recognition and support of PicoScenes!
-
 .. csv-table:: Comparisons of PSLP Options
     :header: "PSLP Option", "Pros", "Cons"
 
@@ -178,6 +165,18 @@ NI (China) has collaborated with XuanYan Information Technology Co., Ltd., a bus
     - *Available only in China mainland*"
 
 .. note:: PSLP-PUL v0.8.1 is converted to PSLP-PRO-TL in v1.0 automatically.
+
+.. _collaboration-with-ni:
+与NI关于PicoScenes许可证的合作 Collaboration with NI on PicoScenes License
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持——“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
+    
+为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用, NI公司(中国)与PicoScenes平台的商业合作伙伴西安煊研信息技术有限公司达成合作:**对每台售出的USRP系统软件无线电设备(B/N/E/X系列的独立机器或"母板+子板"套件),免费赠送一份PSLP-PRO-DBL许可证**。感谢NI公司对PicoScenes的认可支持！❤️❤️❤️。
+
+The PicoScenes platform is honored to receive recognition and support from National Instruments (NI)---"**The PicoScenes platform has filled the gaps in NI's offering in the Wi-Fi ISAC domain.**" 
+    
+NI (China) has collaborated with XuanYan Information Technology Co., Ltd., a business partner of the PicoScenes platform. As part of this collaboration, a PSLP-PRO-DBL license will be provided free of charge, as a subsidy, for each USRP series product (or kit) sold by XuanYan Information Technology Co., Ltd. This initiative aims to facilitate and encourage more users to conduct research and applications in the Wi-Fi/5G/6G ISAC field, leveraging the combined capabilities of the PicoScenes platform and NI USRP series products. Thank you for NI's recognition and support of PicoScenes!
 
 
 .. _pricing:

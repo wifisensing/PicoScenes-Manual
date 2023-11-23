@@ -102,8 +102,8 @@ COTS NIC: QCA9300 And IWL5300
     :widths: auto
 
     "CSI Measurement by “Monitor mode + Packet Injection”","Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW) with Extra Spatial Sounding (ESS). See :ref:`packet-injection-qcq9300-iwl5300`","**✓**","**✓**"
-    "Accessing Non-Standard Channel and Bandwidth by QCA9300","See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz only","**✓**"
-    "Manual Rx Gain Control by QCA9300","See :ref:`qca9300_non-standard`","**✓** (Limited, [0-22] dBm only)","**✓**"
+    "Accessing Non-Standard Channel and Bandwidth by QCA9300","QCA9300 supports operating in [2.2-2.9, 4.4-6.1] GHz spectrum and [2.5-80] MHz bandwidth. See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz only","**✓**"
+    "Manual Rx Gain Control by QCA9300","Disabling AGC and specifying a fixed [0-66] dBm Rx Gain. See :ref:`qca9300_non-standard`","**✓** (Limited, [0-22] dBm only)","**✓**"
     "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
     "Change channel and bandwidth in real-time","Specifying channel/CBW changing in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
 

@@ -72,7 +72,7 @@ SDR: NI USRP Hardware and HackRF One
     "Multi-USRP Combination","Combining multiple USRP devices into a virtual and larger USRP with more synchronized channels, *e.g.*, achieving up to 8x8 MIMO using four NI USRP X310. See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
     "Multi-Channel Splitting and Stitching", "Combining two half-rate sampling channels into a full-rate channel, *e.g.*, achieving up to 400 MHz bandwidth with a single NI USRP X310 (200 MHz rate max.). See :ref:`dual-split-merge`", "","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
-    "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
+    "Channel Impairment Simulation","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
     "Interoperability","Interoperability with COTS NICs, AX210/AX200, QCA9300, IWL5300 and all other Wi-Fi NICs. See :ref:`interoperability`","**✓**","**✓**"
 
 

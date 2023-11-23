@@ -91,7 +91,7 @@ COTS NIC: AX210 and AX200
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
     See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
-    "Change channel and bandwidth in real-time","Supporting specifying channel, CBW, Tx/Rx chainmasks in realtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
+    "Runtime Specifying Channel and Bandwidth","Supporting specifying channel, CBW, Tx/Rx chainmasks in runtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:
 
@@ -105,7 +105,7 @@ COTS NIC: QCA9300 And IWL5300
     "Accessing Non-Standard Channel and Bandwidth by QCA9300","QCA9300 supports operating in [2.2-2.9, 4.4-6.1] GHz spectrum and [2.5-80] MHz bandwidth. See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz only","**✓**"
     "Manual Rx Gain Control by QCA9300","Disabling AGC and specifying a fixed [0-66] dBm Rx Gain. See :ref:`qca9300_non-standard`","**✓** (Limited, [0-22] dBm only)","**✓**"
     "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
-    "Change channel and bandwidth in real-time","Specifying channel/CBW changing in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
+    "Runtime Specifying Channel and Bandwidth","Specifying channel/CBW changing in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
 
 .. _license_api:
 

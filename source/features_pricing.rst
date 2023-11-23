@@ -16,7 +16,7 @@ In the sections below, we cover three main topics:
 Features of The PicoScenes Platform
 --------------------------------------
 
-We categorize the distinctive features of the PicoScenes platform into four tables: :ref:`license_platform_features`, :ref:`license_hardware_features`, :ref:`license_api`, and :ref:`license_technical_support`. In these tables, we indicate the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:introducing_pslp and :ref:pricing.
+We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license_platform_features`, :ref:`license_hardware_features`, and :ref:`license_api`. In these tables, we indicate the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
 
 .. _license_platform_features:
 
@@ -117,20 +117,6 @@ API And Data Access (Mainly for SDR)
     "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
     "Complete baseband signal","**SDR Only**. Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
     "Nanosecond level Tx and Rx clock","**AX210/AX200 and SDR Only**. The raw clock count from the 320 MHz baseband clock.","","**✓**"
-
-.. _license_technical_support:
-
-Technical Support
-++++++++++++++++++
-
-.. csv-table::
-    :header: "Feature", "Description","Free","Pro"
-    :widths: auto
-
-    "Good documentation","https://ps.zpj.io","**✓**","**✓**"
-    "Issue tracker-based technical support","https://gitlab.com/wifisensing/picoscenes-issue-tracker","**✓**","**✓**"
-    "Very timely technical support via IM","Providing quick technical support on WeChat or other IM","","**✓**"
-
 
 .. _introducing_pslp:
 

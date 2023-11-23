@@ -132,18 +132,12 @@ Data & API Access
 Introducing PicoScenes Licensing Plan
 -----------------------------------------
 
-PicoScenes Licensing Plan (PSLP) has two tiers: Free Users and Pro Users. As shown in the tables of :ref:`feature-list`, Free Users can access most of the commonly used features, while Pro Users can access all.
+PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Their differences are:
 
-.. hint:: We sincerely appreciate the support from Pro Users over the past two years. It is your support that has enabled the continuous development and enhancement of the PicoScenes platform.
-
-The PicoScenes License Plan (PSLP) plays a vital role in supporting the long-term development of the PicoScenes system. The current (November 2023) PSLP version is v1.0.
-
-PSLP v1.0 offers two license options: 
-
-- **Free (PSLP-FL)**: PSLP-FL is free of charge but comes with limited access to advanced features.
-- **Pro (PSLP-PRO)**: PSLP-PRO users pay a minimal license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
+- **Free License (PSLP-FL)**: PSLP-FL is free of charge but comes with limited access to advanced features.
+- **Pro License (PSLP-PRO)**: PSLP-PRO users pay a minimal license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
     - **Transferable License (PSLP-PRO-TL)**: It allows users to activate and use the license on a single computer. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
-    - **Device-Bound License (PSLP-PRO-DBL)**: *This option is only available in mainland China*. **This option binds a Pro to a newly-bought NI USRP device from our partner store.** Compared to PSLP-PRO-TL, users of PSLP-PRO-DBL gain immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. *We offer discounted bundle pricing for this option*.
+    - **Device-Bound License (PSLP-PRO-DBL)**: *This option is only available in mainland China*. **This option binds a Pro license to a newly-bought NI USRP device from our partner store.** Compared to PSLP-PRO-TL, PSLP-PRO-DBL users gain immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. *We offer discounted bundle pricing for this option*.
 
 .. csv-table:: Comparisons of PSLP Options
     :header: "PSLP Option", "Pros", "Cons"

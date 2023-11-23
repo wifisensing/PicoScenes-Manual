@@ -167,7 +167,7 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
 .. note:: PSLP-PUL v0.8.1 is converted to PSLP-PRO-TL in v1.0 automatically.
 
 .. _collaboration-with-ni:
-与NI关于PicoScenes许可证的合作 Collaboration with NI on PicoScenes License
+与NI关于PicoScenes许可证的合作 (Collaboration with NI on PicoScenes License)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持——“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。

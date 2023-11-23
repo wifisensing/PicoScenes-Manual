@@ -48,6 +48,8 @@ We divide the hardware features by the underlying hardware: :ref:`license_sdr`, 
 SDR: NI USRP Hardware and HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
+.. todo:: add introduction to PicoScenes baseband implementation
+
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
     :widths: auto

@@ -16,9 +16,9 @@ In the sections below, we cover three main topics:
 Features of The PicoScenes Platform
 --------------------------------------
 
-We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license_platform_features`, :ref:`license_hardware_features`, and :ref:`license_api`. In these tables, we also list the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
+We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license-platform-features`, :ref:`license-hardware-features`, and :ref:`license-data-access`. In these tables, we also list the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
 
-.. _license_platform_features:
+.. _license-platform-features:
 
 Platform Features
 +++++++++++++++++++++++
@@ -36,7 +36,7 @@ Platform Features
     "Public Technical Support","Public and searchable assistance at https://gitlab.com/wifisensing/picoscenes-issue-tracker","**✓**","**✓**"
     "Very Timely and Personal Technical Support on IM","**Very timely assistance on WeChat or other IM Apps, only for Pro users**,","","**✓**"
 
-.. _license_hardware_features:
+.. _license-hardware-features:
 
 Hardware Features
 +++++++++++++++++++++++++++
@@ -93,14 +93,14 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
     See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
-    "Runtime Specifying Channel and Bandwidth","Supporting specifying channel, CBW, Tx/Rx chainmasks in runtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
+    "Runtime Specifying Channel and Bandwidth","Specifying channel, CBW, Tx/Rx chainmasks in runtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:
 
 COTS NIC: QCA9300 And IWL5300
 +++++++++++++++++++++++++++++++
 
-PicoScenes supports the legendary QCA9300 and IWL5300 NICs, and exclusively unlocks several low-level controls for QCA9300.
+PicoScenes supports the legendary QCA9300 and IWL5300 NICs, and exclusively unlocks several low-level controls for QCA9300. See :ref:`picoscenes_paper` for more details.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -112,20 +112,20 @@ PicoScenes supports the legendary QCA9300 and IWL5300 NICs, and exclusively unlo
     "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
     "Runtime Specifying Channel and Bandwidth","Changing channel and CBW in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
 
-.. _license_api:
+.. _license-data-access:
 
-API And Data Access (Mainly for SDR)
+Data & API Access
 ++++++++++++++++++++++++++++++++++++++++++++++
-
-.. todo:: introduction and show more APIs
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return the L-LTF based CSI estimation (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
-    "Complete baseband signal","**SDR Only**. Return the complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
-    "Nanosecond level Tx and Rx clock","**AX210/AX200 and SDR Only**. The raw clock count from the 320 MHz baseband clock.","","**✓**"
+    "Complete baseband signal","**SDR Only**. Return the per-packet complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
+    "Multi-CSI-per-Frame", "**SDR Only**. Return multiple CSI measurements (if available). See :ref:`multi-csi-measurement`.","**✓**","**✓**"
+    "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return two individual L-LTF based CSI estimations (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
+    "Batch Tx mode", ,"**SDR Only API**. Transmitting multiple frames with deterministic inter-frame spacing.","","**✓**"
+    "Nanosecond level Tx and Rx clock","**AX210/AX200 and SDR Only**. Nanosecond-level Tx and Rx timestamps.","","**✓**"
 
 .. _introducing_pslp:
 

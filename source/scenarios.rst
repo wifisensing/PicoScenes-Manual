@@ -379,7 +379,7 @@ Transmission, Reception, and CSI Measurement with Non-Standard Channel and Bandw
 
 .. warning:: It is essential to comply with the RF spectrum regulations of your country/location. PicoScenes platform is a research-purpose software. You are responsible for ensuring compliance with all applicable laws.
 
-In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters were compatible with the official Wi-Fi *numerology*, ensuring interoperability between SDR devices and commercial off-the-shelf (COTS) NICs. This allows users to transmit frames with SDR and measure CSI with COTS NICs, or vice versa. To maintain this interoperability, we use the ``--preset`` option to specify various low-level parameters for SDR. In this section, we will demonstrate several commonly used non-standard cases and explain some key parameters.
+In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters were compatible with the official Wi-Fi *numerology*, ensuring interoperability between SDR devices and commercial off-the-shelf (COTS) NICs. This allows users to transmit frames with SDR and measure CSI with COTS NICs, or vice versa, see :ref:`interoperability` for details. To maintain this interoperability, we use the ``--preset`` option to specify various low-level parameters for SDR. In this section, we will demonstrate several commonly used non-standard cases and explain some key parameters.
 
 Changing Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -820,11 +820,13 @@ PicoScenes supports packet injection functionality using either QCA9300 or IWL53
 Specifying Channel and Bandwidth in Real-time
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. todo:: missing part
 
 .. _tx-rx-chainmask-qca9300-iwl5300:
 Specifying Tx and Rx Chainmask
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. todo:: missing part
 
 .. _multi-nic-qca9300-iwl5300:
 Concurrent Multi-NIC Operation for QCA9300 and IWL5300

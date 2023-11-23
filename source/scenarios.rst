@@ -518,7 +518,7 @@ In order to combating the high-doppler effect in moving scenarios, the High Dopp
 
 This command transmits HE-SU High-Doppler mode frames, which inserts midamble HE-LTFs every 10 data OFDM symbols. ``--high-doppler`` option has two possible values, 10 or 20.
 
-.. note:: High Doppler-format is an optional feature of 802.11ax standard. AX200/AX210 doesn't support this mode.
+.. note:: High Doppler-format is an optional feature of 802.11ax standard. AX210/AX200 doesn't support this mode.
 
 .. _tx-rx-ess:
 802.11n Extra Spatial Sounding (ESS) Frames
@@ -532,7 +532,7 @@ The ESS feature can insert <3 HT-LTFs immediately after the normal HT-LTFs, allo
 
 This command transmits 802.11n frames with 2 additional ESS HT-LTFs (specified using the ``--ess 2`` option).
 
-.. note:: ESS is an optional feature of the 802.11n standard. It is supported by QCA9300 and IWL5300, but not by AX200/AX210.
+.. note:: ESS is an optional feature of the 802.11n standard. It is supported by QCA9300 and IWL5300, but not by AX210/AX200.
 
 .. _channel-impairment-simulation:
 Channel Impairment Simulation
@@ -580,7 +580,7 @@ The ``--mt 5`` option specifies that the Rx decoder should utilize 5 threads for
 
 
 .. _ax200-measurements:
-CSI Measurement using AX200/AX210 NICs
+CSI Measurement using AX210/AX200 NICs
 -----------------------------------------------------------
 
 CSI extraction on Intel AX210/AX200, including the 6 GHz band access, is one of the exclusive features of the PicoScenes platform. In this section, we will explore several commonly used research scenarios for ISAC:
@@ -596,9 +596,9 @@ CSI extraction on Intel AX210/AX200, including the 6 GHz band access, is one of 
 CSI Measurement from Associated Wi-Fi AP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/AX210 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
+The AX210/AX200 NIC can measure CSI for the 802.11a/g/n/ac/ax frames transmitted by the associated Wi-Fi AP. By generating sufficient Wi-Fi traffic, such as using the *ping* command, we can obtain CSI measurements.
 
-To measure CSI from the AX200/AX210, follow these three steps:
+To measure CSI from the AX210/AX200, follow these three steps:
 
 #. Determine the PhyPath ID of the NIC by running the ``array_status`` command in a terminal. For device naming conventions of commercial NICs, please refer to the :ref:`naming_for_nics` section.
 #. Assuming the PhyPath ID is ``3``, execute the following command:
@@ -623,7 +623,7 @@ The logged CSI data is stored in a file named ``rx_<PHYPath>_<Time>.csi``, locat
 Fully-Passive CSI Measurement in Monitor Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AX200/AX210 NIC is capable of measuring CSI for 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX200/AX210 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
+The AX210/AX200 NIC is capable of measuring CSI for 802.11a/g/n/ac/ax frames observed in monitor mode. In this mode, the AX210/AX200 can passively measure CSI for all frames transmitted on the same channel, enabling association-free and injection-free fully passive CSI measurement.
 
 To enable fully-passive CSI measurement, follow these three steps:
 
@@ -645,9 +645,9 @@ The logged CSI data is stored in a file named ``rx_<Id>_<Time>.csi``, located in
 Packet Injection-Based CSI Measurement (Tx with 802.11a/g/n/ac/ax Format and 20/40/80/160 MHz CBW)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The PicoScenes Driver enables AX200/AX210 to *packet-inject* frames in 802.11a/g/n/ac/ax format with bandwidths of 20/40/80/160 MHz and up to 2x2 MIMO. By combining this capability with the CSI measurement functionality discussed in the :ref:`ax200-monitor` section, PicoScenes provides precise, fine-grained control for CSI measurement.
+The PicoScenes Driver enables AX210/AX200 to *packet-inject* frames in 802.11a/g/n/ac/ax format with bandwidths of 20/40/80/160 MHz and up to 2x2 MIMO. By combining this capability with the CSI measurement functionality discussed in the :ref:`ax200-monitor` section, PicoScenes provides precise, fine-grained control for CSI measurement.
 
-To perform this example, you will need two computers, each equipped with an AX200/AX210 NIC. Please follow these three steps:
+To perform this example, you will need two computers, each equipped with an AX210/AX200 NIC. Please follow these three steps:
 
 #. Determine the PhyPath ID of each NIC by using the ``array_status`` command. Let's assume the PhyPath ID is ``3`` for the first computer and ``4`` for the second.
 #. Put both NICs into monitor mode by executing the command ``array_prepare_for_picoscenes <PHYPath ID> <CHANNEL_CONFIG>``. Replace *<CHANNEL_CONFIG>* with the desired channel configuration. In this scenario, we assume the researchers want to measure the CSI of a 160 MHz channel. Run the following commands on the respective computers:
@@ -689,7 +689,7 @@ To perform this example, you will need two computers, each equipped with an AX20
 Packet Injection with MCS Setting and Antenna Selection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PicoScenes allows users to specify the MCS (Modulation and Coding Scheme) value and Tx/Rx antenna selection for AX200/AX210 NICs. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
+PicoScenes allows users to specify the MCS (Modulation and Coding Scheme) value and Tx/Rx antenna selection for AX210/AX200 NICs. To demonstrate this, we will modify the commands for the :ref:`ax200-monitor-injection` scenario.
 
 On the first computer, if you want to use only the 1st antenna for Rx, modify the command as follows:
 

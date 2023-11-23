@@ -21,7 +21,7 @@ PicoScenes is compatible with a wide range of CSI-extractable devices, including
 
 For COTS Wi-Fi NICs, PicoScenes provides many exclusive hardware features: 
 
-- By AX200/AX210 NIC, PicoScenes is the first and currently the only publicly available platform that enables **CSI extraction for 802.11ax-format** frames using commodity Wi-Fi hardware. It supports CSI extraction for **all Wi-Fi formats (802.11a/g/n/ac/ax)** and **up to 160 MHz bandwidth**. Additionally, PicoScenes enables **CSI measurement for all overheard frames in monitor mode**, utilizing the surrounding Wi-Fi devices as excitation signals for ISAC research & applications.
+- By AX21/AX200 NIC, PicoScenes is the first and currently the only publicly available platform that enables **CSI extraction for 802.11ax-format** frames using commodity Wi-Fi hardware. It supports CSI extraction for **all Wi-Fi formats (802.11a/g/n/ac/ax)** and **up to 160 MHz bandwidth**. Additionally, PicoScenes enables **CSI measurement for all overheard frames in monitor mode**, utilizing the surrounding Wi-Fi devices as excitation signals for ISAC research & applications.
 
 - By AX210 NIC, PicoScenes is the first and currently the only publicly available platform that enables packet injection and **CSI measurement in the Wi-Fi 6 GHz band** using the AX210 NIC. It unlocks **a total of 1.18 GHz** spectrum from 5945 MHz to 7125 MHz, providing researchers worldwide with continuous spectrum availability for Wi-Fi ISAC research. The AX210 NIC, as the next-generation of AX200, is the only Wi-Fi 6E NIC ready for Wi-Fi ISAC, marking the entrance of Wi-Fi ISAC into the Wi-Fi 6E era.
 

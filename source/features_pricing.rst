@@ -181,9 +181,15 @@ NI (China) has collaborated with XuanYan Information Technology Co., Ltd., a bus
 
 .. _pricing:
 
-Pricing & Payment
+Pricing
 -----------------
 
 .. todo:: Please stay tuned.
 
-::doc:`/features_pricing` 
+
+.. _payment:
+
+Payment
+-----------------
+
+.. todo:: Please stay tuned.

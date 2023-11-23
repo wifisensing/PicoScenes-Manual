@@ -73,7 +73,7 @@ SDR: NI USRP Hardware and HackRF One
     "Multi-Channel Splitting and Stitching", "Combining two half-rate sampling channels into a full-rate channel, *e.g.*, achieving up to 400 MHz bandwidth with a single NI USRP X310 (200 MHz rate max.). See :ref:`dual-split-merge`", "","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
-    "Interoperability with COTS NICs, AX210/AX200, QCA9300, IWL5300 and all other Wi-Fi NICs.","See :ref:`interoperability`","**✓**","**✓**"
+    "Interoperability","Interoperability with COTS NICs, AX210/AX200, QCA9300, IWL5300 and all other Wi-Fi NICs. See :ref:`interoperability`","**✓**","**✓**"
 
 
 .. _license_ax200:
@@ -91,7 +91,7 @@ COTS NIC: AX210 and AX200
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
     See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
-    "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
+    "Change channel and bandwidth in real-time","Supporting specifying channel, CBW, Tx/Rx chainmasks in realtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:
 

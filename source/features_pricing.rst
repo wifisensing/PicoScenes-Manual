@@ -48,7 +48,7 @@ We divide the hardware features by the underlying hardware: :ref:`license_sdr`, 
 SDR: NI USRP Hardware and HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of 802.11 PHY, which supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW and LDPC codecs. Developed in C++, it leverages multi-threading and CPU instruction sets like AVX2 for accelerated processing.
+One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of 802.11 PHY, which *supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW and LDPC codecs*. Developed in C++, it leverages multi-threading and CPU instruction sets like AVX2 for accelerated processing.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -81,6 +81,8 @@ One of the major highlights of the PicoScenes platform is its built-in high-perf
 COTS NIC: AX210 and AX200
 +++++++++++++++++++++++++++
 
+PicoScenes is the exclusive platform that supports the packet injection (Tx), receiving, and CSI measurement on Intel AX210/AX200 NIC.
+
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
@@ -97,6 +99,9 @@ COTS NIC: AX210 and AX200
 
 COTS NIC: QCA9300 And IWL5300
 +++++++++++++++++++++++++++++++
+
+PicoScenes supports the legendary QCA9300 and IWL5300 NICs, and exclusively unlocks several low-level controls for QCA9300.
+
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
     :widths: auto

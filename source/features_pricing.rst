@@ -1,4 +1,4 @@
-Features & Pricing 
+Features & License
 =======================================
 
 PicoScenes is a feature-rich, powerful, and user-friendly middleware for the Wi-Fi ISAC research. This papge outlines the notable features of PicoScenes and provides links to their usage and explanations. 

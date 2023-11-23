@@ -85,12 +85,12 @@ COTS NIC: AX210 and AX200
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels around the globe (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓** ([5955-6415] MHz)","**✓**"
-    "CSI Measurement with Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
-    "CSI Measurement in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-monitor`","**✓**","**✓**"
-    "CSI Measurement in Monitor Mode with Packet Injection","See :ref:`ax200-monitor-injection`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
+    "6 GHz Band Access (**AX210 Only**)","Accessing the full 6 GHz band channels (5955 to 7115 MHz) *around the globe*. See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓** ([5955-6415] MHz)","**✓**"
+    "CSI Measurement with Associated AP","Measuring CSI from the associated AP. See :ref:`ax200-wifi-ap`","**✓**","**✓**"
+    "CSI Measurement in Monitor Mode (**Passive Sensing**)","Supporting measuring CSI for all overheard frames (11a/g/n/ac/ax format) in monitor mode with up to 160 MHz CBW. See :ref:`ax200-monitor`","**✓**","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
+    See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:

@@ -139,7 +139,7 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
     - **Transferable License (PSLP-PRO-TL)**: It allows users to activate and use the license on a single computer. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
     - **Device-Bound License (PSLP-PRO-DBL)**: This option (exclusively available in mainland China, 仅限国内，如下所示)  **ties a untransferable Pro license to a newly-bought NI USRP device.** Compared to PSLP-PRO-TL, PSLP-PRO-DBL users can enjoy immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. 
 
-.. attention:: PicoScenes平台非常荣幸地得到美国国家仪器(NI)公司的认可与支持——“**PicoScenes平台补齐了NI公司在Wi-Fi ISAC领域的不足**”。为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用, NI中国与PicoScenes平台的商业合作伙伴西安煊研信息技术有限公司达成合作:**对每个从该公司出售的USRP系列产品(或套件),以补贴形式免费赠送一份PSLP-PRO-DBL许可证**。
+.. attention:: PicoScenes平台非常荣幸地得到美国国家仪器(NI)公司的认可与支持——“**PicoScenes平台补齐了NI公司在Wi-Fi ISAC领域的不足**”。为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用, NI公司(中国)与PicoScenes平台的商业合作伙伴“西安煊研信息技术有限公司”达成合作:**对从该公司出售的每个NI品牌或Ettus品牌USRP系统软件无线电设备(B/N/E/X系列,独立机器或"母板+子板套件),以补贴形式免费赠送一份PSLP-PRO-DBL许可证**。
 
 .. csv-table:: Comparisons of PSLP Options
     :header: "PSLP Option", "Pros", "Cons"

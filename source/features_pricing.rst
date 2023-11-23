@@ -41,7 +41,7 @@ Platform Features
 Hardware Features
 +++++++++++++++++++++++++++
 
-We divide the hardware features by the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`, :ref:`license_qca9300` and :ref:`license_iwl5300`.
+We divide the hardware features by the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`, and :ref:`license_qca9300`.
 
 .. _license_sdr:
 

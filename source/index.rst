@@ -62,7 +62,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
    plugin
    status
    resources
-   License
+   license
    troubleshooting
    eula
    credits

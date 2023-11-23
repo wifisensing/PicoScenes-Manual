@@ -135,9 +135,13 @@ Introducing PicoScenes Licensing Plan
 PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Their differences are:
 
 - **Free License (PSLP-FL)**: PSLP-FL is free of charge but comes with limited access to advanced features.
-- **Pro License (PSLP-PRO)**: PSLP-PRO users pay a minimal license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
+- **Pro License (PSLP-PRO)**: PSLP-PRO users pay a license fee and gain full access to all PicoScenes features along with timely technical support. It has two subtypes:
     - **Transferable License (PSLP-PRO-TL)**: It allows users to activate and use the license on a single computer. Users can conveniently transfer the license between computers as needed, providing flexibility for multi-device usage scenarios.
-    - **Device-Bound License (PSLP-PRO-DBL)**: *This option is only available in mainland China*. **This option binds a Pro license to a newly-bought NI USRP device from our partner store.** Compared to PSLP-PRO-TL, PSLP-PRO-DBL users gain immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. *We offer discounted bundle pricing for this option*.
+    - **Device-Bound License (PSLP-PRO-DBL)**: This option (exclusively available in mainland China)  **ties a untransferable Pro license to a newly-bought NI USRP device.** Compared to PSLP-PRO-TL, PSLP-PRO-DBL users can enjoy immediate and full access to the licensed features without explicit activation and online validation. This model is suitable for researches on newly-bought NI USRP hardware, offering faster program start, and long-term offline operation. 
+
+.. attention:: PicoScenes平台非常荣幸地得到美国国家仪器(NI)公司的认识与支持——“**PicoScenes平台补齐了NI公司在Wi-Fi ISAC领域的不足**”。为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用, NI中国与PicoScenes平台的商业合作伙伴西安煊研信息技术有限公司达成合作:**对每个从该公司出售的USRP系列产品(或套件),免费赠送一份PSLP-PRO-DBL许可证**。
+
+    The PicoScenes platform is thrilled to have received recognition and support from NI Corporation. We are excited to announce that **NI will be offering hardware purchase discounts for PSLP-PRO-DBL users via our partner store**, allowing you to obtain the PSLP-PRO-DBL license at a significantly reduced price.
 
 .. csv-table:: Comparisons of PSLP Options
     :header: "PSLP Option", "Pros", "Cons"

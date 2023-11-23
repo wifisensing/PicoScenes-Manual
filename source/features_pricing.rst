@@ -70,7 +70,7 @@ SDR: NI USRP Hardware and HackRF One
     "Tx/Rx Resampling","Realizing arbitrary bandwidth Tx/Rx on USPRs with fixed master clock rate, *e.g.*, achieving 320 MHz CBW with 400 MHz fix-rate NI USRP X410. See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 0.8, 1.0 and 1.25)","**✓**"
     "Support External Clock Source","Realizing Multi-USRP clock/phase synchronization. *e.g.*, MIMO Tx/Rx and phased array. See :ref:`phase_sync_multiple_device`","**✓**","**✓**"
     "Multi-USRP Combination","Combining multiple USRP devices into a virtual and larger USRP with more synchronized channels, *e.g.*, achieving up to 8x8 MIMO using four NI USRP X310. See :ref:`multi-channel-rx-single`, :ref:`multi-channel-rx-multi`, and :ref:`multi-channel-tx`","","**✓**"
-    "Multi-Channel Splitting and Stitching", "Combining two half-rate sampling channels into a full-rate channel, e.g., achieving up to 400 MHz bandwidth with a single NI USRP X310 (200 MHz rate max.). See :ref:`dual-split-merge`", "","**✓**"
+    "Multi-Channel Splitting and Stitching", "Combining two half-rate sampling channels into a full-rate channel, *e.g.*, achieving up to 400 MHz bandwidth with a single NI USRP X310 (200 MHz rate max.). See :ref:`dual-split-merge`", "","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","","**✓**"
     "Channel Impairment Simulation (CFO, SFO, I/Q Imbalance)","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","","**✓**"
     "Interoperability with COTS NICs, AX210/AX200, QCA9300, IWL5300 and all other Wi-Fi NICs.","See :ref:`interoperability`","**✓**","**✓**"

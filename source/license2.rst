@@ -3,6 +3,14 @@ PicoScenes License Plan (PSLP)
 
 The PicoScenes License Plan (PSLP) plays a vital role in supporting the long-term development of the PicoScenes system. The current (November 2023) PSLP version is v1.0.
 
+In this page, we introduce PSLP in the following aspects:
+
+- :ref:`introducing_pslp`
+- :ref:`PSLP-License-Details`
+- :ref:`pricing`
+
+.. _introducing_pslp:
+
 Introducing PSLP
 ---------------------
 
@@ -105,7 +113,7 @@ AX210/AX200
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓** ([5955-6415] MHz)","**✓**"
+    "6 GHz Band Access (**AX210 Only**)","Accessing the 6 GHz band channels around the globe (5955 to 7115 MHz in range, 20 MHz each). See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓** ([5955-6415] MHz)","**✓**"
     "CSI Measurement with Associated AP","See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode (**Passive Sensing**)","See :ref:`ax200-monitor`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode with Packet Injection","See :ref:`ax200-monitor-injection`","**✓**","**✓**"
@@ -114,39 +122,17 @@ AX210/AX200
     "Change channel and bandwidth in real-time","Direct channel/CBW changing via API or command options. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:
-QCA9300
+QCA9300 And IWL5300
 +++++++++++++++++++++++
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "CSI measurement by “Monitor mode + Packet Injection”","QCA9300 NIC hardware reports CSI only for 11n frames with HT-rate flag not_sounding=of","**✓**","**✓**"
-    "Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW)","Packet injection can trigger CSI measurement in a constant rate. Capable of specifying 20/40 MHz CBW, MCS, MIMO, 400/800 ns Guard Interval (GI), BCC/LDPC coding and not_sounding flag. Packet content is with PicoScenesTxFrame format, can be further customized via PicoScenes-PDK plugins.","**✓**","**✓**"
-    "Inject packets that can trigger CSI measurement on IWL5300","Dedicated “—5300” option for QCA9300(Injection) -> IWL5300 (Rx in monitor mode) CSI measurement","**✓**","**✓**"
-    "Tx chain specification","Specify which Tx chains are used for Tx","**✓**","**✓**"
-    "Rx chain specification","Specify which Rx chains are used for Rx","**✓**","**✓**"
-    "CSI measurement for 11n frames with ESS feature on","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","**✓**","**✓**"
-    "Access non-standard carrier frequency range","QCA9300 NIC hardware can operate in [2.2-2.9] and [4.4-6.1] GHz carrier frequency range with fine granularity","✓Limited, [2.3-2.6] GHz only","**✓**"
-    "Access non-standard baseband sampling rate","QCA9300 NIC baseband can operate in [2.5-80] MHz baseband sampling rate with 2.5 MHz step","**✓** (Limited, 10/30 MHz only)","**✓**"
-    "Manual Rx gain control","Turning off the hardware AGC and obtaining stable CSI measurement. Manual Rx control within [0, 66] dBm.","**✓** (Limited, [0-22] dBm only)","**✓**"
-    "Inject ESS-enabled 11n frames","Achieving dual-CSI measurement from 1-stream packet on IWL5300/QCA9300/USRP receiver. AX200/AX210 doesn’t support ESS measurement","","**✓**"
-
-.. _license_iwl5300:
-IWL5300
-+++++++++++++++++++++++
-.. csv-table::
-    :header: "Feature Name", "Description","Free","Pro"
-    :widths: auto
-
-    "CSI measurement via AP connection","IWL5300 must be connected to 11n format Open System AP","**✓**","**✓**"
-    "CSI measurement by “Monitor mode + Packet Injection”","IWL5300 reports CSI only for the 11n frames sent to a magic MAC address","**✓**","**✓**"
-    "Packet Injection with 11a/g/n format","Capable of specifying 20/40 MHz bandwidth, MCS, MIMO, 400/800 ns GI","**✓**","**✓**"
-    "Channel changing and bandwidth in real-time","Direct channel/CBW changing via API or command options","**✓**","**✓**"
-    "Switch IWL5300 firmware without reboot","Switch between the special CSI measurement and ordinary firmware","**✓**","**✓**"
-    "Tx chain specification","Specify which Tx chains are used for Tx","**✓**","**✓**"
-    "Rx chain specification","Specify which Rx chains are used for Rx","**✓**","**✓**"
-    "CSI measurement for 11n frames with ESS","Extra Spatial Sounding (ESS) is an 11n-introduced feature, which transmits extra HT-LTF segment, achieving 4-us spaced dual CSI measurement for 1-stream frame","**✓**","**✓**"
-
+    "CSI Measurement by “Monitor mode + Packet Injection”","Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW) with Extra Spatial Sounding (ESS). See :ref:`packet-injection-qcq9300-iwl5300`","**✓**","**✓**"
+    "Accessing Non-Standard Channel and Bandwidth by QCA9300","See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz only","**✓**"
+    "Manual Rx Gain Control by QCA9300","See :ref:`qca9300_non-standard`","**✓** (Limited, [0-22] dBm only)","**✓**"
+    "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
+    "Change channel and bandwidth in real-time","Specifying channel/CBW changing in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
 
 .. _license_api:
 API And Data Access (Mainly for SDR)
@@ -179,18 +165,4 @@ Platform Features
 Pricing & Payment
 -----------------
 
-
-.. _payment:
-
-Payment
------------------
-
-The license fee of PSLP v1.0 PRO is **8688 RMB or 1360 USD**.
-
-**Bulk purchase discount:** purchasing N, N ≤ 7 subscriptions in one-time bulk will have a discount of  (N−1)*8% , e.g., 16% discount for 3 subscriptions in a one-time purchase. In addition, subscribing 2/3 years can have an extra 9%/18% discount. 
-
-.. PicoScenes team will optimize the PSLP every two months and raise the subscription fee about 100 USD。
-
-中国区用户点此淘宝链接 `PicoScenes软件订阅 <https://item.taobao.com/item.htm?id=660337543983>`_ 下单，可开具正规电子发票
-
-The overseas payment channel is still under construction.
+.. todo:: Please stay tuned.

@@ -722,7 +722,7 @@ On the second computer, to transmit 2x2 MIMO frames, you also need to use 2 ante
 The additional ``--sts 2`` option sets the number of Space-Time Streams (:math:`N_{STS}=2`) to 2, indicating the use of two antennas to transmit 2x2 MIMO frames.
 
 .. _live-channel-bw-changing:
-Changing Channel and Bandwidth in Real-time
+Specifying Channel and Bandwidth in Real-time
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PicoScenes provides the ``--channel`` option to change channel settings in real-time, without re-execution of the ``array_prepare_for_picoscenes`` command. For example, assuming you have an AX210/AX200 NIC with ID <3> working at an 80 MHz CBW channel "5180 80 5210" (refer to :doc:`/channels` for details), and you want to change the NIC to listen on a 160 MHz CBW channel "5955 160 6025", you can directly run the command:
@@ -815,6 +815,16 @@ PicoScenes supports packet injection functionality using either QCA9300 or IWL53
 
 - Both QCA9300 and IWL5300 are 802.11n compatible NICs, supporting at most 40 MHz CBW and MCS 7. Therefore, users should configure both models with 20 or 40 MHz CBW channels using the ``array_prepare_for_picoscenes`` command. For more details, refer to the documentation on ::doc:`/channels`.
 - It's worth noting that there are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200, and SDR devices. Refer to the :ref:`interoperability` section for more information on this topic.
+
+.. _live-channel-bw-changing-qca9300-iwl5300:
+Specifying Channel and Bandwidth in Real-time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. _tx-rx-chainmask-qca9300-iwl5300:
+Specifying Tx and Rx Chainmask
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 .. _multi-nic-qca9300-iwl5300:
 Concurrent Multi-NIC Operation for QCA9300 and IWL5300

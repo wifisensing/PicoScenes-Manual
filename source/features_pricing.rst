@@ -172,7 +172,7 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
 与NI中国合作赠送 PSLP-PRO-DBL许可证 (Gifting PSLP-PRO-DBL Licenses in Collaboration with NI China)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
-PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持，NI公司认为“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
+PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司(中国)的认可与支持，NI公司认为“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
     
 为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用，NI公司(中国)与PicoScenes平台达成合作：对每台从PicoScenes合作公司售出的USRP系列SDR设备(独立机器或“母板+子板”套件)，**免费赠送一份PSLP-PRO-DBL许可证**。作为回报，NI公司(中国)将资助PicoScenes平台、提供多型号USRP设备供PicoScenes平台研发及测试，并提供技术支持。感谢NI公司对PicoScenes平台的认可支持❤️❤️❤️！ 
 

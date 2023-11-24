@@ -185,5 +185,9 @@ To support more users in the Wi-Fi/5G/6G ISAC field for research and application
 Pricing for Pro License
 +++++++++++++++++++++++++++++++++
 
-.. todo:: Please stay tuned.
+- ** PSLP-PRO-TL **: 
 
+  - For Chinese Users: **一次性付费8688元人民币得到2个PSLP-PRO-TL许可证**。我们捆绑两个licenses一起销售，是因为常用的"(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode"模式需要两台机器配合使用。
+  - For Users outside mainland China: **One-time payment of 1500 USD for 2 PSLP-PRO-TL licenses**. We bundle 2 PSLP-PRO-TL licenses together for sale because the commonly used ISAC scenario '(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode' requires two independent machines. Compared to 8688 RMB (roughly 1200 USD) for Chinese users, the additional $300 USD is for currency exchange settlement, possible processing fee and technical support in English.
+
+- **PSLP-PRO-DBL**: asdfasdf

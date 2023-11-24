@@ -169,8 +169,8 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
 
 .. _collaboration-with-ni:
 
-与NI关于PicoScenes许可证的合作 (Collaboration with NI on PicoScenes License)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+与NI公司合作赠送 PSLP-PRO-DBL许可证 (Gifting PSLP-PRO-DBL Licenses in Collaboration with NI Corporation)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持，NI公司认为“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
     
@@ -178,7 +178,7 @@ PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家�
 
 The PicoScenes platform is honored to receive recognition and support from National Instruments (`NI <https://www.ni.com>`_). NI acknowledges that "**the PicoScenes platform has addressed the gaps in NI's offering in the Wi-Fi ISAC domain.**" 
     
-To support more users in the Wi-Fi/5G/6G ISAC field for research and applications using the PicoScenes platform and NI USRP series products, NI (China) has entered into a collaboration with the PicoScenes team: **a PSLP-PRO-DBL license will be provided free of charge** for each USRP Series SDR device sold by PicoScenes' partner store (independent machine or "motherboard + daughterboard" kit). In return, NI will sponsor the PicoScenes platform, provide USRP devices for PicoScenes platform development and testing, and offer technical support. We sincerely appreciate NI's recognition and support for the PicoScenes platform ❤️❤️❤️!
+To support more users in the Wi-Fi/5G/6G ISAC field for research and applications using the PicoScenes platform and NI USRP series products, NI (China) has entered into a collaboration with the PicoScenes team: **a PSLP-PRO-DBL license will be provided free of charge** for each USRP Series SDR device sold by PicoScenes' partner store (independent machine or "motherboard + daughterboard" kit). In return, NI will fund the PicoScenes platform, provide USRP devices for PicoScenes platform development and testing, and offer technical support. We sincerely appreciate NI's recognition and support for the PicoScenes platform ❤️❤️❤️!
 
 .. _pricing:
 

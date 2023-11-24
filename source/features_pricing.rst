@@ -1,9 +1,9 @@
 Features & License
 =======================================
 
-PicoScenes is a feature-rich, powerful, and user-friendly middleware for the Wi-Fi ISAC research. This papge outlines the notable features of PicoScenes and provides links to their usage and explanations. 
+PicoScenes is a feature-rich, powerful, and user-friendly middleware for Wi-Fi ISAC research. This page outlines the notable features of PicoScenes and provides links to their usage and explanations.
 
-To ensure the sustainable development of the PicoScenes platform, we add a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, primarily for SDR frontends.
+To ensure the sustainable development of the PicoScenes platform, we have implemented a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, primarily for SDR frontends.
 
 In the sections below, we cover three main topics:
 
@@ -16,7 +16,7 @@ In the sections below, we cover three main topics:
 Features of The PicoScenes Platform
 --------------------------------------
 
-We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license-platform-features`, :ref:`license-hardware-features`, and :ref:`license-data-access`. In these tables, we also list the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the free and paid licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
+We categorize the distinctive features of the PicoScenes platform into three tables: :ref:`license-platform-features`, :ref:`license-hardware-features`, and :ref:`license-data-access`. In these tables, we also list the availability of each feature for free users (in the *Free* columns) and Pro users (in the *Pro* columns). A detailed comparison between the Free and Pro licenses can be found in :ref:`introducing_pslp` and :ref:`pricing`.
 
 .. _license-platform-features:
 
@@ -41,14 +41,15 @@ Platform Features
 Hardware Features
 +++++++++++++++++++++++++++
 
-We categories the technical features by the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`,  :ref:`license_qca9300`.
+We categorize the technical features based on the underlying hardware: :ref:`license_sdr`, :ref:`license_ax200`, :ref:`license_qca9300`.
+
 
 .. _license_sdr:
 
-SDR: NI USRP Hardware and HackRF One
-++++++++++++++++++++++++++++++++++++++++++++++++
+Support for SDR: NI USRP Hardware and HackRF One
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of 802.11 PHY, which *supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW, and LDPC codecs*. Developed in C++, it leverages multi-threading, BLAS library, and AVX2 instruction set for accelerated processing.
+One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of the 802.11 PHY, which *supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW, and LDPC codecs*. Developed in C++, it leverages the multi-threading, BLAS library, and AVX2 instruction set for accelerated processing.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -65,7 +66,7 @@ One of the major highlights of the PicoScenes platform is its built-in high-perf
     "Rx Chain Specification","Multi-(RF) Channel Reception up to 4x4 MIMO. See :ref:`multi-channel-rx-single` and :ref:`multi-channel-rx-multi`","**✓** (Up to 2 channels)","**✓**"
     "Antenna Selection","Tx/Rx antenna specification. See :ref:`antenna_selection`","**✓**","**✓**"
     "Operating in Non-Standard Channel (Carrier Frequency)","Operating at any hardware-supported frequency range, *e.g.*, in [10 - 6000] MHz range. See :ref:`non-standard-tx-rx`.","**✓** ([2.3-2.6] GHz)","**✓**"
-    "Operating with Non-Standard Bandwidth (Sampling Rate)","Operating with any hardware-supported sampling rate. *e.g.*. up to 400 MHz sampling with NI USRP X410.  See :ref:`non-standard-tx-rx`.","**✓** (Only 10 and 30 MHz)","**✓**"
+    "Operating with Non-Standard Bandwidth (Sampling Rate)","Operating with any hardware-supported sampling rate. *e.g.*. up to 400 MHz sampling with NI USRP X410. See :ref:`non-standard-tx-rx`.","**✓** (Only 10 and 30 MHz)","**✓**"
     "Record and Replay Tx/Rx Baseband Signals","Record Tx and Rx baseband signals, and replay them during offline analysis. See :ref:`signal-recording-replay`","**✓** (Only Rx Record and Replay)","**✓**"
     "Tx/Rx Resampling","Realizing arbitrary bandwidth Tx/Rx on USPRs with fixed master clock rate, *e.g.*, achieving 320 MHz CBW with 400 MHz fix-rate NI USRP X410. See :ref:`non-standard-tx-rx-fixed-master-clock`.","**✓** (Only 0.8, 1.0 and 1.25)","**✓**"
     "Support External Clock Source","Realizing Multi-USRP clock/phase synchronization. *e.g.*, MIMO Tx/Rx and phased array. See :ref:`phase_sync_multiple_device`","**✓**","**✓**"

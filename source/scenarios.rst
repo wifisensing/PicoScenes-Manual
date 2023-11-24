@@ -564,13 +564,13 @@ Several key options are explained below:
 
 .. hint:: The two frequencies specified in ``--freq`` can be any two frequencies supported by the hardware, providing more research flexibility.
 
-.. note:: The 320 MHz sampling rate, along with intensive *In-baseband Digital Resampling*, is extremely CPU-intensive. Expect a very high packet loss rate.
+.. note:: The 320 MHz sampling rate, along with *In-baseband Digital Resampling*, is extremely CPU intensive. Users should expect a very high packet loss rate.
 
 .. _parallel-decoding:
 Multi-Thread Rx Decoding (Experimental)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The PicoScenes Rx baseband decoder includes an experimental multi-threading capability, which can potentially increase the decoding performance by up to :math:N_{CPU} times. Enabling this feature is straightforward, as demonstrated in the following example:
+The PicoScenes Rx baseband decoder includes an experimental multi-threading capability, which can potentially increase the decoding performance by up to :math:`N_{CPU}` times. Enabling this feature is straightforward, as demonstrated in the following example:
 
 .. code-block:: bash
 

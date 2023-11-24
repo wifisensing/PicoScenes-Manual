@@ -11,7 +11,7 @@ NI USRP系列产品（赠送PSLP-PRO-DBL许可证）
 
 .. _collaboration:
 
-与NI及西安煊研信息技术有限公司的关系
+PicoScenes团队、NI以及西安煊研信息技术有限公司的关系
 ---------------------------------
 如 :ref:`collaboration-with-ni` 一节所述，PicoScenes团队与NI中国达到合作。具体来说，根据PicoScenes团队与NI的合作协议，西安煊研信息技术有限公司，作为PicoScenes团队长期商业合作伙伴，将成为NI USRP系列产品及配件授权经销商以及NI生态系统集成商； **PicoScenes团队为从该公司销售的每一台NI或Ettus品牌USRP整机或套装（母板+子板）免费提供一份PSLP-PRO-DBL许可证**。
 

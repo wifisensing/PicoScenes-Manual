@@ -98,10 +98,10 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
 
 .. _license_qca9300:
 
-COTS NIC: QCA9300 And IWL5300
+COTS NIC: QCA9300 and IWL5300
 +++++++++++++++++++++++++++++++
 
-PicoScenes supports the legendary QCA9300 and IWL5300 NICs, and exclusively unlocks several low-level controls for QCA9300. See :ref:`picoscenes_paper` for more details.
+PicoScenes supports the legendary QCA9300 and IWL5300 NICs and exclusively unlocks several low-level controls for QCA9300. See :ref:`picoscenes_paper` for more details.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -126,7 +126,7 @@ Data & API Access
     "Multi-CSI-per-Frame", "**SDR Only**. Return multiple CSI measurements (if available). See :ref:`multi-csi-measurement`.","**✓**","**✓**"
     "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return two individual L-LTF based CSI estimations (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
     "Batch Tx mode","**SDR Only API**. Transmitting multiple frames with deterministic inter-frame spacing.","","**✓**"
-    "Nanosecond level Tx and Rx clock","**AX210/AX200 and SDR Only**. Nanosecond-level Tx and Rx timestamps.","","**✓**"
+    "Nanosecond level Tx ands Rx clock","**AX210/AX200 and SDR Only**. Nanosecond-level Tx and Rx timestamps.","","**✓**"
 
 .. _introducing_pslp:
 
@@ -174,11 +174,11 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
     
 PicoScenes平台非常荣幸地得到 `NI <https://www.ni.com>`_ (美国国家仪器)公司的认可与支持，NI公司认为“**PicoScenes平台填补了NI公司在Wi-Fi ISAC领域的不足**”。
     
-为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用，NI公司(中国)与PicoScenes平台达成合作：对每台从PicoScenes合作公司售出的USRP系统SDR设备(B/N/E/X系列的独立机器或“母板+子板”套件)，**免费赠送一份PSLP-PRO-DBL许可证**。感谢NI公司对PicoScenes平台的认可支持❤️❤️❤️！
+为支持更多用户基于PicoScenes平台及NI USRP系列产品进行Wi-Fi/5G/6G ISAC领域的研究与应用，NI公司(中国)与PicoScenes平台达成合作：对每台从PicoScenes合作公司售出的USRP系统SDR设备(B/N/E/X系列的独立机器或“母板+子板”套件)，**免费赠送一份PSLP-PRO-DBL许可证**。作为回报，NI公司将资助PicoScenes平台、提供多型号USRP设备供PicoScenes平台研发及测试，并提供技术支持。感谢NI公司对PicoScenes平台的认可支持❤️❤️❤️！ 
 
 The PicoScenes platform is honored to receive recognition and support from National Instruments (`NI <https://www.ni.com>`_). NI acknowledges that "**the PicoScenes platform has addressed the gaps in NI's offering in the Wi-Fi ISAC domain.**" 
     
-NI (China) has collaborated our PicoScenes development team. As part of this collaboration, a PSLP-PRO-DBL license will be provided free of charge, as a subsidy, for each USRP series product (or kit) sold by our partner store. This initiative aims to facilitate and encourage more users to conduct research and applications in the Wi-Fi/5G/6G ISAC field, leveraging the combined capabilities of the PicoScenes platform and NI USRP series products. Thank you for NI's recognition and support of PicoScenes platform❤️❤️❤️!
+To support more users in the Wi-Fi/5G/6G ISAC field for research and applications using the PicoScenes platform and NI USRP series products, NI (China) has entered into a collaboration with the PicoScenes platform. For each USRP system SDR device (independent machines of the B/N/E/X series or "motherboard + daughterboard" kits) sold by PicoScenes' partner store, a complimentary PSLP-PRO-DBL license will be provided. In return, NI will sponsor the PicoScenes platform, provide various models of USRP devices for PicoScenes platform development and testing, and offer technical support. We sincerely appreciate NI's recognition and support for the PicoScenes platform ❤️❤️❤️!
 
 
 .. _pricing:

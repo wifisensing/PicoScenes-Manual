@@ -48,7 +48,7 @@ We categories the technical features by the underlying hardware: :ref:`license_s
 SDR: NI USRP Hardware and HackRF One
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of 802.11 PHY, which *supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW, and LDPC codecs*. Developed in C++, it leverages multi-threading and AVX2 instruction set for accelerated processing.
+One of the major highlights of the PicoScenes platform is its built-in high-performance software baseband implementation of 802.11 PHY, which *supports the 802.11a/g/n/ac/ax/be protocols, 4096-QAM, up to 320 MHz CBW, and LDPC codecs*. Developed in C++, it leverages multi-threading, BLAS library, and AVX2 instruction set for accelerated processing.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"

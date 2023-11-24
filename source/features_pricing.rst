@@ -188,7 +188,7 @@ Pricing for Pro License
 - **PSLP-PRO-TL**: 
 
   - For Chinese users: **一次性付费8688元人民币得到2个PSLP-PRO-TL许可证**。我们捆绑2个licenses一起销售，是因为常用的"(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode"模式需要两台机器配合使用。
-  - For English-speaking users outside mainland China: **One-time payment of 1500 USD for 2 PSLP-PRO-TL licenses**. We bundle 2 PSLP-PRO-TL licenses together for sale because the commonly used ISAC scenario '(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode' requires two independent machines. Compared to 8688 RMB (roughly 1200 USD) for Chinese users, the additional $300 USD is for currency exchange settlement, process fee and technical support in English.
+  - For English-speaking users outside mainland China: **One-time payment of 1500 USD for 2 PSLP-PRO-TL licenses**. We bundle 2 PSLP-PRO-TL licenses together for sale because the commonly used ISAC scenario '(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode' requires two independent machines. Compared to 8688 RMB (roughly 1200 USD) for Chinese users, the additional $300 USD is for currency exchange processing fee and technical support in English.
 
 - **PSLP-PRO-DBL**: 由于PSLP-PRO-DBL仅面向中国大陆销售，而且涉及NI产品报价等商业信息，所以我们在这个页面详述。
 

@@ -192,4 +192,4 @@ Pricing for Pro License
 
 - **PSLP-PRO-DBL**: 由于PSLP-PRO-DBL仅面向中国大陆销售，而且涉及NI产品报价等商业信息，所以我们在这个页面详述。
 
-.. todo:: add NI page; add payment info
+::doc:`/ni` 

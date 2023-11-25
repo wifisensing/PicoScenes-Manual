@@ -381,6 +381,8 @@ Transmission, Reception, and CSI Measurement with Non-Standard Channel and Bandw
 
 In previous two sections :ref:`sdr_rx` and :ref:`sdr_tx`, all Tx/Rx parameters were compatible with the official Wi-Fi *numerology*, ensuring interoperability between SDR devices and commercial off-the-shelf (COTS) NICs. This allows users to transmit frames with SDR and measure CSI with COTS NICs, or vice versa, see :ref:`interoperability` for details. To maintain this interoperability, we use the ``--preset`` option to specify various low-level parameters for SDR. In this section, we will demonstrate several commonly used non-standard cases and explain some key parameters.
 
+.. _change-bandwidth-b210:
+
 Changing Baseband Bandwidth (Sampling Rate) with NI USRP B2x0 Series
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

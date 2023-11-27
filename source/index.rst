@@ -4,7 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
-- Nov. 23, 2023 Page :doc:`pslp` is completely rewritten. 
+- Nov. 28, 2023 Add a new page :doc:`/features_pricing` replacing the old PSLP page.
 - Nov. 20, 2023 Page :doc:`/scenarios` is completely rewritten. Readability is significantly improved.
 - Nov. 18, 2023 Add docs for two experimental features: :ref:`dual-split-merge` and :ref:`parallel-decoding`.
 - Nov. 17, 2023 Add two quick reference pages: :doc:`channels` and :doc:`presets`.

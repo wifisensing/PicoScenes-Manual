@@ -55,6 +55,7 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
    gallery
    users
    hardware
+   features_pricing
    installation
    scenarios
    parameters
@@ -63,7 +64,6 @@ You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy th
    plugin
    status
    resources
-   pslp
    troubleshooting
    eula
    credits

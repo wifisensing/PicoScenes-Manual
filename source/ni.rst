@@ -45,7 +45,7 @@ B210是NI USRP系列的入门神器，它功能丰富，对新用户很友好。
 
 NI原厂外壳很贵(1500元)，但还是推荐用户买上，理由有二：
 
-1. 长期的USRP使用经验告诉我们， *USRP很娇贵，只要在裸奔使用必定会损坏*;
+1. 长期的USRP使用经验告诉我们， *USRP很娇贵，只要裸奔使用必定损坏*;
 2. NI原厂外壳在摆拍论文照片时，更直观，更美观。
 
 NI产品页面: `USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ + `B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_

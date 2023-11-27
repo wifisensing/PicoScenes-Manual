@@ -182,6 +182,9 @@ To support more users in the Wi-Fi/5G/6G ISAC field for research and application
 
 .. _pricing:
 
+Pricing
+---------------
+
 .. todo:: stay tuned!
 
 .. Pricing for Pro License
@@ -195,7 +198,3 @@ To support more users in the Wi-Fi/5G/6G ISAC field for research and application
 .. - **PSLP-PRO-DBL**: 
 
 ..   .. todo:: stay tuned!
-
-.. _payment:
-
-.. todo:: stay tuned!

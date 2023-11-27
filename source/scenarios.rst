@@ -255,6 +255,8 @@ We recommend two options to achieve clock synchronization across multiple USRP d
 
 #. For NI USRP X3x0 model, By Ref clock export. X3x0 model has *PPS OUT* and *TRIG OUT* ports that can be directly feed into another X3x0 devices, or feed into a clock distribution module.
 
+.. _combining-multiple-usrp:
+
 Combining Multiple USRP devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -267,6 +269,8 @@ Assume you have two NI USRP X3x0 devices each equipped with two UBX-160 daughter
 In this command, please pay special attention to the comma (**,**) in the option ``-i usrp192.168.30.2,192.168.70.2``. It means to combine multiple USRP devices. You can refer to :ref:`naming_for_usrp` for the complete naming protocols for NI USRP devices. The option ``--rx-channel`` is equivalent to ``--rxcm`` introduced aforementioned, and ``--rx-channel 0,1,2,3`` is equivalent to ``--rxcm 15`` meaning to use all four RF channels for receiving. Then option ``--clock-source external`` tell USRP to use external clock signals for the frequency generations for the LO and ADC/DAC pair.
 
 .. important:: The order of the IP addresses affects the order of the TX/RX channels! For example, the 0th and 3rd channels of the combined USRP ``usrp192.168.40.2,192.168.41.2`` refer to the first and the the second channel of the devices with the IP addresses of 192.168.40.2 and 192.168.41.2, respectively.
+
+.. _combining-multi-usrp-dual-connection:
 
 Combining Multiple USRP Devices plus Dual-Connection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

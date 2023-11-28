@@ -1,12 +1,18 @@
-与NI合作销售USRP系列产品并赠送PSLP-PRO-DBL许可证
+与NI合作销售USRP系列产品
 =============================================
 
 在这个页面，我们介绍几方面内容：
 
-1. :ref:`ni-usrp-price`
-2. PSLP-PRO-DBL许可证细节
-3. 质保及延保服务
-4. 技术支持
+#. :ref:`advantages-of-choosing-us`
+#. :ref:`ni-usrp-price`
+#. :ref:`recommended-models`
+#. :ref:`other-things-to-consider`
+#. :ref:`pricing-links`
+#. :ref:`why-not-choose-shanzhai`
+ PSLP-PRO-DBL许可证细节
+ 质保及延保服务
+ 技术支持
+
 
 .. _advantages-of-choosing-us:
 
@@ -32,6 +38,7 @@ USRP产品的厂商指导价 v.s 我们的报价规则
 
 - 我们的报价：我们遵守NI的规则，不公开准确的厂商指导价格。但为了消除询价过程的沟通成本，我们统一 *对厂商指导价格百位四舍五入*，作为我们这里的一口价报价。
 
+.. _recommended-models:
 我们推荐及出售的USRP型号
 +++++++++++++++++++++++++++++++++
 
@@ -76,6 +83,8 @@ NI OctoClock-G
 
 `NI OctoClock-G <https://www.ettus.com/all-products/OctoClock-G/>`_ 是一台非常好用的时钟分配单元。它内置一块GPSDO（GPS驯服时钟），在GPS接入时，可提供 :math:`<1` ppb水平的频率精度；并支持将此时钟分配给最多8个设备。它也提供了开关，可以在内置的GPSDO和外置时钟源切换。
 
+.. _other-things-to-consider:
+
 其它要考虑的因素
 --------------------
 
@@ -108,16 +117,17 @@ NI原厂提供随机一次性购买的USRP延保服务：该延保服务随设�
 #. 以20%的费用，获得5年内不限次数、不区别人为因素的维修服务；这相比单次维修30%的维修费，**堪称良心**
 #. 质保+延保期间，无需担心高昂的维修费以及报销等问题。
 
+.. _pricing-links:
 报价及购买连接
 --------------------
 
 .. todo:: building
 
-.. _collaboration:
+.. .. _collaboration:
 
-NI公司、PicoScenes团队及西安煊研信息技术有限公司三者的关系
----------------------------------------------------------------------
-如 :ref:`collaboration-with-ni` 一节所述，PicoScenes团队与NI中国达到合作。具体来说，是PicoScenes团队、NI公司和西安煊研信息技术有限公司三者达成合作。西安煊研信息技术有限公司是PicoScenes团队的长期商业合作伙伴；根据本次合作，西安煊研信息技术有限公司将成为NI USRP系列产品及配件授权经销商以及NI生态系统集成商； **PicoScenes团队为从该公司销售的每一台NI或Ettus品牌USRP整机或套装（母板+子板）免费提供一份PSLP-PRO-DBL许可证**。下文所称的“我们”指的是PicoScenes团队和西安煊研信息技术有限公司的利益共同体。
+.. NI公司、PicoScenes团队及西安煊研信息技术有限公司三者的关系
+.. ---------------------------------------------------------------------
+.. 如 :ref:`collaboration-with-ni` 一节所述，PicoScenes团队与NI中国达到合作。具体来说，是PicoScenes团队、NI公司和西安煊研信息技术有限公司三者达成合作。西安煊研信息技术有限公司是PicoScenes团队的长期商业合作伙伴；根据本次合作，西安煊研信息技术有限公司将成为NI USRP系列产品及配件授权经销商以及NI生态系统集成商； **PicoScenes团队为从该公司销售的每一台NI或Ettus品牌USRP整机或套装（母板+子板）免费提供一份PSLP-PRO-DBL许可证**。下文所称的“我们”指的是PicoScenes团队和西安煊研信息技术有限公司的利益共同体。
 
 .. _why-not-choose-shanzhai:
 

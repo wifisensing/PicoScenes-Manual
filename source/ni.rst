@@ -130,13 +130,7 @@ USRP产品的厂商指导价 v.s 我们的报价规则
 支付方式
 +++++++++++++++++++
 
-.. todo:: building
-
-.. .. _collaboration:
-
-.. NI公司、PicoScenes团队及西安煊研信息技术有限公司三者的关系
-.. ---------------------------------------------------------------------
-.. 如 :ref:`collaboration-with-ni` 一节所述，PicoScenes团队与NI中国达到合作。具体来说，是PicoScenes团队、NI公司和西安煊研信息技术有限公司三者达成合作。西安煊研信息技术有限公司是PicoScenes团队的长期商业合作伙伴；根据本次合作，西安煊研信息技术有限公司将成为NI USRP系列产品及配件授权经销商以及NI生态系统集成商； **PicoScenes团队为从该公司销售的每一台NI或Ettus品牌USRP整机或套装（母板+子板）免费提供一份PSLP-PRO-DBL许可证**。下文所称的“我们”指的是PicoScenes团队和西安煊研信息技术有限公司的利益共同体。
+请在PicoScenes合作的下单： `PicoScenes及USRP销售 <https://item.taobao.com/item.htm?id=752157615283>`_
 
 .. _why-not-choose-shanzhai:
 

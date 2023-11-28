@@ -26,17 +26,16 @@ NI USRP系列产品属于卖方市场，性能高端但价格昂贵。由于NI�
 我们推荐的USRP型号
 -----------------------------
 
-NI USRP有众多型号，我们结合自己团队长期使用经验和Wi-Fi ISAC研究所需，我们优先推荐并出售以下NI USRP产品， *以下没有列出的USRP产品，我们同样出售*。
-
+NI USRP有许多型号，我们基于自己团队的长期使用经验和Wi-Fi ISAC研究的需求，优先推荐并销售以下NI USRP产品。当然，除下面列出的USRP产品外， 作为NI授权经销商，*我们也同样提供其他型号的销售*。
 NI USRP B210
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-`USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，对新用户很友好。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。 B210虽然是入门型号，但功能丰富，对一般用户非常友好。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自带I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟(:ref:`phase_sync_multiple_device`)，采用USB 3连接+供电，支持笔记本电脑上位机在外场直接工作，可以满足最大40 MHz CBW下的各种精细Wi-Fi/5G/6G ISAC研究。
+`USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，非常适合新用户。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，提供细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自动I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟同步(:ref:`phase_sync_multiple_device`)，采用USB 3.0连接和供电，可支持笔记本电脑作为上位机在外场直接工作。它能够满足在最大40 MHz CBW下进行各种精细的Wi-Fi/5G/6G ISAC研究的需求。
 
-`B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_ 很贵(1500元)，但还是推荐用户买上，理由有二：
+`B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_ 很贵(1500元)，但还是推荐用户购买，原因如下：
 
-1. 长期的USRP使用经验告诉我们， *USRP很娇贵，只要裸奔使用必定损坏*;
-2. NI原厂外壳在摆拍论文照片时，更直观，更美观。
+1. 长期的USRP使用经验告诉我们， **USRP非常脆弱，如果不使用外壳，很容易损坏**。
+2. NI原厂外壳在拍摄论文照片时更加直观和美观。
 
 NI USRP X310母板搭配双UBX-160子板
 +++++++++++++++++++++++++++++++++++++++++++++++++++

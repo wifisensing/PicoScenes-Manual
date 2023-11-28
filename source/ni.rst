@@ -28,7 +28,7 @@ NI USRP系列产品属于卖方市场，性能高端但价格也属实昂贵，�
 
 .. _ni-usrp-price:
 
-NI USRP系列产品简介与售价
+NI USRP系列产品简介
 -----------------------------
 
 .. _recommended-models:

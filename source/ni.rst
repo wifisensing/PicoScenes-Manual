@@ -130,7 +130,7 @@ USRP产品的厂商指导价 v.s 我们的报价规则
 支付方式
 +++++++++++++++++++
 
-请在PicoScenes合作的下单： `PicoScenes及USRP销售 <https://item.taobao.com/item.htm?id=752157615283>`_
+请在PicoScenes合作的下单： `PicoScenes及USRP销售 <https://item.taobao.com/item.htm?id=752157615283>`_ 。
 
 .. _why-not-choose-shanzhai:
 

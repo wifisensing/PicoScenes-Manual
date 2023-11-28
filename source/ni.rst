@@ -3,11 +3,11 @@
 
 在这个页面，我们介绍几方面内容：
 
-#. :ref:`advantages-of-choosing-us`
-#. :ref:`recommended-models`
-#. :ref:`other-things-to-consider`
-#. :ref:`partner-store`
-#. :ref:`why-not-choose-shanzhai`
+- :ref:`advantages-of-choosing-us`
+- :ref:`recommended-models`
+- :ref:`other-things-to-consider`
+- :ref:`partner-store`
+- :ref:`why-not-choose-shanzhai`
 
 
 .. _advantages-of-choosing-us:

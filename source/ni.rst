@@ -9,9 +9,6 @@
 #. :ref:`other-things-to-consider`
 #. :ref:`partner-store`
 #. :ref:`why-not-choose-shanzhai`
- PSLP-PRO-DBL许可证细节
- 质保及延保服务
- 技术支持
 
 
 .. _advantages-of-choosing-us:

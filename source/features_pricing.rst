@@ -192,4 +192,4 @@ Pricing & Payment
 
 - **PSLP-PRO-DBL**: 
 
-    .. todo:: stay tuned!
+    **Payment channel still establishing .....**

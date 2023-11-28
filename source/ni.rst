@@ -4,7 +4,6 @@
 在这个页面，我们介绍几方面内容：
 
 #. :ref:`advantages-of-choosing-us`
-#. :ref:`ni-usrp-price`
 #. :ref:`recommended-models`
 #. :ref:`other-things-to-consider`
 #. :ref:`partner-store`
@@ -15,27 +14,22 @@
 
 从我们这里采购NI USRP设备的好处：放心、省事、省钱
 -------------------------------------------------------
-NI USRP系列产品属于卖方市场，性能高端但价格也属实昂贵，并且NI对于销售网络有很强的控制，所以各授权经销商的报价几乎完全一致。各授权经销商主要依靠熟客户网络、集成及技术服务等进行比较良性（不卷）的差异化竞争。选择从PicoScenes团队采购USRP系列产品可以得到 **放心、省事、省钱、专业** 三方面好处：
+NI USRP系列产品属于卖方市场，性能高端但价格也属实昂贵，并且NI对于销售网络有很强的控制，所以各授权经销商的报价几乎完全一致。各授权经销商主要依靠熟客户网络、集成及技术服务等进行比较良性（不卷）的差异化竞争。选择从PicoScenes团队采购USRP系列产品可以得到 **放心、省事、省钱** 三方面好处，具体来说：
 
-#. **NI官方渠道、100%正品USRP硬件产品**：我们珍视NI对PicoScenes的认可与支持，为此我们确保向NI的客户提供全新、完好的正品产品;
+#. **保证NI官方渠道、100%正品**：我们珍视NI对PicoScenes的认可与支持，为此我们确保向NI的客户提供全新、完好的正品产品;
 #. **免费赠送PSLP-PRO-DBL许可证**：包含PicoScenes完全功能，开箱即用，也无需在线验证，完整的PSLP-PRO-DBL功能列表，见 :ref:`introducing_pslp`;
-#. **从PicoScenes团队和NI中国免费获取技术支持**：*技术支持是硬件之外最重要的资源*。我们团队有高/低端多种型号USRP硬件的多年使用经验，尤其是利用PicoScenes驱动多个USRP实现同步测量的经验。通过 *免费咨询PicoScenes团队*，您可以节省大量探索及研发时间。此外，*NI(中国)为在保设备也提供1年的免费技术支持*;
+#. **从NI中国免费获取技术支持**：NI原厂为在保设备也提供1年的免费技术支持;
 #. **提供NI原厂1年质保+延保服务(可选、推荐)**：NI原厂提供为期一年的免费维修保修服务（不限次数、不区分人为因素），然而， *一旦过保，每次维修费用都按设备售价的30%收取，相当昂贵*。因此，如果您条件允许，我们推荐您额外购买最多四年的NI原厂延保服务。该服务一次性购买，每年收取设备价格的5%，最多可延长四年， *即额外支付20%费用，获得每台设备(或套装)五年时间内不限次数（不区分人为因素）的NI原厂维修*。 *随机购买NI原厂延保服务有两个关键优势：1. 避免由于没有预算设备维修费用而无法报销的尴尬；2. 明显降低综合使用成本（考虑到5年内发现设备损坏的概率）*。
 #. **无额外渠道溢价**: 我们不寻求信息不对称条件下(NI的二道贩子<我们🤡> v.s USRP最终用户<您>)的过分收益， *所有NI USRP产品均以官方指导价销售,无额外渠道溢价* （大客户及熟客还可申请最大-5%折扣）。我们追求收益，但更重视PicoScenes及团队的学术和工业界声誉。
 
-.. _ni-usrp-price:
-
-NI USRP系列产品简介
------------------------------
-
 .. _recommended-models:
 我们推荐的USRP型号
-+++++++++++++++++++++++++++++++++
+-----------------------------
 
 NI USRP有众多型号，我们结合自己团队长期使用经验和Wi-Fi ISAC研究所需，我们优先推荐并出售以下NI USRP产品， *以下没有列出的USRP产品，我们同样出售*。
 
 NI USRP B210 + NI原厂外壳 (入门神器)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 `USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，对新用户很友好。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。 B210虽然是入门型号，但功能丰富，对一般用户非常友好。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自带I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟(:ref:`phase_sync_multiple_device`)，采用USB 3连接+供电，支持笔记本电脑上位机在外场直接工作，可以满足最大40 MHz CBW下的各种精细Wi-Fi/5G/6G ISAC研究。
 
@@ -45,31 +39,31 @@ NI USRP B210 + NI原厂外壳 (入门神器)
 2. NI原厂外壳在摆拍论文照片时，更直观，更美观。
 
 NI USRP X310母板搭配双UBX-160子板
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 `NI USRP X310母板 <https://www.ettus.com/all-products/X310-KIT/>`_ 搭配两块 `UBX-160子板 <https://www.ettus.com/all-products/ubx160/>`_，可以实现10-6000 MHz范围内最大双通道200 MHz采样能力(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步(:ref:`combining-multi-usrp-dual-connection`)。它提供双口10 GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10GbE-to-Thunderbolt3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
 
 NI USRP-2974
-^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 `NI USRP-2974 <https://www.ni.com/zh-cn/shop/model/usrp-2974.html>`_ 这个型号是NI品牌预组装的产品，它的实质是：NI USRP X310母板 + 两块UBX-160子板 + GPSDO（GPS驯服时钟） + 一台4核心2GHz主频i7(6822EQ)小主机。相比上述X310+Dual UBX-160方案，在保留双10 GbE连接的基础上，由于机器内置了一台中等性能的小主机，该型号具备开箱即用的能力。
 
 
 NI USRP N320/N321
-^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 `NI USRP N320 <https://www.ettus.com/all-products/usrp-n320/>`_ 的总体性能略高于X310或USRP-2974平台，它可实现3-6000 MHz范围，最大双通道250 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。它提供双口10GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10 GbE-to-Thunderbolt 3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
 
 N320的主要特色是，多台N320可以与 `NI USRP N321 <https://www.ettus.com/all-products/usrp-n321/>`_搭配使用，实现载波相位级同步。PicoScenes提供了Tx Precoding API，支持基于N321/N320组合的Wi-Fi beamforming/phased array相关研究。
 
 NI USRP X410
-^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 `NI USRP X410 <https://www.ettus.com/all-products/usrp-x410/>`_ 是USRP系统目前性能最强的设备，它可在1-7200 MHz范围，最大4通道400 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，为支持最大1.6GSPS的基带信号上传，X410配备了100 GbE连接。时钟同步方面，它内置GPSDO，也支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。
 
 
 NI OctoClock-G
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 `NI OctoClock-G <https://www.ettus.com/all-products/OctoClock-G/>`_ 是一台非常好用的时钟分配单元。它内置一块GPSDO（GPS驯服时钟），在GPS接入时，可提供 :math:`<1` ppb水平的频率精度；并支持将此时钟分配给最多8个设备。它也提供了开关，可以在内置的GPSDO和外置时钟源切换。
 

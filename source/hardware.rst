@@ -4,7 +4,8 @@ Supported Hardware
 **Revised on Nov. 16, 2023**
 
 In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware. 
-The following Wi-Fi NIC models are available in our `PicoScenes Taobao Shop <https://item.taobao.com/item.htm?id=648560374131>`_ ^_^.
+
+[Exclusive for China mainland users]: PicoScenes团队很荣幸得到NI的认可与支持 :ref:`collaboration-with-ni`，获得NI USRP授权销售资格。您可以在这个上页面查看我们的NI USRP销售方案， :doc:`/ni`。
 
 .. csv-table:: CSI-extractable hardware supported by PicoScenes
     :header: "Hardware Model", "AX210/AX200", "USRP-based SDR (X310 as example)", "HackRF One", "QCA9300", "IWL5300"

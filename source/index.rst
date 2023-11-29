@@ -46,7 +46,7 @@ PicoScenes MATLAB Toolbox (PMT) is the MATLAB parsing routine for the *.csi* fil
 
 The PicoScenes software ecosystem (customized driver, platform, and plugins) is **built against the latest kernel, packaged in the Debian .deb format, and auto-updated via the easy** *apt upgrade* **command**. A fresh-new installation can be as short as 10 minutes. Setting up a CSI-measurement environment can never be such easy!
 
-You may refer to :doc:`why` to learn more about PicoScenes. We hope you enjoy the next ride of Wi-Fi ISAC research, supercharged by PicoScenes!
+You may refer to :doc:`features_pricing` to learn all the features of PicoScenes platform. We hope you enjoy the next ride of Wi-Fi ISAC research, supercharged by PicoScenes!
 
 .. toctree::
    :maxdepth: 2

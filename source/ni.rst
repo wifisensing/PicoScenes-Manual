@@ -26,15 +26,16 @@ NI USRP系列产品属于卖方市场，性能高端但价格昂贵。由于NI�
 我们推荐的USRP型号
 -----------------------------
 
-NI USRP有许多型号，我们基于自己团队的长期使用经验和Wi-Fi ISAC研究的需求，优先推荐并销售以下NI USRP产品。当然，除下面列出的USRP产品外， 作为NI授权经销商，*我们也同样提供其他型号的销售*。
+NI USRP有许多型号，我们基于自己团队的长期使用经验和Wi-Fi ISAC研究的需求，优先推荐并销售以下NI USRP产品。当然，作为NI授权经销商，*我们也销售其它其他型号*。
+
 NI USRP B210
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
 `USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，非常适合新用户。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，提供细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自动I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟同步(:ref:`phase_sync_multiple_device`)，采用USB 3.0连接和供电，可支持笔记本电脑作为上位机在外场直接工作。它能够满足在最大40 MHz CBW下进行各种精细的Wi-Fi/5G/6G ISAC研究的需求。
 
-`B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_ 很贵(1500元)，但还是推荐用户购买，原因如下：
+USRP B210原厂仅以祼板销售，`B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_ 单独售卖，并且很贵(1500元)，但还是推荐用户购买，原因如下：
 
-1. 长期的USRP使用经验告诉我们， **USRP非常脆弱，如果不使用外壳，很容易损坏**。
+1. 长期的USRP使用经验告诉我们， **USRP非常脆弱，如果不使用外壳，极容易损坏**。
 2. NI原厂外壳在拍摄论文照片时更加直观和美观。
 
 NI USRP X310母板搭配双UBX-160子板
@@ -53,12 +54,12 @@ NI USRP N320/N321
 
 `NI USRP N320 <https://www.ettus.com/all-products/usrp-n320/>`_ 的总体性能略高于X310或USRP-2974平台，它可实现3-6000 MHz范围，最大双通道250 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。它提供双口10GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10 GbE-to-Thunderbolt 3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
 
-N320的主要特色是，多台N320可以与 `NI USRP N321 <https://www.ettus.com/all-products/usrp-n321/>`_搭配使用，实现载波相位级同步。PicoScenes提供了Tx Precoding API，支持基于N321/N320组合的Wi-Fi beamforming/phased array相关研究。
+N320的主要特色是，多台N320可以与 `NI USRP N321 <https://www.ettus.com/all-products/usrp-n321/>`_ 搭配使用，实现载波相位级同步。PicoScenes提供了Tx Precoding API，支持基于N321/N320组合的Wi-Fi beamforming/phased array相关研究。
 
 NI USRP X410
 ++++++++++++++++++++++++++++++++++
 
-`NI USRP X410 <https://www.ettus.com/all-products/usrp-x410/>`_ 是USRP系统目前性能最强的设备，它可在1-7200 MHz范围，最大4通道400 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，为支持最大1.6GSPS的基带信号上传，X410配备了100 GbE连接。时钟同步方面，它内置GPSDO，也支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。
+`NI USRP X410 <https://www.ettus.com/all-products/usrp-x410/>`_ 是USRP系统目前性能最强的设备，它可在1-7200 MHz范围，最大4通道400 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)。为支持最大1.6 GSPS的基带信号传输，X410配备了100 GbE连接。时钟同步方面，它内置GPSDO，也支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。
 
 
 NI OctoClock-G
@@ -76,13 +77,18 @@ NI OctoClock-G
 
 您在确定设备采购台数时，可考虑以下因素：
 
-#. 初次采购时，请考虑是否需要采购2台，用于构成基于USRP的Tx-Rx链路；
+#. 初次采购时，请考虑是否需要采购2台，用于构成基于USRP的Tx-Rx链路，当然，如果您预备有限，也可以使用一台USRP和廉价商用Wi-Fi网卡进行Wi-Fi ISAC研究；
 #. 初次采购时，请考虑是否需要OctoClock-G时钟，用于时钟同步、相位对齐等操作；
 #. NI USRP系列每年两次调（涨）价，并且幅度不低，每次在5-10%左右。所以如果经费允许，可考虑增加采购量；
 
+您需要对货期有预估
++++++++++++++++++++++++
+
+NI USRP系列完全由NI在马来西亚或匈牙利的工厂按订单生产，从生产、寄出、清关最终交付您手上，大约需要4-6周时间（一般来说4周概率高）。如果您有一些关键的项目时间节点，请提前规划。
+
 .. _extended-warranty:
 
-强烈推荐您一并采购NI原厂延保服务
+强烈推荐您采购NI原厂延保服务
 +++++++++++++++++++++++++++++++++++++++++
 
 根据我们的使用经验以及来自NI的反馈，USRP系列设备确实非常容易损坏，尤其是对于新手用户。NI原厂为正品设备自出库之日起提供1年原厂质保，该质保为不区分人为因素、不限次数的免费维修服务。 **但是，一旦过保，单次维护费用则是设备售价的30%**！例如一台X310套装12万元左右，不论如何轻微的损坏，单次维修费用都高达3.6万元左右，属实极为昂贵。这对广大科研用户会有两个突出的问题：
@@ -90,7 +96,7 @@ NI OctoClock-G
 #. 维修价格昂贵，经费不易申请；
 #. 有经费也想维修，但因申报书中没有预算维修费，因无法报销而无法维修；
 
-NI原厂提供随机一次性购买的USRP延保服务：该延保服务随设备一并采购， **每延长一年质保仅额外支付售价的5%，最多延长4年。** 例如，X310套装售价12万元左右，如果您想延长4年质保（总共5年），则额外支付2.4万元，总计14.4万元。延保期间，保修政策不变，这意味着两点优势：
+NI原厂提供 **随硬件一次性购买**的USRP延保服务：该延保服务随设备一并采购， **每延长一年质保仅额外支付售价的5%，最多延长4年。** 例如，X310套装售价12万元左右，如果您想延长4年质保（总共5年），则额外支付2.4万元，总计14.4万元。延保期间，保修政策不变，这意味着两点优势：
 
 #. 以20%的费用，获得5年内不限次数、不区别人为因素的维修服务；这相比单次维修30%的维修费，**堪称良心**
 #. 质保+延保期间，无需担心高昂的维修费以及报销等问题。
@@ -130,7 +136,7 @@ USRP产品的厂商指导价 v.s 我们的报价规则
 支付方式
 +++++++++++++++++++
 
-请在PicoScenes合作的下单： `PicoScenes及USRP销售 <https://item.taobao.com/item.htm?id=752157615283>`_ 。
+请在PicoScenes合作的淘宝商铺下单： `PicoScenes及USRP销售 <https://item.taobao.com/item.htm?id=752157615283>`_ 。
 
 .. _why-not-choose-shanzhai:
 

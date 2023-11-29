@@ -53,8 +53,6 @@ You may refer to :doc:`features_pricing` to learn all the features of PicoScenes
    :numbered:
    :caption: Table of Contents:
    
-   gallery
-   users
    hardware
    features_pricing
    installation

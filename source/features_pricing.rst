@@ -190,6 +190,4 @@ Pricing & Payment
   - For Chinese users(中国区用户): **一次性付费8688元人民币得到2个永久PSLP-PRO-TL许可证**。我们捆绑2个许可证一起销售，是因为常用的"(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode"模式需要两台机器配合使用。请在我们的合作店铺购买: `PicoScenes软件Pro可转移许可证(PSLP-PRO-TL) <https://item.taobao.com/item.htm?id=752046582148>`_。
   - For English-speaking users outside mainland China: **One-time payment of 1500 USD for 2 PSLP-PRO-TL licenses**. We bundle 2 PSLP-PRO-TL licenses together for sale because the commonly used ISAC scenario '(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode' requires two independent machines. Compared to 8688 RMB (roughly 1200 USD) for Chinese users, the additional $300 USD is for currency exchange processing fee and technical support in English. **Payment channel still establishing .....**
 
-- **PSLP-PRO-DBL**: 
-
-    **Payment channel still establishing .....**
+- **PSLP-PRO-DBL**: 我们在这个页面单独说明USRP采购及相关问题： ::doc:`/ni`

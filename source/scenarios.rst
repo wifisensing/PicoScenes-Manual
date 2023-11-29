@@ -14,6 +14,8 @@ On this page, we will demonstrate the methods of CSI measurement and various low
 
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. See :doc:`installation` for hardware and software installation guides.
 
+.. hint:: 如果您不想费劲地看英文，请开启浏览器的翻译功能，省脑子。
+
 .. _fundamentals:
 Before Getting Started: Some Fundamentals
 --------------------------------------------

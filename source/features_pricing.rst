@@ -13,6 +13,8 @@ In the sections below, we cover three main topics:
 - :ref:`introducing_pslp`
 - :ref:`pricing`
 
+.. hint:: 如果您不想费劲地看英文，请开启浏览器的翻译功能，省脑子。
+
 .. _feature-list:
 
 Features of The PicoScenes Platform

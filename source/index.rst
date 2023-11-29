@@ -4,6 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
+- Nov. 29, 2023 Add a new page ::doc:`/ni` describing how we collaborate with NI selling USRP hardware. This program is exclusively available in mainland China.
 - Nov. 28, 2023 Add a new page :doc:`/features_pricing` replacing the old PSLP page.
 - Nov. 20, 2023 Page :doc:`/scenarios` is completely rewritten. Readability is significantly improved.
 - Nov. 18, 2023 Add docs for two experimental features: :ref:`dual-split-merge` and :ref:`parallel-decoding`.

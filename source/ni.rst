@@ -1,7 +1,7 @@
 与NI合作销售USRP系列产品
 =============================================
 
-如前所述，PicoScenes团队很荣幸得到NI的认可与支持:ref:`collaboration-with-ni`，获得NI USRP授权销售资格。在这个页面，我们将详细介绍以下几方面内容：
+如前所述，PicoScenes团队很荣幸得到NI的认可与支持 :ref:`collaboration-with-ni`，获得NI USRP授权销售资格。在这个页面，我们将详细介绍以下几方面内容：
 
 - :ref:`advantages-of-choosing-us`
 - :ref:`recommended-models`

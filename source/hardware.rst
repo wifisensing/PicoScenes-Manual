@@ -1,7 +1,7 @@
 Supported Hardware
 ==========================================
 
-**Revised on Nov. 16, 2023**
+**Revised on Nov. 29, 2023**
 
 In this page, we briefly compare the capabilities of the PicoScenes-supported CSI hardware. 
 

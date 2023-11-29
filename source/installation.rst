@@ -4,6 +4,8 @@ PicoScenes Installation & Upgrade
 
 **Revised on Nov. 16, 2023**
 
+.. hint:: 如果您不想费劲地看英文，请开启浏览器的翻译功能，省脑子。
+
 Hardware Installation
 =======================
 

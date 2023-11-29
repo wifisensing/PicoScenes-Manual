@@ -34,6 +34,9 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
 - Bingxiang Huangfu, 皇甫丙祥 (Graduate student with the School of Computer Science and Technology)
 - Yundong Li, 李云东 (Graduate student with the School of Computer Science and Technology)
 - Lanqi Yang, 杨兰琪 (Graduate student with the School of Computer Science and Technology)
+- Minghao Xu, 许明晧 (Graduate student with the School of Computer Science and Technology)
+- Xuelin Zhang, 张雪林 (Graduate student with the School of Computer Science and Technology)
+- Junhao Duan, 段钧豪 (Graduate student with the School of Computer Science and Technology)
 - Prof. Rui Li, 李瑞 (Professor with the School of Computer Science and Technology)
 - Prof. Tom H. Luan, 栾浩 (Professor with the School of Cyber Engineering)
 

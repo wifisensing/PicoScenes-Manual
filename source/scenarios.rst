@@ -822,17 +822,13 @@ PicoScenes supports packet injection functionality using either QCA9300 or IWL53
 - Both QCA9300 and IWL5300 are 802.11n compatible NICs, supporting at most 40 MHz CBW and MCS 7. Therefore, users should configure both models with 20 or 40 MHz CBW channels using the ``array_prepare_for_picoscenes`` command. For more details, refer to the documentation on ::doc:`/channels`.
 - It's worth noting that there are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200, and SDR devices. Refer to the :ref:`interoperability` section for more information on this topic.
 
-.. _live-channel-bw-changing-qca9300-iwl5300:
-Specifying Channel and Bandwidth in Real-time
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. todo:: missing part
-
 .. _tx-rx-chainmask-qca9300-iwl5300:
-Specifying Tx and Rx Chainmask
+Specifying Tx and Rx Chains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. todo:: missing part
+Users can use ``--txcm`` and ``--rxcm`` options  to specify the Tx and Rx chainmask for QCA9300 and IWL5300. 
+
+The options ``--txcm`` and ``--rxcm`` are universal for all types of frontends supported by PicoScenes, as described in :ref:`multi-channel-rx-single` and :ref:`multi-channel-tx`.
 
 .. _multi-nic-qca9300-iwl5300:
 Concurrent Multi-NIC Operation for QCA9300 and IWL5300

@@ -111,7 +111,6 @@ PicoScenes supports the legendary QCA9300 and IWL5300 NICs and exclusively unloc
     "Accessing Non-Standard Channel and Bandwidth by QCA9300","QCA9300 supports operating in [2.2-2.9, 4.4-6.1] GHz spectrum and [2.5-80] MHz bandwidth. See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz only","**✓**"
     "Manual Rx Gain Control by QCA9300","Disabling AGC and specifying a fixed [0-66] dBm Rx Gain. See :ref:`qca9300_non-standard`","**✓** (Limited, [0-22] dBm only)","**✓**"
     "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
-    "Runtime Specifying Channel and Bandwidth","Changing channel and CBW in runtime, see :ref:`live-channel-bw-changing-qca9300-iwl5300`.","**✓**","**✓**"
 
 .. _license-data-access:
 

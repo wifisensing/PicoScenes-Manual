@@ -1,6 +1,8 @@
 Features & License
 =======================================
 
+Revised on Nov. 29, 2023
+
 PicoScenes is a feature-rich, powerful, and user-friendly middleware for Wi-Fi ISAC research. This page outlines the notable features of PicoScenes and provides links to their usage and explanations.
 
 To ensure the sustainable development of the PicoScenes platform, we have implemented a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, primarily for SDR frontends.

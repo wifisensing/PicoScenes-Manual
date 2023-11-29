@@ -1,7 +1,7 @@
 CSI Measurement using PicoScenes
 =================================================
 
-**Revised on Nov. 16, 2023**
+**Revised on Nov. 29, 2023**
 
 
 On this page, we will demonstrate the methods of CSI measurement and various low-level controls on different hardware frontends. You can jump to the interested topics via following links:

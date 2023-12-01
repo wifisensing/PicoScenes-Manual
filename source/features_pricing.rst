@@ -92,7 +92,7 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "6 GHz Band Access (**AX210 Only**)","Accessing the full 6 GHz band channels (5955 to 7115 MHz) *around the globe*. See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓** ([5955-6415] MHz)","**✓**"
+    "6 GHz Band Access (**AX210 Only**)","Accessing the full 6 GHz band channels (5955 to 7115 MHz) *around the globe*. See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓**","**✓**"
     "CSI Measurement with Associated AP","Measuring CSI from the associated AP. See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode (**Passive Sensing**)","Supporting measuring CSI for all overheard frames (11a/g/n/ac/ax format) in monitor mode with up to 160 MHz CBW. See :ref:`ax200-monitor`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40/80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
@@ -111,8 +111,8 @@ PicoScenes supports the legendary QCA9300 and IWL5300 NICs and exclusively unloc
     :widths: auto
 
     "CSI Measurement by “Monitor mode + Packet Injection”","Packet Injection in 11a/g/n/ac/ax format with 20/40 MHz Channel bandwidth (CBW) with Extra Spatial Sounding (ESS). See :ref:`packet-injection-qcq9300-iwl5300`","**✓**","**✓**"
-    "Accessing Non-Standard Channel and Bandwidth by QCA9300","QCA9300 supports operating in [2.2-2.9, 4.4-6.1] GHz spectrum and [2.5-80] MHz bandwidth. See :ref:`qca9300_non-standard`","✓Limited, [2.3-2.6] GHz, and one of [10, 20, 30, 40] MHz","**✓**"
-    "Manual Rx Gain Control by QCA9300","Disabling AGC and specifying a fixed [0-60] dBm Rx Gain. See :ref:`qca9300_non-standard`","**✓** (Limited, [0-20] dBm only)","**✓**"
+    "Accessing Non-Standard Channel and Bandwidth by QCA9300","QCA9300 supports operating in [2.2-2.9, 4.4-6.1] GHz spectrum and [2.5-80] MHz bandwidth. See :ref:`qca9300_non-standard`","**✓**","**✓**"
+    "Manual Rx Gain Control by QCA9300","Disabling AGC and specifying a fixed [0-60] dBm Rx Gain. See :ref:`qca9300_non-standard`","**✓**","**✓**"
     "Tx/Rx chain specification","Specify Tx and Rx chainmasks in runtime, see :ref:`tx-rx-chainmask-qca9300-iwl5300`","**✓**","**✓**"
 
 .. _license-data-access:

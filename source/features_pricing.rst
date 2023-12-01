@@ -97,7 +97,7 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
     "CSI Measurement in Monitor Mode (**Passive Sensing**)","Supporting measuring CSI for all overheard frames (11a/g/n/ac/ax format) in monitor mode with up to 160 MHz CBW. See :ref:`ax200-monitor`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
     See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 50pkts)","**✓**"
+    "Transmit 11a/g/n/ac/ax-Format Frames with 80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. See :ref:`ax200-monitor-injection` and :ref:`ax200-monitor-injection-mcs-antenna`","**✓** (Transmission rate :math:`\leq` 100 pkts/s)","**✓**"
     "Runtime Specifying Channel and Bandwidth","Specifying channel, CBW, Tx/Rx chainmasks in runtime by commands or APIs. See :ref:`live-channel-bw-changing`.","**✓**","**✓**"
 
 .. _license_qca9300:

@@ -1,11 +1,11 @@
 Features & License
 =======================================
 
-**Revised on Nov. 29, 2023**
+**Revised on Dec. 2, 2023**
 
 PicoScenes is a feature-rich, powerful, and user-friendly middleware for Wi-Fi ISAC research. This page outlines the notable features of PicoScenes and provides links to their usage and explanations.
 
-To ensure the sustainable development of the PicoScenes platform, we have implemented a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, primarily for SDR frontends.
+To ensure the sustainable development of the PicoScenes platform, we have implemented a licensing mechanism for these features. **The majority of features are available free of charge**, while a license fee is required for certain advanced features, *only for SDR frontends*.
 
 In the sections below, we cover three main topics:
 
@@ -84,7 +84,7 @@ One of the major highlights of the PicoScenes platform is its built-in high-perf
 COTS NIC: AX210 and AX200
 +++++++++++++++++++++++++++
 
-PicoScenes is the exclusive platform that supports the packet injection (Tx), receiving, and CSI measurement on Intel AX210/AX200 NIC.
+PicoScenes is the exclusive platform that supports the packet injection (Tx), receiving, and CSI measurement on Intel AX210/AX200 NIC. All features below are free of charge.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"
@@ -102,7 +102,7 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
 COTS NIC: QCA9300 and IWL5300
 +++++++++++++++++++++++++++++++
 
-PicoScenes supports the legendary QCA9300 and IWL5300 NICs and exclusively unlocks several low-level controls for QCA9300. See :ref:`picoscenes_paper` for more details.
+PicoScenes supports the legendary QCA9300 and IWL5300 NICs and exclusively unlocks several low-level controls for QCA9300. See :ref:`picoscenes_paper` for more details. All features below are free of charge.
 
 .. csv-table::
     :header: "Feature", "Description","Free","Pro"

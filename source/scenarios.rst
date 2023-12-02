@@ -587,6 +587,38 @@ The PicoScenes Rx baseband decoder includes an experimental multi-threading capa
 The ``--mt 5`` option specifies that the Rx decoder should utilize 5 threads for parallel decoding.
 
 
+.. _radar-mode:
+Wi-Fi Radar (Mono-Static) Mode
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+For NI USRP devices with multiple RF channels, Wi-Fi radar mode, or Wi-Fi mono-static sensing mode can be activated. In the radar word implies, PicoScenes, in radar mode, uses one RF chain of the USRP to transmits the Wi-Fi frames, whilst using the other RF chain(s) to receive the signals and then decode the frames. The following command shows how to uses the radar mode with Wi-Fi 7 40 MHz CBW frames injection and receiving.
+
+.. code-block:: bash
+
+    PicoScenes "d debug; -i usrp --freq 5955 --mode radar --txcm 1 --rxcm 2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+
+
+Several points of the above command are worth noting:
+
+      - Tx and Rx MUST use different RF chains, *e.g.*, ``--txcm 1 --rxcm 2 `` options used in the above command;
+      - Users MUST fine-tune the Tx power (or Rx gain), or use directional antennas, to prevent Rx end ADC saturation, *e.g.*, ``--txpower 0.1 ``  option used in the above command;
+      - We uses the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See ::doc:`/presets` for more information;
+      - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
+
+
+.. _mimo-radar-mode:
+Wi-Fi MIMO Radar (MIMO + Mono-Static) Mode
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Since multiple USRP can be combined into one virtual and large USRP, the radar mode can also utilize multiple RF chains to build a Wi-Fi MIMO radar. Assuming two NI USRP X310 is dual-10GbE connected with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform Wi-Fi MIMO radar measurement:
+
+
+.. code-block:: bash
+
+    PicoScenes "d debug; -i usrp192.168.30.2,192.168.40.2 --freq 5955 --mode radar --tx-channel 0,1 --rx-channel 2,3 --clock-source external --preset TR_CBW_40_EHTSU --sts 2 --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+
+The above command uses the ``--tx-channel`` and ``--rx-channel`` options to specify the Tx and Rx chains, respectively, and uses the ``--sts 2`` option to specify 2x2 MIMO transmission. To synchronized both X310, we use the ``--clock-source external`` options, which you may refer to :ref:`phase_sync_multiple_device`.
+
 .. _ax200-measurements:
 CSI Measurement using AX210/AX200 NICs
 -----------------------------------------------------------

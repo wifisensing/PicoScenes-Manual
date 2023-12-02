@@ -60,10 +60,8 @@ One of the major highlights of the PicoScenes platform is its built-in high-perf
     :widths: auto
 
     "SDR Hardware Support","Supporting *all models* of NI USRP SDR devices and the HackRF One. See :ref:`csi_by_sdr`","**✓**","**✓**"
-    "Transmit 11a/g/n/ac/ax/be-Format Frames with 20 MHz CBW ","SDR-based *Packet Injection* with up to Wi-Fi 7 format support. See :ref:`sdr-tx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Transmit 11a/g/n/ac/ax/be-Format Frames with 40/80/160/320 MHz CBW","SDR-based *Packet Injection* supporting up to 320 MHz CBW and Wi-Fi 7 format. See :ref:`sdr-tx-40-or-higher-cbw`","","**✓**"
-    "Receiving and Measuring CSI for 20 MHz CBW Frames","*Fully Passive Sensing* in 20 MHz channels. See :ref:`sdr-rx-20-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
-    "Receiving and Measuring CSI for 40/80/160/320 MHz CBW Frames","*Fully Passive Sensing* with Wi-Fi 7 format and up to 320 MHz CBW. See :ref:`sdr-rx-40-or-higher-cbw`","","**✓**"
+    "Transmit 11a/g/n/ac/ax/be-Format Frames with 20/40/80/160/320 MHz CBW","SDR-based *Packet Injection* supporting up to 320 MHz CBW and Wi-Fi 7 format. See :ref:`sdr-tx-40-or-higher-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
+    "Receiving and Measuring CSI for 20/40/80/160/320 MHz CBW Frames","*Fully Passive Sensing* with Wi-Fi 7 format and up to 320 MHz CBW. See :ref:`sdr-rx-40-or-higher-cbw`","**✓** (Up to 2x2 MIMO)","**✓**"
     "Rx Multi-Thread Decoding", "Scaling-up Rx decoding performance. See :ref:`parallel-decoding`", "**✓**","**✓**"
     "Tx/Rx Gain Control","Manual Tx/Rx gain control, and Rx AGC. See :ref:`tx-gain-control` and :ref:`rx-gain-control`","**✓**","**✓**"
     "Tx Chain Specification","Multi-(RF) Channel and MIMO Transmission up to 4x4. See :ref:`multi-channel-tx`","**✓** (Up to 2 channels)","**✓**"

@@ -16,7 +16,7 @@ In this page, we briefly compare the capabilities of the PicoScenes-supported CS
     "Connection", "USB 3.0 or 1/10/100 GbE", "USB 2.0", "M.2 2230", "Mini PCI-E 1x", "Mini PCI-E 1x"
     "Supported Formats for CSI Measurement", "802.11a/g/n/ac/ax/**be**", "802.11a/g/n/ac/ax/**be**", "802.11a/g/n/ac/ax", "802.11n", "802.11n"
     "Rx AGC", "No, automatic by USRP B210", "No", "Yes, only automatic", "Yes, has manual mode", "Yes, only automatic"
-    "Available Carrier Frequency Range (MHz)", "**Arbitrary tunable in [1, 7200] MHz**", "**Arbitrary tunable in [10, 7250] MHz**", "AX200: 2.4/5 GHz Bands, 470 MHz in total; **AX210**: 2.4/5/**6** GHz bands, **[5955, 7115] MHz**", "**Arbitrary tunable in [2.2-2.9] and [4.4-6.1] GHz**", "2.4/5 GHz Bands, 470 MHz in total"
+    "Available Carrier Frequency Range (MHz)", "**Arbitrary tunable in [1, 7200] MHz**", "**Arbitrary tunable in [10, 7250] MHz**", "AX200: 2.4/5 GHz Bands, 470 MHz in total; **AX210**: 2.4/5/**6** GHz bands (**[5955, 7115] MHz in 6GB)**", "**Arbitrary tunable in [2.2-2.9] and [4.4-6.1] GHz**", "2.4/5 GHz Bands, 470 MHz in total"
     "Available Bandwidths (MHz)", "**tunable in [1, 400], scalable to 1600** [#]_", "**Arbitrary tunable in [1, 20]**", "20/40/80/**160**", "**Arbitrary tunable in [2.5, 80]**", "20/40"
     "Maximal MIMO Streams", "4", "1", "2", "3", "3"
     "Maximal CSI dimension", "**1992x1x1, Scalable to 1992x4x4 streams**", "242x1x1", "**1992x2x2**", "114x3x3", "30x3x3"

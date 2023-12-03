@@ -3,6 +3,9 @@ CSI Measurement using PicoScenes
 
 **Revised on Dec. 3, 2023**
 
+Revisions
+
+- Dec. 3, 2023 Add radar mode and MIMO radar mode, see :ref:`radar-mode` and :ref:`mimo-radar-mode`.
 
 On this page, we will demonstrate the methods of CSI measurement and various low-level controls on different hardware frontends. You can jump to the interested topics via following links:
 
@@ -15,6 +18,7 @@ On this page, we will demonstrate the methods of CSI measurement and various low
 Before we proceed, it is assumed that you have already installed the PicoScenes software and the supported hardware. See :doc:`installation` for hardware and software installation guides.
 
 .. hint:: 如果您不想费劲地看英文，请开启浏览器的翻译功能，省脑子。
+
 
 .. _fundamentals:
 Before Getting Started: Some Fundamentals

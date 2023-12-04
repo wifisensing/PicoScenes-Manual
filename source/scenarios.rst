@@ -599,7 +599,7 @@ For NI USRP devices with multiple RF channels, Wi-Fi radar mode, or Wi-Fi mono-s
 
 .. code-block:: bash
 
-    PicoScenes "d debug; -i usrp --freq 5955 --mode radar --txcm 1 --rxcm 2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+    PicoScenes "-d debug; -i usrp --freq 5955 --mode radar --txcm 1 --rxcm 2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
 
 
 Several points of the above command are worth noting:
@@ -619,7 +619,7 @@ Since multiple USRP can be combined into one virtual and large USRP, the radar m
 
 .. code-block:: bash
 
-    PicoScenes "d debug; -i usrp192.168.30.2,192.168.40.2 --freq 5955 --mode radar --tx-channel 0,1 --rx-channel 2,3 --clock-source external --preset TR_CBW_40_EHTSU --sts 2 --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+    PicoScenes "-d debug; -i usrp192.168.30.2,192.168.40.2 --freq 5955 --mode radar --tx-channel 0,1 --rx-channel 2,3 --clock-source external --preset TR_CBW_40_EHTSU --sts 2 --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
 
 The above command uses the ``--tx-channel`` and ``--rx-channel`` options to specify the Tx and Rx chains, respectively, and uses the ``--sts 2`` option to specify 2x2 MIMO transmission. To synchronized both X310, we use the ``--clock-source external`` options, which you may refer to :ref:`phase_sync_multiple_device`.
 

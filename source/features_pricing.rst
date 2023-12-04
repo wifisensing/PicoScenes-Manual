@@ -1,7 +1,7 @@
 Features & License
 =======================================
 
-**Revised on Dec. 2, 2023**
+**Revised on Dec. 4, 2023**
 
 PicoScenes is a feature-rich, powerful, and user-friendly middleware for Wi-Fi ISAC research. This page outlines the notable features of PicoScenes and provides links to their usage and explanations.
 
@@ -76,6 +76,7 @@ One of the major highlights of the PicoScenes platform is its built-in high-perf
     "Multi-Channel Splitting and Stitching", "Combining two half-rate sampling channels into a full-rate channel, *e.g.*, achieving up to 400 MHz bandwidth with a single NI USRP X310 (200 MHz rate max.). See :ref:`dual-split-merge`", "**✓**","**✓**"
     "Multiple CSI Measurement per Frame","Supporting up to 39 CSI measurements from a single frame. See :ref:`multi-csi-measurement`.","**✓**","**✓**"
     "Channel Impairment Simulation","Simulating CFO, SFO, I/Q Imbalance and their combinations at Tx or Rx end. See :ref:`channel-impairment-simulation`","**✓**","**✓**"
+    "Wi-Fi Radar Mode","The *self-Tx-self-Rx* radar model is highly suitable for Wi-Fi sensing research. See :ref:`radar-mode` and :ref:`mimo-radar-mode`","**✓**","**✓**"
     "Interoperability","Interoperability with COTS NICs, AX210/AX200, QCA9300, IWL5300 and all other Wi-Fi NICs. See :ref:`interoperability`","**✓**","**✓**"
 
 

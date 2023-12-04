@@ -112,7 +112,7 @@ Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Fra
 Listening to 20 MHz Bandwidth Channels
 +++++++++++++++++++++++++++++++++++++++++++
 
-In the simplest form, if you want to listen to the Wi-Fi traffic of a 20 MHz bandwidth channel centered at 2412 MHz using an SDR device with the ID ``SDR_ID``, you can use the following command:
+In the simplest form, if you want to listen to the Wi-Fi traffic of a 20 MHz bandwidth channel centered at 2412 MHz using an SDR device with the ID ``SDR_ID`` (see :ref:`naming-for-sdr` for ``SDR_ID``), you can use the following command:
 
 .. code-block:: bash
 
@@ -121,7 +121,7 @@ In the simplest form, if you want to listen to the Wi-Fi traffic of a 20 MHz ban
 The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, have the following interpretations:
 
    - ``-d debug``: Modifies the display level of the logging service to debug;
-   - ``-i SDR_ID --mode logger``: Switches the device ``SDR_ID`` to CSI logger mode;
+   - ``-i SDR_ID --mode logger``: Switches the device ``SDR_ID`` to CSI logger mode, see :ref:`naming-for-sdr` for ``SDR_ID``;
    - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
    - ``--plot``: Live-plots the CSI measurements.
 
@@ -131,7 +131,7 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
 Listening to 40/80/160/320 MHz Bandwidth Channels
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In this case, if you want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-") using an SDR device with the ID `SDR_ID`, you can use the following command:
+In this case, if you want to listen to the Wi-Fi traffic on a 40 MHz bandwidth channel centered at 5190 MHz (or "5180 HT40+" or "5200 HT40-") using an SDR device with the ID `SDR_ID` (see :ref:`naming-for-sdr` for ``SDR_ID``), you can use the following command:
 
 .. code-block:: bash
 
@@ -278,7 +278,7 @@ In this command, please pay special attention to the comma (**,**) in the option
 
 .. _combining-multi-usrp-dual-connection:
 
-Combining Multiple USRP Devices plus Dual-Connection
+Combining Multiple USRP Devices plus Dual-10GbE Connection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assuming you have two NI USRP X3x0 devices each equipped with two UBX-160 daughterboards, and assume each X3x0 device is dual-10GbE connected with IP Addresses of 192.168.30.2 and 192.168.31.2 for the first and 192.168.70.2 and 192.168.71.2 for the second, respectively. And also assume you have physically synchronized these two devices by either solution of :ref:`phase_sync_multiple_device`, you can achieve four-channel coherent Rx for a 160 MHz Wi-Fi channel by the following command:

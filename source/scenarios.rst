@@ -455,11 +455,11 @@ There are two ways to enable PicoScenes to control multiple SDR devices on a sin
 
     .. code-block:: bash
 
-        PicoScenes "-d debug; // PicoScenes CLI input supports per-line comments
-                    -i usrp192.168.40.2 --freq 5955 --preset RX_CBW_40       --mode logger   --plot; // Put usrp192.168.40.2 to logger mode, this line is non-blocking;
-                    -i usrp192.168.50.2 --freq 5955 --preset RX_CBW_40       --mode logger   --plot; // Put usrp192.168.50.2 to logger mode, this line is non-blocking;
-                    -i usrp192.168.30.2 --freq 5955 --preset TX_CBW_40_EHTSU --mode injector --repeat 10000 --delay 5e3; // Let usrp192.168.30.2 do Tx, this line is blocking
-                    -q
+        PicoScenes "-d debug;
+                    -i usrp192.168.40.2 --freq 5955 --preset RX_CBW_40       --mode logger   --plot;
+                    -i usrp192.168.50.2 --freq 5955 --preset RX_CBW_40       --mode logger   --plot;
+                    -i usrp192.168.30.2 --freq 5955 --preset TX_CBW_40_EHTSU --mode injector --repeat 10000 --delay 5e3;
+                    -q;
                     "
 
     The above command is a multi-line input, with each line representing an SDR device. The lines are separated by semicolons (**;**).
@@ -789,11 +789,11 @@ PicoScenes supports the installation and control of multiple Wi-Fi NICs on a sin
 
     array_prepare_for_picoscenes "3 4 5" "5955 160 6025"
 
-    PicoScenes "-d debug; // PicoScenes CLI input supports per-line comments
-                -i 5 --mode logger   --plot; // Put <5> to logger mode, this line is non-blocking;
-                -i 4 --mode logger   --plot; // Put <4> to logger mode, this line is non-blocking;
-                -i 3 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3; // Let <3> do Tx, this line is blocking
-                -q // program quit when Tx finished."
+    PicoScenes "-d debug;
+                -i 5 --mode logger --plot;
+                -i 4 --mode logger --plot;
+                -i 3 --mode injector --preset TX_CBW_160_HESU --repeat 1e5 --delay 5e3;
+                -q;"
 
 Let's explain these two commands:
 

@@ -592,7 +592,7 @@ The ``--mt 5`` option specifies that the Rx decoder should utilize 5 threads for
 
 
 .. _radar-mode:
-Wi-Fi Radar (Mono-Static Sensing) Mode
+Wi-Fi Radar (802.11bf Mono-Static Sensing) Mode
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 For NI USRP devices with multiple RF channels, Wi-Fi radar mode, or Wi-Fi mono-static sensing mode can be activated. As the radar word implies, PicoScenes, in radar mode, uses one RF chain of the USRP to transmits the Wi-Fi frames, whilst using the other RF chain(s) to receive the signals and then decode the frames. This mode is dedicated for Wi-Fi sensing. The following command shows how to use the radar mode with Wi-Fi 7 40 MHz CBW frames injection and receiving.
@@ -609,9 +609,11 @@ Several points of the above command are worth noting:
       - We uses the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See ::doc:`/presets` for more information;
       - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
 
+.. hint:: 
+    See how do we `implement the Radar mode in less than 30 line of codes <https://gitlab.com/wifisensing/PicoScenes-PDK/-/commit/ee0242a6837dabfc259a26236799ddd9b1eb893c>`_? 
 
 .. _mimo-radar-mode:
-Wi-Fi MIMO Radar (MIMO + Mono-Static Sensing) Mode
+Wi-Fi MIMO Radar (802.11bf Mono-Static Sensing + MIMO) Mode
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Since multiple USRP can be combined into one virtual and large USRP, the radar mode can also utilize multiple RF chains to build a Wi-Fi MIMO radar. Assuming two NI USRP X310 is dual-10GbE connected with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform Wi-Fi MIMO radar measurement:

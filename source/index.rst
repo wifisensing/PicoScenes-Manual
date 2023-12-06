@@ -55,6 +55,7 @@ You may refer to :doc:`features_pricing` to learn all the features of PicoScenes
    :numbered:
    :caption: Table of Contents:
    
+   gallery
    hardware
    features_pricing
    installation
@@ -68,3 +69,4 @@ You may refer to :doc:`features_pricing` to learn all the features of PicoScenes
    troubleshooting
    eula
    credits
+   users

@@ -15,7 +15,7 @@ The creation of PicoScenes is the result of collaborative efforts of the followi
           :align: center  
           :figwidth: 175px
           
-     - .. figure:: /images/logos/Xi’an_Jiaotong_University.png
+     - .. figure:: /images/logos/XiJiao.png
           :align: center  
           :figwidth: 175px
 

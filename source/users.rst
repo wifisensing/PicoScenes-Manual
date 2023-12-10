@@ -174,7 +174,7 @@ The following grid lists the affiliations that use PicoScenes platform in their 
    * -  .. figure:: /images/logos/NJUST.png
            :align: center  
            :figwidth: 175px 
-     -  .. figure:: /images/logos/CCU.png
+     -  .. figure:: /images/logos/wyu.png
            :align: center  
            :figwidth: 175px
      -  .. figure:: /images/logos/OUOC.jpg
@@ -195,14 +195,6 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      -  .. figure:: /images/logos/MSRA.png
            :align: center  
            :figwidth: 175px                
-   * -  .. figure:: /images/logos/wyu.png
-           :align: center  
-           :figwidth: 175px 
-     -  .. figure:: /images/logos/National_Central_University.png
-           :align: center  
-           :figwidth: 175px 
-     -  
-     -      
 
 
 .. list-table:: Global Users
@@ -399,16 +391,23 @@ The following grid lists the affiliations that use PicoScenes platform in their 
    * - .. figure:: /images/logos/Tokyo.png
           :align: center  
           :figwidth: 175px   
-     - .. figure:: /images/logos/University_of_Washington.png
-          :figwidth: 175px  
+      
      - .. figure:: /images/logos/Universidade_de_Coimbra.png
           :align: center  
           :figwidth: 175px   
      - .. figure:: /images/logos/University_of_Cologne.png
           :align: center  
           :figwidth: 175px   
-
-
+     -  .. figure:: /images/logos/National_Central_University.png
+           :align: center  
+           :figwidth: 175px 
+   * - .. figure:: /images/logos/CCU.png
+          :align: center  
+          :figwidth: 175px   
+      
+     -  
+     -  
+     -  
 
 .. note:: 
 

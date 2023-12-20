@@ -1,7 +1,10 @@
 Users
 =================================================
 
-From the easiest CSI-data collection using the Intel 5300 NIC to the SDR-based 802.11ax multi-user (MU) experiments, PicoScenes is powering the next wave of the Wi-Fi ISAC research. Below are the list of published papers from our users based on PicoScenes.
+From the easiest CSI-data collection using the Intel AX210 to the SDR-based 802.11be multi-user (MU) experiments, PicoScenes is powering the next wave of the Wi-Fi ISAC research. 
+
+Published Papers by PicoScenes Users
+-----------------------------------------
 
 - Jingzhi Hu, Tianyue Zheng,  Zhe Chen, Hongbo Wang, Jun Luo, `"MUSE-Fi: Contactless MUti-person SEnsing Exploiting Near-field Wi-Fi Channel Variation" <https://dl.acm.org/doi/abs/10.1145/3570361.3613290>`_, 2023, ACM MobiCom.
 - Xin Na, Xiuzhen Guo, Zihao Yu, Jia Zhang, Yuan He, Yunhao Liu, `"Leggiero: Analog WiFi Backscatter with Payload Transparency" <https://dl.acm.org/doi/abs/10.1145/3581791.3596835>`_, 2023 MobiSys.
@@ -31,6 +34,9 @@ From the easiest CSI-data collection using the Intel 5300 NIC to the SDR-based 8
 - Yunfei Shang, Jianhong Dong, Diye Wang, Yubai Li, `"TOF Estimation of Single Antenna for Commercial Wi-Fi" <https://ieeexplore.ieee.org/abstract/document/9918107>`_, 2022 IEEE 12th International Conference on Indoor Positioning and Indoor Navigation (IPIN).
 - Xiaoyu Ma, Hui He, Hui Zhang, Wei Xi, Zuhao Chen, Jizhong Zhao, `"Measuring and Modeling Multipath of Wi-Fi to Locate People in Indoor Environments" <https://ieeexplore.ieee.org/abstract/document/9763705>`_, 1. 2021 IEEE 27th International Conference on Parallel and Distributed Systems (ICPADS).
 
+
+Affiliations using PicoScenes
+---------------------------------
 
 The following grid lists the affiliations that use PicoScenes platform in their latest research.
 

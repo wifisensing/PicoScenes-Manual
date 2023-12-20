@@ -4,6 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
+- Dec. 20, 2023 Initiating the Ubuntu 22.04 (and soon 24.04) transition of PicoScenes system (client program and CI server).
 - Dec. 3, 2023 Add Radar and MIMO-Radar modes for SDR frontend, see :ref:`radar-mode` and :ref:`mimo-radar-mode`.
 - Dec. 2, 2023 Major update to license: all limitations for COTS NICS (6 GHz band, 11ax 80/160 MHz CBW packet injection and more) removed! More than 10 SDR-only limitations are removed (unlimited channel/bandwidth access, Wi-Fi 7 Tx and Rx, up to 320 MHz CBW and more). See :doc:`/features_pricing` for more details.
 - Nov. 29, 2023 Add a new page ::doc:`/ni` describing how we collaborate with NI selling USRP hardware. This program is exclusively available in mainland China.

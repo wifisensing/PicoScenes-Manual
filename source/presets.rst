@@ -23,7 +23,7 @@ Five supports formats are:
 - EHTSU: 802.11be (EHT) Single User format
 
 .. csv-table:: PicoScenes FrontEnd Presets
-    :header: "Preset name", "Direction", "Equivalent Long Options"
+    :header: "Preset Name", "Direction", "Equivalent Long Options"
 
     TX_CBW_160_EHTSU, Tx, "--format ehtsu --coding ldpc --rate 200e6 --tx-resample-ratio 1.25 --cbw 160"
     TX_CBW_160_HESU, Tx, "--format hesu --coding ldpc --rate 200e6 --tx-resample-ratio 1.25 --cbw 160"

@@ -402,7 +402,7 @@ Several points of the above command are worth noting:
 
       - Tx and Rx MUST use different RF chains, *e.g.*, ``--txcm 1 --rxcm 2`` options used in the above command;
       - Users MUST fine-tune the Tx power (or Rx gain), or use directional antennas, to prevent Rx end ADC saturation, *e.g.*, ``--txpower 0.1``  option used in the above command;
-      - We uses the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See ::doc:`/presets` for more information;
+      - We uses the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See :doc:`/presets` for more information;
       - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
 
 .. hint:: 

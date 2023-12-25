@@ -5,7 +5,7 @@ CSI Measurement using PicoScenes
 
 Revisions
 
-- Dec. 3, 2023 Add radar mode and MIMO radar mode, see :ref:`radar-mode` and :ref:`mimo-radar-mode`.
+- Dec. 3, 2023 Add radar mode and MIMO radar mode, see :ref:`radar-mode`.
 
 On this page, we will demonstrate the methods of CSI measurement and various low-level controls on different hardware frontends. You can jump to the interested topics via following links:
 
@@ -592,6 +592,10 @@ The ``--mt 5`` option specifies that the Rx decoder should utilize 5 threads for
 
 
 .. _radar-mode:
+Wi-Fi Radar (802.11bf Mono-Static Sensing Mode) with 802.11a/g/n/ac/ax/be Frame Format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _radar_1t1r:
 Wi-Fi Radar (802.11bf Mono-Static Sensing) Mode
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

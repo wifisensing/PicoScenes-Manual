@@ -141,7 +141,7 @@ The command options, *"-d debug -i SDR_ID --mode logger --freq 5190 --preset RX_
 
   - ``-d debug``: Modifies the display level of the logging service to debug;
   - ``-i SDR_ID --mode logger``: Switches the device ``SDR_ID`` to CSI logger mode;
-  - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
+  - ``--freq 5190``: Change the center frequency of device ``SDR_ID`` to 5190 MHz;
   - ``--preset RX_CBW_40``: Uses the Rx preset named `RX_CBW_40`, which boosts the Rx sampling rate to 40 MHz and tells the baseband to treat the received signals as being sampled with a 40 MHz rate.
   - ``--plot``: Live-plots the CSI measurements.
 

@@ -125,7 +125,7 @@ The command options, *"-d debug -i SDR_ID --freq 2412  --mode logger --plot"*, h
    - ``--freq 2412``: Change the center frequency of device ``SDR_ID`` to 2412 MHz;
    - ``--plot``: Live-plots the CSI measurements.
 
-.. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*. 
+.. hint:: PicoScenes sets many Rx parameters by default, such as using the *RX_CBW_20* preset, using the Tx/Rx antenna port, using the normalized 0.65 Rx gain, *etc*. See :ref:`rx-gain-control` for Rx Gain control.
 
 .. _sdr-rx-40-or-higher-cbw:
 Listening to 40/80/160/320 MHz Bandwidth Channels

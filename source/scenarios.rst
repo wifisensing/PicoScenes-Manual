@@ -100,9 +100,10 @@ PicoScenes can drive SDR devices to transmit 802.11a/g/n/ac/ax/be format frames,
 
 #. Receiving frames and measuring CSI by :ref:`sdr_rx`
 #. Transmitting Frames by :ref:`sdr_tx`
-#. Non-Standard Tx and Rx: :ref:`non-standard-tx-rx`
-#. Concurrent multi-SDR operation :ref:`multi-SDR-operation`
-#. Some advanced features: :ref:`experimental-features`
+#. Wi-Fi Radar mode by :ref:`radar-mode`
+#. Non-Standard Tx and Rx by :ref:`non-standard-tx-rx`
+#. Concurrent multi-SDR operation by :ref:`multi-SDR-operation`
+#. Some advanced features by :ref:`experimental-features`
 
 .. _sdr_rx:
 Listening to Wi-Fi Traffic and Measuring CSI for 802.11a/g/n/ac/ax/be-Format Frame

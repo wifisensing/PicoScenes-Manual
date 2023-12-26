@@ -1,9 +1,9 @@
 与NI合作销售USRP系列产品
 =============================================
 
-**Revised on Nov. 29, 2023**
+**Revised on Dec. 26, 2023**
 
-如前所述，PicoScenes团队很荣幸得到NI的认可与支持，获得NI USRP授权销售资格(:ref:`collaboration-with-ni`)。在这个页面，我们将详细介绍以下几方面内容：
+如前所述，PicoScenes团队很荣幸得到NI的认可与支持，荣获 **NI USRP授权销售资格以及优质集成商资格** (:ref:`collaboration-with-ni`)。在这个页面，我们将详细介绍以下几方面内容：
 
 - :ref:`advantages-of-choosing-us`
 - :ref:`recommended-models`
@@ -33,7 +33,7 @@ NI USRP有许多型号，我们基于自己团队的长期使用经验和Wi-Fi I
 NI USRP B210
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-`USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，非常适合新用户。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，提供细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自动I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟同步(:ref:`phase_sync_multiple_device`)，采用USB 3.0连接和供电，可支持笔记本电脑作为上位机在外场直接工作。它能够满足在最大40 MHz CBW下进行各种精细的Wi-Fi/5G/6G ISAC研究的需求。
+`USRP B210 <https://www.ettus.com/all-products/ub210-kit/>`_ 是NI USRP系列的入门神器，它功能丰富，非常适合新用户。它提供两对Tx/Rx通道，支持70-6000 MHz频谱以及最大61.44/30.72MHz采样（单/双通道）。它采用AD9361前端，支持2x2 MIMO(:ref:`multi-channel-tx`, :ref:`multi-channel-rx-single`)，支持Radar mode(:ref:`radar-mode`)，提供细粒度的采样频率指定(:ref:`change-bandwidth-b210`)、自动I/Q校正(*无需手动校正!*)、自带AGC(:ref:`rx-gain-control`)，支持外接时钟同步(:ref:`phase_sync_multiple_device`)，采用USB 3.0连接和供电，可支持笔记本电脑作为上位机在外场直接工作。它能够满足在最大40 MHz CBW下进行各种精细的Wi-Fi/5G/6G ISAC研究的需求。
 
 USRP B210原厂仅以祼板销售，`B210 NI原厂外壳 <https://www.ettus.com/all-products/usrp-b200-enclosure/>`_ 单独售卖，并且很贵(1500元)，但还是推荐用户购买，原因如下：
 
@@ -43,7 +43,7 @@ USRP B210原厂仅以祼板销售，`B210 NI原厂外壳 <https://www.ettus.com/
 NI USRP X310母板搭配双UBX-160子板
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-`NI USRP X310母板 <https://www.ettus.com/all-products/X310-KIT/>`_ 搭配两块 `UBX-160子板 <https://www.ettus.com/all-products/ubx160/>`_，可以实现10-6000 MHz范围内最大双通道200 MHz采样能力(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步(:ref:`combining-multi-usrp-dual-connection`)。它提供双口10 GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10GbE-to-Thunderbolt3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
+`NI USRP X310母板 <https://www.ettus.com/all-products/X310-KIT/>`_ 搭配两块 `UBX-160子板 <https://www.ettus.com/all-products/ubx160/>`_，可以实现10-6000 MHz范围内最大双通道200 MHz采样能力(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，支持Radar mode(:ref:`radar-mode`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步(:ref:`combining-multi-usrp-dual-connection`)。它提供双口10 GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10GbE-to-Thunderbolt3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
 
 NI USRP-2974
 ++++++++++++++++++++++++++++++++++
@@ -54,14 +54,14 @@ NI USRP-2974
 NI USRP N320/N321
 ++++++++++++++++++++++++++++++++++
 
-`NI USRP N320 <https://www.ettus.com/all-products/usrp-n320/>`_ 的总体性能略高于X310或USRP-2974平台，它可实现3-6000 MHz范围，最大双通道250 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。它提供双口10GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10 GbE-to-Thunderbolt 3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
+`NI USRP N320 <https://www.ettus.com/all-products/usrp-n320/>`_ 的总体性能略高于X310或USRP-2974平台，它可实现3-6000 MHz范围，最大双通道250 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)，支持Radar mode(:ref:`radar-mode`)，时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。它提供双口10GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10 GbE-to-Thunderbolt 3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 160 MHz CBW下多种收发和测量任务。
 
 N320的主要特色是，多台N320可以与 `NI USRP N321 <https://www.ettus.com/all-products/usrp-n321/>`_ 搭配使用，实现载波相位级同步。PicoScenes提供了Tx Precoding API，支持基于N321/N320组合的Wi-Fi beamforming/phased array相关研究。
 
 NI USRP X410
 ++++++++++++++++++++++++++++++++++
 
-`NI USRP X410 <https://www.ettus.com/all-products/usrp-x410/>`_ 是USRP系统目前性能最强的设备，它可在1-7200 MHz范围，最大4通道400 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)。为支持最大1.6 GSPS的基带信号传输，X410配备了100 GbE连接。时钟同步方面，它内置GPSDO，也支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步。
+`NI USRP X410 <https://www.ettus.com/all-products/usrp-x410/>`_ 是USRP系统目前性能最强的设备，它可在1-7200 MHz范围，最大4通道400 MHz采样(:ref:`sdr-rx-40-or-higher-cbw`, :ref:`sdr-tx-40-or-higher-cbw`)。为支持最大1.6 GSPS的基带信号传输，X410配备了100 GbE连接。时钟同步方面，它内置GPSDO，也支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，支持Radar mode(:ref:`radar-mode`)，可实现多机、多通道条件下的时钟同步。
 
 
 NI OctoClock-G
@@ -79,8 +79,9 @@ NI OctoClock-G
 
 您在确定设备采购台数时，可考虑以下因素：
 
-#. 初次采购时，请考虑是否需要采购2台，用于构成基于USRP的Tx-Rx链路，当然，如果您预备有限，也可以使用一台USRP和廉价商用Wi-Fi网卡进行Wi-Fi ISAC研究；
-#. 初次采购时，请考虑是否需要OctoClock-G时钟，用于时钟同步、相位对齐等操作；
+#. Radar Mode(:ref:`radar-mode`)是对USRP新用户非常友好的模式，仅需要一台NI USRP B210就可以进行感知研究；
+#. 为了构成基于USRP的Tx-Rx链路，请考虑采购2台；当然，如果您预备有限，也可以使用一台USRP和商用Wi-Fi网卡进行Wi-Fi ISAC研究；
+#. 初次采购时，请考虑是否需要OctoClock-G时钟，用于时钟同步、相位对齐等操作（Radar Mode收发链路自同步，无需采购时钟！）；
 #. NI USRP系列每年两次调（涨）价，并且幅度不低，每次在5-10%左右。所以如果经费允许，可考虑增加采购量；
 
 您需要对货期有预估

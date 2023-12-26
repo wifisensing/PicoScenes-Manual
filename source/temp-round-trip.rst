@@ -5,7 +5,7 @@ You may download and run the complete takeaway bash script for this scenario at
 Two QCA9300/IWL5300 NICs performs round trip CSI measurement (Difficulty Level: Easy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. Users should refer to ::ref:`dual_nics_on_one_machine` to understand the long string command style.
+.. note:: To simplify the description, in the following scenarios, we assume both (or multiple) devices are all connected to one single PC, and we use the long-string style command interface to control PicoScenes and hardware. Users should refer to :ref:`dual_nics_on_one_machine` to understand the long string command style.
 
 In this experiment, two NICS will perform the round-trip CSI measurement. The exact protocol is as below:
 
@@ -73,7 +73,7 @@ You may download and run the complete takeaway bash script for this scenario at
 Two QCA9300 NICs scan both the spectrum and bandwidth (Difficulty Level: Medium)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This experiment add just two new options to the above scenario. See ::ref:`dual_nics_scan` first. The following the bash script that scans both the carrier frequency and bandwidth. The carrier frequency is the `inner loop` and bandwidth is the `outer loop`.
+This experiment add just two new options to the above scenario. See :ref:`dual_nics_scan` first. The following the bash script that scans both the carrier frequency and bandwidth. The carrier frequency is the `inner loop` and bandwidth is the `outer loop`.
 
 
 .. code-block:: bash
@@ -96,7 +96,7 @@ You may download and run the complete takeaway bash script for this scenario at
 Two QCA9300 NICs scan both the spectrum and bandwidth w/ advanced measurement settings (Difficulty Level: Medium Plus)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following script is based on the last scenario ::ref:`dual_nics_scan`, but adds a few more options to demonstrate the advanced measurement settings.
+The following script is based on the last scenario :ref:`dual_nics_scan`, but adds a few more options to demonstrate the advanced measurement settings.
 
 .. code-block:: bash
 

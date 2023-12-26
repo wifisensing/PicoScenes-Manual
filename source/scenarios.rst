@@ -862,7 +862,7 @@ Packet Injection based CSI Measurement
 
 PicoScenes supports packet injection functionality using either QCA9300 or IWL5300, similar to AX210/AX200, for CSI measurement purposes. Users can refer to the guide :ref:`ax200-monitor-injection` to perform packet injection-based CSI measurement using QCA9300 and IWL5300. There are two important points to consider:
 
-- Both QCA9300 and IWL5300 are 802.11n compatible NICs, supporting at most 40 MHz CBW and MCS 7. Therefore, users should configure both models with 20 or 40 MHz CBW channels using the ``array_prepare_for_picoscenes`` command. For more details, refer to the documentation on ::doc:`/channels`.
+- Both QCA9300 and IWL5300 are 802.11n compatible NICs, supporting at most 40 MHz CBW and MCS 7. Therefore, users should configure both models with 20 or 40 MHz CBW channels using the ``array_prepare_for_picoscenes`` command. For more details, refer to the documentation on :doc:`/channels`.
 - It's worth noting that there are *asymmetric interoperability issues* among QCA9300, IWL5300, AX210/AX200, and SDR devices. Refer to the :ref:`interoperability` section for more information on this topic.
 
 .. _tx-rx-chainmask-qca9300-iwl5300:

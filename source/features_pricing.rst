@@ -91,7 +91,7 @@ PicoScenes is the exclusive platform that supports the packet injection (Tx), re
     :header: "Feature", "Description","Free","Pro"
     :widths: auto
 
-    "6 GHz Band Access (**AX210 Only**)","Accessing the full 6 GHz band channels (5955 to 7115 MHz) *around the globe*. See :ref:`ax200-measurements` and ::doc:`/channels`.","**✓**","**✓**"
+    "6 GHz Band Access (**AX210 Only**)","Accessing the full 6 GHz band channels (5955 to 7115 MHz) *around the globe*. See :ref:`ax200-measurements` and :doc:`/channels`.","**✓**","**✓**"
     "CSI Measurement with Associated AP","Measuring CSI from the associated AP. See :ref:`ax200-wifi-ap`","**✓**","**✓**"
     "CSI Measurement in Monitor Mode (**Passive Sensing**)","Supporting measuring CSI for all overheard frames (11a/g/n/ac/ax format) in monitor mode with up to 160 MHz CBW. See :ref:`ax200-monitor`","**✓**","**✓**"
     "Transmit 11a/g/n/ac/ax-Format Frames with 20/40/80/160 MHz CBW","Supporting *Packet Injection* with 11a/g/n/ac/ax format and up to 160 MHz CBW. 
@@ -191,4 +191,4 @@ Pricing & Payment
   - For Chinese users(中国区用户): **一次性付费8688元人民币得到2个永久PSLP-PRO-TL许可证**。我们捆绑2个许可证一起销售，是因为常用的"(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode"模式需要两台机器配合使用。请在我们的合作店铺购买: `PicoScenes软件Pro可转移许可证(PSLP-PRO-TL) <https://item.taobao.com/item.htm?id=752046582148>`_。
   - For English-speaking users outside mainland China: **One-time payment of 1500 USD for 2 PSLP-PRO-TL licenses**. We bundle 2 PSLP-PRO-TL licenses together for sale because the commonly used ISAC scenario '(Tx) Packet Injection + (Rx) CSI Measurement in Monitor Mode' requires two independent machines. Compared to 8688 RMB (roughly 1200 USD) for Chinese users, the additional $300 USD is for currency exchange processing fee and technical support in English. **Payment channel still establishing .....**
 
-- **PSLP-PRO-DBL**: 我们在这个页面单独说明USRP采购及相关问题： ::doc:`/ni`
+- **PSLP-PRO-DBL**: 我们在这个页面单独说明USRP采购及相关问题： :doc:`/ni`

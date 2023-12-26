@@ -188,4 +188,4 @@ The subscription fee of PLSP v0.8.1 PUL is **8688 RMB or 1360 USD/computer/year*
 
 The overseas payment channel is still under construction.
 
-::doc:`/license2` 
+:doc:`/license2` 

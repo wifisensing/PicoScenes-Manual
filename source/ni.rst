@@ -1,7 +1,7 @@
 Selling NI USRP Devices (与NI合作销售USRP系列产品)
 ================================================
 
-**Revised on Dec. 26, 2023**
+**Revised on Dec. 29, 2023**
 
 如前所述，PicoScenes团队很荣幸得到NI的认可与支持，荣获 **NI USRP授权销售资格以及优质集成商资格** (:ref:`collaboration-with-ni`)。在这个页面，我们将详细介绍以下几方面内容：
 
@@ -50,6 +50,13 @@ NI USRP-2974
 
 `NI USRP-2974 <https://www.ni.com/zh-cn/shop/model/usrp-2974.html>`_ 这个型号是NI品牌预组装的产品，它的实质是：NI USRP X310母板 + 两块UBX-160子板 + GPSDO（GPS驯服时钟） + 一台4核心2GHz主频i7(6822EQ)小主机。相比上述X310+Dual UBX-160方案，在保留双10 GbE连接的基础上，由于机器内置了一台中等性能的小主机，该型号具备开箱即用的能力。
 
+
+NI USRP X310母板搭配双TwinRx子板
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+`NI USRP X310母板 <https://www.ettus.com/all-products/X310-KIT/>`_ 搭配两块 `TwinRx子板 <https://www.ettus.com/all-products/twinrx/>`_，可以实现10-6000 MHz范围内最大4通道100 MHz Rx采样能力(:ref:`sdr-rx-40-or-higher-cbw`)。请注意，TwinRx子板仅具备Rx，不提供Tx（所以称为TwinRx）。时钟同步方面，它支持输出时钟信号也支持输入外部时钟信号(:ref:`phase_sync_multiple_device`)，支持USRP多设备组合功能(:ref:`combining-multiple-usrp`)，可实现多机、多通道条件下的时钟同步(:ref:`combining-multi-usrp-dual-connection`)。它提供双口10 GbE连接能力，可通过10 GbE以太网网卡连接台式电脑或通过10GbE-to-Thunderbolt3转换器连接带有Thunderbolt3接口的笔记本电脑，可满足Wi-Fi 80 MHz CBW下多种收发和测量任务。
+
+NI有一个更有性价比的开箱即4x4 MIMO Tx/Rx的硬件，是 `NI USRP N310 <https://www.ettus.com/all-products/usrp-n310/>`_，它相比NI USRP X310母板搭配双TwinRx子板的方案更便宜，还支持4通道Tx，但是 **我们不推荐Wi-Fi ISAC用户采购NI USRP N310**。原因在于，NI USRP N310的master clock仅有122.88, 125, 153.6 MSPS/s这三种，这几个频率与Wi-Fi的 20/40/80/160 MHz带宽均不匹配。为了在Wi-Fi的带宽工作，NI USRP N310始终需要基带重采样，性能损失严重，故不推荐。
 
 NI USRP N320/N321
 ++++++++++++++++++++++++++++++++++
@@ -101,7 +108,7 @@ NI USRP系列完全由NI在马来西亚或匈牙利的工厂按订单生产，�
 
 NI原厂提供 **随硬件一次性购买**的USRP延保服务：该延保服务随设备一并采购， **每延长一年质保仅额外支付售价的5%，最多延长4年。** 例如，X310套装售价12万元左右，如果您想延长4年质保（总共5年），则额外支付2.4万元，总计14.4万元。延保期间，保修政策不变，这意味着两点优势：
 
-#. 以20%的费用，获得5年内不限次数、不区别人为因素的维修服务；这相比单次维修30%的维修费，**堪称良心**
+#. 以20%的费用，获得5年内不限次数、不区别人为因素的维修服务；这相比单次维修30%的维修费， **堪称良心**
 #. 质保+延保期间，无需担心高昂的维修费以及报销等问题。
 
 .. _partner-store:

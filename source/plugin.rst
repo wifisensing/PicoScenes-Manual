@@ -105,6 +105,11 @@ DemoPlugin.hxx
 
     class DemoPlugin : public AbstractPicoScenesPlugin {
     public:
+
+        /*
+         * add command in initialization(), parse it in parseAndExecuteCommands()
+         */
+
         std::string getPluginName() override;
 
         std::string getPluginDescription() override;
@@ -113,11 +118,20 @@ DemoPlugin.hxx
 
         std::vector<PicoScenesDeviceType> getSupportedDeviceTypes() override;
 
+        /*
+         * add command in initialization(), parse it in parseAndExecuteCommands()
+         */
+
         void initialization() override;
 
         std::shared_ptr<boost::program_options::options_description> pluginOptionsDescription() override;
 
         void parseAndExecuteCommands(const std::string &commandString) override;
+
+        /*
+         * You don't need to worry about what create is doing,
+         * because it's creating a dynamic link library
+         */
 
         static boost::shared_ptr<DemoPlugin> create() {
             return boost::make_shared<DemoPlugin>();
@@ -126,6 +140,10 @@ DemoPlugin.hxx
     private:
         std::shared_ptr<po::options_description> options;
     };
+
+    /*
+     * Dont forget add this line.
+     */
 
     BOOST_DLL_ALIAS(DemoPlugin::create, initPicoScenesPlugin)
 
@@ -154,6 +172,11 @@ DemoPlugin.cxx
     }
 
     void DemoPlugin::initialization() {
+
+        /* In this area, you can customize commands,
+         * but be mindful not to replicate the commands used by other plugins.
+        */
+
         options = std::make_shared<po::options_description>("Demo Options", 120);
         options->add_options()
                 ("demo", po::value<std::string>(), "--demo <param>");
@@ -165,6 +188,9 @@ DemoPlugin.cxx
 
 
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+
+        /* The inputted command and parameters will be stored in the vm object  */
+
         po::variables_map vm;
         auto parsedOptions = po::command_line_parser(po::split_unix(commandString)).options(*pluginOptionsDescription()).allow_unregistered().style(po::command_line_style::unix_style & ~po::command_line_style::allow_guessing).run();
         po::store(parsedOptions, vm);

@@ -218,7 +218,7 @@ PicoScenes uses polymorphism to manage plugins. Developer should inherit from `A
     :target: /images/Plugin-Structure.png
     :align: center
 
-The `initialization` method will define the plugin's commands. `parseAndExecuteCommands` will be used to parse these commands and their arguments.
+The **initialization** method will define the plugin's commands. **parseAndExecuteCommands** will be used to parse these commands and their arguments.
 
 .. code-block:: cpp
 
@@ -242,6 +242,201 @@ The `initialization` method will define the plugin's commands. `parseAndExecuteC
 
 - ``vm["demo"].as<std::string>()``: Get the following parameters, in our example, it is HelloPicoScenes
 
+
+Receiving plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You have now learned how to define a command and parse it. In the upcoming example, you will learn how to make a receive/send plugin.
+
+Before writing a plugin for `receiving` signals, you need to first understand the process of writing a receive plugin.
+
+.. figure:: /images/Receiving.jpg
+    :figwidth: 1000px
+    :target: /images/Receiving.jpg
+    :align: center
+
+- ``parseAndExecuteCommands()``: Parse plugin command and parameters
+- ``nic->startRxService()``:  Start receiving signals from different devices
+- ``rxHandle()`` : Handle receiving signals
+
+
+Add plugin commands and activate the receive mode
+
+DemoPlugin.cxx
+
+.. code-block:: cpp
+
+    void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+        po::variables_map vm;
+
+        auto style = pos::allow_long | pos::allow_dash_for_short |
+                     pos::long_allow_adjacent | pos::long_allow_next |
+                     pos::short_allow_adjacent | pos::short_allow_next;
+
+        po::store(po::command_line_parser(po::split_unix(commandString)).options(*options).style(style).allow_unregistered().run(), vm);
+        po::notify(vm);
+
+        if (vm.count("demo"))
+        {
+            auto modeString = vm["demo"].as<std::string>();
+            if (modeString.find("logger") != std::string::npos) {
+                nic->startRxService();
+            }
+        }
+    }
+
+
+DemoPlugin.hxx
+
+.. code-block:: cpp
+
+    class DemoPlugin : public AbstractPicoScenesPlugin {
+    public:
+        ...
+        ...
+        void rxHandle(const ModularPicoScenesRxFrame &rxframe) override;
+
+    private:
+        std::shared_ptr<po::options_description> options;
+    };
+
+Also, you should implement `rxHandle` in `DemoPlugin.cxx`
+
+.. code-block:: cpp
+
+    void DemoPlugin::rxHandle(const ModularPicoScenesRxFrame &rxframe) {
+        LoggingService_debug_print("This is my rxframe: {}",rxframe.toString());
+    }
+
+Build the plugin and run in terminal
+
+.. code-block:: bash
+
+    ./Fast_Build_Install_Plugin.sh
+
+.. code-block:: bash
+
+    PicoScenes "-d debug
+                --bp
+                --plugin-dir <your-plugin-dir>/PicoScenes-PDK;
+                -i virtualsdr
+                --rx-from-file sample5
+                --demo logger"
+
+- ``--rx-from-file``: Read signals from file sample.bbsignal
+
+If successfully running, the terminal will show
+
+.. code-block:: bash
+
+    [17:34:09.811501] [Platform] [Debug] This is my rxframe: RxFrame:{RxSBasic:[device=USRP(SDR), center=2412, control=2412, CBW=20, format=HT, Pkt_CBW=20, MCS=0, numSTS=1, GI=0.8us, UsrIdx/NUsr=(0/1), timestamp=1288, system_ns=1704015249809485863, NF=-78, RSS=-7], RxExtraInfo:[len=24, ver=0x2, sf=20.000000 MHz, cfo=0.000000 kHz, sfo=0 Hz], SDRExtra:[scrambler=39, packetStartInternal=25761, rxIndex=25760, rxTime=0.001288, decodingDelay=0.0620708466, lastTxTime=0, sigEVM=2.4], (HT)CSI:[device=USRP(SDR), format=HT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(56,1,0,1,1), raw=0B], LegacyCSI:[device=USRP(SDR), format=NonHT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(52,1,0,1,2), raw=0B], BasebandSignal:[(float) 3045x1], MACHeader:[type=[MF]Reserved_14, dest=00:16:ea:12:34:56, src=00:16:ea:12:34:56, seq=8, frag=0, mfrags=0], PSFHeader:[ver=0x20201110, device=QCA9300, numSegs=1, type=10, taskId=55742, txId=0], TxExtraInfo:[len=8, ver=0x2], MPDU:[num=1, total=75B]}
+
+
+Transmitting plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The process of frame transmitting is likely to frame receiving. Let's see diagram.
+
+.. figure:: /images/Transmitting.png
+    :figwidth: 1000px
+    :target: /images/Transmitting.png
+    :align: center
+
+- ``nic->startTxService()``:  Start transmitting signals process
+- ``buildBasicFrame`` : Initialize and build Packet frame
+- ``nic->transmitPicoScenesFrameSync(*txframe);``: deliver frame to phy layer
+
+Add buildBasicFrame() in ``Demoplugin.hxx``
+
+.. code-block:: cpp
+
+    class DemoPlugin : public AbstractPicoScenesPlugin {
+    public:
+        ...
+
+        void rxHandle(const ModularPicoScenesRxFrame &rxframe) override;
+
+        [[nodiscard]] std::shared_ptr<ModularPicoScenesTxFrame> buildBasicFrame(uint16_t taskId = 0) const ;
+
+    private:
+        std::shared_ptr<po::options_description> options;
+    };
+
+Implement buildBasicFrame in ``Demoplugin.cxx``
+
+.. code-block::
+
+    std::shared_ptr<ModularPicoScenesTxFrame> DemoPlugin::buildBasicFrame(uint16_t taskId) const
+    {
+        auto frame = nic->initializeTxFrame();
+
+        /**
+         * @brief PicoScenes Platform CLI parser has *absorbed* the common Tx parameters.
+         * The platform parser will parse the Tx parameters options and store the results in AbstractNIC.
+         * Plugin developers now can access the parameters via a new method nic->getUserSpecifiedTxParameters().
+         */
+
+        frame->setTxParameters(nic->getUserSpecifiedTxParameters());
+        frame->setTaskId(taskId);
+        auto sourceAddr = MagicIntel123456;
+        frame->setSourceAddress(sourceAddr.data());
+        frame->set3rdAddress(nic->getFrontEnd()->getMacAddressPhy().data());
+
+        return frame;
+
+    }
+
+Add transmit command in ``parseAndExecuteCommands``, in this case, we use command ``injector``
+
+.. code-block::
+
+    void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+        po::variables_map vm;
+
+        auto style = pos::allow_long | pos::allow_dash_for_short |
+                     pos::long_allow_adjacent | pos::long_allow_next |
+                     pos::short_allow_adjacent | pos::short_allow_next;
+
+        po::store(po::command_line_parser(po::split_unix(commandString)).options(*options).style(style).allow_unregistered().run(), vm);
+        po::notify(vm);
+
+        if (vm.count("demo"))
+        {
+            auto modeString = vm["demo"].as<std::string>();
+            if (modeString.find("logger") != std::string::npos) {
+                nic->startRxService();
+            }
+            else if (modeString.find("injector") != std::string::npos)
+            {
+                nic->startTxService();
+                auto taskId = SystemTools::Math::uniformRandomNumberWithinRange<uint16_t>(9999, UINT16_MAX);
+                auto txframe = buildBasicFrame(taskId);
+                nic->transmitPicoScenesFrameSync(*txframe);
+
+            }
+        }
+    }
+
+
+Build the plugin and run it in terminal
+
+.. code-block:: bash
+
+    ./Fast_Build_Install_Plugin.sh
+
+.. code-block:: bash
+
+    PicoScenes "-d debug
+                --bp --plugin-dir <your-plugin-dir>/PicoScenes-PDK;
+                -i virtualsdr
+                --demo injector"
+
+
+In this case, we send one frame to sdr, you can find log in the terminal like this
+
+.. code-block:: bash
+
+    [18:15:35.993309] [SDR     ] [Debug] virtualsdr(Virtual(SDR))-->TxFrame:{MACHeader:[type=[MF]Reserved_14, dest=00:16:ea:12:34:56, src=00:16:ea:12:34:56, seq=0, frag=0, mfrags=0], PSFHeader:[ver=0x20201110, device=QCA9300, numSegs=0, type=0, taskId=33196, txId=0], tx_param[preset=DEFAULT, type=HT, CBW=20, MCS=0, numSTS=1, Coding=BCC, GI=0.8us, numESS= , sounding(11n)=1]} | PPDU: 2480
 
 
 

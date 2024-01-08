@@ -64,25 +64,22 @@ Developing PicoScenes Plugins
 
 The entire PS-PDK project is managed by `CMake` and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder.
 
-In the following content, we will start from scratch to teach you how to develop two plugin modules.
+.. hint:: You can learn how to write plugins step by step following the tutorial, or you can view the complete code in the `repository <https://gitlab.com/wifisensing/PicoScenes-PDK/>`_
 
-- The first module will teach you how to print custom strings in a plugin and print "Hello PicoScenes" in the terminal.
-- The second module will instruct you on how to implement network card receive and send functions in a plugin.
-
-Hello PicoScenes Plugin
+How to parse commands
 ~~~~~~~~~~~~~~~~~~~~~~~
-In `PicoScenes-PDK/CMakeLists.txt`, Write the following content.
+In ``PicoScenes-PDK/CMakeLists.txt``, write the following content.
+
 
 .. code-block:: cmake
 
     # ...
-    # make plug-ins
     add_subdirectory(plugin-demo) # add this line
     add_subdirectory(plugin-echoprobe)
     add_subdirectory(plugin-forwarder)
     # ...
 
-In `PicoScenes-PDK`, add a new folder named **plugin-demo** and create a **CMakeLists.txt** file under **plugin-demo** with the following content.
+In ``PicoScenes-PDK``, add new folder **plugin-demo** and create **CMakeLists.txt** under **plugin-demo** with the following content.
 
 .. code-block:: cmake
 
@@ -93,61 +90,56 @@ In `PicoScenes-PDK`, add a new folder named **plugin-demo** and create a **CMake
     TARGET_LINK_LIBRARIES(PDK-demo  ${Boost_LIBRARIES} fmt::fmt SystemTools)
     install(TARGETS PDK-demo  DESTINATION .)
 
-Create DemoPlugin.hxx and DemoPlugin.cxx files and write the following content.
+Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
 
-DemoPlugin.hxx
+``DemoPlugin.hxx``
 
 .. code-block:: cpp
 
     // DemoPlugin.hxx
 
+    #include <iostream>
+    #include <mutex>
     #include <PicoScenes/AbstractPicoScenesPlugin.hxx>
+    #include <PicoScenes/MAC80211CSIExtractableNIC.hxx>
 
     class DemoPlugin : public AbstractPicoScenesPlugin {
     public:
 
-        /*
-         * add command in initialization(), parse it in parseAndExecuteCommands()
-         */
-
+        // Get the name of the plugin
         std::string getPluginName() override;
 
+        // Get the description of the plugin
         std::string getPluginDescription() override;
 
+        // Get the status of the plugin
         std::string pluginStatus() override;
 
+        // Get the supported device types by the plugin
         std::vector<PicoScenesDeviceType> getSupportedDeviceTypes() override;
 
-        /*
-         * add command in initialization(), parse it in parseAndExecuteCommands()
-         */
-
+        // Perform initialization tasks for the plugin
         void initialization() override;
 
+        // Get the options description for the plugin
         std::shared_ptr<boost::program_options::options_description> pluginOptionsDescription() override;
 
+        // Parse and execute commands for the plugin
         void parseAndExecuteCommands(const std::string &commandString) override;
 
-        /*
-         * You don't need to worry about what create is doing,
-         * because it's creating a dynamic link library
-         */
-
-        static boost::shared_ptr<DemoPlugin> create() {
-            return boost::make_shared<DemoPlugin>();
-        }
-
+        // Create an instance of the DemoPlugin
+        static boost::shared_ptr<DemoPlugin> create();
     private:
+
+        // Options description for the plugin
         std::shared_ptr<po::options_description> options;
     };
 
-    /*
-     * Dont forget add this line.
-     */
-
+    // Alias the create function to 'initPicoScenesPlugin' using BOOST_DLL_ALIAS
     BOOST_DLL_ALIAS(DemoPlugin::create, initPicoScenesPlugin)
 
-DemoPlugin.cxx
+
+``DemoPlugin.cxx``
 
 .. code-block:: cpp
 
@@ -172,12 +164,10 @@ DemoPlugin.cxx
     }
 
     void DemoPlugin::initialization() {
-
-        /* In this area, you can customize commands,
-         * but be mindful not to replicate the commands used by other plugins.
-        */
-
+        // Create an options description for the DemoPlugin with a specific name and line length
         options = std::make_shared<po::options_description>("Demo Options", 120);
+
+        // Add a command-line option for the DemoPlugin
         options->add_options()
                 ("demo", po::value<std::string>(), "--demo <param>");
     }
@@ -186,18 +176,27 @@ DemoPlugin.cxx
         return options;
     }
 
-
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
 
-        /* The inputted command and parameters will be stored in the vm object  */
-
+        // Create a variables map to store parsed options
         po::variables_map vm;
-        auto parsedOptions = po::command_line_parser(po::split_unix(commandString)).options(*pluginOptionsDescription()).allow_unregistered().style(po::command_line_style::unix_style & ~po::command_line_style::allow_guessing).run();
+
+        // Parse the command string using Boost.ProgramOptions
+        auto parsedOptions = po::command_line_parser(po::split_unix(commandString))
+            .options(*pluginOptionsDescription())
+            .allow_unregistered()
+            .style(po::command_line_style::unix_style & ~po::command_line_style::allow_guessing)
+            .run();
+
+        // Store the parsed options in the variables map
         po::store(parsedOptions, vm);
+
+        // Notify the variables map about the parsed options
         po::notify(vm);
+
         if (vm.count("demo")) {
             auto optionValue = vm["demo"].as<std::string>();
-            LoggingService_Plugin_info_print("Plugin has been installed, its param is {}",std::string(optionValue));
+            LoggingService_Plugin_info_print("Plugin has been installed, its param is {}", std::string(optionValue));
         }
 
     }
@@ -205,13 +204,13 @@ DemoPlugin.cxx
 
 compile and run plugin
 
-After completing the plugin development, you can compile the plugin using the following command in the 'PicoScenes-PDK'
+compile the plugin using ``./Fast_Build_Install_Plugin.sh``
 
 .. code-block:: bash
 
     ./Fast_Build_Install_Plugin.sh
 
-Open a **terminal** , command --plugin-dir to search the plugin directory
+Open **terminal** , run Picoscenes platform
 
 .. code-block:: bash
 
@@ -226,7 +225,7 @@ If successfully executed, you will see the following content in the console.
 
     [17:31:51.183948] [Plugin  ] [Info ] Plugin has been installed, its param is HelloPicoScenes
 
-What happend on Plugin ?
+How does plugin work
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The command options, *“-d debug  --plugin-dir <your-plugin-dir>/PicoScenes-PDK; -i virtualsdr  --demo HelloPicoScenes”*, have the following interpretations:
@@ -240,21 +239,24 @@ The command options, *“-d debug  --plugin-dir <your-plugin-dir>/PicoScenes-PDK
 PicoScenes uses polymorphism to manage plugins. Developer should inherit from `AbstractPicoScenesPlugin` to develop their plugins. The following diagram shows the inheritance.
 
 .. figure:: /images/Plugin-Structure.png
-    :figwidth: 1000px
+    :figwidth: 500px
     :target: /images/Plugin-Structure.png
     :align: center
 
-The **initialization** method will define the plugin's commands. **parseAndExecuteCommands** will be used to parse these commands and their arguments.
+The **initialization()** method defines plugin's commands. **parseAndExecuteCommands()** method parses commands and arguments.
 
 .. code-block:: cpp
 
     void DemoPlugin::initialization() {
-    options = std::make_shared<po::options_description>("Demo Options", 120);
-    options->add_options()
-            ("demo", po::value<std::string>(), "--demo <param>");
+        // Create an options description for the DemoPlugin with a specific name and line length
+        options = std::make_shared<po::options_description>("Demo Options", 120);
+
+        // Add a command-line option for the DemoPlugin
+        options->add_options()
+                ("demo", po::value<std::string>(), "--demo <param>");
     }
 
-- ``options->add_options()``: Define command demo and set the parameter's type
+- ``options->add_options()``: Define command "demo" and set parameter's type
 
 .. code-block:: cpp
 
@@ -266,18 +268,18 @@ The **initialization** method will define the plugin's commands. **parseAndExecu
         }
     }
 
-- ``vm["demo"].as<std::string>()``: Get the following parameters, in our example, it is HelloPicoScenes
+- ``vm["demo"].as<std::string>()``: Get parameters "HelloPicoScenes"
 
 
-Receiving plugin
+How to receive packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You have now learned how to define a command and parse it. In the upcoming example, you will learn how to make a receive/send plugin.
 
-Before writing a plugin for `receiving` signals, you need to first understand the process of writing a receive plugin.
+Before writing a plugin for `receiving` signals, understand the process of writing a receive plugin.
 
 .. figure:: /images/Receiving.jpg
-    :figwidth: 1000px
+    :figwidth: 500px
     :target: /images/Receiving.jpg
     :align: center
 
@@ -288,23 +290,32 @@ Before writing a plugin for `receiving` signals, you need to first understand th
 
 Add plugin commands and activate the receive mode
 
-DemoPlugin.cxx
+``DemoPlugin.cxx``
+
 
 .. code-block:: cpp
 
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+        // Create a variables map to store parsed options
         po::variables_map vm;
 
+        // Define the command line options style
         auto style = pos::allow_long | pos::allow_dash_for_short |
                      pos::long_allow_adjacent | pos::long_allow_next |
                      pos::short_allow_adjacent | pos::short_allow_next;
 
+        // Parse the command string using Boost.ProgramOptions and store options in the variables map
         po::store(po::command_line_parser(po::split_unix(commandString)).options(*options).style(style).allow_unregistered().run(), vm);
+
+        // Notify the variables map about the parsed options
         po::notify(vm);
 
-        if (vm.count("demo"))
-        {
+        // Check if the "demo" option is present
+        if (vm.count("demo")) {
+            // Get the value of the "demo" option
             auto modeString = vm["demo"].as<std::string>();
+
+            // Check if the modeString contains "logger" and start the Rx service accordingly
             if (modeString.find("logger") != std::string::npos) {
                 nic->startRxService();
             }
@@ -312,7 +323,7 @@ DemoPlugin.cxx
     }
 
 
-DemoPlugin.hxx
+``DemoPlugin.hxx``
 
 .. code-block:: cpp
 
@@ -320,13 +331,15 @@ DemoPlugin.hxx
     public:
         ...
         ...
+        // Handle received frames in the plugin
         void rxHandle(const ModularPicoScenesRxFrame &rxframe) override;
 
     private:
         std::shared_ptr<po::options_description> options;
     };
 
-Also, you should implement `rxHandle` in `DemoPlugin.cxx`
+implement `rxHandle()` in ``DemoPlugin.cxx``
+
 
 .. code-block:: cpp
 
@@ -358,13 +371,13 @@ If successfully running, the terminal will show
     [17:34:09.811501] [Platform] [Debug] This is my rxframe: RxFrame:{RxSBasic:[device=USRP(SDR), center=2412, control=2412, CBW=20, format=HT, Pkt_CBW=20, MCS=0, numSTS=1, GI=0.8us, UsrIdx/NUsr=(0/1), timestamp=1288, system_ns=1704015249809485863, NF=-78, RSS=-7], RxExtraInfo:[len=24, ver=0x2, sf=20.000000 MHz, cfo=0.000000 kHz, sfo=0 Hz], SDRExtra:[scrambler=39, packetStartInternal=25761, rxIndex=25760, rxTime=0.001288, decodingDelay=0.0620708466, lastTxTime=0, sigEVM=2.4], (HT)CSI:[device=USRP(SDR), format=HT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(56,1,0,1,1), raw=0B], LegacyCSI:[device=USRP(SDR), format=NonHT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(52,1,0,1,2), raw=0B], BasebandSignal:[(float) 3045x1], MACHeader:[type=[MF]Reserved_14, dest=00:16:ea:12:34:56, src=00:16:ea:12:34:56, seq=8, frag=0, mfrags=0], PSFHeader:[ver=0x20201110, device=QCA9300, numSegs=1, type=10, taskId=55742, txId=0], TxExtraInfo:[len=8, ver=0x2], MPDU:[num=1, total=75B]}
 
 
-Transmitting plugin
+How to transmit packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The process of frame transmitting is likely to frame receiving. Let's see diagram.
+The process of frame transmitting is likely to frame receiving.
 
 .. figure:: /images/Transmitting.png
-    :figwidth: 1000px
+    :figwidth: 500px
     :target: /images/Transmitting.png
     :align: center
 
@@ -372,7 +385,8 @@ The process of frame transmitting is likely to frame receiving. Let's see diagra
 - ``buildBasicFrame`` : Initialize and build Packet frame
 - ``nic->transmitPicoScenesFrameSync(*txframe);``: deliver frame to phy layer
 
-Add buildBasicFrame() in ``Demoplugin.hxx``
+Add method buildBasicFrame() in ``DemoPlugin.hxx``
+
 
 .. code-block:: cpp
 
@@ -380,15 +394,18 @@ Add buildBasicFrame() in ``Demoplugin.hxx``
     public:
         ...
 
+        // Handle received frames in the plugin
         void rxHandle(const ModularPicoScenesRxFrame &rxframe) override;
 
+        // Build a basic transmission frame for the plugin
         [[nodiscard]] std::shared_ptr<ModularPicoScenesTxFrame> buildBasicFrame(uint16_t taskId = 0) const ;
 
     private:
         std::shared_ptr<po::options_description> options;
     };
 
-Implement buildBasicFrame in ``Demoplugin.cxx``
+Implement buildBasicFrame() in ``DemoPlugin.cxx``
+
 
 .. code-block::
 
@@ -397,9 +414,7 @@ Implement buildBasicFrame in ``Demoplugin.cxx``
         auto frame = nic->initializeTxFrame();
 
         /**
-         * @brief PicoScenes Platform CLI parser has *absorbed* the common Tx parameters.
          * The platform parser will parse the Tx parameters options and store the results in AbstractNIC.
-         * Plugin developers now can access the parameters via a new method nic->getUserSpecifiedTxParameters().
          */
 
         frame->setTxParameters(nic->getUserSpecifiedTxParameters());
@@ -412,39 +427,52 @@ Implement buildBasicFrame in ``Demoplugin.cxx``
 
     }
 
-Add transmit command in ``parseAndExecuteCommands``, in this case, we use command ``injector``
+Add transmit command  ``injector`` in `parseAndExecuteCommands()`
 
 .. code-block::
 
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+        // Create a variables map to store parsed options
         po::variables_map vm;
 
+        // Define the command line options style
         auto style = pos::allow_long | pos::allow_dash_for_short |
                      pos::long_allow_adjacent | pos::long_allow_next |
                      pos::short_allow_adjacent | pos::short_allow_next;
 
+        // Parse the command string using Boost.ProgramOptions and store options in the variables map
         po::store(po::command_line_parser(po::split_unix(commandString)).options(*options).style(style).allow_unregistered().run(), vm);
+
+        // Notify the variables map about the parsed options
         po::notify(vm);
 
-        if (vm.count("demo"))
-        {
+        // Check if the "demo" option is present
+        if (vm.count("demo")) {
+            // Get the value of the "demo" option
             auto modeString = vm["demo"].as<std::string>();
+
+            // Check if the modeString contains "logger" and start the Rx service accordingly
             if (modeString.find("logger") != std::string::npos) {
                 nic->startRxService();
             }
-            else if (modeString.find("injector") != std::string::npos)
-            {
+            // Check if the modeString contains "injector" and start the Tx service with basic frame transmission
+            else if (modeString.find("injector") != std::string::npos) {
                 nic->startTxService();
-                auto taskId = SystemTools::Math::uniformRandomNumberWithinRange<uint16_t>(9999, UINT16_MAX);
-                auto txframe = buildBasicFrame(taskId);
-                nic->transmitPicoScenesFrameSync(*txframe);
 
+                // Generate a random task ID within a specified range
+                auto taskId = SystemTools::Math::uniformRandomNumberWithinRange<uint16_t>(9999, UINT16_MAX);
+
+                // Build a basic transmission frame with the generated task ID
+                auto txframe = buildBasicFrame(taskId);
+
+                // Transmit the PicoScenes frame synchronously
+                nic->transmitPicoScenesFrameSync(*txframe);
             }
         }
     }
 
 
-Build the plugin and run it in terminal
+Build the plugin and run in terminal
 
 .. code-block:: bash
 
@@ -456,9 +484,6 @@ Build the plugin and run it in terminal
                 --bp --plugin-dir <your-plugin-dir>/PicoScenes-PDK;
                 -i virtualsdr
                 --demo injector"
-
-
-In this case, we send one frame to sdr, you can find log in the terminal like this
 
 .. code-block:: bash
 

@@ -125,9 +125,6 @@ Data & API Access
 
     "Complete baseband signal","**SDR Only**. Return the per-packet complete multi-channel baseband signals. See :ref:`cell-structure-matlab`","**✓**","**✓**"
     "Multi-CSI-per-Frame", "**SDR Only**. Return multiple CSI measurements (if available). See :ref:`multi-csi-measurement`.","**✓**","**✓**"
-    "L-LTF based CSI (Legacy-CSI)","**SDR Only**. Return two individual L-LTF based CSI estimations (Legacy CSI). See :ref:`cell-structure-matlab`.","","**✓**"
-    "Batch Tx mode","**SDR Only API**. Transmitting multiple frames with deterministic inter-frame spacing.","","**✓**"
-    "Nanosecond level Tx ands Rx clock","**AX210/AX200 and SDR Only**. Nanosecond-level Tx and Rx timestamps.","","**✓**"
 
 .. _introducing_pslp:
 

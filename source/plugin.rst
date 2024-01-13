@@ -1,6 +1,9 @@
 Developing Your PicoScenes Plugins
 =====================================
 
+:Author: Tian Teng, Xidian University, tengtianmoemoe@gmail.com
+
+
 Before creating your own PicoScenes plugins from scratch, you have seven steps to gradually develop your understanding of the PicoScenes architecture and the coding skillset. During this processing, you will learn how to git clone PS-PDK code, compile it, modify it, debug it and imitate it. You also will have a general understanding of the `modern C++` development on the Linux platform.
 
 Prerequisites
@@ -128,7 +131,10 @@ Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
         void parseAndExecuteCommands(const std::string &commandString) override;
 
         // Create an instance of the DemoPlugin
-        static boost::shared_ptr<DemoPlugin> create();
+        static std::shared_ptr<DemoPlugin> create()
+        {
+            return std::make_shared<DemoPlugin>();
+        }
     private:
 
         // Options description for the plugin
@@ -172,7 +178,7 @@ Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
                 ("demo", po::value<std::string>(), "--demo <param>");
     }
 
-    std::shared_ptr<boost::program_optplugin.ions::options_description> DemoPlugin::pluginOptionsDescription() {
+    std::shared_ptr<boost::program_options::options_description> DemoPlugin::pluginOptionsDescription() {
         return options;
     }
 
@@ -239,8 +245,8 @@ The command options, *“-d debug  --plugin-dir <your-plugin-dir>/PicoScenes-PDK
 PicoScenes uses polymorphism to manage plugins. Developer should inherit from `AbstractPicoScenesPlugin` to develop their plugins. The following diagram shows the inheritance.
 
 .. figure:: /images/Plugin-Structure.png
-    :figwidth: 500px
-    :target: /images/Plugin-Structure.png
+    :figwidth: 1000px
+    :target: /images/Plugin-Structue.png
     :align: center
 
 The **initialization()** method defines plugin's commands. **parseAndExecuteCommands()** method parses commands and arguments.
@@ -278,9 +284,9 @@ You have now learned how to define a command and parse it. In the upcoming examp
 
 Before writing a plugin for `receiving` signals, understand the process of writing a receive plugin.
 
-.. figure:: /images/Receiving.jpg
+.. figure:: /images/Receiving.png
     :figwidth: 500px
-    :target: /images/Receiving.jpg
+    :target: /images/Receiving.png
     :align: center
 
 - ``parseAndExecuteCommands()``: Parse plugin command and parameters
@@ -407,7 +413,7 @@ Add method buildBasicFrame() in ``DemoPlugin.hxx``
 Implement buildBasicFrame() in ``DemoPlugin.cxx``
 
 
-.. code-block::
+.. code-block:: cpp
 
     std::shared_ptr<ModularPicoScenesTxFrame> DemoPlugin::buildBasicFrame(uint16_t taskId) const
     {
@@ -429,7 +435,7 @@ Implement buildBasicFrame() in ``DemoPlugin.cxx``
 
 Add transmit command  ``injector`` in `parseAndExecuteCommands()`
 
-.. code-block::
+.. code-block:: cpp
 
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
         // Create a variables map to store parsed options

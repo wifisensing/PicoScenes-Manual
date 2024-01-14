@@ -63,11 +63,41 @@ We recommand JetBrains **CLion** as the IDE for PicoScenes plugin development.
 Developing PicoScenes Plugins
 --------------------------------------------------
 
+PicoScenes Plugin Overview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following image illustrates the relationship between PicoScenes-plugin and PicoScenes.
+
+.. figure:: /images/PicoScenes-Data-Flow.png
+    :figwidth: 1000px
+    :target: /images/PicoScenes-Data-Flow.png
+    :align: center
+
+The top box is labeled "PicoScenes Application Plugins," which contains multiple sub-boxes marked as "Plugin-1," "Plugin-2," through "Plugin-n," indicating that there are multiple plugins available for use by the PicoScenes platform. These plugins are managed through an intermediary box, "Plugins Manager," signifying that all plugins are uniformly managed by this plugin manager.
+
+The process begins with the initiation of the platform, followed by the automatic detection of all available plugins. After detection, each plugin is systematically installed. Once the installation is complete, the system `parses user commands <#how-to-parse-commands>`_ and proceeds to poll each plugin to verify if they meet the requirements of the commands. Upon confirmation, the system executes the corresponding plugins.
+
+.. figure:: /images/Plugin-Start-Sequence.png
+    :figwidth: 800px
+    :target: /images/Plugin-Start-Sequence.png
+    :align: center
+
+The plugin has the capability to control all hardware on the platform, with all functions and APIs within its realm of control. It is capable of `receiving <#how-to-receive-packages>`_ and `processing <#how-to-transmit-packages>`_ data flows, including WiFi packets. Once the hardware platform captures a packet, it forwards this data to all plugins, ensuring that each one receives the packet.
+
+.. figure:: /images/Plugin-Control-Scope.png
+    :figwidth: 800px
+    :target: /images/Plugin-Control-Scope.png
+    :align: center
+
+
 “`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
 
 The entire PS-PDK project is managed by `CMake` and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder.
 
 .. hint:: You can learn how to write plugins step by step following the tutorial, or you can view the complete code in the `repository <https://gitlab.com/wifisensing/PicoScenes-PDK/>`_
+
+
+.. _how-to-parse-commands:
 
 How to parse commands
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -231,8 +261,6 @@ If successfully executed, you will see the following content in the console.
 
     [17:31:51.183948] [Plugin  ] [Info ] Plugin has been installed, its param is HelloPicoScenes
 
-How does plugin work
-~~~~~~~~~~~~~~~~~~~~~~~~
 
 The command options, *“-d debug  --plugin-dir <your-plugin-dir>/PicoScenes-PDK; -i virtualsdr  --demo HelloPicoScenes”*, have the following interpretations:
 
@@ -276,6 +304,7 @@ The **initialization()** method defines plugin's commands. **parseAndExecuteComm
 
 - ``vm["demo"].as<std::string>()``: Get parameters "HelloPicoScenes"
 
+.. _how-to-receive-packages:
 
 How to receive packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -376,6 +405,7 @@ If successfully running, the terminal will show
 
     [17:34:09.811501] [Platform] [Debug] This is my rxframe: RxFrame:{RxSBasic:[device=USRP(SDR), center=2412, control=2412, CBW=20, format=HT, Pkt_CBW=20, MCS=0, numSTS=1, GI=0.8us, UsrIdx/NUsr=(0/1), timestamp=1288, system_ns=1704015249809485863, NF=-78, RSS=-7], RxExtraInfo:[len=24, ver=0x2, sf=20.000000 MHz, cfo=0.000000 kHz, sfo=0 Hz], SDRExtra:[scrambler=39, packetStartInternal=25761, rxIndex=25760, rxTime=0.001288, decodingDelay=0.0620708466, lastTxTime=0, sigEVM=2.4], (HT)CSI:[device=USRP(SDR), format=HT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(56,1,0,1,1), raw=0B], LegacyCSI:[device=USRP(SDR), format=NonHT, CBW=20, cf=2412.000000 MHz, sf=20.000000 MHz, subcarrierBW=312.500000 kHz, dim(nTones,nSTS,nESS,nRx,nCSI)=(52,1,0,1,2), raw=0B], BasebandSignal:[(float) 3045x1], MACHeader:[type=[MF]Reserved_14, dest=00:16:ea:12:34:56, src=00:16:ea:12:34:56, seq=8, frag=0, mfrags=0], PSFHeader:[ver=0x20201110, device=QCA9300, numSegs=1, type=10, taskId=55742, txId=0], TxExtraInfo:[len=8, ver=0x2], MPDU:[num=1, total=75B]}
 
+.. _how-to-transmit-packages:
 
 How to transmit packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

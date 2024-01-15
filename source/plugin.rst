@@ -82,37 +82,34 @@ The process begins with the initiation of the platform, followed by the automati
     :target: /images/Plugin-Start-Sequence.png
     :align: center
 
-The plugin has the capability to control all hardware on the platform, with all functions and APIs within its realm of control. It is capable of `receiving <#how-to-receive-packages>`_ and `processing <#how-to-transmit-packages>`_ data flows, including WiFi packets. Once the hardware platform captures a packet, it forwards this data to all plugins, ensuring that each one receives the packet.
-
-.. figure:: /images/Plugin-Control-Scope.png
-    :figwidth: 800px
-    :target: /images/Plugin-Control-Scope.png
-    :align: center
+The plugin has the capability to control all hardware on the platform, with all functions and APIs within its realm of control. It is capable of `receiving <#how-to-receive-packages>`_ and `transmitting <#how-to-transmit-packages>`_ data flows, including WiFi packets. Once the hardware platform captures a packet, it forwards this data to all plugins, ensuring that each one receives the packet.
 
 
 “`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
-
-The entire PS-PDK project is managed by `CMake` and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder.
 
 .. hint:: You can learn how to write plugins step by step following the tutorial, or you can view the complete code in the `repository <https://gitlab.com/wifisensing/PicoScenes-PDK/>`_
 
 
 .. _how-to-parse-commands:
 
-How to parse commands
-~~~~~~~~~~~~~~~~~~~~~~~
-In ``PicoScenes-PDK/CMakeLists.txt``, write the following content.
+PicoScenes Plugin folder structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The entire PS-PDK project is managed by `CMake` and contains three working plugins, a Demo plugin, the EchoProbe and UDP-forwarder.
+
+``PicoScenes-PDK/CMakeLists.txt``
 
 .. code-block:: cmake
 
     # ...
-    add_subdirectory(plugin-demo) # add this line
+    add_subdirectory(plugin-demo)
     add_subdirectory(plugin-echoprobe)
     add_subdirectory(plugin-forwarder)
     # ...
 
-In ``PicoScenes-PDK``, add new folder **plugin-demo** and create **CMakeLists.txt** under **plugin-demo** with the following content.
+- ``add_subdirectory(plugin-demo)``: searches CMakeLists.txt in ``plugin-demo``
+
+``PicoScenes-PDK/plugin-demo/CMakeLists.txt``
 
 .. code-block:: cmake
 
@@ -123,7 +120,7 @@ In ``PicoScenes-PDK``, add new folder **plugin-demo** and create **CMakeLists.tx
     TARGET_LINK_LIBRARIES(PDK-demo  ${Boost_LIBRARIES} fmt::fmt SystemTools)
     install(TARGETS PDK-demo  DESTINATION .)
 
-Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
+DemoPlugin Inherits from AbstractPicoScenesPlugin. Below are the properties and methods in DemoPlugin.
 
 ``DemoPlugin.hxx``
 
@@ -174,6 +171,7 @@ Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
     // Alias the create function to 'initPicoScenesPlugin' using BOOST_DLL_ALIAS
     BOOST_DLL_ALIAS(DemoPlugin::create, initPicoScenesPlugin)
 
+These methods are implemented in ``Demoplugin.cxx``
 
 ``DemoPlugin.cxx``
 
@@ -203,15 +201,40 @@ Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
         // Create an options description for the DemoPlugin with a specific name and line length
         options = std::make_shared<po::options_description>("Demo Options", 120);
 
-        // Add a command-line option for the DemoPlugin
-        options->add_options()
-                ("demo", po::value<std::string>(), "--demo <param>");
     }
 
     std::shared_ptr<boost::program_options::options_description> DemoPlugin::pluginOptionsDescription() {
         return options;
     }
 
+    void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
+
+    }
+
+
+How to parse commands
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Add the following content in ``DemoPlugin.cxx``
+
+``DemoPlugin.cxx``
+
+.. code-block:: cpp
+
+    // DemoPlugin.cxx
+
+    ...
+    ...
+    void DemoPlugin::initialization() {
+        // Create an options description for the DemoPlugin with a specific name and line length
+        options = std::make_shared<po::options_description>("Demo Options", 120);
+
+        // Add a command-line option for the DemoPlugin
+        options->add_options()
+                ("demo", po::value<std::string>(), "--demo <param>");
+    }
+
+    ...
     void DemoPlugin::parseAndExecuteCommands(const std::string &commandString) {
 
         // Create a variables map to store parsed options
@@ -234,7 +257,6 @@ Create ``DemoPlugin.hxx`` and ``DemoPlugin.cxx`` and add the following content.
             auto optionValue = vm["demo"].as<std::string>();
             LoggingService_Plugin_info_print("Plugin has been installed, its param is {}", std::string(optionValue));
         }
-
     }
 
 

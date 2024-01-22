@@ -4,6 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
+- Jan. 20, 2024 Page :doc:`/plugin` is completely rewritten. Thanks to Tian Teng for his brilliant work!
 - Dec. 26, 2023 Revise the :doc:`ni` page.
 - Dec. 20, 2023 Initiating the Ubuntu 22.04 (and soon 24.04) transition of PicoScenes system (client program and CI server).
 - Dec. 3, 2023 Add Radar and MIMO-Radar modes for SDR frontend, see :ref:`radar-mode`.

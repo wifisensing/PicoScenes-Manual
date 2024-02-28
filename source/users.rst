@@ -201,7 +201,18 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      -  .. figure:: /images/logos/MSRA.png
            :align: center  
            :figwidth: 175px                
-
+   * -  .. figure:: /images/logos/ZhengZhouUniversity.png
+           :align: center  
+           :figwidth: 175px 
+     -  .. figure:: /images/logos/FuDan.png
+           :align: center  
+           :figwidth: 175px
+     -  .. figure:: /images/logos/HeFei_University.png
+           :align: center  
+           :figwidth: 175px
+     -  .. figure:: /images/logos/ZGKD.png
+           :align: center  
+           :figwidth: 175px
 
 .. list-table:: Global Users
    :widths: 25 25 25 25
@@ -411,11 +422,12 @@ The following grid lists the affiliations that use PicoScenes platform in their 
           :align: center  
           :figwidth: 175px   
       
+     - .. figure:: /images/logos/Hanbat_University.png
+          :align: center  
+          :figwidth: 175px   
      -  
-     -  
-     -  
+     -
 
 .. note:: 
-
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.
      2. Both lists grow in time order.

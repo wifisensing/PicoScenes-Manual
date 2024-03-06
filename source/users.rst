@@ -421,12 +421,15 @@ The following grid lists the affiliations that use PicoScenes platform in their 
    * - .. figure:: /images/logos/CCU.png
           :align: center  
           :figwidth: 175px   
-      
      - .. figure:: /images/logos/Hanbat_University.png
           :align: center  
           :figwidth: 175px   
-     -  
-     -
+     - .. figure:: /images/logos/Dhaka_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Stuttgart_University.png
+          :align: center  
+          :figwidth: 175px  
 
 .. note:: 
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.

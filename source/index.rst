@@ -4,7 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
-- Mar. 12, 2024 Pleased to announce that our research "**Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities**" has been accepted by **IEEE Communication Magazine (IF=12.2)**, see, its online supplementary page :doc:`reshaping-wifi-isac`.
+- Mar. 12, 2024 We are pleased to announce that our research, "**Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities**", has been accepted by **IEEE Communication Magazine (IF=11.2)**. For More information, please visit its online supplementary page :doc:`reshaping-wifi-isac`.
 - Jan. 20, 2024 Page :doc:`/plugin` is completely rewritten. Thanks to Tian Teng for his brilliant work!
 - Dec. 26, 2023 Revise the :doc:`ni` page.
 - Dec. 20, 2023 Initiating the Ubuntu 22.04 (and soon 24.04) transition of PicoScenes system (client program and CI server).

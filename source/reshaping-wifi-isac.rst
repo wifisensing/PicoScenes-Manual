@@ -8,9 +8,13 @@ Context of This Page
 
 Our research work "*Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities*", has been accepted by **IEEE Communication Magazine (IF=11.2)**! This work proposes to reshape the current research paradigm of Wi-Fi ISAC (Wi-Fi Integrated Sensing and Communication) with the proposed high-coherence hardware capabilities, and has been validated through two high-precision sensing demos. As research in this direction is still exploratory, this list of capabilities may change over time, so we hope to continuously update our research in this direction through this online page to promote the practical application of these capabilities.
 
-For the main article, see: xxxx
 
-For supplementary files to the article, see: xxxxx
+Paper's Final Version
+-------------------------
+
+You can download at
+:download:`Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities <_static/Reshaping-Main.pdf>` and 
+:download:`Supplementaries <_static/Reshaping-Supplementary.pdf>`.
 
 
 What Can High-Coherence Hardware Capabilities Bring?

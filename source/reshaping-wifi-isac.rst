@@ -8,7 +8,6 @@ Context of This Page
 
 Our research work "*Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities*", has been accepted by **IEEE Communication Magazine (IF=11.2)**! This work proposes to reshape the current research paradigm of Wi-Fi ISAC (Wi-Fi Integrated Sensing and Communication) with the proposed high-coherence hardware capabilities, and has been validated through two high-precision sensing demos. As research in this direction is still exploratory, this list of capabilities may change over time, so we hope to continuously update our research in this direction through this online page to promote the practical application of these capabilities.
 
-
 Paper's Final Version
 -------------------------
 
@@ -31,7 +30,6 @@ About Us
 -------------
 
 We are a Wi-Fi "industry-academia-research" alliance that includes academia, industry, standards, certification, and major customers. Our goal is to build an open "industry-academia-research" interactive platform for friends in the academic and industrial fields related to Wi-Fi, to jointly promote valuable and influential Wi-Fi research into industrial applications, and to drive the next decade of development in the Wi-Fi industry.
-
 
 Technical Cooperation
 --------------------------------------

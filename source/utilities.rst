@@ -9,16 +9,16 @@ Utility Programs and Bash Scripts
 UDP-Forwarder Plugin & UDPRemoteLogger
 ----------------------------------------
 
-The UDP-Forwarder Plugin (a.k.a Forwarder) can serialize and forward the received PicoScenes Rx frame to a remote computer via UDP. The UDPRemoteLogger program can listen to UDP and save the PicoScenes Rx frames to a .csi file on another machine. 
+The UDP-Forwarder plugin can forward the received PicoScenes Rx frame to a remote computer via UDP. The UDPRemoteLogger program can listen to UDP and save the PicoScenes Rx frames to a .csi file on another machine. Their usage is straightforward.
 
-The following command forward the received frames to a remote machine with IP/port: 192.168.10.10:50000
+The following command forwards the received frames to a remote machine with IP/port 192.168.10.10:50000.
 
 
     .. code-block:: bash
 
         PicoScenes "-d debug -i usrp --mode logger --freq 5190 --forward-to 192.168.10.10:50000"
     
-The following command receives PicoScenes Rx frames from port 50000 and save to a .csi file
+The following command receives PicoScenes Rx frames from port 50000 and save to a .csi file.
 
     .. code-block:: bash
 

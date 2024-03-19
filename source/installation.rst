@@ -210,6 +210,8 @@ Please ensure that your system meets all the requirements mentioned earlier befo
 
     .. note:: The PicoScenes Source Updater registers the PicoScenes software repository to your system, enabling you to install and automatically upgrade PicoScenes using the apt command.
 
+        If you are using Ubuntu 22.04 version, we recommend you :download:`PicoScenes Source Updater (Ubuntu 22.04 ver) <https://ps2204.zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>`
+
 #. Update the cache of apt repositories:
     Run the following command:
     

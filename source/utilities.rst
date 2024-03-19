@@ -3,6 +3,35 @@ Utility Programs and Bash Scripts
 
 **Revised on Nov. 16, 2023**
 
+
+.. _udp-remote-logger:
+
+UDP-Forwarder Plugin & UDPRemoteLogger
+----------------------------------------
+
+The UDP-Forwarder Plugin (a.k.a Forwarder) can serialize and forward the received PicoScenes Rx frame to a remote computer via UDP. The UDPRemoteLogger program can listen to UDP and save the PicoScenes Rx frames to a .csi file on another machine. 
+
+The following command forward the received frames to a remote machine with IP/port: 192.168.10.10:50000
+
+
+    .. code-block:: bash
+
+        PicoScenes "-d debug -i usrp --mode logger --freq 5190 --forward-to 192.168.10.10:50000"
+    
+The following command receives PicoScenes Rx frames from port 50000 and save to a .csi file
+
+    .. code-block:: bash
+
+        UDPRemoteLogger --port 50000
+
+.. hint::
+    UDP-Forwarder and UDPRemoteLogger are fully open-sourced at https://gitlab.com/wifisensing/PicoScenes-PDK
+
+.. _scripts:
+
+Utility Scripts
+-------------------
+
 Besides the `PicoScenes` main program, we also provide several handy bash scripts.
 
 #. switch5300Firmware: switch between the normal and CSI-measurement firmware for IWL5300 NIC

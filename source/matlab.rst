@@ -19,8 +19,8 @@ Since the PMT-Core and the PicoScenes main program rely on the `RxS Parsing Core
 
 The following are the preparation steps for each supported OS.
 
-Preparation steps on Ubuntu 20.04
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Preparation steps on Ubuntu 20.04 and 22.04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Run ``sudo apt install -y build-essential git`` to install GCC and git
 - Install MATLAB (supporting R2021b to the latest R2022b);

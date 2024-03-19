@@ -192,7 +192,7 @@ Prerequisites
 - Your CPU must support at least the SSE4.2 instruction set, and AVX2 is recommended.
 - You should have at least 4 GB of memory to prevent out-of-memory crashes.
 - Secure Boot must be disabled. You can find the switch in the BIOS settings.
-- The operating system must be **Ubuntu 20.04 LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).
+- The operating system must be **Ubuntu 20.04 (and 22.04) LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).
 - The operating system must be installed on real hardware. Virtualization is not supported.
 - An internet connection is required during the installation process and for regular build expiration checking.
 - You need permission to install the latest kernel version. PicoScenes depends on the latest kernel versions. During the installation and subsequent upgrades, your system will be forced to update to the latest kernel version.

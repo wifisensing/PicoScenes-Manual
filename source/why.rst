@@ -35,7 +35,7 @@ Super easy installation with auto-update support
 
 Compared to the existing CSI tools,
 PicoScenes platform has an unprecedentedly simplified installation process.
-Once you have installed the latest Ubuntu 20.04LTS (or its variant), all that need to be done is just three-steps:, downloading a KB-size .deb file, double-clock installing it, and at last installing PicoScenes via the popular ``apt install`` approach. View :doc:`/installation` for more details.
+Once you have installed the latest Ubuntu 20.04 LTS (or its variant), all that need to be done is just three-steps:, downloading a KB-size .deb file, double-clock installing it, and at last installing PicoScenes via the popular ``apt install`` approach. View :doc:`/installation` for more details.
 
 We use the Continuous Integration (CI) to boost the development-release cycle of PicoScenes.
 Once we push a code update, CI will automatically perform the building, testing, binary packaging and APT repository updating.

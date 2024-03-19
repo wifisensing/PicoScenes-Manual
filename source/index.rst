@@ -4,7 +4,7 @@ PicoScenes: Enabling Modern Wi-Fi ISAC Research!
 News!
 -----------------
 
-- Mar. 19, 2024 PicoScenes now provides UDP forwarding/receiving utility! See :ref:`udp-remote-logger`.
+- Mar. 19, 2024 PicoScenes now provides a UDP forwarding/receiving utility! See :ref:`udp-remote-logger`.
 - Mar. 19, 2024 PicoScenes now officially supports Ubuntu 22.04! See :ref:`install_software`.
 - Mar. 12, 2024 We are pleased to announce that our research, "**Reshaping Wi-Fi ISAC with High-Coherence Hardware Capabilities**", has been accepted by **IEEE Communication Magazine (IF=11.2)**. For More information, please visit its online supplementary materials :doc:`reshaping-wifi-isac`.
 - Jan. 20, 2024 Page :doc:`/plugin` is completely rewritten. Thanks to Tian Teng for his brilliant work!

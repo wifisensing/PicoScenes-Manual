@@ -204,8 +204,8 @@ Install PicoScenes via *apt* command
 Please ensure that your system meets all the requirements mentioned earlier before proceeding with the installation.
 
 #. Download and install the PicoScenes Source Updater:
-    - For Ubuntu 20.04 platform (or its variants), please click :download:`PicoScenes Source Updater <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
-    - For Ubuntu 22.04 platform (or its variants), please click :download:`PicoScenes Source Updater (Ubuntu 22.04 ver) <https://ps2204.zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
+    - For Ubuntu 20.04 platform (or its variants), please click :download:`PicoScenes Source Updater (Ubuntu 20.04 version) <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
+    - For Ubuntu 22.04 platform (or its variants), please click :download:`PicoScenes Source Updater (Ubuntu 22.04 version) <https://ps2204.zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
     
     - Click *Install Package*
 

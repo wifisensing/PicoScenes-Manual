@@ -213,7 +213,14 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      -  .. figure:: /images/logos/ZGKD.png
            :align: center  
            :figwidth: 175px
-
+   * -  .. figure:: /images/logos/Hangzhou_City_University.png
+           :align: center  
+           :figwidth: 175px 
+     -  .. figure:: /images/logos/Sun_Yat_sen_University.png
+           :align: center  
+           :figwidth: 175px
+     -  .. 
+     -  .. 
 .. list-table:: Global Users
    :widths: 25 25 25 25
    :header-rows: 0
@@ -430,7 +437,40 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      - .. figure:: /images/logos/Stuttgart_University.png
           :align: center  
           :figwidth: 175px  
-
+   * - .. figure:: /images/logos/university_surrey.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/ULPGC_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/KU_Leuven_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Virginia_University.png
+          :align: center  
+          :figwidth: 175px 
+   * - .. figure:: /images/logos/HW_Dubai_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/JKU.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/NYCU_T.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/DTU.png
+          :align: center  
+          :figwidth: 175px  
+   * - .. figure:: /images/logos/Keio_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/NLP_Logix.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Intel.png
+          :align: center  
+          :figwidth: 175px   
+     - ..                    
 .. note:: 
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.
      2. Both lists grow in time order.

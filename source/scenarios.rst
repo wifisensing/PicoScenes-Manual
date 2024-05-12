@@ -388,38 +388,79 @@ In this command the ``--sts 4`` specifies to :math:`N_{STS}=4` (or 4x4 MIMO tran
 Wi-Fi Radar (802.11bf Mono-Static Sensing Mode) with 802.11a/g/n/ac/ax/be Frame Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _radar_1t1r:
-Wi-Fi Radar (802.11bf Mono-Static Sensing) Mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+PicoScenes radar mode transmits and receives Wi-Fi signals using one single NI USRP device (or a virtual combination of multiple NI USRP devices). Since both the Tx and Rx ends share the same baseband/RF clock, the carrier frequency offset (CFO) and sampling frequency offset (SFO) are *fundamentally* eliminated. We believe the radar mode is *most* ideal approach for Wi-Fi sensing research.
 
-For NI USRP devices with multiple RF channels, Wi-Fi radar mode, or Wi-Fi mono-static sensing mode can be activated. As the radar word implies, PicoScenes, in radar mode, uses one RF chain of the USRP to transmits the Wi-Fi frames, whilst using the other RF chain(s) to receive the signals and then decode the frames. This mode is dedicated for Wi-Fi sensing. The following command shows how to use the radar mode with Wi-Fi 7 40 MHz CBW frames injection and receiving.
+.. _radar_siso:
+Wi-Fi Radar (802.11bf Mono-Static Sensing) SISO mode
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Wi-Fi radar mode can work on *all* NI USRP devices, which have at least one Full-Duplex Tx/Rx chain. As the radar word implies, PicoScenes, in radar mode, uses the Tx port of a RF chain to transmits the Wi-Fi frames, whilst using the Rx port of the same RF chain to receive the signals and then decode the frames. The following command shows how to use the radar mode with Wi-Fi 7 40 MHz CBW frames injection and receiving.
 
 .. code-block:: bash
 
-    PicoScenes "-d debug; -i usrp --freq 5955 --mode radar --txcm 1 --rxcm 2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+    PicoScenes "-d debug; -i usrp --freq 5955 --mode radar --tx-ant TX/RX --rx-ant RX2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
 
 
 Several points of the above command are worth noting:
 
-      - Tx and Rx MUST use different RF chains, *e.g.*, ``--txcm 1 --rxcm 2`` options used in the above command;
+      - Tx and Rx MUST be using different ports, *e.g.*, ``--tx-ant TX/RX --rx-ant RX2`` options used in the above command;
       - Users MUST fine-tune the Tx power (or Rx gain), or use directional antennas, to prevent Rx end ADC saturation, *e.g.*, ``--txpower 0.1``  option used in the above command;
-      - We uses the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See :doc:`/presets` for more information;
+      - We use the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See :doc:`/presets` for more information;
+      - Ensure your USRP device supports the bandwidth in full-duplex model, *e.g.*, B210 doesn't support full-duplex sampling rate in 40 MHz.
       - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
 
 .. hint:: 
     See how do we `implement the Radar mode in less than 30 line of codes <https://gitlab.com/wifisensing/PicoScenes-PDK/-/commit/ee0242a6837dabfc259a26236799ddd9b1eb893c>`_? 
 
-.. _mimo-radar-mode:
-Wi-Fi MIMO Radar (802.11bf Mono-Static Sensing + MIMO) Mode
+.. _radar_simo:
+Wi-Fi Radar (802.11bf Mono-Static Sensing) SIMO mode
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Since multiple USRP can be combined into one virtual and large USRP, the radar mode can also utilize multiple RF chains to build a Wi-Fi MIMO radar. Assuming two NI USRP X310 is dual-10GbE connected with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform Wi-Fi MIMO radar measurement:
+For NI USRP devices with multiple RF channels, Wi-Fi radar can operate in 1-transmission-multiple-reception, or SIMO mode. The following command shows how to use a multi-chain USRP, *e.g.*, NI USRP B210 or X310, to perform the Wi-Fi radar SIMO measurement:
 
 .. code-block:: bash
 
-    PicoScenes "-d debug; -i usrp192.168.30.2,192.168.40.2 --freq 5955 --mode radar --tx-channel 0,1 --rx-channel 2,3 --clock-source external --preset TR_CBW_40_EHTSU --sts 2 --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+    PicoScenes "-d debug; -i usrp --freq 5955 --mode radar --txcm 1 --rxcm 3 --tx-ant TX/RX --rx-ant RX2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
 
-The above command uses the ``--tx-channel`` and ``--rx-channel`` options to specify the Tx and Rx chains, respectively, and uses the ``--sts 2`` option to specify 2x2 MIMO transmission. To synchronized both X310, we use the ``--clock-source external`` options, which you may refer to :ref:`phase_sync_multiple_device`.
+Several points of the above command are worth noting:
+
+      - We use the ``TX/RX`` port for Chain 0 for Tx, and the two ``RX2`` ports of Chain 0 and 1 for receiving, *e.g.*, ``--txcm 1 --rxcm 3 --tx-ant TX/RX --rx-ant RX2``;
+      - Users MUST fine-tune the Tx power (or Rx gain), or use directional antennas, to prevent Rx end ADC saturation, *e.g.*, ``--txpower 0.1``  option used in the above command;
+      - We use the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See :doc:`/presets` for more information;
+      - Ensure your USRP device supports the bandwidth in full-duplex model, *e.g.*, B210 doesn't support full-duplex sampling rate in 40 MHz.
+      - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
+
+.. _radar_mimo:
+Wi-Fi Radar (802.11bf Mono-Static Sensing) MIMO Mode
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+For NI USRP devices with multiple RF channels, Wi-Fi radar can operate in multiple-transmission-multiple-reception (NT-NR), or MIMO mode. The following command shows how to use a multi-chain USRP, *e.g.*, NI USRP B210 or X310, to perform the Wi-Fi radar MIMO mode measurement:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug; -i usrp --freq 5955 --mode radar --txcm 3 --rxcm 3 --tx-ant TX/RX --rx-ant RX2 --sts 2 --preset TR_CBW_40_EHTSU --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+
+Several points of the above command are worth noting:
+
+      - We use two ``TX/RX`` ports of Chain 0 and 1 for Tx, and the two ``RX2`` ports of Chain 0 and 1 for receiving, *e.g.*, ``--txcm 3 --rxcm 3 --tx-ant TX/RX --rx-ant RX2``;
+      - We use the Wi-Fi MIMO transmission for MIMO radar, *e.g.*, ``--sts 2``;
+      - Users MUST fine-tune the Tx power (or Rx gain), or use directional antennas, to prevent Rx end ADC saturation, *e.g.*, ``--txpower 0.1``  option used in the above command;
+      - We use the ``TR_CBW_40_EHTSU`` preset to specify both the Tx and Rx. ``TR_CBW_40_EHTSU`` = ``TX_CBW_40_EHTSU`` + ``RX_CBW_40``. See :doc:`/presets` for more information;
+      - Ensure your USRP device supports the bandwidth in full-duplex model, *e.g.*, B210 doesn't support full-duplex sampling rate in 40 MHz.
+      - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
+
+
+.. _radar_mimo_multi_device:
+Wi-Fi Radar (802.11bf Mono-Static Sensing) MIMO Mode using Multiple USRP Devices
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Since multiple USRP can be combined into one virtual and large USRP, the radar mode can also utilize multiple RF chains to build a Wi-Fi MIMO radar. Assuming two NI USRP X310 is dual-10GbE connected with IP address of 192.168.30.2 and 192.168.40.2, you can use the following command to perform a 4x4 Wi-Fi MIMO radar measurement:
+
+.. code-block:: bash
+
+    PicoScenes "-d debug; -i usrp192.168.30.2,192.168.40.2 --freq 5955 --mode radar --tx-channel 0,1,2,3 --rx-channel 0,1,2,3 --tx-ant TX/RX --rx-ant RX2 --clock-source external --preset TR_CBW_40_EHTSU --sts 4 --repeat 1e9 --delay 5e3 --txpower 0.1 --delayed-start 3 --plot;"
+
+To synchronized both X310 devices, we use the ``--clock-source external`` options, which you may refer to :ref:`phase_sync_multiple_device`.
 
 .. _non-standard-tx-rx:
 Transmission, Reception, and CSI Measurement with Non-Standard Channel and Bandwidth

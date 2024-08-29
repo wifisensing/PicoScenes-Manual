@@ -6,6 +6,19 @@ From the easiest CSI-data collection using the Intel AX210 to the SDR-based 802.
 Published Papers by PicoScenes Users
 -----------------------------------------
 
+- Viktor Erdélyi, Kazuki Miyao, Akira Uchiyama, Tomoki Murakami, `"Poster: Activity Recognition Using CSI Backscatter with Commodity Wi-Fi" <https://dl.acm.org/doi/abs/10.1145/3643832.3661396>`_, 2024, MobiSys.
+- Jinyan Jiang, Jiliang Wang, Yijie Chen, Shuai Tong, Pengjin Xie, Yihao Liu, Yunhao Liu, `"Willow: Practical WiFi Backscatter Localization with Parallel Tags" <https://dl.acm.org/doi/abs/10.1145/3643832.3661853>`_, 2024 MobiSys.
+- Hao Yin, Murali Ramanujam, Joe Schaefer, Stan Adermann, Srihari Narlanka, Perry Lea, Ravi Netravali, Krishna Chintalapudi, `"ADR-X: ANN-Assisted Wireless Link Rate Adaptation for Compute-Constrained Embedded Gaming Devices" <https://www.usenix.org/conference/nsdi24/presentation/yin>`_, 2024 NSDI.
+- S.Chen, H.Jiang, J.Hu, Z.Xiao, D.Liu, `"Silent Thief: Password Eavesdropping Leveraging Wi-Fi Beamforming Feedback from POS Terminal" <https://ieeexplore.ieee.org/abstract/document/10621321>`_, IEEE INFOCOM 2024.
+- N.Ikuo, `"CSI2PC: 3D Point Cloud Reconstruction Using CSI" <https://ieeexplore.ieee.org/abstract/document/10454882>`_, 2024 IEEE 21st Consumer Communications & Networking Conference (CCNC).
+- C.-H.Lee, H.Choi, Y.Arakawa, D.-H.Kim, J.-D.Kim, `"Bilatangulation: A Novel Measurement Error Compensation Method for Wi-Fi Indoor Positioning with Two Anchors" <https://ieeexplore.ieee.org/abstract/document/10643056>`_, 2024 IEEE Access.
+- A.T.Kristensen, S.Li, A.Balatsoukas-Stimming, A.Burg, `"Monostatic Multi-Target Wi-Fi-Based Breathing Rate Sensing Using Openwifi" <https://ieeexplore.ieee.org/abstract/document/10570912>`_, 2024 IEEE Wireless Communications and Networking Conference (WCNC).
+- P.H.Kindt, C.Turetta, F.Demrozi, A.Masrur, G.Pravadelli, S.Chakraborty, `"WirelessEye - Seeing over WiFi Made Accessible" <https://ieeexplore.ieee.org/abstract/document/10503162>`_, 2024 IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops).
+- T.-W.Hsu and H.-Y.Hsieh, `"Robust Multi-User Pose Estimation Based on Spatial and Temporal Features from WiFi CSI" <https://ieeexplore.ieee.org/abstract/document/10623053>`_, ICC 2024 - IEEE International Conference on Communications.
+- V.V.Ratnam, `"WiDRa: Enabling Millimeter-Level Differential Ranging Accuracy in Wi-Fi Using Carrier Phase" <https://ieeexplore.ieee.org/abstract/document/10556775>`_, 2024 in IEEE Journal on Selected Areas in Communications.
+- L.Zhang, `"Toward Robust and Effective Behavior Based User Authentication With Off-the-shelf Wi-Fi" <https://ieeexplore.ieee.org/abstract/document/10597619>`_, 2024 IEEE Transactions on Information Forensics and Security.
+- P.Wang, H.Huang, L.Zhao, B.Zhu, H.Huang, H.Wu, `"ExtRe: Extended Temporal-Spatial Network for Consumer-Electronic WiFi-Based Human Activity Recognition" <https://ieeexplore.ieee.org/abstract/document/10614382>`_, 2024 IEEE Transactions on Consumer Electronics.
+- H.Wang, `"MuKI-Fi: Multi-person Keystroke Inference with BFI-enabled Wi-Fi Sensing" <https://ieeexplore.ieee.org/abstract/document/10443555>`_, 2024 IEEE Transactions on Mobile Computing.
 - Jingzhi Hu, Tianyue Zheng,  Zhe Chen, Hongbo Wang, Jun Luo, `"MUSE-Fi: Contactless MUti-person SEnsing Exploiting Near-field Wi-Fi Channel Variation" <https://dl.acm.org/doi/abs/10.1145/3570361.3613290>`_, 2023, ACM MobiCom.
 - Xin Na, Xiuzhen Guo, Zihao Yu, Jia Zhang, Yuan He, Yunhao Liu, `"Leggiero: Analog WiFi Backscatter with Payload Transparency" <https://dl.acm.org/doi/abs/10.1145/3581791.3596835>`_, 2023 MobiSys.
 - Pengming Hu, Weidong Yang, Xuyu Wang, Shiwen Mao, Erbo Shen, `"WiWm-EP: Wi-Fi CSI-based Wheat Moisture Detection Using Equivalent Permittivity" <https://ieeexplore.ieee.org/abstract/document/10225988>`_, IEEE INFOCOM 2023.
@@ -219,8 +232,12 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      -  .. figure:: /images/logos/Sun_Yat_sen_University.png
            :align: center  
            :figwidth: 175px
-     -  .. 
-     -  .. 
+     -  .. figure:: /images/logos/Hunan_University.png
+           :align: center  
+           :figwidth: 175px
+     -  .. figure:: /images/logos/huawei.png
+           :align: center  
+           :figwidth: 175px
 .. list-table:: Global Users
    :widths: 25 25 25 25
    :header-rows: 0
@@ -470,7 +487,30 @@ The following grid lists the affiliations that use PicoScenes platform in their 
      - .. figure:: /images/logos/Intel.png
           :align: center  
           :figwidth: 175px   
-     - ..                    
+     - .. figure:: /images/logos/Plymouth_University.png
+          :align: center  
+          :figwidth: 175px
+   * - .. figure:: /images/logos/Bremen_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/WGU.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Florida_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Kalgenfurt_University.png
+          :align: center  
+          :figwidth: 175px
+   * - .. figure:: /images/logos/Arizona_State_University.png
+          :align: center  
+          :figwidth: 175px   
+     - .. figure:: /images/logos/Chemnitz.png
+          :align: center  
+          :figwidth: 175px   
+     - ..   
+  
+     - ..                                           
 .. note:: 
      1. All affiliations listed above are identified from the collected software usage data. Data collection is expressly stated in :doc:`/eula`.
      2. Both lists grow in time order.

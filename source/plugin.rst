@@ -34,9 +34,9 @@ If PicoScenes and all the development dependencies are successfully installed, y
 .. code-block:: bash
 
     cd PicoScenes-PDK # or cd to the cloned directory
-    ./Fast_Build_Intall_PicoScenes.sh
+    ./Fast_Build_Install_Plugin.sh
 
-`Fast_Build_Intall_PicoScenes.sh` is a bash script with the following content, which rebuilds the plugins and the .deb package and install the .deb package.
+`Fast_Build_Install_Plugin.sh` is a bash script with the following content, which rebuilds the plugins and the .deb package and install the .deb package.
 
 .. code-block:: bash
 

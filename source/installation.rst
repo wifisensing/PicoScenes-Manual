@@ -206,7 +206,7 @@ Please ensure that your system meets all the requirements mentioned earlier befo
 #. Download and install the PicoScenes Source Updater:
     - For Ubuntu 20.04 platform (or its variants), please click :download:`PicoScenes Source Updater (Ubuntu 20.04 version) <https://zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
     - For Ubuntu 22.04 platform (or its variants), please click :download:`PicoScenes Source Updater (Ubuntu 22.04 version) <https://ps2204.zpj.io/PicoScenes/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
-    - For Ubuntu test, please click :download:`test file <https://zpj.io/PicoScenes/20.04/x86_64/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
+    - For Ubuntu test, please click :download:`test pipeline updater <https://ps2204.zpj.io/PicoScenes/20.04/x86_64/pool/main/picoscenes-source-updater.deb>` and choose *Open with "GDebi Package Installer"*
     
     - Click *Install Package*
 

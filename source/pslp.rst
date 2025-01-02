@@ -28,7 +28,7 @@
 ..     - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
 ..     - Installation and upgrade via Debian *apt* facility
 ..     - Support running self-made PicoScenes plugin
-..     - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
+..     - Public technical support via `Issue Tracker <https://github.com/wifisensing/PicoScenes-Issue-Tracker>`_", "
 ..     - Limited/No advanced features
 ..     - Online validation (frequent)"
 ..     "PSLP-PRO-TL", "
@@ -65,7 +65,7 @@
 ..     :widths: auto
 
 ..     "Good documentation","https://ps.zpj.io","**✓**","**✓**"
-..     "Issue tracker-based technical support","https://gitlab.com/wifisensing/picoscenes-issue-tracker","**✓**","**✓**"
+..     "Issue tracker-based technical support","https://github.com/wifisensing/PicoScenes-Issue-Tracker","**✓**","**✓**"
 ..     "Very timely technical support via IM","Providing quick technical support on WeChat or other IM","","**✓**"
 
 .. .. _license_hardware_features:

@@ -6,7 +6,7 @@ PicoScenes MATLAB Toolbox Core (PMT-Core) enables MATLAB to parse the '.csi' fil
 Prerequisites
 ++++++++++++++++++++
 
-Since the PMT-Core and the PicoScenes main program rely on the `RxS Parsing Core library <https://gitlab.com/wifisensing/rxs_parsing_core>`_ to parse the CSI data, C/C++ compilers are required by PMT in different OSes. The following table shows the recommended (and also tested) working environments.
+Since the PMT-Core and the PicoScenes main program rely on the `RxS-Parsing-Core library <https://github.com/wifisensing/RXS-Parsing-Core>`_ to parse the CSI data, C/C++ compilers are required by PMT in different OSes. The following table shows the recommended (and also tested) working environments.
 
 .. csv-table:: Recommended Working Environments for PicoScenes MATLAB Toolbox 
     :header: , "Linux", "macOS", "Windows"
@@ -52,7 +52,7 @@ The following is a screenshot of setting up TDM-GCC-64 v10.3 in MATLAB R2020b.
 Obtain PicoScenes MATLAB Toolbox Core
 +++++++++++++++++++++++++++++++++++++++++
 
-PMT-Core can only be **git clone --recursive** from its git repo `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_. See the repo's README on how to obtain the toolbox.
+PMT-Core can only be **git clone --recursive** from its git repo `PicoScenes MATLAB Toolbox Core <https://github.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_. See the repo's README on how to obtain the toolbox.
 
 Install PMT-Core in MATLAB
 ++++++++++++++++++++++++++++++++++++++++++++++++++++

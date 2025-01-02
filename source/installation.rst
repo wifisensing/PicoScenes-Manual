@@ -271,7 +271,7 @@ PicoScenes MATLAB Toolbox Core (PMT-Core) is used for parsing the `.csi files` g
 Prerequisites and Preparations
 +++++++++++++++++++++++++++++++++
 
-Since the PicoScenes MATLAB Toolbox Core (PMT-Core) and the PicoScenes main program utilize the same `RxS Parsing Core library <https://gitlab.com/wifisensing/rxs_parsing_core>`_ to parse the CSI data, PMT-Core has dependencies on specific combinations of operating systems (OS), MATLAB versions, and C/C++ compilers. The table below lists the proven working environments.
+Since the PicoScenes MATLAB Toolbox Core (PMT-Core) and the PicoScenes main program utilize the same `RxS-Parsing-Core library <https://github.com/wifisensing/RXS-Parsing-Core>`_ to parse the CSI data, PMT-Core has dependencies on specific combinations of operating systems (OS), MATLAB versions, and C/C++ compilers. The table below lists the proven working environments.
 
 .. csv-table:: Proven Working Environments for PicoScenes MATLAB Toolbox Core
     :header: , "Linux", "macOS", "Windows"
@@ -327,12 +327,12 @@ The following screenshot demonstrates how to set up TDM-GCC-64 v10.3 in MATLAB R
 Obtaining PicoScenes MATLAB Toolbox Core (PMT-Core)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To obtain the PicoScenes MATLAB Toolbox Core (PMT-Core), you should **ONLY** use the `git clone` command to clone from the toolbox's git repository `PicoScenes MATLAB Toolbox Core <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_ . Make sure to include the **--recursive** option when cloning. It is important **not to download the toolbox directly**.
+To obtain the PicoScenes MATLAB Toolbox Core (PMT-Core), you should **ONLY** use the `git clone` command to clone from the toolbox's git repository `PicoScenes MATLAB Toolbox Core <https://github.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core>`_ . Make sure to include the **--recursive** option when cloning. It is important **not to download the toolbox directly**.
 
 .. hint::
     Q: Why can't I download directly?
 
-    A: The PMT-Core includes the `RXS-Parsing-Core <https://gitlab.com/wifisensing/rxs_parsing_core>`_ repository as a Git submodule. Directly downloading the toolbox would exclude the submodule, resulting in an incomplete PMT-Core.
+    A: The PMT-Core includes the `RXS-Parsing-Core <https://github.com/wifisensing/RXS-Parsing-Core>`_ repository as a Git submodule. Directly downloading the toolbox would exclude the submodule, resulting in an incomplete PMT-Core.
 
     Q: Why use the `--recursive` option?
 
@@ -367,7 +367,7 @@ In MATLAB `Current Folder`, navigate to ``PicoScenes-MATLAB-Toolbox-Core/samples
 Installing PicoScenes Python Toolbox
 ==========================================
 
-PicoScenes Python Toolbox (PPT) is used for parsing the .csi files in Python. Its installation and usage is documented in the project `repo <https://gitlab.com/wifisensing/PicoScenes-Python-Toolbox>`_.
+PicoScenes Python Toolbox (PPT) is used for parsing the .csi files in Python. Its installation and usage is documented in the project `repo <https://github.com/wifisensing/PicoScenes-Python-Toolbox>`_.
 
 .. _upgrade_software:
 

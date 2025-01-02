@@ -410,7 +410,7 @@ Several points of the above command are worth noting:
       - We recommend to wait a few seconds before transmission, as the ``--delayed-start 3`` option indicates to wait 3 seconds before transmission.
 
 .. hint:: 
-    See how do we `implement the Radar mode in less than 30 line of codes <https://gitlab.com/wifisensing/PicoScenes-PDK/-/commit/ee0242a6837dabfc259a26236799ddd9b1eb893c>`_? 
+    See how do we `implement the Radar mode in less than 30 line of codes <https://github.com/wifisensing/PicoScenes-PDK/-/commit/ee0242a6837dabfc259a26236799ddd9b1eb893c>`_? 
 
 .. _radar_simo:
 Wi-Fi Radar (802.11bf Mono-Static Sensing) SIMO mode

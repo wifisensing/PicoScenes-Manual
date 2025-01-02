@@ -25,7 +25,7 @@ The following command receives PicoScenes Rx frames from port 50000 and save to 
         UDPRemoteLogger --port 50000
 
 .. hint::
-    UDP-Forwarder and UDPRemoteLogger are fully open-sourced at https://gitlab.com/wifisensing/PicoScenes-PDK
+    UDP-Forwarder and UDPRemoteLogger are fully open-sourced at https://github.com/wifisensing/PicoScenes-PDK
 
 .. _scripts:
 

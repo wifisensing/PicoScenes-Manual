@@ -5,6 +5,6 @@ PicoScenes is *still* under *very active* development. We are adding new feature
 
 `PicoScenes Platform Changelog <https://zpj.io/PicoScenes/platform-changelog>`_
 
-`PicoScenes Plugin Development Kit (PDK) Changelog <https://gitlab.com/wifisensing/PicoScenes-PDK/-/blob/master/changelog.md>`_
+`PicoScenes Plugin Development Kit (PDK) Changelog <https://github.com/wifisensing/PicoScenes-PDK/-/blob/master/changelog.md>`_
 
-`PicoScenes MATLAB Toolbox (PMT) Changelog <https://gitlab.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core/-/blob/main/changelog.md>`_
+`PicoScenes MATLAB Toolbox (PMT) Changelog <https://github.com/wifisensing/PicoScenes-MATLAB-Toolbox-Core/-/blob/main/changelog.md>`_

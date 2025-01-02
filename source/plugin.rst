@@ -27,7 +27,7 @@ Run the following command to `git clone` the PicoScenes-PDK project
  
 .. code-block:: bash
 
-    git clone https://gitlab.com/wifisensing/PicoScenes-PDK --recursive
+    git clone https://github.com/wifisensing/PicoScenes-PDK --recursive
 
 If PicoScenes and all the development dependencies are successfully installed, you can run the following command to build and install the three plugins of PicoScenes-PDK project.
 
@@ -87,7 +87,7 @@ The plugin has the capability to control all hardware on the platform, with all 
 
 “`Imitation is not just the sincerest form of flattery - it's the sincerest form of learning.`” -- `George Bernard Shaw`
 
-.. hint:: You can learn how to write plugins step by step following the tutorial, or you can view the complete code in the `repository <https://gitlab.com/wifisensing/PicoScenes-PDK/>`_
+.. hint:: You can learn how to write plugins step by step following the tutorial, or you can view the complete code in the `repository <https://github.com/wifisensing/PicoScenes-PDK/>`_
 
 
 .. _how-to-parse-commands:

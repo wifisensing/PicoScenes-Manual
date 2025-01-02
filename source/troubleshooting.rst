@@ -24,7 +24,7 @@ Errors during installation \& daily update
 
 - *Problem*: **apt system get deadlocked during PicoScenes upgrade**
 
-    Solution: https://gitlab.com/wifisensing/picoscenes-issue-tracker/-/issues/61
+    Solution: https://github.com/wifisensing/PicoScenes-Issue-Tracker/-/issues/61
 
 Runtime errors
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -59,7 +59,7 @@ Technical Support
 PicoScenes Issues Tracker (PicoScenes官方交流问答)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We provide the official and public technical support via `PicoScenes Issues Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker. Once you post an issue, GitLab will notify us and we will reach it as soon as possible.
+We provide the official and public technical support via `PicoScenes Issues Tracker <https://github.com/wifisensing/PicoScenes-Issue-Tracker/issues>`_. You may post software bugs, encountered problems and suggestions to the issue tracker. Once you post an issue, GitHub will notify us and we will reach it as soon as possible.
 
 **对于中文用户**：如果您不想咬文嚼字用英语交流，没问题！ 您中文提问，我们中文回复：）
 

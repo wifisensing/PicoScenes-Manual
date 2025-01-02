@@ -37,7 +37,7 @@ Platform Features
     "PicoScenes MATLAB Toolbox","Parsing the .csi files in MATLAB via Drag'n'Drop. See :doc:`/matlab`.","**✓**","**✓**"
     "Plugins Development","Allowing users to implement their own ISAC measurement protocols, like round-trip CSI measurements or spectrum scanning. See :doc:`/plugin` ","**✓**","**✓**"
     "Best in class Documentation","https://ps.zpj.io","**✓**","**✓**"
-    "Public Technical Support","Public and searchable assistance at https://gitlab.com/wifisensing/picoscenes-issue-tracker","**✓**","**✓**"
+    "Public Technical Support","Public and searchable assistance at https://github.com/wifisensing/PicoScenes-Issue-Tracker","**✓**","**✓**"
     "Very Timely and Personal Technical Support on IM","**Very timely assistance on WeChat or other IM Apps, only for Pro users**,","","**✓**"
 
 .. _license-hardware-features:
@@ -145,7 +145,7 @@ PicoScenes Licensing Plan (PSLP) has two tiers: Free License and Pro License. Th
     - Nice documentation on usage at `ps.zpj.io <https://ps.zpj.io>`_
     - Installation and upgrade via Debian *apt* facility
     - Support running self-made PicoScenes plugin
-    - Public technical support via `Issue Tracker <https://gitlab.com/wifisensing/picoscenes-issue-tracker>`_", "
+    - Public technical support via `Issue Tracker <https://github.com/wifisensing/PicoScenes-Issue-Tracker>`_", "
     - Limited/No advanced features
     - Online validation (frequent)"
     "PSLP-PRO-TL", "

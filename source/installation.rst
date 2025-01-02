@@ -192,7 +192,7 @@ Prerequisites
 - Your CPU must support at least the SSE4.2 instruction set, and AVX2 is recommended.
 - You should have at least 4 GB of memory to prevent out-of-memory crashes.
 - Secure Boot must be disabled. You can find the switch in the BIOS settings.
-- The operating system must be **Ubuntu 20.04 (or 22.04) LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).
+- The operating system must be **Ubuntu 22.04 LTS or its variants** (Linux Mint, Kubuntu, Xubuntu, etc.).
 - The operating system must be installed on real hardware. Virtualization is not supported.
 - An internet connection is required during the installation process and for regular build expiration checking.
 - You need permission to install the latest kernel version. PicoScenes depends on the latest kernel versions. During the installation and subsequent upgrades, your system will be forced to update to the latest kernel version.
@@ -277,7 +277,7 @@ Since the PicoScenes MATLAB Toolbox Core (PMT-Core) and the PicoScenes main prog
     :widths: 10, 30, 30 ,30
     :stub-columns: 1
 
-    OS Version, "Ubuntu 20.04 or above", "macOS 14.0 or above", "Windows 10 or above"
+    OS Version, "Ubuntu 22.04 or above", "macOS 14.0 or above", "Windows 10 or above"
     MATLAB Version, "MATLAB 2020b or above", "MATLAB 2020b or above", "MATLAB 2020b or above"
     Compiler, GCC 9.3+, Apple Clang 12+ (Xcode 12.4+), TDM-GCC 64 (10.3+)
 

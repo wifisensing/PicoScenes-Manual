@@ -13,13 +13,13 @@ Since the PMT-Core and the PicoScenes main program rely on the `RxS-Parsing-Core
     :widths: 10, 30, 30 ,30
     :stub-columns: 1
 
-    OS Version, "Ubuntu 20.04 or its variants", "macOS Big Sur 11.2 or above", "Windows 10 or above"
+    OS Version, "Ubuntu 22.04 or its variants", "macOS Big Sur 11.2 or above", "Windows 10 or above"
     MATLAB Version, "MATLAB 2020b or above", "MATLAB 2020b or above", "MATLAB 2020b or above"
     Compiler, GCC 9.3+, Apple Clang 12+ (Xcode 12.4+), TDM-GCC 64 (10.3+)
 
 The following are the preparation steps for each supported OS.
 
-Preparation steps on Ubuntu 20.04 and 22.04
+Preparation steps on Ubuntu 22.04 or above
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Run ``sudo apt install -y build-essential git`` to install GCC and git

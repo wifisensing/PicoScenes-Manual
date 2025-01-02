@@ -33,7 +33,7 @@ Platform Features
 
     "Rich Hardware Support", "PicoScenes supports COTS NICs (AX210/AX200, QCA9300, and IWL5300) and SDR Devices (NI USRP Series and Hack RF One). See :doc:`/hardware`.","**✓**","**✓**"
     "Hardware Interoperability","Frame transmission and CSI measurement among heterogeneous hardware. See :ref:`interoperability`. ","**✓**","**✓**"
-    "Easy Installation","Out-of-box experience. Easy installation on Ubuntu 20.04 and 22.04 in less than 10 mins. No kernel or driver compilations. Debian *apt* based upgrading. See :doc:`/installation`.","**✓**","**✓**"
+    "Easy Installation","Out-of-box experience. Easy installation on Ubuntu 22.04 in less than 10 mins. No kernel or driver compilations. Debian *apt* based upgrading. See :doc:`/installation`.","**✓**","**✓**"
     "PicoScenes MATLAB Toolbox","Parsing the .csi files in MATLAB via Drag'n'Drop. See :doc:`/matlab`.","**✓**","**✓**"
     "Plugins Development","Allowing users to implement their own ISAC measurement protocols, like round-trip CSI measurements or spectrum scanning. See :doc:`/plugin` ","**✓**","**✓**"
     "Best in class Documentation","https://ps.zpj.io","**✓**","**✓**"
